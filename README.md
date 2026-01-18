@@ -1,24 +1,37 @@
-# DoCool Website
+# DoCool - Independent App Developers
 
-This is the source code for the DoCool personal website.
+We are a group of independent developers dedicated to building high-quality apps that people love. No ads, just pure passion.
 
-## Deployment to Cloudflare Pages
+## 🚀 Our Philosophy: Do Cool Things.
 
-1.  **Log in to Cloudflare Dashboard**: Go to [dash.cloudflare.com](https://dash.cloudflare.com).
-2.  **Navigate to Pages**: Select "Workers & Pages" from the sidebar.
-3.  **Create Application**: Click "Create application" -> "Pages" -> "Upload assets".
-4.  **Upload**: Drag and drop the content of this folder (containing `index.html`, `styles.css`, `script.js`) into the upload area.
-5.  **Deploy**: Click "Deploy site".
+- **Quality First**: Handcrafted experiences with attention to every pixel.
+- **Privacy Focused**: Your data belongs to you. Period.
+- **Pure Experience**: Ad-free and bloat-free applications.
 
-## Binding Custom Domain (maxc.cc)
+## 📱 Featured Apps
 
-1.  After deployment, go to your new Pages project settings.
-2.  Select "Custom domains".
-3.  Click "Set up a custom domain".
-4.  Enter `maxc.cc` (or `www.maxc.cc`).
-5.  Follow the instructions to update your DNS records if necessary (Cloudflare usually handles this automatically if they manage your DNS).
+Explore our collection of apps on the App Store:
 
-## Editing Content
+- **invsi**: Protecting everyone's mobile privacy.
+- **Are You OK**: A safety tool for those living alone.
+- **Pineapple English**: Lighting the way for children's English enlightenment.
+- **Pixie Wallpaper**: High-quality wallpapers for your lifestyle.
+- **Classic Minesweeper**: A nostalgic revival of the classic game.
+- **Strawberry Diary**: Period tracking with care for women's health.
 
-- **Text**: Edit `index.html` to change descriptions or add new projects.
-- **Styles**: Edit `styles.css` to change colors or layout.
+## 🛠 Web Tools
+
+We also build useful web tools:
+
+- **MultiTools**: A versatile all-in-one utility box.
+- **PDF2Text**: Quickly convert PDF documents to editable text.
+
+## 🔗 Connect With Us
+
+- **Website**: [maxc.cc](https://maxc.cc/)
+- **Contact**: deepseals@icloud.com
+- **Xiaohongshu**: [DoCool Profile](https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4)
+
+---
+
+Copyright © 2026 DoCool. All rights reserved.
