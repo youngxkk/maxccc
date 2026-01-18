@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>DoCool - Independent App Developers</title>
+    <meta name="description"
+        content="DoCool - A group of independent developers dedicated to building high-quality apps that people love. No ads, just pure passion.">
+    <meta name="keywords" content="DoCool, independent developer, iOS apps, privacy, productivity, tools, utility apps">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maxc.cc/">
+    <meta property="og:title" content="DoCool - Independent App Developers">
+    <meta property="og:description"
+        content="We build high-quality apps with no ads, powered by passion. Explore our apps like invsi, Are You OK, and more.">
+    <meta property="og:image" content="https://maxc.cc/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://maxc.cc/">
+    <meta property="twitter:title" content="DoCool - Independent App Developers">
+    <meta property="twitter:description"
+        content="We build high-quality apps with no ads, powered by passion. Explore our apps like invsi, Are You OK, and more.">
+    <meta property="twitter:image" content="https://maxc.cc/images/og-image.jpg">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+    <link rel="canonical" href="https://maxc.cc/">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+    <div class="mouse-glow"></div>
+
+    <!-- Nav with Gaussian Blur -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-left">
+                <a href="#" class="nav-logo">
+                    <span style="margin-right: 6px;">😎</span>
+                    DoCool
+                </a>
+
+                <div class="nav-links">
+                    <a href="#apps" data-i18n="nav_apps">APP</a>
+                    <a href="#tools" data-i18n="nav_tools">Tools</a>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <div class="lang-selector">
+                    <button class="lang-btn" aria-label="Change Language">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button data-lang="zh-CN">简体中文</button>
+                        <button data-lang="zh-TW">繁體中文</button>
+                        <button data-lang="en">English</button>
+                    </div>
+                </div>
+
+                <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+        <header class="hero">
+            <h1 data-i18n="hero_title">Do Cool Things.</h1>
+            <p data-i18n="hero_desc">
+                独立开发者<br>
+                我们致力于打造大众喜爱的APP<br>
+                没有广告，用爱发电。
+            </p>
+        </header>
+
+
+        <!-- 3-Column Grid -->
+        <div id="apps" class="grid">
+
+            <!-- Card 1 -->
+            <a href="https://apps.apple.com/app/id6444667120" target="_blank" rel="noopener noreferrer"
+                class="card fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/invis.webp" alt="invsi App Icon">
+                </div>
+                <div class="card-title">invsi</div>
+                <div class="card-desc" data-i18n="app1_desc">保护每个人手机中的隐私</div>
+                <div class="card-btn" data-i18n="app_store">App Store</div>
+            </a>
+
+
+            <!-- Card 2 -->
+            <a href="https://apps.apple.com/app/id6757640166" target="_blank" rel="noopener noreferrer"
+                class="card fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/areyouok.jpg" alt="Are You OK App Icon">
+                </div>
+                <div class="card-title">Are You OK</div>
+                <div class="card-desc" data-i18n="app2_desc">独居青年的『反席』利器</div>
+                <div class="card-btn" data-i18n="app_store">App Store</div>
+            </a>
+
+
+            <!-- Card 3 -->
+            <a href="https://apps.apple.com/app/id6451401303" target="_blank" rel="noopener noreferrer"
+                class="card fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/pinaappleenglish.webp" alt="菠萝英语 App Icon">
+                </div>
+                <div class="card-title" data-i18n="app3_title">菠萝英语</div>
+                <div class="card-desc" data-i18n="app3_desc">点亮孩子英语启蒙的灯</div>
+                <div class="card-btn" data-i18n="app_store">App Store</div>
+            </a>
+
+
+            <!-- Card 4 -->
+            <a href="https://apps.apple.com/app/id6446266063" target="_blank" rel="noopener noreferrer"
+                class="card fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/pixie.webp" alt="精灵壁纸 App Icon">
+                </div>
+                <div class="card-title" data-i18n="app4_title">精灵壁纸</div>
+                <div class="card-desc" data-i18n="app4_desc">无限量供应高质量壁纸</div>
+                <div class="card-btn" data-i18n="app_store">App Store</div>
+            </a>
+
+
+            <!-- Card 5 -->
+            <a href="https://apps.apple.com/app/id6742346503" target="_blank" rel="noopener noreferrer"
+                class="card fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/scanboom.webp" alt="经典扫雷 App Icon">
+                </div>
+                <div class="card-title" data-i18n="app5_title">经典扫雷</div>
+                <div class="card-desc" data-i18n="app5_desc">儿时记忆 复古重现</div>
+                <div class="card-btn" data-i18n="app_store">App Store</div>
+            </a>
+
+
+            <!-- Card 6 -->
+            <a href="https://apps.apple.com/app/id6748330094" target="_blank" rel="noopener noreferrer"
+                class="card fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/strawberry.webp" alt="草莓日记 App Icon">
+                </div>
+                <div class="card-title" data-i18n="app6_title">草莓日记</div>
+                <div class="card-desc" data-i18n="app6_desc">经期记录，关爱女性。</div>
+                <div class="card-btn" data-i18n="app_store">App Store</div>
+            </a>
+
+
+        </div>
+
+        <!-- Tools Section Header -->
+        <header class="section-header fade-up-entry" style="text-align: center; margin-bottom: 40px; margin-top: 80px;">
+            <h2 style="font-size: 32px; font-weight: 700;" data-i18n="nav_tools">实用工具</h2>
+        </header>
+
+        <div id="tools" class="tools-grid">
+
+            <!-- Tool 1 -->
+            <a href="tools/multitools.html" class="card-horizontal fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/multitools.jpg" alt="MultiTools Icon">
+                </div>
+                <div class="card-info">
+                    <div class="card-title" data-i18n="tool1_title">万能工具箱</div>
+                    <div class="card-desc" data-i18n="tool1_desc">集合多种常用小工具，多合一。</div>
+                </div>
+
+            </a>
+
+
+            <!-- Tool 2 -->
+            <a href="tools/pdf2text.html" class="card-horizontal fade-up-entry">
+                <div class="app-icon">
+                    <img src="images/pdf2text.jpg" alt="PDF2Text Icon">
+                </div>
+                <div class="card-info">
+                    <div class="card-title" data-i18n="tool2_title">PDF 转文字</div>
+                    <div class="card-desc" data-i18n="tool2_desc">快速将 PDF 文档转换为可编辑文本。</div>
+                </div>
+            </a>
+
+        </div>
+
+
+    </div>
+
+    <!-- Full Width Footer -->
+    <footer>
+        <div class="footer-inner-container">
+            <div class="footer-content" style="margin-top: 15px; padding-top: 0; justify-content: flex-start;">
+                <div class="footer-legal">
+                    <a href="https://invsi.notion.site/User-Agreement-ada0d998b6604a58a2bd5a8d32f45066?pvs=4"
+                        class="footer-links" style="color: inherit; opacity: 0.8; font-size: 11px;"
+                        data-i18n="user_agreement">User Agreement</a>
+                    <span style="opacity: 0.4">|</span>
+                    <a href="https://invsi.notion.site/f6522ae9d0c7415cad8f9902b983dc17?pvs=4" class="footer-links"
+                        style="color: inherit; opacity: 0.8; font-size: 11px;" data-i18n="privacy_policy">Privacy
+                        Policy</a>
+                    <span style="opacity: 0.4">|</span>
+                    <a href="https://invsi.notion.site/fb88822450e049d9a116d5b37c651883?pvs=4" class="footer-links"
+                        style="color: inherit; opacity: 0.8; font-size: 11px;" data-i18n="terms_of_use">Terms of Use</a>
+                </div>
+            </div>
+            <div class="footer-content" style="margin-top: 12px;">
+                <div class="copyright">Copyright © 2026 DoCool. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4" target="_blank"
+                        rel="noopener noreferrer" data-i18n="footer_xhs">Xiaohongshu</a>
+                    <a href="mailto:deepseals@icloud.com" data-i18n="footer_contact">Contact Us</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
