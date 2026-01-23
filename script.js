@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Elegant Staggered Entry Animation
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -10px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.fade-up-entry');
 
     animatedElements.forEach((el, index) => {
-        const delay = index * 100;
+        // Reset delay if the element is too far down to avoid massive cumulative delay
+        const delay = (index % 6) * 60;
         el.style.transitionDelay = `${delay}ms`;
         observer.observe(el);
     });
@@ -45,13 +46,38 @@ document.addEventListener('DOMContentLoaded', () => {
             'app_store': 'App Store',
             'tool1_title': '万能工具箱',
             'tool1_desc': '集合多种常用小工具，多合一。',
+            'tool_pwd_title': '密码生成',
+            'tool_pwd_desc': '生成高强度随机密码',
+            'tool_units_title': '单位换算',
+            'tool_units_desc': '常用单位快速换算',
+            'tool_lorem_title': '随机文本',
+            'tool_lorem_desc': '生成测试占位文本',
+            'tool_words_title': '字数统计',
+            'tool_words_desc': '实时统计文本数据',
+            'tool_text_title': '文本转换',
+            'tool_text_desc': '大小写及特殊处理',
+            'tool_bmi_title': '健康计算',
+            'tool_bmi_desc': '快速测量 BMI 指数',
+            'tool_removebg_title': '图片去背景',
+            'tool_removebg_desc': '纯本地 AI 智能抠图',
+            'tool_gradient_title': 'CSS 渐变',
+            'tool_gradient_desc': '可视化生成 CSS 渐变',
+            'tool_json_title': 'JSON 格式化',
+            'tool_json_desc': 'JSON 格式化、校验',
             'tool2_title': 'PDF 转文字',
             'tool2_desc': '快速将 PDF 文档转换为可编辑文本。',
             'user_agreement': '用户协议',
             'privacy_policy': '隐私政策',
             'terms_of_use': '使用条款',
             'footer_xhs': '小红书',
-            'footer_contact': '联系我们'
+            'footer_contact': '联系我们',
+            'tool_tag_password': '密码生成',
+            'tool_tag_units': '单位换算',
+            'tool_tag_lorem': '随机文本',
+            'tool_tag_wordcount': '字数统计',
+            'tool_tag_text': '文本转换',
+            'tool_tag_bmi': '健康计算',
+            'tool_tag_removebg': '移除背景'
         },
 
         'zh-TW': {
@@ -72,13 +98,38 @@ document.addEventListener('DOMContentLoaded', () => {
             'app_store': 'App Store',
             'tool1_title': '萬能工具箱',
             'tool1_desc': '集合多種常用小工具，多合一。',
+            'tool_pwd_title': '密碼生成',
+            'tool_pwd_desc': '生成高强度隨機密碼',
+            'tool_units_title': '單位換算',
+            'tool_units_desc': '常用單位快速換算',
+            'tool_lorem_title': '隨機文本',
+            'tool_lorem_desc': '生成測試占位文本',
+            'tool_words_title': '字數統計',
+            'tool_words_desc': '實時統計文本數據',
+            'tool_text_title': '文本轉換',
+            'tool_text_desc': '大小寫及特殊處理',
+            'tool_bmi_title': '健康計算',
+            'tool_bmi_desc': '快速測量 BMI 指數',
+            'tool_removebg_title': '圖片去背景',
+            'tool_removebg_desc': '純本地 AI 智能摳圖',
+            'tool_gradient_title': 'CSS 漸變',
+            'tool_gradient_desc': '可視化生成 CSS 漸變',
+            'tool_json_title': 'JSON 格式化',
+            'tool_json_desc': 'JSON 格式化、校驗',
             'tool2_title': 'PDF 轉文字',
             'tool2_desc': '快速將 PDF 文檔轉換為可編輯文本。',
             'user_agreement': '用戶協議',
             'privacy_policy': '隱私政策',
             'terms_of_use': '使用條款',
             'footer_xhs': '小紅書',
-            'footer_contact': '聯絡我們'
+            'footer_contact': '聯絡我們',
+            'tool_tag_password': '密碼生成',
+            'tool_tag_units': '單位換算',
+            'tool_tag_lorem': '隨機文本',
+            'tool_tag_wordcount': '字數統計',
+            'tool_tag_text': '文本轉換',
+            'tool_tag_bmi': '健康計算',
+            'tool_tag_removebg': '移除背景'
         },
 
         'en': {
@@ -99,13 +150,38 @@ document.addEventListener('DOMContentLoaded', () => {
             'app_store': 'App Store',
             'tool1_title': 'Multi-Toolkit',
             'tool1_desc': 'Common mini-tools collection, all-in-one.',
+            'tool_pwd_title': 'Password',
+            'tool_pwd_desc': 'Secure random password generator',
+            'tool_units_title': 'Units',
+            'tool_units_desc': 'Quick unit conversion tool',
+            'tool_lorem_title': 'Lorem Ipsum',
+            'tool_lorem_desc': 'Placeholder text generator',
+            'tool_words_title': 'Word Count',
+            'tool_words_desc': 'Real-time text statistics',
+            'tool_text_title': 'Text Convert',
+            'tool_text_desc': 'Case and special transform',
+            'tool_bmi_title': 'BMI Calc',
+            'tool_bmi_desc': 'Quick health index measurement',
+            'tool_removebg_title': 'Remove BG',
+            'tool_removebg_desc': 'Local AI Background Removal',
+            'tool_gradient_title': 'CSS Gradient',
+            'tool_gradient_desc': 'Visual CSS gradient generator',
+            'tool_json_title': 'JSON Formatter',
+            'tool_json_desc': 'Format & validate JSON',
             'tool2_title': 'PDF to Text',
             'tool2_desc': 'Quickly convert PDF documents into editable text.',
             'user_agreement': 'User Agreement',
             'privacy_policy': 'Privacy Policy',
             'terms_of_use': 'Terms of Use',
             'footer_xhs': 'Xiaohongshu',
-            'footer_contact': 'Contact Us'
+            'footer_contact': 'Contact Us',
+            'tool_tag_password': 'Password',
+            'tool_tag_units': 'Units',
+            'tool_tag_lorem': 'Lorem',
+            'tool_tag_wordcount': 'Words',
+            'tool_tag_text': 'Text',
+            'tool_tag_bmi': 'BMI',
+            'tool_tag_removebg': 'Remove BG'
         }
 
     };
