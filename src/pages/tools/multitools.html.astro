@@ -1,0 +1,8 @@
+---
+import LegacyToolLayout from "../../layouts/LegacyToolLayout.astro";
+import { loadLegacyDocument } from "../../lib/legacy-document";
+
+const document = loadLegacyDocument("tools/multitools.html");
+---
+
+<LegacyToolLayout document={document} />

@@ -1,0 +1,94 @@
+---
+import ToolLayout from "../../layouts/ToolLayout.astro";
+---
+
+<ToolLayout
+  title="字数统计工具 - ToolKit.Max | 实时文本字数与字符统计"
+  description="ToolKit.Max 字数统计工具，提供实时的总字符数、中文字数、英文字数统计。极简、高效、保护隐私，所有文本处理均在本地完成。"
+  canonical="https://maxc.cc/tools/wordcount.html"
+  icon="🔢"
+  maxWidthClass="max-w-4xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">字数统计工具</h1>
+    <p class="tool-subtitle" id="tool-subtitle">实时文本字数与数据精细统计</p>
+  </header>
+
+  <div id="tool-root" class="animate-up"></div>
+
+  <script type="text/babel" is:inline>
+    const { useEffect, useMemo, useState } = React;
+    const shell = window.ToolShell;
+
+    const translations = {
+      "zh-CN": {
+        title: "字数统计工具",
+        desc: "实时文本字数与数据精细统计",
+        placeholder: "请在此输入或粘贴您的文本内容...",
+        stat_total: "总字符",
+        stat_cn: "中文字",
+        stat_en: "英文字"
+      },
+      en: {
+        title: "Word Count Tool",
+        desc: "Real-time text statistics & character counting",
+        placeholder: "Paste or type your text here...",
+        stat_total: "Total Chars",
+        stat_cn: "Chinese",
+        stat_en: "English"
+      }
+    };
+
+    function syncHero(lang) {
+      const t = translations[lang] || translations.en;
+      document.getElementById("tool-title").textContent = t.title;
+      document.getElementById("tool-subtitle").textContent = t.desc;
+    }
+
+    const App = () => {
+      const [lang, setLang] = useState(shell.getLang());
+      const [text, setText] = useState("");
+      const t = translations[lang] || translations.en;
+
+      const stats = useMemo(() => ({
+        total: text.length,
+        cn: (text.match(/[\u4e00-\u9fa5]/g) || []).length,
+        en: (text.match(/[a-zA-Z]/g) || []).length
+      }), [text]);
+
+      useEffect(() => syncHero(lang), [lang]);
+      useEffect(() => shell.subscribeLang(setLang), []);
+
+      return (
+        <div className="tool-card rounded-[32px] p-5 md:p-8">
+          <div className="space-y-8">
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder={t.placeholder}
+              className="w-full h-80 p-6 rounded-[26px] tool-panel-muted focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-lg"
+            />
+
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
+              <div className="p-6 rounded-[24px] tool-panel-muted text-center">
+                <div className="text-3xl md:text-4xl font-bold mb-1 tracking-tight">{stats.total}</div>
+                <div className="text-[10px] md:text-xs text-slate-400 uppercase tracking-widest font-bold">{t.stat_total}</div>
+              </div>
+              <div className="p-6 rounded-[24px] bg-blue-600 text-white shadow-lg shadow-blue-600/20 text-center">
+                <div className="text-3xl md:text-4xl font-bold mb-1 tracking-tight">{stats.cn}</div>
+                <div className="text-[10px] md:text-xs text-blue-100 uppercase tracking-widest font-bold">{t.stat_cn}</div>
+              </div>
+              <div className="p-6 rounded-[24px] tool-panel-muted text-center">
+                <div className="text-3xl md:text-4xl font-bold mb-1 tracking-tight">{stats.en}</div>
+                <div className="text-[10px] md:text-xs text-slate-400 uppercase tracking-widest font-bold">{t.stat_en}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById("tool-root")).render(<App />);
+    syncHero(shell.getLang());
+  </script>
+</ToolLayout>

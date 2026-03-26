@@ -1,0 +1,68 @@
+---
+type Props = {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  lang?: string;
+  includeHomeStyles?: boolean;
+  includeFirebaseAuth?: boolean;
+  includeHomeScript?: boolean;
+};
+
+const {
+  title,
+  description,
+  canonical = "https://maxc.cc/",
+  ogImage = "https://maxc.cc/images/og-image.jpg",
+  lang = "zh-CN",
+  includeHomeStyles = false,
+  includeFirebaseAuth = false,
+  includeHomeScript = false
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>" />
+    <link rel="canonical" href={canonical} />
+    <link rel="manifest" href="/site.webmanifest" />
+    {
+      includeHomeStyles && <link rel="stylesheet" href="/styles.css" />
+    }
+    <slot name="head" />
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+    {
+      includeHomeScript && <script is:inline src="/script.js"></script>
+    }
+    {
+      includeFirebaseAuth && <script is:inline type="module" src="/firebase-auth.js"></script>
+    }
+  </body>
+</html>

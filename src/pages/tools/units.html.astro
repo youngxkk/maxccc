@@ -1,0 +1,111 @@
+---
+import ToolLayout from "../../layouts/ToolLayout.astro";
+---
+
+<ToolLayout
+  title="单位换算器 - ToolKit.Max | 长度、重量、数据极速转换"
+  description="ToolKit.Max 单位换算器，提供长度、重量及数据大小的实时互转服务。极简设计，即开即用，保护隐私。"
+  canonical="https://maxc.cc/tools/units.html"
+  icon="⚖️"
+  maxWidthClass="max-w-3xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">单位换算器</h1>
+    <p class="tool-subtitle" id="tool-subtitle">长度、重量、数据极速互转</p>
+  </header>
+
+  <div id="tool-root" class="animate-up"></div>
+
+  <script type="text/babel" is:inline>
+    const { useEffect, useState } = React;
+    const shell = window.ToolShell;
+
+    const translations = {
+      "zh-CN": { title: "单位换算器", desc: "长度、重量、数据极速互转", length: "长度", weight: "重量", data: "数据" },
+      en: { title: "Unit Converter", desc: "Length, Weight, and Data conversion", length: "Length", weight: "Weight", data: "Data" }
+    };
+
+    const units = {
+      length: {
+        rates: { m: 1, km: 1000, cm: 0.01, mm: 0.001 },
+        labels: { "zh-CN": { m: "米 (m)", km: "千米 (km)", cm: "厘米 (cm)", mm: "毫米 (mm)" }, en: { m: "Meter (m)", km: "Kilometer (km)", cm: "Centimeter (cm)", mm: "Millimeter (mm)" } }
+      },
+      weight: {
+        rates: { g: 1, kg: 1000, mg: 0.001 },
+        labels: { "zh-CN": { g: "克 (g)", kg: "千克 (kg)", mg: "毫克 (mg)" }, en: { g: "Gram (g)", kg: "Kilogram (kg)", mg: "Milligram (mg)" } }
+      },
+      data: {
+        rates: { B: 1, KB: 1024, MB: 1048576, GB: 1073741824 },
+        labels: { "zh-CN": { B: "字节", KB: "KB", MB: "MB", GB: "GB" }, en: { B: "Byte", KB: "KB", MB: "MB", GB: "GB" } }
+      }
+    };
+
+    function syncHero(lang) {
+      const t = translations[lang] || translations.en;
+      document.getElementById("tool-title").textContent = t.title;
+      document.getElementById("tool-subtitle").textContent = t.desc;
+    }
+
+    const App = () => {
+      const [lang, setLang] = useState(shell.getLang());
+      const [category, setCategory] = useState("length");
+      const [value, setValue] = useState(1);
+      const [from, setFrom] = useState("m");
+      const [to, setTo] = useState("km");
+
+      const t = translations[lang] || translations.en;
+      const result = ((parseFloat(value) || 0) * units[category].rates[from] / units[category].rates[to]).toFixed(4).replace(/\.?0+$/, "");
+
+      useEffect(() => syncHero(lang), [lang]);
+      useEffect(() => shell.subscribeLang(setLang), []);
+
+      const labels = units[category].labels[lang] || units[category].labels.en;
+
+      return (
+        <div className="tool-card rounded-[32px] p-8 md:p-10">
+          <div className="flex bg-slate-100 dark:bg-slate-900/70 p-1.5 rounded-2xl mb-8">
+            {Object.keys(units).map((key) => (
+              <button
+                key={key}
+                onClick={() => {
+                  setCategory(key);
+                  const keys = Object.keys(units[key].rates);
+                  setFrom(keys[0]);
+                  setTo(keys[1]);
+                }}
+                className={`flex-1 py-3 text-sm font-bold rounded-xl transition-all ${category === key ? "bg-white dark:bg-slate-800 shadow-sm text-blue-600" : "text-slate-500"}`}
+              >
+                {t[key]}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
+            <div className="tool-panel-muted p-6 rounded-[26px]">
+              <input type="number" value={value} onChange={(e) => setValue(e.target.value)} className="w-full bg-transparent text-3xl font-bold text-blue-600 focus:outline-none" />
+              <select value={from} onChange={(e) => setFrom(e.target.value)} className="w-full bg-transparent mt-3 text-sm font-semibold focus:outline-none">
+                {Object.entries(labels).map(([key, label]) => (
+                  <option key={key} value={key} className="text-slate-900">{label}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="text-slate-300 dark:text-slate-700 text-center text-3xl">→</div>
+
+            <div className="bg-blue-600 text-white p-6 rounded-[26px] shadow-lg shadow-blue-600/20">
+              <div className="text-3xl font-bold truncate">{result}</div>
+              <select value={to} onChange={(e) => setTo(e.target.value)} className="w-full bg-transparent mt-3 text-sm font-semibold focus:outline-none text-blue-50">
+                {Object.entries(labels).map(([key, label]) => (
+                  <option key={key} value={key} className="text-slate-900">{label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById("tool-root")).render(<App />);
+    syncHero(shell.getLang());
+  </script>
+</ToolLayout>

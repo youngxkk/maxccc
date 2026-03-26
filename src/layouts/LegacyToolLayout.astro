@@ -1,0 +1,19 @@
+---
+import type { LegacyDocument } from "../lib/legacy-document";
+
+type Props = {
+  document: LegacyDocument;
+};
+
+const { document } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={document.lang} class={document.htmlClass || undefined}>
+  <head>
+    <Fragment set:html={document.headHtml} />
+  </head>
+  <body class={document.bodyClass || undefined}>
+    <Fragment set:html={document.bodyHtml} />
+  </body>
+</html>

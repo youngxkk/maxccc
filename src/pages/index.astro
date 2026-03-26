@@ -1,0 +1,74 @@
+---
+import MainFooter from "../components/MainFooter.astro";
+import MainNav from "../components/MainNav.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { apps } from "../data/apps";
+import { tools } from "../data/tools";
+---
+
+<BaseLayout
+  title="DoCool - Independent App Developers"
+  description="DoCool - A group of independent developers dedicated to building high-quality apps that people love. No ads, just pure passion."
+  canonical="https://maxc.cc/"
+  includeHomeStyles={true}
+  includeHomeScript={true}
+  includeFirebaseAuth={true}
+>
+  <div class="mouse-glow"></div>
+
+  <MainNav />
+
+  <div class="container">
+    <header class="hero">
+      <h1 data-i18n="hero_title">Do Cool Things.</h1>
+      <p data-i18n="hero_desc">
+        独立开发者<br />
+        我们致力于打造大众喜爱的APP<br />
+        没有广告，用爱发电。
+      </p>
+    </header>
+
+    <div id="apps" class="grid">
+      {
+        apps.map((app) => (
+          <a href={app.href} target="_blank" rel="noopener noreferrer" class="card fade-up-entry">
+            <div class="app-icon">
+              <img src={app.image} alt={app.imageAlt} />
+            </div>
+            {
+              app.titleKey ? (
+                <div class="card-title" data-i18n={app.titleKey}>{app.name}</div>
+              ) : (
+                <div class="card-title">{app.name}</div>
+              )
+            }
+            <div class="card-desc" data-i18n={app.descriptionKey}></div>
+            <div class="card-btn" data-i18n="app_store">App Store</div>
+          </a>
+        ))
+      }
+    </div>
+
+    <header class="section-header fade-up-entry" style="text-align: center; margin-bottom: 40px; margin-top: 80px;">
+      <h2 style="font-size: 32px; font-weight: 700;" data-i18n="nav_tools">实用工具</h2>
+    </header>
+
+    <div id="tools" class="tools-grid">
+      {
+        tools.map((tool) => (
+          <a href={tool.href} class="card-horizontal fade-up-entry">
+            <div class="app-icon" style={tool.icon ? "background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-size: 32px;" : undefined}>
+              {tool.image ? <img src={tool.image} alt={tool.imageAlt || ""} /> : tool.icon}
+            </div>
+            <div class="card-info">
+              <div class="card-title" data-i18n={tool.titleKey}></div>
+              <div class="card-desc" data-i18n={tool.descriptionKey}></div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <MainFooter />
+</BaseLayout>
