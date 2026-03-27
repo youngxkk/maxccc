@@ -53,7 +53,7 @@ const LABELS = {
         signedInWithGoogle: "已透過 Google 登入"
     },
     en: {
-        signIn: "Login",
+        signIn: "Sign In",
         signInWithGoogle: "Continue with Google",
         signOut: "Sign out",
         guest: "Guest",
@@ -86,6 +86,12 @@ function injectStyles() {
             display: flex;
             align-items: center;
             margin-left: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dc-auth-host.visible {
+            opacity: 1;
         }
 
         .dc-auth-button,
@@ -109,22 +115,28 @@ function injectStyles() {
         }
 
         .dc-auth-button {
-            width: 36px;
-            height: 36px;
-            display: inline-grid;
-            place-items: center;
-            padding: 0;
-            border-radius: 999px;
-            background: transparent;
-            border: none;
-            opacity: 0.82;
-            box-shadow: none;
+            height: 28px;
+            padding: 0 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
         }
 
         .dc-auth-button:hover {
             opacity: 1;
-            background: rgba(255, 255, 255, 0.08);
-            border: none;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="light"] .dc-auth-button {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .dc-auth-button:hover {
+            background: rgba(0, 0, 0, 0.08);
         }
 
         .dc-auth-google-mark {
@@ -371,11 +383,11 @@ function createPanelAvatar(user, labels) {
 
 async function handleGoogleLogin(button) {
     const labels = getLabels();
-    const originalText = button.querySelector(".dc-auth-button-label");
+    const originalText = button.textContent;
 
     try {
         button.disabled = true;
-        if (originalText) originalText.textContent = `${labels.signIn}...`;
+        button.textContent = `${labels.signIn}...`;
         await signInWithPopup(auth, provider);
     } catch (error) {
         console.error("Google sign-in failed", error);
@@ -387,7 +399,7 @@ async function handleGoogleLogin(button) {
         window.alert(message);
     } finally {
         button.disabled = false;
-        if (originalText) originalText.textContent = getLabels().signIn;
+        button.textContent = labels.signIn;
     }
 }
 
@@ -401,9 +413,7 @@ function renderAuthState(host, user) {
         button.className = "dc-auth-button";
         button.setAttribute("aria-label", labels.signInWithGoogle);
         button.title = labels.signInWithGoogle;
-        button.innerHTML = `
-            <span class="dc-auth-google-mark">G</span>
-        `;
+        button.textContent = labels.signIn;
         button.addEventListener("click", () => handleGoogleLogin(button));
         host.appendChild(button);
         return;
@@ -482,11 +492,8 @@ function renderAuthState(host, user) {
     panel.append(panelHeader, signOutButton);
     dropdown.append(panel);
 
-    trigger.addEventListener("click", (event) => {
-        event.stopPropagation();
-        const isHidden = dropdown.hidden;
-        dropdown.hidden = !isHidden;
-        trigger.setAttribute("aria-expanded", String(isHidden));
+    trigger.addEventListener("click", () => {
+        window.location.href = "/dashboard";
     });
 
     wrapper.append(trigger, dropdown);
@@ -538,10 +545,15 @@ function mountAuthWidget() {
 
     onAuthStateChanged(auth, (user) => {
         currentUser = user;
-        sync();
+        const host = ensureAuthMount();
+        if (host) {
+            renderAuthState(host, currentUser);
+            host.classList.add("visible");
+        }
     });
 
-    sync();
+    // Don't call sync() immediately here to avoid showing "Sign In" before Firebase SDK determines user state
+    // sync();
 
     const observer = new MutationObserver(() => {
         if (!document.querySelector(".dc-auth-host")) {
@@ -576,3 +588,6 @@ if (document.readyState === "loading") {
 } else {
     mountAuthWidget();
 }
+
+window.auth = auth;
+window.signOut = signOut;

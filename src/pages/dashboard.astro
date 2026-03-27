@@ -1,0 +1,383 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainNav from "../components/MainNav.astro";
+import MainFooter from "../components/MainFooter.astro";
+---
+
+<style>
+  .dashboard-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+    min-height: 80vh;
+  }
+
+  .dashboard-header {
+    margin-bottom: 54px;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .dashboard-header h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .dashboard-header p {
+    color: var(--text-secondary);
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .dashboard-card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dashboard-card:hover {
+    transform: scale(1.01) translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    background-color: var(--card-bg-hover);
+  }
+
+  [data-theme="light"] .dashboard-card:hover {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(134, 134, 139, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 28px;
+    transition: transform 0.4s ease;
+  }
+
+  .dashboard-card:hover .card-icon {
+    transform: scale(1.1);
+  }
+
+  .card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .card-content {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    flex-grow: 1;
+  }
+
+  .card-action {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--link-blue);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .card-action:hover {
+    text-decoration: underline;
+  }
+
+  /* Subscription Card - Premium Appearance */
+  .card-subscription {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(41, 151, 255, 0.12), rgba(41, 151, 255, 0.06));
+    border: 1px solid rgba(41, 151, 255, 0.25);
+  }
+
+  [data-theme="light"] .card-subscription {
+    background: linear-gradient(135deg, rgba(41, 151, 255, 0.05), #ffffff);
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    background: rgba(134, 134, 139, 0.12);
+    color: var(--text-secondary);
+    margin-top: 12px;
+  }
+
+  .status-badge.active {
+    background: rgba(52, 199, 89, 0.15);
+    color: #34c759;
+  }
+
+  .status-badge.active::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* User Profile Section */
+  .profile-card {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  @media (max-width: 640px) {
+    .profile-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 48px 24px;
+    }
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .profile-info h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .profile-info p {
+    color: var(--text-secondary);
+    font-size: 17px;
+  }
+
+  .logout-btn {
+    margin-left: auto;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .logout-btn:hover {
+    background: #ff3b30;
+    border-color: #ff3b30;
+    color: #fff;
+    transform: scale(1.02);
+  }
+
+  [data-theme="light"] .logout-btn:hover {
+    background: #ff3b30;
+    border-color: #ff3b30;
+  }
+
+  @media (max-width: 640px) {
+    .logout-btn {
+      margin-left: 0;
+      margin-top: 24px;
+      width: 100%;
+    }
+  }
+
+  /* Loader & Utils */
+  #dashboard-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+  }
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(134, 134, 139, 0.1);
+    border-top-color: var(--link-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+
+<BaseLayout
+  title="Dashboard - DoCool"
+  description="Manage your account, subscriptions and settings."
+  includeHomeStyles={true}
+  includeFirebaseAuth={true}
+  includeHomeScript={true}
+>
+  <MainNav showSectionLinks={false} />
+  <div class="mouse-glow"></div>
+
+  <div class="dashboard-container">
+    <div id="dashboard-loader">
+      <div class="spinner"></div>
+      <p>Loading your account...</p>
+    </div>
+
+    <div id="dashboard-content" style="display: none;">
+      <header class="dashboard-header">
+        <h1>Welcome home</h1>
+        <p>Manage your account and preferences.</p>
+      </header>
+
+      <div class="dashboard-grid">
+        <!-- Profile Card -->
+        <div class="dashboard-card profile-card">
+          <div id="user-avatar" class="profile-avatar">U</div>
+          <div class="profile-info">
+            <h3 id="user-name">Guest</h3>
+            <p id="user-email">guest@example.com</p>
+          </div>
+          <button id="dashboard-logout" class="logout-btn">Sign Out</button>
+        </div>
+
+        <!-- Subscription Card -->
+        <div class="dashboard-card card-subscription">
+          <div class="card-icon">💎</div>
+          <div class="card-title">Subscription</div>
+          <div class="card-content">
+            Access all premium tools and unlimited processing. Enjoy priority support and advanced features.
+            <div id="subscription-status" class="status-badge">Free Plan</div>
+          </div>
+          <div class="card-action">Manage Subscription ›</div>
+        </div>
+
+        <!-- Billing Card -->
+        <div class="dashboard-card">
+          <div class="card-icon">💳</div>
+          <div class="card-title">Billing</div>
+          <div class="card-content">
+            View your history and update payment methods.
+          </div>
+          <div class="card-action">View History ›</div>
+        </div>
+
+        <!-- Security Card -->
+        <div class="dashboard-card">
+          <div class="card-icon">🛡️</div>
+          <div class="card-title">Security</div>
+          <div class="card-content">
+            Manage your account security and methods.
+          </div>
+          <div class="card-action">Settings ›</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <MainFooter />
+
+  <script is:inline>
+    const initializeDashboard = () => {
+      if (typeof auth === 'undefined') {
+        setTimeout(initializeDashboard, 100);
+        return;
+      }
+
+      auth.onAuthStateChanged(user => {
+        if (!user) {
+          window.location.href = "/";
+          return;
+        }
+
+        // Fill data
+        const userName = document.getElementById('user-name');
+        const userEmail = document.getElementById('user-email');
+        const userAvatar = document.getElementById('user-avatar');
+        
+        if (userName) userName.textContent = user.displayName || 'User';
+        if (userEmail) userEmail.textContent = user.email;
+        if (userAvatar) {
+          if (user.photoURL) {
+            userAvatar.innerHTML = `<img src="${user.photoURL}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />`;
+            userAvatar.style.background = 'transparent';
+          } else {
+            userAvatar.textContent = (user.displayName || user.email || 'U').charAt(0).toUpperCase();
+          }
+        }
+
+        // Show content
+        const loader = document.getElementById('dashboard-loader');
+        const content = document.getElementById('dashboard-content');
+        if (loader) loader.style.display = 'none';
+        if (content) content.style.display = 'block';
+      });
+
+      // Handle logout
+      document.getElementById('dashboard-logout')?.addEventListener('click', async () => {
+        if (typeof signOut !== 'undefined' && typeof auth !== 'undefined') {
+          await signOut(auth);
+          window.location.href = '/';
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeDashboard);
+    } else {
+      initializeDashboard();
+    }
+  </script>
+</BaseLayout>
