@@ -33,41 +33,11 @@ void isAnalyticsSupported().then((supported) => {
     }
 }).catch(() => {});
 
-const LABELS = {
-    "zh-CN": {
-        signIn: "登录",
-        signInWithGoogle: "使用 Google 登录",
-        signOut: "退出登录",
-        guest: "未登录",
-        fallbackName: "Google 用户",
-        account: "账号",
-        signedInWithGoogle: "已通过 Google 登录"
-    },
-    "zh-TW": {
-        signIn: "登入",
-        signInWithGoogle: "使用 Google 登入",
-        signOut: "登出",
-        guest: "未登入",
-        fallbackName: "Google 使用者",
-        account: "帳號",
-        signedInWithGoogle: "已透過 Google 登入"
-    },
-    en: {
-        signIn: "Sign In",
-        signInWithGoogle: "Continue with Google",
-        signOut: "Sign out",
-        guest: "Guest",
-        fallbackName: "Google User",
-        account: "Account",
-        signedInWithGoogle: "Signed in with Google"
-    }
-};
+const i18n = window.DoCoolI18n || {};
+const LABELS = i18n.auth || {};
 
 function normalizeLang(lang) {
-    if (!lang) return "en";
-    if (lang === "tw" || lang === "zh-TW" || lang === "zh-HK") return "zh-TW";
-    if (lang === "zh" || lang === "zh-CN") return "zh-CN";
-    return "en";
+    return (i18n.normalizeLang || ((value) => value || "en"))(lang);
 }
 
 function getLabels() {

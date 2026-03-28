@@ -1,0 +1,470 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.multitools).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="万用工具箱 - ToolKit.Max | 一页集成常用效率工具"
+  description="ToolKit.Max 万用工具箱，在同一页面中集成密码生成、单位换算、随机文本、字数统计、文本转换和 BMI 计算。"
+  canonical="https://maxc.cc/tools/multitools/"
+  icon="🛠️"
+  maxWidthClass="max-w-7xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">万用工具箱</h1>
+    <p class="tool-subtitle" id="tool-subtitle">在一个页面里完成最常用的轻量效率任务</p>
+  </header>
+
+  <style is:inline>
+    .multitool-shell {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .multitool-sidebar {
+      position: sticky;
+      top: 84px;
+    }
+
+    .multitool-nav-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.95rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      background: transparent;
+      color: var(--tool-muted);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .multitool-nav-btn:hover {
+      background: rgba(148, 163, 184, 0.08);
+      color: var(--tool-text);
+    }
+
+    .multitool-nav-btn.active {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(59, 130, 246, 0.08));
+      border-color: rgba(37, 99, 235, 0.22);
+      color: var(--tool-text);
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.08);
+    }
+
+    .multitool-icon-wrap {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.95rem;
+      display: grid;
+      place-items: center;
+      background: rgba(148, 163, 184, 0.12);
+      flex-shrink: 0;
+    }
+
+    .multitool-nav-btn.active .multitool-icon-wrap {
+      background: rgba(37, 99, 235, 0.14);
+    }
+
+    .multitool-panel {
+      display: none;
+    }
+
+    .multitool-panel.active {
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      .multitool-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .multitool-sidebar {
+        position: static;
+      }
+    }
+  </style>
+
+  <div class="multitool-shell animate-up">
+    <aside class="multitool-sidebar tool-card rounded-[32px] p-5 md:p-6">
+      <div class="space-y-2" id="nav-buttons">
+        <button data-tool="password" class="multitool-nav-btn active">
+          <div class="multitool-icon-wrap">🔑</div>
+          <div><div class="font-bold" data-title>密码生成</div><div class="text-xs opacity-80 mt-1" data-desc>生成高强度随机密码</div></div>
+        </button>
+        <button data-tool="units" class="multitool-nav-btn">
+          <div class="multitool-icon-wrap">⚖️</div>
+          <div><div class="font-bold" data-title>单位换算</div><div class="text-xs opacity-80 mt-1" data-desc>长度、重量与数据单位换算</div></div>
+        </button>
+        <button data-tool="lorem" class="multitool-nav-btn">
+          <div class="multitool-icon-wrap">📝</div>
+          <div><div class="font-bold" data-title>随机文本</div><div class="text-xs opacity-80 mt-1" data-desc>生成占位文本、姓名和邮箱</div></div>
+        </button>
+        <button data-tool="words" class="multitool-nav-btn">
+          <div class="multitool-icon-wrap">🔢</div>
+          <div><div class="font-bold" data-title>字数统计</div><div class="text-xs opacity-80 mt-1" data-desc>统计中英文字符和总字数</div></div>
+        </button>
+        <button data-tool="text" class="multitool-nav-btn">
+          <div class="multitool-icon-wrap">🔀</div>
+          <div><div class="font-bold" data-title>文本转换</div><div class="text-xs opacity-80 mt-1" data-desc>大小写转换与文本反转</div></div>
+        </button>
+        <button data-tool="bmi" class="multitool-nav-btn">
+          <div class="multitool-icon-wrap">🏃</div>
+          <div><div class="font-bold" data-title>健康计算</div><div class="text-xs opacity-80 mt-1" data-desc>快速估算 BMI 指数</div></div>
+        </button>
+      </div>
+
+      <div class="tool-panel-muted rounded-[24px] p-5 mt-5">
+        <div id="privacy-title" class="font-bold mb-2">隐私说明</div>
+        <p id="privacy-text" class="text-sm leading-6 text-slate-500 dark:text-slate-400">所有处理都在当前浏览器本地完成，不会上传到服务器。</p>
+      </div>
+    </aside>
+
+    <section class="multitool-content">
+      <div class="tool-card rounded-[32px] p-7 md:p-10">
+        <div class="mb-8">
+          <div class="text-sm font-bold uppercase tracking-[0.22em] text-blue-600 mb-3">Toolkit</div>
+          <h2 id="panel-title" class="text-3xl md:text-4xl font-bold tracking-tight mb-3">密码生成</h2>
+          <p id="panel-desc" class="text-slate-500 dark:text-slate-400 text-lg">生成高强度随机密码</p>
+        </div>
+
+        <div id="panel-password" class="multitool-panel active space-y-6">
+          <div class="tool-panel-muted rounded-[26px] min-h-[110px] px-5 flex items-center justify-between gap-4">
+            <div id="mt-password-output" class="font-mono text-lg md:text-2xl text-blue-600 break-all"></div>
+            <button id="mt-password-copy" class="px-3 py-2 rounded-2xl tool-panel-muted text-sm font-bold">Copy</button>
+          </div>
+          <div class="space-y-4">
+            <div class="flex justify-between font-bold">
+              <span id="mt-length-label">长度</span>
+              <span id="mt-length-value" class="text-blue-600">14</span>
+            </div>
+            <input id="mt-length-input" type="range" min="6" max="64" value="14" class="tool-range" />
+          </div>
+          <div class="grid sm:grid-cols-3 gap-3">
+            <label class="tool-panel-muted rounded-[22px] px-4 py-4 flex items-center gap-3 cursor-pointer"><input id="mt-numbers" type="checkbox" checked /><span id="mt-numbers-label">数字</span></label>
+            <label class="tool-panel-muted rounded-[22px] px-4 py-4 flex items-center gap-3 cursor-pointer"><input id="mt-symbols" type="checkbox" checked /><span id="mt-symbols-label">符号</span></label>
+            <label class="tool-panel-muted rounded-[22px] px-4 py-4 flex items-center gap-3 cursor-pointer"><input id="mt-uppercase" type="checkbox" checked /><span id="mt-uppercase-label">大写字母</span></label>
+          </div>
+        </div>
+
+        <div id="panel-units" class="multitool-panel space-y-6">
+          <div class="flex flex-wrap gap-2">
+            <button data-unit-category="length" class="mt-unit-category px-4 py-2 rounded-full text-sm font-bold bg-blue-600 text-white">长度</button>
+            <button data-unit-category="weight" class="mt-unit-category px-4 py-2 rounded-full text-sm font-bold tool-panel-muted">重量</button>
+            <button data-unit-category="data" class="mt-unit-category px-4 py-2 rounded-full text-sm font-bold tool-panel-muted">数据</button>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="tool-panel-muted rounded-[24px] p-5 space-y-3">
+              <input id="mt-unit-value" type="number" value="1" class="w-full bg-transparent text-3xl font-semibold outline-none" />
+              <select id="mt-unit-from" class="w-full bg-transparent outline-none"></select>
+            </div>
+            <div class="tool-panel-muted rounded-[24px] p-5 space-y-3">
+              <div id="mt-unit-result" class="text-3xl font-semibold text-blue-600">0</div>
+              <select id="mt-unit-to" class="w-full bg-transparent outline-none"></select>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-lorem" class="multitool-panel space-y-5">
+          <div class="grid sm:grid-cols-3 gap-3">
+            <button data-lorem-type="paragraph" class="mt-lorem-type px-4 py-3 rounded-[20px] text-sm font-bold bg-blue-600 text-white">随机段落</button>
+            <button data-lorem-type="name" class="mt-lorem-type px-4 py-3 rounded-[20px] text-sm font-bold tool-panel-muted">随机姓名</button>
+            <button data-lorem-type="email" class="mt-lorem-type px-4 py-3 rounded-[20px] text-sm font-bold tool-panel-muted">随机邮箱</button>
+          </div>
+          <button id="mt-lorem-generate" class="px-5 py-3 bg-slate-900 dark:bg-blue-600 text-white font-bold rounded-2xl">立即生成</button>
+          <div class="tool-panel-muted rounded-[24px] p-5 min-h-[120px] flex items-start justify-between gap-4">
+            <div id="mt-lorem-output" class="leading-7"></div>
+            <button id="mt-lorem-copy" class="px-3 py-2 rounded-2xl tool-panel-muted text-sm font-bold">Copy</button>
+          </div>
+        </div>
+
+        <div id="panel-words" class="multitool-panel space-y-5">
+          <textarea id="mt-words-input" class="w-full h-44 p-5 rounded-[24px] tool-panel-muted outline-none resize-none" placeholder="输入或粘贴文本..."></textarea>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="tool-panel-muted rounded-[24px] p-5 text-center"><div id="mt-words-total" class="text-3xl font-bold text-blue-600">0</div><div id="mt-total-label" class="text-sm text-slate-500 mt-1">总字数</div></div>
+            <div class="tool-panel-muted rounded-[24px] p-5 text-center"><div id="mt-words-cn" class="text-3xl font-bold text-blue-600">0</div><div id="mt-cn-label" class="text-sm text-slate-500 mt-1">中文字</div></div>
+            <div class="tool-panel-muted rounded-[24px] p-5 text-center"><div id="mt-words-en" class="text-3xl font-bold text-blue-600">0</div><div id="mt-en-label" class="text-sm text-slate-500 mt-1">英文字</div></div>
+          </div>
+        </div>
+
+        <div id="panel-text" class="multitool-panel space-y-5">
+          <textarea id="mt-text-input" class="w-full h-44 p-5 rounded-[24px] tool-panel-muted outline-none resize-none" placeholder="输入待转换文本..."></textarea>
+          <div class="flex flex-wrap gap-3">
+            <button id="mt-upper" class="px-4 py-3 rounded-2xl tool-panel-muted font-bold">全大写</button>
+            <button id="mt-lower" class="px-4 py-3 rounded-2xl tool-panel-muted font-bold">全小写</button>
+            <button id="mt-reverse" class="px-4 py-3 rounded-2xl bg-blue-600 text-white font-bold">倒序</button>
+          </div>
+        </div>
+
+        <div id="panel-bmi" class="multitool-panel space-y-6">
+          <div class="tool-panel-muted rounded-[28px] p-8 text-center">
+            <div id="mt-bmi-output" class="text-5xl font-black text-blue-600">22.9</div>
+            <div id="mt-bmi-label" class="mt-2 text-sm text-slate-500">BMI 指数</div>
+          </div>
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between font-bold mb-3"><span id="mt-height-label">身高</span><span><span id="mt-height-value">175</span> cm</span></div>
+              <input id="mt-height-input" type="range" min="100" max="220" value="175" class="tool-range" />
+            </div>
+            <div>
+              <div class="flex justify-between font-bold mb-3"><span id="mt-weight-label">体重</span><span><span id="mt-weight-value">70</span> kg</span></div>
+              <input id="mt-weight-input" type="range" min="30" max="150" value="70" class="tool-range" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const { messages: copy, loremData } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const unitSets = {
+        length: { rates: { m: 1, km: 1000, cm: 0.01, mm: 0.001 }, labels: { m: "m", km: "km", cm: "cm", mm: "mm" } },
+        weight: { rates: { g: 1, kg: 1000, mg: 0.001 }, labels: { g: "g", kg: "kg", mg: "mg" } },
+        data: { rates: { B: 1, KB: 1024, MB: 1048576, GB: 1073741824 }, labels: { B: "B", KB: "KB", MB: "MB", GB: "GB" } }
+      };
+
+      const state = {
+        active: "password",
+        password: { length: 14, numbers: true, symbols: true, uppercase: true },
+        units: { category: "length", value: 1, from: "m", to: "km" },
+        lorem: { type: "paragraph" }
+      };
+
+      const navButtons = Array.from(document.querySelectorAll(".multitool-nav-btn"));
+      const panels = Array.from(document.querySelectorAll(".multitool-panel"));
+
+      function t() {
+        return copy[shell.getLang()] || copy.en;
+      }
+
+      function syncHeader() {
+        const msg = t();
+        document.getElementById("tool-title").textContent = msg.pageTitle;
+        document.getElementById("tool-subtitle").textContent = msg.pageSubtitle;
+        document.getElementById("privacy-title").textContent = msg.privacyTitle;
+        document.getElementById("privacy-text").textContent = msg.privacyText;
+      }
+
+      function syncNav() {
+        const msg = t();
+        const meta = {
+          password: [msg.password, msg.passwordDesc],
+          units: [msg.units, msg.unitsDesc],
+          lorem: [msg.lorem, msg.loremDesc],
+          words: [msg.words, msg.wordsDesc],
+          text: [msg.text, msg.textDesc],
+          bmi: [msg.bmi, msg.bmiDesc]
+        };
+
+        navButtons.forEach((button) => {
+          const [title, desc] = meta[button.dataset.tool];
+          button.querySelector("[data-title]").textContent = title;
+          button.querySelector("[data-desc]").textContent = desc;
+          button.classList.toggle("active", button.dataset.tool === state.active);
+        });
+
+        document.getElementById("panel-title").textContent = meta[state.active][0];
+        document.getElementById("panel-desc").textContent = meta[state.active][1];
+        panels.forEach((panel) => panel.classList.toggle("active", panel.id === `panel-${state.active}`));
+      }
+
+      function copyText(button, value) {
+        if (!value) return;
+        navigator.clipboard.writeText(value);
+        const old = button.textContent;
+        button.textContent = t().copied;
+        window.setTimeout(() => {
+          button.textContent = old;
+        }, 1200);
+      }
+
+      function renderPassword() {
+        const chars = {
+          lower: "abcdefghijklmnopqrstuvwxyz",
+          upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+          num: "0123456789",
+          sym: "!@#$%^&*()_+-=[]{}|;:,.<>?"
+        };
+        let pool = chars.lower;
+        if (state.password.uppercase) pool += chars.upper;
+        if (state.password.numbers) pool += chars.num;
+        if (state.password.symbols) pool += chars.sym;
+        let next = "";
+        for (let i = 0; i < state.password.length; i += 1) next += pool.charAt(Math.floor(Math.random() * pool.length));
+        document.getElementById("mt-password-output").textContent = next;
+        document.getElementById("mt-length-value").textContent = String(state.password.length);
+      }
+
+      function renderUnits() {
+        const set = unitSets[state.units.category];
+        const keys = Object.keys(set.rates);
+        if (!keys.includes(state.units.from)) state.units.from = keys[0];
+        if (!keys.includes(state.units.to)) state.units.to = keys[1] || keys[0];
+        const html = keys.map((key) => `<option value="${key}">${set.labels[key]}</option>`).join("");
+        const from = document.getElementById("mt-unit-from");
+        const to = document.getElementById("mt-unit-to");
+        from.innerHTML = html;
+        to.innerHTML = html;
+        from.value = state.units.from;
+        to.value = state.units.to;
+        const value = Number(state.units.value) || 0;
+        const result = value * set.rates[state.units.from] / set.rates[state.units.to];
+        document.getElementById("mt-unit-result").textContent = result.toFixed(4).replace(/\.?0+$/, "");
+      }
+
+      function renderLorem() {
+        const lang = shell.getLang();
+        const list = loremData[state.lorem.type][lang] || loremData[state.lorem.type].en;
+        document.getElementById("mt-lorem-output").textContent = list[Math.floor(Math.random() * list.length)];
+      }
+
+      function renderWords() {
+        const text = document.getElementById("mt-words-input").value;
+        document.getElementById("mt-words-total").textContent = String(text.length);
+        document.getElementById("mt-words-cn").textContent = String((text.match(/[\u4e00-\u9fa5]/g) || []).length);
+        document.getElementById("mt-words-en").textContent = String((text.match(/[a-zA-Z]/g) || []).length);
+      }
+
+      function renderBMI() {
+        const height = Number(document.getElementById("mt-height-input").value);
+        const weight = Number(document.getElementById("mt-weight-input").value);
+        document.getElementById("mt-height-value").textContent = String(height);
+        document.getElementById("mt-weight-value").textContent = String(weight);
+        document.getElementById("mt-bmi-output").textContent = (weight / ((height / 100) ** 2)).toFixed(1);
+      }
+
+      function syncPanelCopy() {
+        const msg = t();
+        document.getElementById("mt-length-label").textContent = msg.length;
+        document.getElementById("mt-numbers-label").textContent = msg.numbers;
+        document.getElementById("mt-symbols-label").textContent = msg.symbols;
+        document.getElementById("mt-uppercase-label").textContent = msg.uppercase;
+        document.querySelector('[data-unit-category="length"]').textContent = msg.unitLength;
+        document.querySelector('[data-unit-category="weight"]').textContent = msg.unitWeight;
+        document.querySelector('[data-unit-category="data"]').textContent = msg.unitData;
+        document.querySelector('[data-lorem-type="paragraph"]').textContent = msg.randomParagraph;
+        document.querySelector('[data-lorem-type="name"]').textContent = msg.randomName;
+        document.querySelector('[data-lorem-type="email"]').textContent = msg.randomEmail;
+        document.getElementById("mt-lorem-generate").textContent = msg.generateNow;
+        document.getElementById("mt-words-input").placeholder = msg.inputPlaceholder;
+        document.getElementById("mt-total-label").textContent = msg.totalCount;
+        document.getElementById("mt-cn-label").textContent = msg.chineseCount;
+        document.getElementById("mt-en-label").textContent = msg.englishCount;
+        document.getElementById("mt-text-input").placeholder = msg.convertPlaceholder;
+        document.getElementById("mt-upper").textContent = msg.toUpper;
+        document.getElementById("mt-lower").textContent = msg.toLower;
+        document.getElementById("mt-reverse").textContent = msg.reverse;
+        document.getElementById("mt-bmi-label").textContent = msg.bmiValue;
+        document.getElementById("mt-height-label").textContent = msg.height;
+        document.getElementById("mt-weight-label").textContent = msg.weight;
+        document.getElementById("mt-password-copy").textContent = msg.copy;
+        document.getElementById("mt-lorem-copy").textContent = msg.copy;
+      }
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          state.active = button.dataset.tool;
+          syncNav();
+        });
+      });
+
+      document.getElementById("mt-length-input").addEventListener("input", (e) => {
+        state.password.length = Number(e.target.value);
+        renderPassword();
+      });
+      document.getElementById("mt-numbers").addEventListener("change", (e) => {
+        state.password.numbers = e.target.checked;
+        renderPassword();
+      });
+      document.getElementById("mt-symbols").addEventListener("change", (e) => {
+        state.password.symbols = e.target.checked;
+        renderPassword();
+      });
+      document.getElementById("mt-uppercase").addEventListener("change", (e) => {
+        state.password.uppercase = e.target.checked;
+        renderPassword();
+      });
+      document.getElementById("mt-password-copy").addEventListener("click", (e) => copyText(e.currentTarget, document.getElementById("mt-password-output").textContent));
+
+      document.querySelectorAll(".mt-unit-category").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.units.category = button.dataset.unitCategory;
+          document.querySelectorAll(".mt-unit-category").forEach((item) => {
+            item.className = `mt-unit-category px-4 py-2 rounded-full text-sm font-bold ${item === button ? "bg-blue-600 text-white" : "tool-panel-muted"}`;
+          });
+          renderUnits();
+        });
+      });
+      document.getElementById("mt-unit-value").addEventListener("input", (e) => {
+        state.units.value = e.target.value;
+        renderUnits();
+      });
+      document.getElementById("mt-unit-from").addEventListener("change", (e) => {
+        state.units.from = e.target.value;
+        renderUnits();
+      });
+      document.getElementById("mt-unit-to").addEventListener("change", (e) => {
+        state.units.to = e.target.value;
+        renderUnits();
+      });
+
+      document.querySelectorAll(".mt-lorem-type").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.lorem.type = button.dataset.loremType;
+          document.querySelectorAll(".mt-lorem-type").forEach((item) => {
+            item.className = `mt-lorem-type px-4 py-3 rounded-[20px] text-sm font-bold ${item === button ? "bg-blue-600 text-white" : "tool-panel-muted"}`;
+          });
+          renderLorem();
+        });
+      });
+      document.getElementById("mt-lorem-generate").addEventListener("click", renderLorem);
+      document.getElementById("mt-lorem-copy").addEventListener("click", (e) => copyText(e.currentTarget, document.getElementById("mt-lorem-output").textContent));
+
+      document.getElementById("mt-words-input").addEventListener("input", renderWords);
+      document.getElementById("mt-upper").addEventListener("click", () => {
+        const el = document.getElementById("mt-text-input");
+        el.value = el.value.toUpperCase();
+      });
+      document.getElementById("mt-lower").addEventListener("click", () => {
+        const el = document.getElementById("mt-text-input");
+        el.value = el.value.toLowerCase();
+      });
+      document.getElementById("mt-reverse").addEventListener("click", () => {
+        const el = document.getElementById("mt-text-input");
+        el.value = el.value.split("").reverse().join("");
+      });
+
+      document.getElementById("mt-height-input").addEventListener("input", renderBMI);
+      document.getElementById("mt-weight-input").addEventListener("input", renderBMI);
+
+      shell.subscribeLang(() => {
+        syncHeader();
+        syncNav();
+        syncPanelCopy();
+        renderUnits();
+        renderLorem();
+        renderWords();
+        renderBMI();
+      });
+
+      syncHeader();
+      syncNav();
+      syncPanelCopy();
+      renderPassword();
+      renderUnits();
+      renderLorem();
+      renderWords();
+      renderBMI();
+    })();
+  </script>
+</ToolLayout>

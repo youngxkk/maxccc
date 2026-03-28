@@ -1,0 +1,87 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.wordcount).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="字数统计工具 - ToolKit.Max | 实时文本字数与字符统计"
+  description="ToolKit.Max 字数统计工具，提供实时的总字符数、中文字数、英文字数统计。极简、高效、保护隐私，所有文本处理均在本地完成。"
+  canonical="https://maxc.cc/tools/wordcount/"
+  icon="🔢"
+  maxWidthClass="max-w-4xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">字数统计工具</h1>
+    <p class="tool-subtitle" id="tool-subtitle">实时文本字数与数据精细统计</p>
+  </header>
+
+  <section class="tool-card rounded-[32px] p-5 md:p-8 animate-up">
+    <div class="space-y-8">
+      <textarea id="text-input" class="w-full h-80 p-6 rounded-[26px] tool-panel-muted focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-lg" placeholder="请在此输入或粘贴您的文本内容..."></textarea>
+
+      <div class="grid grid-cols-3 gap-4 md:gap-6">
+        <div class="p-6 rounded-[24px] tool-panel-muted text-center">
+          <div id="stat-total" class="text-3xl md:text-4xl font-bold mb-1 tracking-tight">0</div>
+          <div id="stat-total-label" class="text-[10px] md:text-xs text-slate-400 uppercase tracking-widest font-bold">总字符</div>
+        </div>
+        <div class="p-6 rounded-[24px] bg-blue-600 text-white shadow-lg shadow-blue-600/20 text-center">
+          <div id="stat-cn" class="text-3xl md:text-4xl font-bold mb-1 tracking-tight">0</div>
+          <div id="stat-cn-label" class="text-[10px] md:text-xs text-blue-100 uppercase tracking-widest font-bold">中文字</div>
+        </div>
+        <div class="p-6 rounded-[24px] tool-panel-muted text-center">
+          <div id="stat-en" class="text-3xl md:text-4xl font-bold mb-1 tracking-tight">0</div>
+          <div id="stat-en-label" class="text-[10px] md:text-xs text-slate-400 uppercase tracking-widest font-bold">英文字</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const { messages: translations } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const elements = {
+        title: document.getElementById("tool-title"),
+        subtitle: document.getElementById("tool-subtitle"),
+        input: document.getElementById("text-input"),
+        total: document.getElementById("stat-total"),
+        totalLabel: document.getElementById("stat-total-label"),
+        cn: document.getElementById("stat-cn"),
+        cnLabel: document.getElementById("stat-cn-label"),
+        en: document.getElementById("stat-en"),
+        enLabel: document.getElementById("stat-en-label")
+      };
+
+      function getText() {
+        return translations[shell.getLang()] || translations.en;
+      }
+
+      function syncCopy() {
+        const t = getText();
+        elements.title.textContent = t.title;
+        elements.subtitle.textContent = t.desc;
+        elements.input.placeholder = t.placeholder;
+        elements.totalLabel.textContent = t.total;
+        elements.cnLabel.textContent = t.cn;
+        elements.enLabel.textContent = t.en;
+      }
+
+      function updateStats() {
+        const text = elements.input.value;
+        elements.total.textContent = String(text.length);
+        elements.cn.textContent = String((text.match(/[\u4e00-\u9fa5]/g) || []).length);
+        elements.en.textContent = String((text.match(/[a-zA-Z]/g) || []).length);
+      }
+
+      elements.input.addEventListener("input", updateStats);
+      shell.subscribeLang(syncCopy);
+
+      syncCopy();
+      updateStats();
+    })();
+  </script>
+</ToolLayout>

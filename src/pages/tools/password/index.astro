@@ -1,0 +1,153 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.password).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="密码生成器 - ToolKit.Max | 高强度随机密码生成"
+  description="ToolKit.Max 密码生成器，提供安全、高强度的随机密码生成服务。支持自定义长度、数字、符号和大写字母。所有操作均在本地完成，确保隐私安全。"
+  canonical="https://maxc.cc/tools/password/"
+  icon="🔑"
+  maxWidthClass="max-w-3xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">密码生成器</h1>
+    <p class="tool-subtitle" id="tool-subtitle">生成安全、强大的随机密码</p>
+  </header>
+
+  <section class="tool-card rounded-[32px] p-8 md:p-10 animate-up">
+    <div class="tool-panel-muted rounded-[26px] min-h-[120px] mb-8 flex items-center justify-center px-4 relative">
+      <span id="password-output" class="text-2xl md:text-3xl font-mono text-blue-600 break-all text-center"></span>
+      <button id="copy-button" class="absolute top-3 right-3 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-300 hover:scale-105 transition-transform" aria-label="Copy password">
+        <span id="copy-icon">⧉</span>
+      </button>
+      <span id="copied-state" class="absolute bottom-3 right-4 text-xs font-bold text-green-500 hidden">已复制</span>
+    </div>
+
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <div class="flex justify-between items-center font-bold">
+          <span id="length-label">长度</span>
+          <span id="length-value" class="text-blue-600 text-xl font-mono">12</span>
+        </div>
+        <input id="length-input" type="range" min="6" max="64" value="12" class="tool-range" />
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-3">
+        <label class="tool-panel-muted rounded-[22px] px-4 py-4 flex items-center gap-3 cursor-pointer">
+          <input id="numbers-input" type="checkbox" checked />
+          <span id="numbers-label" class="font-medium">数字</span>
+        </label>
+        <label class="tool-panel-muted rounded-[22px] px-4 py-4 flex items-center gap-3 cursor-pointer">
+          <input id="symbols-input" type="checkbox" checked />
+          <span id="symbols-label" class="font-medium">符号</span>
+        </label>
+        <label class="tool-panel-muted rounded-[22px] px-4 py-4 flex items-center gap-3 cursor-pointer">
+          <input id="uppercase-input" type="checkbox" checked />
+          <span id="uppercase-label" class="font-medium">大写字母</span>
+        </label>
+      </div>
+
+      <button id="generate-button" class="w-full bg-slate-900 dark:bg-blue-600 text-white font-bold py-4 rounded-[22px] shadow-lg shadow-blue-600/20">
+        重新生成
+      </button>
+
+      <p id="privacy-text" class="text-sm leading-7 text-slate-500 dark:text-slate-400 text-center">
+        您的隐私很重要：所有密码均在您的设备上本地生成，永远不会发送到服务器。
+      </p>
+    </div>
+  </section>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const { messages: translations } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const elements = {
+        title: document.getElementById("tool-title"),
+        subtitle: document.getElementById("tool-subtitle"),
+        output: document.getElementById("password-output"),
+        copyButton: document.getElementById("copy-button"),
+        copyIcon: document.getElementById("copy-icon"),
+        copiedState: document.getElementById("copied-state"),
+        lengthLabel: document.getElementById("length-label"),
+        lengthValue: document.getElementById("length-value"),
+        lengthInput: document.getElementById("length-input"),
+        numbersInput: document.getElementById("numbers-input"),
+        symbolsInput: document.getElementById("symbols-input"),
+        uppercaseInput: document.getElementById("uppercase-input"),
+        numbersLabel: document.getElementById("numbers-label"),
+        symbolsLabel: document.getElementById("symbols-label"),
+        uppercaseLabel: document.getElementById("uppercase-label"),
+        generateButton: document.getElementById("generate-button"),
+        privacyText: document.getElementById("privacy-text")
+      };
+
+      function getText() {
+        return translations[shell.getLang()] || translations.en;
+      }
+
+      function syncCopy() {
+        const t = getText();
+        elements.title.textContent = t.title;
+        elements.subtitle.textContent = t.desc;
+        elements.lengthLabel.textContent = t.length;
+        elements.numbersLabel.textContent = t.numbers;
+        elements.symbolsLabel.textContent = t.symbols;
+        elements.uppercaseLabel.textContent = t.uppercase;
+        elements.generateButton.textContent = t.generate;
+        elements.privacyText.textContent = t.privacy;
+        elements.copiedState.textContent = t.copied;
+      }
+
+      function buildPassword() {
+        const chars = {
+          lower: "abcdefghijklmnopqrstuvwxyz",
+          upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+          num: "0123456789",
+          sym: "!@#$%^&*()_+-=[]{}|;:,.<>?"
+        };
+
+        let pool = chars.lower;
+        if (elements.uppercaseInput.checked) pool += chars.upper;
+        if (elements.numbersInput.checked) pool += chars.num;
+        if (elements.symbolsInput.checked) pool += chars.sym;
+
+        let result = "";
+        const length = Number(elements.lengthInput.value);
+        for (let i = 0; i < length; i += 1) {
+          result += pool.charAt(Math.floor(Math.random() * pool.length));
+        }
+
+        elements.lengthValue.textContent = String(length);
+        elements.output.textContent = result;
+      }
+
+      async function copyPassword() {
+        const value = elements.output.textContent || "";
+        if (!value) return;
+        await navigator.clipboard.writeText(value);
+        elements.copyIcon.textContent = "✓";
+        elements.copiedState.classList.remove("hidden");
+        window.setTimeout(() => {
+          elements.copyIcon.textContent = "⧉";
+          elements.copiedState.classList.add("hidden");
+        }, 1800);
+      }
+
+      elements.lengthInput.addEventListener("input", buildPassword);
+      elements.numbersInput.addEventListener("change", buildPassword);
+      elements.symbolsInput.addEventListener("change", buildPassword);
+      elements.uppercaseInput.addEventListener("change", buildPassword);
+      elements.generateButton.addEventListener("click", buildPassword);
+      elements.copyButton.addEventListener("click", copyPassword);
+
+      shell.subscribeLang(() => syncCopy());
+      syncCopy();
+      buildPassword();
+    })();
+  </script>
+</ToolLayout>

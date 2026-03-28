@@ -1,4 +1,6 @@
 ---
+import { authDictionary, sharedDictionary } from "../i18n/dictionaries";
+
 type Props = {
   title: string;
   description: string;
@@ -20,6 +22,8 @@ const {
   includeFirebaseAuth = false,
   includeHomeScript = false
 } = Astro.props;
+
+const serialize = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c");
 ---
 
 <!DOCTYPE html>
@@ -48,6 +52,22 @@ const {
     {
       includeHomeStyles && <link rel="stylesheet" href="/styles.css" />
     }
+    <script
+      is:inline
+      set:html={`window.DoCoolI18n = {
+        shared: ${serialize(sharedDictionary)},
+        auth: ${serialize(authDictionary)},
+        normalizeLang(lang) {
+          if (!lang) return "en";
+          if (lang === "zh" || lang === "zh-CN") return "zh-CN";
+          if (lang === "zh-TW" || lang === "zh-HK" || lang === "tw") return "zh-TW";
+          return "en";
+        },
+        getLang() {
+          return this.normalizeLang(localStorage.getItem("lang") || document.documentElement.lang || navigator.language);
+        }
+      };`}
+    />
     <slot name="head" />
     <script is:inline>
       const savedTheme = localStorage.getItem('theme');

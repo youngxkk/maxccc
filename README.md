@@ -23,8 +23,8 @@
 
 我们也开发了一些实用的在线工具：
 
-- **[万能工具箱](https://maxc.cc/tools/multitools.html)**：集合多种常用小工具，多合一。
-- **[PDF 转文字](https://maxc.cc/tools/pdf2text.html)**：快速将 PDF 文档转换为可编辑文本。
+- **[万能工具箱](https://maxc.cc/tools/multitools/)**：集合多种常用小工具，多合一。
+- **[PDF 转文字](https://maxc.cc/tools/pdf2text/)**：快速将 PDF 文档转换为可编辑文本。
 
 ## 🔗 联系我们
 
@@ -60,5 +60,5 @@ Available on the App Store:
 
 ## 🛠 Web Tools
 
-- **[MultiTools](https://maxc.cc/tools/multitools.html)**: A versatile all-in-one utility box.
-- **[PDF2Text](https://maxc.cc/tools/pdf2text.html)**: Quickly convert PDF documents to editable text.
+- **[MultiTools](https://maxc.cc/tools/multitools/)**: A versatile all-in-one utility box.
+- **[PDF2Text](https://maxc.cc/tools/pdf2text/)**: Quickly convert PDF documents to editable text.

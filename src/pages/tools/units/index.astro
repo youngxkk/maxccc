@@ -1,0 +1,143 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.units).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="单位换算器 - ToolKit.Max | 长度、重量、数据极速转换"
+  description="ToolKit.Max 单位换算器，提供长度、重量及数据大小的实时互转服务。极简设计，即开即用，保护隐私。"
+  canonical="https://maxc.cc/tools/units/"
+  icon="⚖️"
+  maxWidthClass="max-w-3xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">单位换算器</h1>
+    <p class="tool-subtitle" id="tool-subtitle">长度、重量、数据极速互转</p>
+  </header>
+
+  <section class="tool-card rounded-[32px] p-8 md:p-10 animate-up">
+    <div id="category-buttons" class="flex bg-slate-100 dark:bg-slate-900/70 p-1.5 rounded-2xl mb-8">
+      <button data-category="length" class="category-button flex-1 py-3 text-sm font-bold rounded-xl transition-all bg-white dark:bg-slate-800 shadow-sm text-blue-600">长度</button>
+      <button data-category="weight" class="category-button flex-1 py-3 text-sm font-bold rounded-xl transition-all text-slate-500">重量</button>
+      <button data-category="data" class="category-button flex-1 py-3 text-sm font-bold rounded-xl transition-all text-slate-500">数据</button>
+    </div>
+
+    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
+      <div class="tool-panel-muted p-6 rounded-[26px]">
+        <input id="value-input" type="number" value="1" class="w-full bg-transparent text-3xl font-bold text-blue-600 focus:outline-none" />
+        <select id="from-select" class="w-full bg-transparent mt-3 text-sm font-semibold focus:outline-none"></select>
+      </div>
+
+      <div class="text-slate-300 dark:text-slate-700 text-center text-3xl">→</div>
+
+      <div class="bg-blue-600 text-white p-6 rounded-[26px] shadow-lg shadow-blue-600/20">
+        <div id="result-output" class="text-3xl font-bold truncate">0</div>
+        <select id="to-select" class="w-full bg-transparent mt-3 text-sm font-semibold focus:outline-none text-blue-50"></select>
+      </div>
+    </div>
+  </section>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const { messages: translations, units } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const state = {
+        category: "length",
+        from: "m",
+        to: "km"
+      };
+
+      const elements = {
+        title: document.getElementById("tool-title"),
+        subtitle: document.getElementById("tool-subtitle"),
+        buttons: Array.from(document.querySelectorAll(".category-button")),
+        valueInput: document.getElementById("value-input"),
+        fromSelect: document.getElementById("from-select"),
+        toSelect: document.getElementById("to-select"),
+        result: document.getElementById("result-output")
+      };
+
+      function getText() {
+        return translations[shell.getLang()] || translations.en;
+      }
+
+      function syncHero() {
+        const t = getText();
+        elements.title.textContent = t.title;
+        elements.subtitle.textContent = t.desc;
+        elements.buttons.forEach((button) => {
+          const key = button.dataset.category;
+          button.textContent = t[key];
+        });
+      }
+
+      function populateSelects() {
+        const labels = units[state.category].labels[shell.getLang()] || units[state.category].labels.en;
+        const keys = Object.keys(units[state.category].rates);
+
+        if (!keys.includes(state.from)) state.from = keys[0];
+        if (!keys.includes(state.to)) state.to = keys[1] || keys[0];
+
+        const optionsHtml = Object.entries(labels)
+          .map(([key, label]) => `<option value="${key}">${label}</option>`)
+          .join("");
+
+        elements.fromSelect.innerHTML = optionsHtml;
+        elements.toSelect.innerHTML = optionsHtml;
+        elements.fromSelect.value = state.from;
+        elements.toSelect.value = state.to;
+      }
+
+      function updateResult() {
+        const input = parseFloat(elements.valueInput.value) || 0;
+        const rates = units[state.category].rates;
+        const output = (input * rates[state.from] / rates[state.to]).toFixed(4).replace(/\.?0+$/, "");
+        elements.result.textContent = output || "0";
+      }
+
+      function syncCategoryButtons() {
+        elements.buttons.forEach((button) => {
+          const active = button.dataset.category === state.category;
+          button.className = `category-button flex-1 py-3 text-sm font-bold rounded-xl transition-all ${active ? "bg-white dark:bg-slate-800 shadow-sm text-blue-600" : "text-slate-500"}`;
+        });
+      }
+
+      elements.buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          state.category = button.dataset.category;
+          const keys = Object.keys(units[state.category].rates);
+          state.from = keys[0];
+          state.to = keys[1] || keys[0];
+          syncCategoryButtons();
+          populateSelects();
+          updateResult();
+        });
+      });
+
+      elements.valueInput.addEventListener("input", updateResult);
+      elements.fromSelect.addEventListener("change", (event) => {
+        state.from = event.target.value;
+        updateResult();
+      });
+      elements.toSelect.addEventListener("change", (event) => {
+        state.to = event.target.value;
+        updateResult();
+      });
+
+      shell.subscribeLang(() => {
+        syncHero();
+        populateSelects();
+        updateResult();
+      });
+
+      syncHero();
+      syncCategoryButtons();
+      populateSelects();
+      updateResult();
+    })();
+  </script>
+</ToolLayout>

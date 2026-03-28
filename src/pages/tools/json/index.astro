@@ -1,0 +1,159 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.json).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="JSON 格式化与校验 - ToolKit.Max | 在线 JSON 格式化工具"
+  description="ToolKit.Max JSON 格式化与校验工具，支持 JSON 格式化、压缩、校验、美化。实时语法检查，一键复制，支持深色模式。"
+  canonical="https://maxc.cc/tools/json/"
+  icon="📋"
+  maxWidthClass="max-w-7xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">JSON 格式化与校验</h1>
+    <p class="tool-subtitle" id="tool-subtitle">在线格式化、校验和美化 JSON 数据</p>
+  </header>
+
+  <div class="space-y-6 animate-up">
+    <div id="status-card" class="tool-card rounded-[28px] p-4 flex items-start gap-3">
+      <span id="status-text" class="text-sm text-slate-400">Status</span>
+      <div id="error-text" class="hidden flex-1 text-sm text-red-500 break-words"></div>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <button id="format-button" class="flex-1 min-w-[120px] py-3 px-6 bg-blue-600 disabled:bg-slate-300 text-white font-bold rounded-xl shadow-lg disabled:shadow-none">格式化</button>
+      <button id="minify-button" class="flex-1 min-w-[120px] py-3 px-6 bg-fuchsia-600 disabled:bg-slate-300 text-white font-bold rounded-xl shadow-lg disabled:shadow-none">压缩</button>
+      <button id="copy-button" class="py-3 px-6 tool-panel-muted font-bold rounded-xl disabled:opacity-50">复制</button>
+      <button id="clear-button" class="py-3 px-6 tool-panel-muted font-bold rounded-xl">清空</button>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="tool-card rounded-[32px] p-6">
+        <div id="input-label" class="text-sm font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">输入</div>
+        <textarea id="input-text" class="w-full h-[500px] p-4 rounded-2xl tool-panel-muted focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm font-mono" spellcheck="false" placeholder="在此粘贴或输入 JSON 数据..."></textarea>
+      </div>
+      <div class="tool-card rounded-[32px] p-6">
+        <div id="output-label" class="text-sm font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">输出</div>
+        <div class="w-full h-[500px] p-4 rounded-2xl tool-panel-muted overflow-auto">
+          <pre id="output-text" class="text-sm whitespace-pre-wrap break-words font-mono"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const { messages: translations } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const elements = {
+        title: document.getElementById("tool-title"),
+        subtitle: document.getElementById("tool-subtitle"),
+        statusCard: document.getElementById("status-card"),
+        statusText: document.getElementById("status-text"),
+        errorText: document.getElementById("error-text"),
+        format: document.getElementById("format-button"),
+        minify: document.getElementById("minify-button"),
+        copy: document.getElementById("copy-button"),
+        clear: document.getElementById("clear-button"),
+        inputLabel: document.getElementById("input-label"),
+        outputLabel: document.getElementById("output-label"),
+        input: document.getElementById("input-text"),
+        output: document.getElementById("output-text")
+      };
+
+      function getText() {
+        return translations[shell.getLang()] || translations.en;
+      }
+
+      function syncCopy() {
+        const t = getText();
+        elements.title.textContent = t.title;
+        elements.subtitle.textContent = t.desc;
+        elements.input.placeholder = t.placeholder;
+        elements.format.textContent = t.format;
+        elements.minify.textContent = t.minify;
+        elements.copy.textContent = t.copy;
+        elements.clear.textContent = t.clear;
+        elements.inputLabel.textContent = t.input;
+        elements.outputLabel.textContent = t.output;
+        if (elements.statusCard.className.includes("border-green-300")) {
+          elements.statusText.textContent = t.valid;
+        } else if (!elements.errorText.classList.contains("hidden")) {
+          elements.statusText.textContent = t.invalid;
+        } else {
+          elements.statusText.textContent = t.status;
+        }
+      }
+
+      function setNeutral() {
+        const t = getText();
+        elements.statusCard.className = "tool-card rounded-[28px] p-4 flex items-start gap-3";
+        elements.statusText.className = "text-sm text-slate-400";
+        elements.statusText.textContent = t.status;
+        elements.errorText.classList.add("hidden");
+        elements.errorText.textContent = "";
+      }
+
+      function setValid() {
+        const t = getText();
+        elements.statusCard.className = "tool-card rounded-[28px] p-4 flex items-start gap-3 border-green-300";
+        elements.statusText.className = "font-semibold text-green-600";
+        elements.statusText.textContent = t.valid;
+        elements.errorText.classList.add("hidden");
+      }
+
+      function setInvalid(message) {
+        const t = getText();
+        elements.statusCard.className = "tool-card rounded-[28px] p-4 flex items-start gap-3 border-red-300";
+        elements.statusText.className = "font-semibold text-red-600";
+        elements.statusText.textContent = t.invalid;
+        elements.errorText.classList.remove("hidden");
+        elements.errorText.textContent = message;
+      }
+
+      function runFormat(minify = false) {
+        const raw = elements.input.value.trim();
+        if (!raw) {
+          elements.output.textContent = "";
+          setNeutral();
+          return;
+        }
+        try {
+          const parsed = JSON.parse(raw);
+          elements.output.textContent = minify ? JSON.stringify(parsed) : JSON.stringify(parsed, null, 2);
+          setValid();
+        } catch (error) {
+          elements.output.textContent = "";
+          setInvalid(error.message);
+        }
+      }
+
+      function clearAll() {
+        elements.input.value = "";
+        elements.output.textContent = "";
+        setNeutral();
+      }
+
+      elements.format.addEventListener("click", () => runFormat(false));
+      elements.minify.addEventListener("click", () => runFormat(true));
+      elements.clear.addEventListener("click", clearAll);
+      elements.copy.addEventListener("click", async () => {
+        if (!elements.output.textContent) return;
+        await navigator.clipboard.writeText(elements.output.textContent);
+        elements.copy.textContent = getText().copied;
+        window.setTimeout(() => {
+          elements.copy.textContent = getText().copy;
+        }, 1500);
+      });
+
+      shell.subscribeLang(syncCopy);
+      syncCopy();
+      setNeutral();
+    })();
+  </script>
+</ToolLayout>

@@ -1,0 +1,98 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.lorem).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="随机文本生成器 - ToolKit.Max | 占位文本与测试数据"
+  description="ToolKit.Max 随机文本生成器，提供随机段落、姓名、邮箱等测试数据生成服务。极简设计，即开即用，适合设计师和开发者快速填充内容。"
+  canonical="https://maxc.cc/tools/lorem/"
+  icon="📝"
+  maxWidthClass="max-w-3xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">随机文本生成器</h1>
+    <p class="tool-subtitle" id="tool-subtitle">占位文本与测试数据专家</p>
+  </header>
+
+  <section class="tool-card rounded-[32px] p-8 md:p-10 animate-up">
+    <div class="space-y-6">
+      <div class="relative">
+        <select id="type-select" class="w-full p-4 rounded-2xl tool-panel-muted font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/50 appearance-none">
+          <option value="paragraph">随机段落</option>
+          <option value="name">随机姓名</option>
+          <option value="email">随机邮箱</option>
+        </select>
+        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">⌄</div>
+      </div>
+
+      <div class="p-6 tool-panel-muted rounded-[26px] min-h-[150px] flex items-center justify-center relative">
+        <p id="result-output" class="text-lg text-center leading-relaxed italic"></p>
+        <button id="copy-button" class="absolute bottom-3 right-3 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-300 hover:scale-105 transition-transform">⧉</button>
+      </div>
+
+      <button id="generate-button" class="w-full py-4 bg-slate-900 dark:bg-blue-600 text-white font-bold rounded-2xl shadow-lg transition-colors">
+        立即生成
+      </button>
+    </div>
+  </section>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const { messages: translations, data } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const elements = {
+        title: document.getElementById("tool-title"),
+        subtitle: document.getElementById("tool-subtitle"),
+        select: document.getElementById("type-select"),
+        result: document.getElementById("result-output"),
+        generate: document.getElementById("generate-button"),
+        copy: document.getElementById("copy-button")
+      };
+
+      function getText() {
+        return translations[shell.getLang()] || translations.en;
+      }
+
+      function generateValue() {
+        const lang = shell.getLang();
+        const type = elements.select.value;
+        const list = data[type][lang] || data[type].en;
+        elements.result.textContent = list[Math.floor(Math.random() * list.length)];
+      }
+
+      function syncCopy() {
+        const t = getText();
+        elements.title.textContent = t.title;
+        elements.subtitle.textContent = t.desc;
+        elements.select.options[0].textContent = t.paragraph;
+        elements.select.options[1].textContent = t.name;
+        elements.select.options[2].textContent = t.email;
+        elements.generate.textContent = t.generate;
+      }
+
+      async function copyResult() {
+        await navigator.clipboard.writeText(elements.result.textContent || "");
+        elements.copy.textContent = "✓";
+        window.setTimeout(() => {
+          elements.copy.textContent = "⧉";
+        }, 1500);
+      }
+
+      elements.generate.addEventListener("click", generateValue);
+      elements.select.addEventListener("change", generateValue);
+      elements.copy.addEventListener("click", copyResult);
+      shell.subscribeLang(() => {
+        syncCopy();
+        generateValue();
+      });
+
+      syncCopy();
+      generateValue();
+    })();
+  </script>
+</ToolLayout>

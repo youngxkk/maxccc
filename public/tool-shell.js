@@ -1,66 +1,9 @@
 (function () {
-  const translations = {
-    "zh-CN": {
-      more_tools: "更多工具",
-      tool_pwd_title: "密码生成",
-      tool_units_title: "单位换算",
-      tool_lorem_title: "随机文本",
-      tool_words_title: "字数统计",
-      tool_text_title: "文本转换",
-      tool_bmi_title: "健康计算",
-      tool_removebg_title: "图片去背景",
-      tool_gradient_title: "CSS 渐变",
-      tool_json_title: "JSON 格式化",
-      tool2_title: "PDF 转文字",
-      user_agreement: "用户协议",
-      privacy_policy: "隐私政策",
-      terms_of_use: "使用条款",
-      footer_xhs: "小红书",
-      footer_contact: "联系我们"
-    },
-    "zh-TW": {
-      more_tools: "更多工具",
-      tool_pwd_title: "密碼生成",
-      tool_units_title: "單位換算",
-      tool_lorem_title: "隨機文本",
-      tool_words_title: "字數統計",
-      tool_text_title: "文本轉換",
-      tool_bmi_title: "健康計算",
-      tool_removebg_title: "圖片去背景",
-      tool_gradient_title: "CSS 漸變",
-      tool_json_title: "JSON 格式化",
-      tool2_title: "PDF 轉文字",
-      user_agreement: "用戶協議",
-      privacy_policy: "隱私政策",
-      terms_of_use: "使用條款",
-      footer_xhs: "小紅書",
-      footer_contact: "聯絡我們"
-    },
-    en: {
-      more_tools: "More Tools",
-      tool_pwd_title: "Password",
-      tool_units_title: "Units",
-      tool_lorem_title: "Lorem Ipsum",
-      tool_words_title: "Word Count",
-      tool_text_title: "Text Convert",
-      tool_bmi_title: "BMI Calc",
-      tool_removebg_title: "Remove BG",
-      tool_gradient_title: "CSS Gradient",
-      tool_json_title: "JSON Formatter",
-      tool2_title: "PDF to Text",
-      user_agreement: "User Agreement",
-      privacy_policy: "Privacy Policy",
-      terms_of_use: "Terms of Use",
-      footer_xhs: "Xiaohongshu",
-      footer_contact: "Contact Us"
-    }
-  };
+  const i18n = window.DoCoolI18n || {};
+  const translations = i18n.shared || {};
 
   function normalizeLang(lang) {
-    if (!lang) return "en";
-    if (lang === "zh" || lang === "zh-CN") return "zh-CN";
-    if (lang === "zh-TW" || lang === "zh-HK" || lang === "tw") return "zh-TW";
-    return "en";
+    return (i18n.normalizeLang || ((value) => value || "en"))(lang);
   }
 
   function getInitialLang() {

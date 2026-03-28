@@ -1,0 +1,182 @@
+---
+import ToolLayout from "../../../layouts/ToolLayout.astro";
+import { toolDictionaries } from "../../../i18n/dictionaries";
+
+const toolPayload = JSON.stringify(toolDictionaries.gradient).replace(/</g, "\\u003c");
+---
+
+<ToolLayout
+  title="CSS 渐变生成器 - ToolKit.Max | 可视化生成 CSS 渐变代码"
+  description="ToolKit.Max CSS 渐变生成器，可视化生成线性渐变和径向渐变代码。支持多色渐变、角度调整、实时预览，一键复制 CSS 代码。"
+  canonical="https://maxc.cc/tools/gradient/"
+  icon="🎨"
+  maxWidthClass="max-w-5xl"
+>
+  <header class="tool-hero animate-up">
+    <h1 class="tool-title" id="tool-title">CSS 渐变生成器</h1>
+    <p class="tool-subtitle" id="tool-subtitle">可视化生成精美的 CSS 渐变代码</p>
+  </header>
+
+  <div class="space-y-6 animate-up">
+    <section class="tool-card rounded-[32px] p-8">
+      <div class="flex justify-between items-center mb-4">
+        <div class="text-sm font-bold uppercase tracking-[0.18em] text-slate-400">Preview</div>
+        <button id="random-button" class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold shadow-lg">随机渐变</button>
+      </div>
+      <div id="gradient-preview" class="w-full h-64 rounded-[28px] shadow-inner"></div>
+    </section>
+
+    <section class="tool-card rounded-[32px] p-8">
+      <div class="space-y-6">
+        <div class="space-y-3">
+          <div class="flex justify-between font-bold">
+            <span id="angle-label">角度</span>
+            <span class="text-blue-600 font-mono"><span id="angle-value">135</span>°</span>
+          </div>
+          <input id="angle-input" type="range" min="0" max="360" value="135" class="tool-range" />
+        </div>
+
+        <div id="colors-list" class="space-y-4"></div>
+
+        <button id="add-color-button" class="w-full py-3 tool-panel-muted rounded-xl font-bold flex items-center justify-center gap-2">+ 添加颜色</button>
+      </div>
+    </section>
+
+    <section class="tool-card rounded-[32px] p-8">
+      <div id="css-code-label" class="text-sm font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">CSS 代码</div>
+      <div class="relative">
+        <pre class="p-4 rounded-2xl tool-panel-muted overflow-x-auto"><code id="css-output" class="text-sm font-mono"></code></pre>
+        <button id="copy-button" class="absolute top-2 right-2 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-300 hover:scale-105 transition-transform">⧉</button>
+      </div>
+    </section>
+  </div>
+
+  <script id="tool-i18n" type="application/json" set:html={toolPayload}></script>
+  <script is:inline>
+    (() => {
+      const shell = window.ToolShell;
+      const presets = [
+        { colors: [{ color: "#667eea", position: 0 }, { color: "#764ba2", position: 100 }], angle: 135 },
+        { colors: [{ color: "#f093fb", position: 0 }, { color: "#f5576c", position: 100 }], angle: 135 },
+        { colors: [{ color: "#4facfe", position: 0 }, { color: "#00f2fe", position: 100 }], angle: 135 },
+        { colors: [{ color: "#43e97b", position: 0 }, { color: "#38f9d7", position: 100 }], angle: 135 },
+        { colors: [{ color: "#ff6e7f", position: 0 }, { color: "#bfe9ff", position: 100 }], angle: 135 }
+      ];
+      const { messages: translations } = JSON.parse(document.getElementById("tool-i18n").textContent);
+
+      const state = {
+        angle: 135,
+        colors: [
+          { color: "#667eea", position: 0 },
+          { color: "#764ba2", position: 100 }
+        ]
+      };
+
+      const elements = {
+        title: document.getElementById("tool-title"),
+        subtitle: document.getElementById("tool-subtitle"),
+        preview: document.getElementById("gradient-preview"),
+        angleLabel: document.getElementById("angle-label"),
+        angleValue: document.getElementById("angle-value"),
+        angleInput: document.getElementById("angle-input"),
+        colorsList: document.getElementById("colors-list"),
+        addColor: document.getElementById("add-color-button"),
+        random: document.getElementById("random-button"),
+        cssLabel: document.getElementById("css-code-label"),
+        cssOutput: document.getElementById("css-output"),
+        copy: document.getElementById("copy-button")
+      };
+
+      function getText() {
+        return translations[shell.getLang()] || translations.en;
+      }
+
+      function buildGradient() {
+        return `linear-gradient(${state.angle}deg, ${[...state.colors].sort((a, b) => a.position - b.position).map((item) => `${item.color} ${item.position}%`).join(", ")})`;
+      }
+
+      function render() {
+        const gradient = buildGradient();
+        elements.preview.style.background = gradient;
+        elements.angleValue.textContent = String(state.angle);
+        elements.cssOutput.textContent = `background: ${gradient};`;
+        elements.addColor.style.display = state.colors.length < 5 ? "flex" : "none";
+
+        elements.colorsList.innerHTML = state.colors.map((item, index) => `
+          <div class="flex items-center gap-4 p-4 rounded-2xl tool-panel-muted">
+            <input data-index="${index}" data-field="color" type="color" value="${item.color}" />
+            <div class="flex-1 space-y-2">
+              <div class="flex justify-between text-sm">
+                <span class="font-mono font-bold">${item.color}</span>
+                <span class="text-blue-600 font-mono font-bold">${item.position}%</span>
+              </div>
+              <input data-index="${index}" data-field="position" type="range" min="0" max="100" value="${item.position}" class="tool-range" />
+            </div>
+            ${state.colors.length > 2 ? `<button data-remove="${index}" class="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl">🗑</button>` : ""}
+          </div>
+        `).join("");
+      }
+
+      function syncCopy() {
+        const t = getText();
+        elements.title.textContent = t.title;
+        elements.subtitle.textContent = t.desc;
+        elements.angleLabel.textContent = t.angle;
+        elements.addColor.innerHTML = `+ ${t.add}`;
+        elements.random.textContent = t.random;
+        elements.cssLabel.textContent = t.code;
+      }
+
+      elements.angleInput.addEventListener("input", (event) => {
+        state.angle = Number(event.target.value);
+        render();
+      });
+
+      elements.colorsList.addEventListener("input", (event) => {
+        const target = event.target;
+        const index = Number(target.dataset.index);
+        if (target.dataset.field === "color") {
+          state.colors[index].color = target.value;
+        }
+        if (target.dataset.field === "position") {
+          state.colors[index].position = Number(target.value);
+        }
+        render();
+      });
+
+      elements.colorsList.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-remove]");
+        if (!button) return;
+        state.colors.splice(Number(button.dataset.remove), 1);
+        render();
+      });
+
+      elements.addColor.addEventListener("click", () => {
+        if (state.colors.length < 5) {
+          state.colors.push({ color: "#ff6b6b", position: 50 });
+          render();
+        }
+      });
+
+      elements.random.addEventListener("click", () => {
+        const preset = presets[Math.floor(Math.random() * presets.length)];
+        state.angle = preset.angle;
+        state.colors = preset.colors.map((item) => ({ ...item }));
+        elements.angleInput.value = String(state.angle);
+        render();
+      });
+
+      elements.copy.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(elements.cssOutput.textContent);
+        elements.copy.textContent = "✓";
+        window.setTimeout(() => {
+          elements.copy.textContent = "⧉";
+        }, 1500);
+      });
+
+      shell.subscribeLang(syncCopy);
+      syncCopy();
+      render();
+    })();
+  </script>
+</ToolLayout>

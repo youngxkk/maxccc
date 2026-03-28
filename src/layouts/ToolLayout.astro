@@ -33,6 +33,7 @@ const {
 >
   <Fragment slot="head">
     <link rel="icon" href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${icon}</text></svg>`} />
+    <script is:inline src="/tool-shell.js"></script>
     <script is:inline src="https://cdn.tailwindcss.com"></script>
     <script is:inline>
       tailwind.config = {
@@ -46,9 +47,6 @@ const {
         }
       };
     </script>
-    <script is:inline src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin="anonymous"></script>
-    <script is:inline src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-    <script is:inline src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin="anonymous"></script>
     <style is:inline>
       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
@@ -464,5 +462,4 @@ const {
     <ToolFooter />
   </div>
 
-  <script is:inline src="/tool-shell.js"></script>
 </BaseLayout>
