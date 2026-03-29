@@ -1,0 +1,122 @@
+---
+import { legalSharedContent } from "../i18n/legal-content";
+import BaseLayout from "./BaseLayout.astro";
+import MainFooter from "../components/MainFooter.astro";
+import MainNav from "../components/MainNav.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  canonical: string;
+  titleKey: "legal_ua_title" | "legal_pp_title" | "legal_tou_title";
+  contentKey: "legal_ua_html" | "legal_pp_html" | "legal_tou_html";
+};
+
+const { title, description, canonical, titleKey, contentKey } = Astro.props;
+const initial = legalSharedContent["zh-CN"];
+const h1Text = initial[titleKey];
+const bodyHtml = initial[contentKey];
+const backLabel = initial.legal_back_home;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  includeHomeStyles={true}
+  includeHomeScript={true}
+>
+  <div class="mouse-glow"></div>
+  <MainNav showSectionLinks={false} />
+  <main class="legal-main">
+    <div class="legal-inner">
+      <a href="/" class="legal-back" data-i18n="legal_back_home">{backLabel}</a>
+      <h1 class="legal-h1" data-i18n={titleKey}>{h1Text}</h1>
+      <article class="legal-doc" data-i18n={contentKey} set:html={bodyHtml} />
+    </div>
+  </main>
+  <MainFooter />
+</BaseLayout>
+
+<style is:global>
+  .legal-main {
+    position: relative;
+    z-index: 1;
+    min-height: 70vh;
+    padding: 100px 24px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-inner {
+    animation: legalFade 0.5s ease-out;
+  }
+
+  @keyframes legalFade {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .legal-back {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--link-blue);
+    text-decoration: none;
+    margin-bottom: 28px;
+    opacity: 0.9;
+  }
+
+  .legal-back:hover {
+    text-decoration: underline;
+  }
+
+  .legal-h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    color: var(--text-primary);
+  }
+
+  .legal-doc {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .legal-doc .legal-meta {
+    color: var(--text-secondary);
+    opacity: 0.85;
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .legal-doc h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 28px 0 12px;
+  }
+
+  .legal-doc h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 20px 0 8px;
+  }
+
+  .legal-doc p {
+    margin-bottom: 12px;
+  }
+
+  .legal-doc strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+</style>

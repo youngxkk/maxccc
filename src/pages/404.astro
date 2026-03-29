@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainFooter from "../components/MainFooter.astro";
+import MainNav from "../components/MainNav.astro";
+---
+
+<BaseLayout
+  title="404 - Not Found"
+  description="Page not found"
+  canonical="https://maxc.cc/404/"
+  includeHomeStyles={true}
+  includeHomeScript={true}
+>
+  <div class="mouse-glow"></div>
+  <MainNav showSectionLinks={false} />
+
+  <main class="hero error-hero">
+    <h1 class="error-title">404</h1>
+    <p>
+      抱歉，页面不存在或已被移除。<br />
+      Page Not Found.
+    </p>
+    <a href="/" class="hero-cta" data-i18n="legal_back_home">
+      返回首页
+    </a>
+  </main>
+
+  <MainFooter />
+</BaseLayout>
+
+<style is:global>
+  .error-hero {
+    min-height: 70vh;
+  }
+
+  .error-title {
+    margin-bottom: 18px;
+  }
+</style>
+

@@ -20,3 +20,6 @@
 /tools/pdf2text.html/ /tools/pdf2text/ 301
 /tools/multitools.html /tools/multitools/ 301
 /tools/multitools.html/ /tools/multitools/ 301
+
+# Fallback: any unknown path should show our 404 page
+/* /404.html 404

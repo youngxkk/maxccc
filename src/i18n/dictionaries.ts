@@ -1,3 +1,5 @@
+import { legalSharedContent } from "./legal-content";
+
 export const sharedDictionary = {
   "zh-CN": {
     nav_apps: "APP",
@@ -49,7 +51,8 @@ export const sharedDictionary = {
     tool_tag_wordcount: "字数统计",
     tool_tag_text: "文本转换",
     tool_tag_bmi: "健康计算",
-    tool_tag_removebg: "移除背景"
+    tool_tag_removebg: "移除背景",
+    ...legalSharedContent["zh-CN"]
   },
   "zh-TW": {
     nav_apps: "APP",
@@ -101,7 +104,8 @@ export const sharedDictionary = {
     tool_tag_wordcount: "字數統計",
     tool_tag_text: "文本轉換",
     tool_tag_bmi: "健康計算",
-    tool_tag_removebg: "移除背景"
+    tool_tag_removebg: "移除背景",
+    ...legalSharedContent["zh-TW"]
   },
   en: {
     nav_apps: "APP",
@@ -153,7 +157,8 @@ export const sharedDictionary = {
     tool_tag_wordcount: "Words",
     tool_tag_text: "Text",
     tool_tag_bmi: "BMI",
-    tool_tag_removebg: "Remove BG"
+    tool_tag_removebg: "Remove BG",
+    ...legalSharedContent.en
   }
 } as const;
 
