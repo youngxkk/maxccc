@@ -9,6 +9,14 @@ export type AppEntry = {
 
 export const apps: AppEntry[] = [
   {
+    name: "NexPaste",
+    href: "https://apps.apple.com/app/id6761368515",
+    image: "/images/nexpaste-icon.png",
+    imageAlt: "NexPaste App Icon",
+    titleKey: "np_title",
+    descriptionKey: "np_desc"
+  },
+  {
     name: "invsi",
     href: "https://apps.apple.com/app/id6444667120",
     image: "/images/invis.webp",

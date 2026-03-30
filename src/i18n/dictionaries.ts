@@ -1,4 +1,5 @@
 import { legalSharedContent } from "./legal-content";
+import { nexpasteContent } from "./nexpaste-content";
 
 export const sharedDictionary = {
   "zh-CN": {
@@ -52,7 +53,8 @@ export const sharedDictionary = {
     tool_tag_text: "文本转换",
     tool_tag_bmi: "健康计算",
     tool_tag_removebg: "移除背景",
-    ...legalSharedContent["zh-CN"]
+    ...legalSharedContent["zh-CN"],
+    ...nexpasteContent["zh-CN"]
   },
   "zh-TW": {
     nav_apps: "APP",
@@ -105,7 +107,8 @@ export const sharedDictionary = {
     tool_tag_text: "文本轉換",
     tool_tag_bmi: "健康計算",
     tool_tag_removebg: "移除背景",
-    ...legalSharedContent["zh-TW"]
+    ...legalSharedContent["zh-TW"],
+    ...nexpasteContent["zh-TW"]
   },
   en: {
     nav_apps: "APP",
@@ -158,7 +161,8 @@ export const sharedDictionary = {
     tool_tag_text: "Text",
     tool_tag_bmi: "BMI",
     tool_tag_removebg: "Remove BG",
-    ...legalSharedContent.en
+    ...legalSharedContent.en,
+    ...nexpasteContent.en
   }
 } as const;
 
