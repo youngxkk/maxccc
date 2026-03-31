@@ -1,5 +1,6 @@
 export type AppEntry = {
   name: string;
+  slug: string;
   href: string;
   image: string;
   imageAlt: string;
@@ -10,6 +11,7 @@ export type AppEntry = {
 export const apps: AppEntry[] = [
   {
     name: "NexPaste",
+    slug: "nexpaste",
     href: "https://apps.apple.com/app/id6761368515",
     image: "/images/nexpaste-icon.png",
     imageAlt: "NexPaste App Icon",
@@ -18,6 +20,7 @@ export const apps: AppEntry[] = [
   },
   {
     name: "invsi",
+    slug: "invsi",
     href: "https://apps.apple.com/app/id6444667120",
     image: "/images/invis.webp",
     imageAlt: "invsi App Icon",
@@ -25,6 +28,7 @@ export const apps: AppEntry[] = [
   },
   {
     name: "Are You OK",
+    slug: "are-you-ok",
     href: "https://apps.apple.com/app/id6757640166",
     image: "/images/areyouok.jpg",
     imageAlt: "Are You OK App Icon",
@@ -32,6 +36,7 @@ export const apps: AppEntry[] = [
   },
   {
     name: "菠萝英语",
+    slug: "pineapple-english",
     href: "https://apps.apple.com/app/id6451401303",
     image: "/images/pinaappleenglish.webp",
     imageAlt: "菠萝英语 App Icon",
@@ -40,6 +45,7 @@ export const apps: AppEntry[] = [
   },
   {
     name: "精灵壁纸",
+    slug: "pixie-wallpaper",
     href: "https://apps.apple.com/app/id6446266063",
     image: "/images/pixie.webp",
     imageAlt: "精灵壁纸 App Icon",
@@ -48,6 +54,7 @@ export const apps: AppEntry[] = [
   },
   {
     name: "经典扫雷",
+    slug: "classic-minesweeper",
     href: "https://apps.apple.com/app/id6742346503",
     image: "/images/scanboom.webp",
     imageAlt: "经典扫雷 App Icon",
@@ -56,6 +63,7 @@ export const apps: AppEntry[] = [
   },
   {
     name: "草莓日记",
+    slug: "strawberry-diary",
     href: "https://apps.apple.com/app/id6748330094",
     image: "/images/strawberry.webp",
     imageAlt: "草莓日记 App Icon",

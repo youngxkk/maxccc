@@ -574,11 +574,13 @@ nav {
     line-height: 1.45;
     color: var(--text-secondary);
     max-width: 280px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 /* Button inside card */
 .card-btn {
+    position: relative;
+    z-index: 2;
     background: rgba(134, 134, 139, 0.16);
     /* Subtle grey background */
     color: var(--text-secondary);
@@ -589,6 +591,12 @@ nav {
     margin-top: auto;
     margin-bottom: auto;
     transition: all 0.3s var(--transition);
+}
+
+.card-link-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 

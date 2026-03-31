@@ -31,7 +31,8 @@ import { tools } from "../data/tools";
     <div id="apps" class="grid">
       {
         apps.map((app) => (
-          <a href={app.href} target="_blank" rel="noopener noreferrer" class="card fade-up-entry">
+          <div class="card fade-up-entry">
+            <a href={`/${app.slug}`} class="card-link-overlay"></a>
             <div class="app-icon">
               <img src={app.image} alt={app.imageAlt} />
             </div>
@@ -43,8 +44,8 @@ import { tools } from "../data/tools";
               )
             }
             <div class="card-desc" data-i18n={app.descriptionKey}></div>
-            <div class="card-btn" data-i18n="app_store">App Store</div>
-          </a>
+            <a href={app.href} target="_blank" rel="noopener noreferrer" class="card-btn" data-i18n="app_store">App Store</a>
+          </div>
         ))
       }
     </div>

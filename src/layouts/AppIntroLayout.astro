@@ -1,0 +1,157 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import MainNav from "../components/MainNav.astro";
+import MainFooter from "../components/MainFooter.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  name: string;
+  image: string;
+  href: string;
+  titleKey?: string;
+  descriptionKey: string;
+  detailKey?: string;
+};
+
+const { title, description, name, image, href, titleKey, descriptionKey, detailKey } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} includeHomeStyles={true} includeHomeScript={true}>
+  <MainNav showSectionLinks={false} />
+
+  <main class="app-intro-page">
+    <div class="mouse-glow"></div>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <div class="hero-text fade-up-entry">
+          <div class="app-icon-large">
+            <img src={image} alt={name} />
+          </div>
+          {titleKey ? (
+            <h1 data-i18n={titleKey}>{name}</h1>
+          ) : (
+            <h1>{name}</h1>
+          )}
+          <p class="subtitle" data-i18n={descriptionKey}></p>
+          {detailKey && <p class="detail-text" data-i18n={detailKey}></p>}
+          <div class="cta-group">
+            <a href={href} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span data-i18n="app_store">App Store</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <MainFooter />
+
+  <style>
+    .app-intro-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+    }
+
+    .hero-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 120px 0;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .app-icon-large {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 32px;
+      border-radius: 22.37%;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+    }
+
+    .app-icon-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .detail-text {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      opacity: 0.8;
+      margin-bottom: 60px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.12, 0, 0.39, 0);
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background: #0071e3;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0077ed;
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 40px;
+      }
+      .subtitle {
+        font-size: 18px;
+      }
+    }
+  </style>
+</BaseLayout>
