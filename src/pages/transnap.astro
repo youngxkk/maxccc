@@ -1,0 +1,997 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainFooter from "../components/MainFooter.astro";
+import MainNav from "../components/MainNav.astro";
+
+const appStoreUrl = "https://apps.apple.com/app/id6762361410";
+---
+
+<BaseLayout
+  title="Transnap - macOS Menu Bar Translation"
+  description="Transnap is a menu bar translation app for macOS. Copy text, translate quickly, and keep history on your Mac."
+  canonical="https://maxc.cc/transnap/"
+  ogImage="https://maxc.cc/images/transnap-icon.png"
+  includeHomeStyles={true}
+  includeHomeScript={true}
+>
+  <MainNav showSectionLinks={false} />
+
+  <main class="transnap-page" id="top">
+    <div class="mouse-glow"></div>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy fade-up-entry">
+        <img class="hero-icon" src="/images/transnap-icon.png" alt="Transnap App Icon" />
+        <p class="eyebrow" data-i18n="transnap_eyebrow">为 macOS 菜单栏而生</p>
+        <h1 id="hero-title">Transnap</h1>
+        <p class="hero-lede" data-i18n="transnap_hero_lede">复制一下，马上翻译。</p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer" data-i18n="app_store">App Store</a>
+        </div>
+      </div>
+
+      <div class="hero-visual fade-up-entry" aria-label="Transnap interface preview">
+        <div class="mac-window">
+          <div class="window-bar">
+            <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="window-title">Transnap</div>
+          </div>
+          <div class="window-body">
+            <div class="pane">
+              <div class="pane-label">
+                <span data-i18n="transnap_source">原文</span>
+                <span class="language-pill" data-i18n="transnap_auto_detect">自动检测</span>
+              </div>
+              <p class="source-text">Translate without breaking your flow.</p>
+            </div>
+            <div class="pane">
+              <div class="pane-label">
+                <span data-i18n="transnap_translation">译文</span>
+                <span class="language-pill" data-i18n="transnap_chinese">中文</span>
+              </div>
+              <p class="translated-text" data-i18n="transnap_preview_translation">翻译，不打断你的状态。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card">
+          <strong>Shift + Control + T</strong>
+          <span data-i18n="transnap_shortcut_caption">唤起窗口。立即翻译。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gray" id="features">
+      <div class="section-inner">
+        <div class="center-heading fade-up-entry">
+          <h2 data-i18n="transnap_features_title">小到不打扰。</h2>
+          <p class="section-lede" data-i18n="transnap_features_lede">菜单栏里的轻量翻译。</p>
+        </div>
+
+        <div class="feature-showcase">
+          <article class="tile large fade-up-entry">
+            <h3 data-i18n="transnap_feature_copy">复制即翻。</h3>
+            <div class="clipboard-demo" aria-hidden="true">
+              <div class="demo-line"></div>
+              <div class="demo-line"></div>
+              <div class="demo-line"></div>
+            </div>
+          </article>
+
+          <article class="tile dark fade-up-entry">
+            <h3 data-i18n="transnap_feature_shortcut">快捷键唤起。</h3>
+            <div class="shortcut-keys" aria-hidden="true">
+              <span class="key">Shift</span>
+              <span class="key">Control</span>
+              <span class="key">T</span>
+            </div>
+          </article>
+
+          <article class="tile fade-up-entry" id="privacy">
+            <h3 data-i18n="transnap_feature_privacy">历史留在本机。</h3>
+            <div class="privacy-rings" aria-hidden="true">
+              <span class="ring"></span>
+              <span class="ring"></span>
+              <span class="ring">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3 5 6.5V12c0 4.4 2.9 7.2 7 8.5 4.1-1.3 7-4.1 7-8.5V6.5L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                  <path d="m9 12 2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </div>
+          </article>
+
+          <article class="tile large fade-up-entry">
+            <h3 data-i18n="transnap_feature_system">使用 macOS 系统翻译能力。</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="languages">
+      <div class="section-inner language-stage">
+        <div class="language-copy fade-up-entry">
+          <h2 data-i18n="transnap_language_title">只自动识别你的主要语言。</h2>
+          <p data-i18n="transnap_language_desc">选择两种常用语言。其它语言，手动指定。</p>
+        </div>
+
+        <div class="settings-card fade-up-entry" aria-label="Language settings preview">
+          <div class="settings-head">
+            <span data-i18n="transnap_language_setting">自动识别主要语言</span>
+            <span data-i18n="transnap_settings">设置</span>
+          </div>
+          <div class="setting-box">
+            <div class="choice">
+              <small data-i18n="transnap_my_language">我的语言</small>
+              <strong data-i18n="transnap_chinese">中文</strong>
+            </div>
+            <svg class="swap-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 7h10m0 0-3-3m3 3-3 3M17 17H7m0 0 3-3m-3 3 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="choice">
+              <small data-i18n="transnap_common_language">常用互译语言</small>
+              <strong>English</strong>
+            </div>
+          </div>
+          <ul class="manual-list">
+            <li><strong data-i18n="transnap_pair_cn_en">中文 ↔ English</strong><span data-i18n="transnap_auto_detect_short">自动识别</span></li>
+            <li><strong>日本語</strong><span data-i18n="transnap_manual_select">手动选择</span></li>
+            <li><strong>한국어</strong><span data-i18n="transnap_manual_select">手动选择</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <img src="/images/transnap-icon.png" alt="Transnap App Icon" />
+      <h2 data-i18n="transnap_download_title">把翻译放进菜单栏。</h2>
+      <p data-i18n="transnap_download_desc">从 App Store 获取 Transnap，在 macOS 上快速翻译。</p>
+      <div class="download-buttons">
+        <a class="button primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer" data-i18n="app_store">App Store</a>
+        <a class="button secondary" href="/privacy-policy/" data-i18n="privacy_policy">隐私政策</a>
+      </div>
+    </section>
+  </main>
+
+  <MainFooter />
+
+  <style>
+    .transnap-page {
+      color: #1d1d1f;
+      background: #fbfbfd;
+      overflow-x: hidden;
+    }
+
+    :global([data-theme="dark"]) .transnap-page {
+      color: #f5f5f7;
+      background: #000;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      padding: 128px 24px 54px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(0, 113, 227, 0.12), transparent 34%),
+        linear-gradient(180deg, #fff 0%, #fbfbfd 48%, #f5f5f7 100%);
+    }
+
+    :global([data-theme="dark"]) .hero {
+      background:
+        radial-gradient(circle at 50% 18%, rgba(0, 113, 227, 0.2), transparent 34%),
+        linear-gradient(180deg, #09090b 0%, #000 52%, #111113 100%);
+    }
+
+    .hero-copy {
+      width: min(940px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero-icon {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 28px;
+      border-radius: 22px;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.16);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #86868b;
+      font-size: 21px;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    .hero h1,
+    .section h2,
+    .tile h3,
+    .download h2,
+    .transnap-page p {
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 9vw, 112px);
+      line-height: 0.94;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+
+    :global([data-theme="dark"]) .hero h1 {
+      color: #f5f5f7;
+    }
+
+    .hero-lede {
+      max-width: 800px;
+      margin: 22px auto 0;
+      color: #6e6e73;
+      font-size: clamp(23px, 3vw, 32px);
+      line-height: 1.22;
+      font-weight: 600;
+    }
+
+    .hero-actions,
+    .download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      color: #fff;
+      background: #0071e3;
+    }
+
+    .button.primary:hover {
+      background: #0077ed;
+    }
+
+    .button.secondary {
+      color: #0071e3;
+      background: transparent;
+    }
+
+    .hero-visual {
+      position: relative;
+      width: min(780px, 100%);
+      height: 610px;
+      margin: 58px auto 0;
+    }
+
+    .mac-window {
+      position: absolute;
+      inset: 0 0 auto;
+      width: min(620px, 100%);
+      min-height: 540px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 44px 120px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(36px) saturate(180%);
+    }
+
+    :global([data-theme="dark"]) .mac-window {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(28, 28, 30, 0.82);
+    }
+
+    .window-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 44px;
+      padding: 0 18px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(246, 246, 248, 0.72);
+    }
+
+    :global([data-theme="dark"]) .window-bar {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: rgba(44, 44, 46, 0.72);
+    }
+
+    .traffic {
+      display: flex;
+      gap: 8px;
+    }
+
+    .traffic span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .traffic span:nth-child(1) {
+      background: #ff5f57;
+    }
+
+    .traffic span:nth-child(2) {
+      background: #febc2e;
+    }
+
+    .traffic span:nth-child(3) {
+      background: #28c840;
+    }
+
+    .window-title {
+      position: absolute;
+      left: 50%;
+      color: #6e6e73;
+      font-size: 13px;
+      font-weight: 600;
+      transform: translateX(-50%);
+    }
+
+    .window-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pane {
+      min-height: 210px;
+      padding: 32px;
+      text-align: left;
+    }
+
+    .pane:first-child {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="dark"]) .pane:first-child {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .pane-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      color: #86868b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .language-pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #1d1d1f;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="dark"]) .language-pill {
+      color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .source-text,
+    .translated-text {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.14;
+      font-weight: 650;
+    }
+
+    .translated-text {
+      color: #0071e3;
+    }
+
+    .floating-card {
+      position: absolute;
+      right: 0;
+      bottom: 8px;
+      width: min(340px, calc(100% - 36px));
+      padding: 18px 20px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      text-align: left;
+      backdrop-filter: blur(28px) saturate(180%);
+    }
+
+    :global([data-theme="dark"]) .floating-card {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: rgba(28, 28, 30, 0.76);
+    }
+
+    .floating-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+    }
+
+    .floating-card span {
+      color: #6e6e73;
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .section {
+      padding: 120px 24px;
+    }
+
+    .section.white {
+      background: #fff;
+    }
+
+    .section.gray {
+      background: #f5f5f7;
+    }
+
+    :global([data-theme="dark"]) .section.white,
+    :global([data-theme="dark"]) .section.gray {
+      background: #0f0f11;
+    }
+
+    .section-inner {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    .center-heading {
+      max-width: 820px;
+      margin: 0 auto 58px;
+      text-align: center;
+    }
+
+    .section h2,
+    .download h2 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.03;
+      font-weight: 700;
+    }
+
+    .section-lede {
+      margin-top: 18px;
+      color: #6e6e73;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.28;
+      font-weight: 600;
+    }
+
+    .feature-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tile {
+      min-height: 300px;
+      padding: 28px;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="dark"]) .tile {
+      background: #1c1c1e;
+    }
+
+    .tile.large {
+      grid-column: span 2;
+    }
+
+    .tile.dark {
+      color: #f5f5f7;
+      background: #1d1d1f;
+    }
+
+    .tile h3 {
+      max-width: 440px;
+      font-size: 32px;
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    .clipboard-demo {
+      margin-top: 42px;
+      padding: 22px;
+      border-radius: 18px;
+      background: #f5f5f7;
+    }
+
+    :global([data-theme="dark"]) .clipboard-demo {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .demo-line {
+      height: 13px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: #d2d2d7;
+    }
+
+    .demo-line:nth-child(1) {
+      width: 94%;
+    }
+
+    .demo-line:nth-child(2) {
+      width: 78%;
+    }
+
+    .demo-line:nth-child(3) {
+      width: 58%;
+      margin-bottom: 0;
+      background: #0071e3;
+    }
+
+    .shortcut-keys {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 54px;
+    }
+
+    .key {
+      display: grid;
+      min-width: 58px;
+      height: 52px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.08);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .privacy-rings {
+      position: relative;
+      height: 170px;
+      margin-top: 64px;
+    }
+
+    .ring {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      border: 2px solid rgba(0, 113, 227, 0.18);
+      border-radius: 50%;
+    }
+
+    .ring:nth-child(1) {
+      width: 170px;
+      height: 170px;
+    }
+
+    .ring:nth-child(2) {
+      width: 118px;
+      height: 118px;
+    }
+
+    .ring:nth-child(3) {
+      display: grid;
+      width: 66px;
+      height: 66px;
+      place-items: center;
+      color: #fff;
+      background: #0071e3;
+    }
+
+    .language-stage {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .language-copy h2 {
+      font-size: clamp(40px, 5vw, 64px);
+    }
+
+    .language-copy p {
+      margin-top: 18px;
+      color: #6e6e73;
+      font-size: 22px;
+      line-height: 1.33;
+      font-weight: 600;
+    }
+
+    .settings-card {
+      padding: 22px;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="dark"]) .settings-card {
+      background: #1c1c1e;
+    }
+
+    .settings-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 4px 20px;
+      color: #86868b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .setting-box {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 22px;
+      border-radius: 18px;
+      background: #f5f5f7;
+    }
+
+    :global([data-theme="dark"]) .setting-box,
+    :global([data-theme="dark"]) .manual-list li {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .choice small {
+      display: block;
+      margin-bottom: 8px;
+      color: #86868b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .choice strong {
+      font-size: 28px;
+      line-height: 1.05;
+    }
+
+    .swap-icon {
+      color: #0071e3;
+    }
+
+    .manual-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+    }
+
+    .manual-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background: #f5f5f7;
+      list-style: none;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .manual-list span {
+      color: #6e6e73;
+      font-weight: 500;
+    }
+
+    .download {
+      padding: 118px 24px 128px;
+      color: #f5f5f7;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(0, 113, 227, 0.34), transparent 34%),
+        #000;
+    }
+
+    .download img {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 26px;
+      border-radius: 24px;
+    }
+
+    .download h2 {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .download p {
+      max-width: 680px;
+      margin: 18px auto 0;
+      color: #a1a1a6;
+      font-size: 21px;
+      line-height: 1.33;
+      font-weight: 600;
+    }
+
+    .transnap-page {
+      color: #f5f5f7;
+      background: #000;
+    }
+
+    .transnap-page .hero {
+      background:
+        radial-gradient(circle at 50% 18%, rgba(0, 113, 227, 0.2), transparent 34%),
+        linear-gradient(180deg, #09090b 0%, #000 52%, #111113 100%);
+    }
+
+    .transnap-page .hero .fade-up-entry {
+      opacity: 1;
+      transform: none;
+      transition-delay: 0s;
+    }
+
+    .transnap-page .hero h1,
+    .transnap-page .section h2,
+    .transnap-page .tile h3,
+    .transnap-page .language-copy h2,
+    .transnap-page .choice strong,
+    .transnap-page .source-text,
+    .transnap-page .floating-card strong {
+      color: #f5f5f7;
+    }
+
+    .transnap-page .eyebrow,
+    .transnap-page .hero-lede,
+    .transnap-page .section-lede,
+    .transnap-page .language-copy p,
+    .transnap-page .floating-card span,
+    .transnap-page .manual-list span {
+      color: #a1a1a6;
+    }
+
+    .transnap-page .button.secondary,
+    .transnap-page .translated-text,
+    .transnap-page .swap-icon {
+      color: #2997ff;
+    }
+
+    .transnap-page .mac-window,
+    .transnap-page .floating-card,
+    .transnap-page .settings-card {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(28, 28, 30, 0.82);
+      box-shadow: 0 44px 120px rgba(0, 0, 0, 0.34);
+    }
+
+    .transnap-page .window-bar {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: rgba(44, 44, 46, 0.72);
+    }
+
+    .transnap-page .pane:first-child {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .transnap-page .language-pill {
+      color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .transnap-page .section.white {
+      background: #000;
+    }
+
+    .transnap-page .section.gray {
+      background: #0f0f11;
+    }
+
+    .transnap-page .tile {
+      background: #1c1c1e;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .transnap-page .tile.dark {
+      background: #08080a;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .transnap-page .clipboard-demo,
+    .transnap-page .setting-box,
+    .transnap-page .manual-list li {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .transnap-page .demo-line {
+      background: #48484a;
+    }
+
+    .transnap-page .demo-line:nth-child(3) {
+      background: #2997ff;
+    }
+
+    :global([data-theme="light"]) .transnap-page {
+      color: #1d1d1f;
+      background: #fbfbfd;
+    }
+
+    :global([data-theme="light"]) .transnap-page .hero {
+      background:
+        radial-gradient(circle at 50% 18%, rgba(0, 113, 227, 0.12), transparent 34%),
+        linear-gradient(180deg, #fff 0%, #fbfbfd 48%, #f5f5f7 100%);
+    }
+
+    :global([data-theme="light"]) .transnap-page .hero h1,
+    :global([data-theme="light"]) .transnap-page .section h2,
+    :global([data-theme="light"]) .transnap-page .tile h3,
+    :global([data-theme="light"]) .transnap-page .language-copy h2,
+    :global([data-theme="light"]) .transnap-page .choice strong,
+    :global([data-theme="light"]) .transnap-page .source-text,
+    :global([data-theme="light"]) .transnap-page .floating-card strong {
+      color: #1d1d1f;
+    }
+
+    :global([data-theme="light"]) .transnap-page .eyebrow,
+    :global([data-theme="light"]) .transnap-page .hero-lede,
+    :global([data-theme="light"]) .transnap-page .section-lede,
+    :global([data-theme="light"]) .transnap-page .language-copy p,
+    :global([data-theme="light"]) .transnap-page .floating-card span,
+    :global([data-theme="light"]) .transnap-page .manual-list span {
+      color: #6e6e73;
+    }
+
+    :global([data-theme="light"]) .transnap-page .button.secondary,
+    :global([data-theme="light"]) .transnap-page .translated-text,
+    :global([data-theme="light"]) .transnap-page .swap-icon {
+      color: #0071e3;
+    }
+
+    :global([data-theme="light"]) .transnap-page .mac-window,
+    :global([data-theme="light"]) .transnap-page .floating-card,
+    :global([data-theme="light"]) .transnap-page .settings-card {
+      border-color: rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 44px 120px rgba(0, 0, 0, 0.18);
+    }
+
+    :global([data-theme="light"]) .transnap-page .window-bar {
+      border-color: rgba(0, 0, 0, 0.08);
+      background: rgba(246, 246, 248, 0.72);
+    }
+
+    :global([data-theme="light"]) .transnap-page .pane:first-child {
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :global([data-theme="light"]) .transnap-page .language-pill {
+      color: #1d1d1f;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    :global([data-theme="light"]) .transnap-page .section.white {
+      background: #fff;
+    }
+
+    :global([data-theme="light"]) .transnap-page .section.gray {
+      background: #f5f5f7;
+    }
+
+    :global([data-theme="light"]) .transnap-page .tile {
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .transnap-page .tile.dark {
+      color: #f5f5f7;
+      background: #1d1d1f;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    :global([data-theme="light"]) .transnap-page .tile.dark h3 {
+      color: #f5f5f7;
+    }
+
+    :global([data-theme="light"]) .transnap-page .clipboard-demo,
+    :global([data-theme="light"]) .transnap-page .setting-box,
+    :global([data-theme="light"]) .transnap-page .manual-list li {
+      background: #f5f5f7;
+    }
+
+    :global([data-theme="light"]) .transnap-page .demo-line {
+      background: #d2d2d7;
+    }
+
+    :global([data-theme="light"]) .transnap-page .demo-line:nth-child(3) {
+      background: #0071e3;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        height: auto;
+        margin-top: 44px;
+      }
+
+      .mac-window,
+      .floating-card {
+        position: relative;
+      }
+
+      .mac-window {
+        min-height: 0;
+      }
+
+      .pane {
+        min-height: auto;
+        padding: 26px;
+      }
+
+      .floating-card {
+        right: auto;
+        bottom: auto;
+        margin: 18px auto 0;
+      }
+
+      .feature-showcase,
+      .language-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .tile.large {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 102px 18px 40px;
+      }
+
+      .hero-icon {
+        width: 76px;
+        height: 76px;
+        border-radius: 18px;
+      }
+
+      .eyebrow {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 82px 18px;
+      }
+
+      .center-heading {
+        margin-bottom: 34px;
+      }
+
+      .tile {
+        min-height: 0;
+        padding: 24px;
+        border-radius: 22px;
+      }
+
+      .tile h3 {
+        font-size: 28px;
+      }
+
+      .setting-box {
+        grid-template-columns: 1fr;
+      }
+
+      .swap-icon {
+        justify-self: center;
+        transform: rotate(90deg);
+      }
+
+      .download {
+        padding: 88px 18px 96px;
+      }
+    }
+  </style>
+</BaseLayout>

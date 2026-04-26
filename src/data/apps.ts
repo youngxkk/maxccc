@@ -10,6 +10,14 @@ export type AppEntry = {
 
 export const apps: AppEntry[] = [
   {
+    name: "Transnap",
+    slug: "transnap",
+    href: "https://apps.apple.com/app/id6762361410",
+    image: "/images/transnap-icon.png",
+    imageAlt: "Transnap App Icon",
+    descriptionKey: "transnap_desc"
+  },
+  {
     name: "NexPaste",
     slug: "nexpaste",
     href: "https://apps.apple.com/app/id6761368515",
