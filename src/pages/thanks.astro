@@ -1,0 +1,541 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainFooter from "../components/MainFooter.astro";
+import MainNav from "../components/MainNav.astro";
+
+type ThanksPerson = {
+  id: string;
+  name: string;
+  contribution: {
+    label: string;
+    value?: string;
+    caption?: string;
+    text: string;
+  };
+  photo?: {
+    src: string;
+    srcset?: string;
+    sizes?: string;
+    alt: string;
+  };
+  wish?: {
+    label: string;
+    title: string;
+    text: string;
+  };
+  letter?: {
+    label: string;
+    title: string;
+    salutation: string;
+    paragraphs: string[];
+    signature: string;
+  };
+};
+
+// 后续需要感谢其他人时，只需在这里新增一项；照片、祝福和信件均可省略。
+const thanksPeople: ThanksPerson[] = [
+  {
+    id: "lusha",
+    name: "Lusha",
+    contribution: {
+      label: "图片贡献",
+      value: "200+",
+      caption: "个单词的精美图片",
+      text: "超级感谢热心网友 Lusha 提供这些精美图片，为英语启蒙增添了更多美好与想象。🙌💖"
+    },
+    photo: {
+      src: "/images/thanks-lusha.jpg",
+      srcset: "/images/thanks-lusha-640.jpg 640w, /images/thanks-lusha.jpg 1024w",
+      sizes: "(max-width: 419px) 80px, (max-width: 640px) 96px, (max-width: 1068px) 104px, 112px",
+      alt: "致谢页面照片"
+    },
+    wish: {
+      label: "暖心祝福",
+      title: "愿每一天，\n都闪闪发光。",
+      text: "祝 Lusha 和 Lusha 的宝贝女儿每天都开开心心、快快乐乐，闪闪发光！🌟👨‍👩‍👧"
+    },
+    letter: {
+      label: "写给 Melody",
+      title: "一份四岁的礼物。",
+      salutation: "亲爱的 Melody 公主👸：",
+      paragraphs: [
+        "这是送给你四岁的礼物🎁——一份小小的英语启蒙。你像一段美妙的旋律，轻轻流进我的生活，让每个角落都明亮且有声。你的笑容是最动听的和弦，你的好奇心是最美的节拍🎵。",
+        "感谢你让我的日子如此丰盛。愿你在未来的每一步，都幸福、坚韧、快乐地成长🩷。"
+      ],
+      signature: "爱你的 Lusha 妈咪"
+    }
+  }
+];
+---
+
+<BaseLayout
+  title="Thanks - DoCool"
+  description="感谢每一位给予 DoCool 帮助、支持与善意的朋友。"
+  canonical="https://maxc.cc/thanks"
+  includeHomeStyles={true}
+  includeHomeScript={true}
+>
+  <MainNav showSectionLinks={false} />
+
+  <main class="thanks-page">
+    <section class="thanks-hero">
+      <div class="hero-inner">
+        <p class="section-label">With gratitude</p>
+        <h1>Thanks<span>.</span></h1>
+        <p class="hero-lede">感谢每一份善意，<br />也珍藏每一句温暖的祝福。</p>
+      </div>
+    </section>
+
+    {
+      thanksPeople.map((person, index) => (
+        <article class="thanks-person fade-up-entry" aria-labelledby={`${person.id}-name`}>
+          <header class="person-header">
+            <div class="person-heading">
+              <p class="section-label">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                特别感谢
+              </p>
+              <h2 id={`${person.id}-name`}>{person.name}</h2>
+              <p class="person-role">{person.contribution.label}</p>
+            </div>
+            {person.photo && (
+              <figure class="portrait">
+                <img
+                  src={person.photo.src}
+                  srcset={person.photo.srcset}
+                  sizes={person.photo.sizes}
+                  width="1024"
+                  height="1024"
+                  alt={person.photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            )}
+          </header>
+
+          <div class:list={["person-body", { "without-letter": !person.letter }]}>
+            <div class="person-overview">
+              <div class:list={["person-contribution", { "has-details": person.wish }]}>
+                <div>
+                  {person.contribution.value && (
+                    <p class="stat">
+                      {person.contribution.value.replace("+", "")}
+                      {person.contribution.value.includes("+") && <span>+</span>}
+                    </p>
+                  )}
+                  {person.contribution.caption && <p class="stat-label">{person.contribution.caption}</p>}
+                </div>
+                <p class="body-copy">{person.contribution.text}</p>
+              </div>
+
+              {person.wish && (
+                <div class="wish-block">
+                  <p class="section-label">{person.wish.label}</p>
+                  <h3>
+                    {person.wish.title.split("\n").map((line, lineIndex, lines) => (
+                      <>{line}{lineIndex < lines.length - 1 && <br />}</>
+                    ))}
+                  </h3>
+                  <p class="wish-copy">{person.wish.text}</p>
+                </div>
+              )}
+            </div>
+
+            {person.letter && (
+              <div class="person-letter">
+                <p class="section-label">{person.letter.label}</p>
+                <h3>{person.letter.title}</h3>
+                <blockquote>
+                  <p class="salutation">{person.letter.salutation}</p>
+                  {person.letter.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                  <cite>{person.letter.signature}</cite>
+                </blockquote>
+              </div>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </main>
+
+  <MainFooter />
+
+  <style>
+    .thanks-page {
+      --page-canvas: #000;
+      --page-surface: #161617;
+      --page-ink: #f5f5f7;
+      --page-muted: #a1a1a6;
+      --page-accent: #2997ff;
+      --page-hairline: rgba(255, 255, 255, 0.1);
+      color: var(--page-ink);
+      background: var(--page-canvas);
+      overflow: hidden;
+    }
+
+    :global([data-theme="light"]) .thanks-page {
+      --page-canvas: #fff;
+      --page-surface: #f5f5f7;
+      --page-ink: #1d1d1f;
+      --page-muted: #6e6e73;
+      --page-accent: #0066cc;
+      --page-hairline: rgba(0, 0, 0, 0.08);
+    }
+
+    .section-label {
+      font-family: "SF Pro Text", system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: -0.014em;
+      text-transform: uppercase;
+      color: var(--page-accent);
+    }
+
+    .section-label span {
+      margin-right: 12px;
+    }
+
+    .thanks-hero {
+      min-height: 82svh;
+      padding: 148px 24px 96px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero-inner {
+      animation: heroEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .thanks-hero h1 {
+      margin: 20px 0 30px;
+      font-family: "SF Pro Display", system-ui, -apple-system, sans-serif;
+      font-size: clamp(72px, 9vw, 112px);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: -0.055em;
+    }
+
+    .thanks-hero h1 span {
+      color: var(--page-accent);
+    }
+
+    .hero-lede {
+      font-family: "SF Pro Display", system-ui, -apple-system, sans-serif;
+      font-size: clamp(21px, 2.1vw, 28px);
+      line-height: 1.42;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      color: var(--page-muted);
+    }
+
+    .thanks-person {
+      width: min(100% - 48px, 1080px);
+      margin: 0 auto 48px;
+      padding: clamp(36px, 4vw, 48px);
+      border-radius: 18px;
+      background: var(--page-surface);
+    }
+
+    .thanks-person:last-child {
+      margin-bottom: 144px;
+    }
+
+    .person-header {
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    .person-role {
+      margin-top: 14px;
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--page-muted);
+    }
+
+    .person-heading h2,
+    .wish-block h3,
+    .person-letter h3 {
+      margin: 0;
+      font-family: "SF Pro Display", system-ui, -apple-system, sans-serif;
+      font-size: 48px;
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+    }
+
+    .person-heading h2 {
+      margin-top: 18px;
+      font-size: 48px;
+    }
+
+    .person-body {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .person-body.without-letter {
+      grid-template-columns: 1fr;
+    }
+
+    .person-contribution.has-details {
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--page-hairline);
+    }
+
+    .stat {
+      margin: -8px 0 0;
+      font-family: "SF Pro Display", system-ui, -apple-system, sans-serif;
+      font-size: 72px;
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: -0.06em;
+    }
+
+    .stat span {
+      font-size: 0.48em;
+      color: var(--page-accent);
+    }
+
+    .stat-label {
+      margin: 12px 0 18px;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.018em;
+    }
+
+    .body-copy,
+    .wish-copy {
+      max-width: 560px;
+      font-family: "SF Pro Text", system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+      color: var(--page-muted);
+    }
+
+    .portrait {
+      width: 112px;
+      flex: 0 0 auto;
+      aspect-ratio: 1;
+      margin: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.22) 3px 5px 30px;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .wish-block {
+      padding-top: 28px;
+    }
+
+    .wish-block h3 {
+      margin: 16px 0 18px;
+      font-size: 30px;
+    }
+
+    .person-letter {
+      padding-left: 48px;
+      border-left: 1px solid var(--page-hairline);
+    }
+
+    .person-letter h3 {
+      margin: 16px 0 28px;
+      font-size: 32px;
+    }
+
+    blockquote {
+      margin: 0;
+    }
+
+    blockquote p {
+      margin: 0 0 16px;
+      font-family: "SF Pro Text", system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+      color: var(--page-muted);
+    }
+
+    blockquote .salutation {
+      font-weight: 600;
+      color: var(--page-ink);
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 24px;
+      font-size: 14px;
+      line-height: 1.47;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: -0.022em;
+      color: var(--page-ink);
+    }
+
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1068px) {
+      .thanks-hero h1 {
+        font-size: 80px;
+      }
+
+      .stat {
+        font-size: 64px;
+      }
+
+      .portrait {
+        width: 104px;
+      }
+    }
+
+    @media (max-width: 833px) {
+      .thanks-hero {
+        min-height: 70svh;
+      }
+
+      .thanks-person {
+        padding: 40px;
+      }
+
+      .person-body {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .body-copy,
+      .wish-copy {
+        max-width: 640px;
+      }
+
+      .person-letter {
+        padding: 32px 0 0;
+        border-top: 1px solid var(--page-hairline);
+        border-left: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .thanks-hero {
+        min-height: 560px;
+        padding: 120px 20px 72px;
+      }
+
+      .thanks-hero h1 {
+        margin: 18px 0 24px;
+        font-size: 56px;
+      }
+
+      .hero-lede {
+        font-size: 19px;
+      }
+
+      .thanks-person {
+        width: min(100% - 32px, 1080px);
+        margin-bottom: 24px;
+        padding: 24px;
+      }
+
+      .thanks-person:last-child {
+        margin-bottom: 80px;
+      }
+
+      .person-header {
+        margin-bottom: 32px;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .person-heading h2 {
+        margin-top: 16px;
+        font-size: 40px;
+      }
+
+      .portrait {
+        width: 96px;
+        border-radius: 14px;
+      }
+
+      .person-contribution.has-details {
+        padding-bottom: 24px;
+      }
+
+      .stat {
+        font-size: 64px;
+      }
+
+      .stat-label {
+        margin: 14px 0 0;
+        font-size: 19px;
+      }
+
+      .wish-block {
+        padding-top: 24px;
+      }
+
+      .wish-block h3,
+      .person-letter h3 {
+        font-size: 30px;
+      }
+
+      .person-letter {
+        padding-top: 28px;
+      }
+
+      blockquote p {
+        margin-bottom: 14px;
+        font-size: 16px;
+        line-height: 1.62;
+      }
+
+      blockquote cite {
+        margin-top: 36px;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 419px) {
+      .thanks-hero h1 {
+        font-size: 48px;
+      }
+
+      .portrait {
+        width: 80px;
+      }
+
+      .person-header {
+        gap: 18px;
+      }
+
+      .person-heading h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</BaseLayout>
