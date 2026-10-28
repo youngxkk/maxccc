@@ -1,13 +1,315 @@
 ---
-import AppIntroLayout from "../layouts/AppIntroLayout.astro";
+import ProductDetails from "../components/ProductDetails.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainNav from "../components/MainNav.astro";
+import MainFooter from "../components/MainFooter.astro";
+import IPhoneFrame from "../components/mock/IPhoneFrame.astro";
+import StoreButton from "../components/mock/StoreButton.astro";
+import { pt } from "../i18n/product-pages";
+import "../styles/product.css";
+
+const appStoreUrl = "https://apps.apple.com/app/id6757640166";
+// The app ships in Simplified Chinese and English, so Traditional Chinese visitors see the Chinese screens.
+const shots = "/images/screens/ok";
+const shotLangs: ("zh-CN" | "en")[] = ["zh-CN", "en"];
+const intervals = [12, 16, 24, 48, 72];
 ---
 
-<AppIntroLayout
-  title="Are You OK - Loneliness Buster"
-  description="Anti-loneliness tool for living alone"
-  name="Are You OK"
-  image="/images/areyouok.jpg"
-  href="https://apps.apple.com/app/id6757640166"
-  descriptionKey="app2_desc"
-  detailKey="app2_detail"
-/>
+<BaseLayout
+  title="Are You OK - Daily Check-in for People Living Alone"
+  description="Check in once a day. If you miss it, Are You OK emails your emergency contact automatically."
+  canonical="https://maxc.cc/are-you-ok"
+  ogImage="https://maxc.cc/images/areyouok.jpg"
+  includeHomeStyles={true}
+  includeHomeScript={true}
+>
+  <MainNav showSectionLinks={false} />
+
+  <main class="pp ayok">
+    <section class="pp-hero">
+      <img class="pp-hero-icon" src="/images/areyouok.jpg" alt="Are You OK App Icon" />
+      <p class="pp-kicker" data-i18n="ok_eyebrow">{pt("ok_eyebrow")}</p>
+      <h1>Are You OK</h1>
+      <p class="pp-tagline" data-i18n="ok_lede">{pt("ok_lede")}</p>
+      <div class="pp-actions">
+        <StoreButton href={appStoreUrl} />
+        <a class="pp-link" href="#how" data-i18n="pp_learn">{pt("pp_learn")}</a>
+      </div>
+      <div class="pp-fan-crop">
+        <div class="pp-fan">
+          <IPhoneFrame label="Are You OK emergency contact" shot={`${shots}-contact`} shotLangs={shotLangs} eager />
+          <IPhoneFrame label="Are You OK check-in screen" shot={`${shots}-home`} shotLangs={shotLangs} eager />
+          <IPhoneFrame label="Are You OK settings" shot={`${shots}-settings`} shotLangs={shotLangs} eager />
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section" id="how">
+      <div class="pp-inner">
+        <div class="pp-heading">
+          <p class="pp-kicker" data-i18n="ok_flow_kicker">{pt("ok_flow_kicker")}</p>
+          <h2 data-i18n="ok_flow_title">{pt("ok_flow_title")}</h2>
+        </div>
+        <div class="pp-bento">
+          <article class="pp-cell w-4 short">
+            <span class="ok-step">1</span>
+            <h3 data-i18n="ok_flow1_title">{pt("ok_flow1_title")}</h3>
+            <p data-i18n="ok_flow1_desc">{pt("ok_flow1_desc")}</p>
+          </article>
+          <article class="pp-cell w-4 short">
+            <span class="ok-step">2</span>
+            <h3 data-i18n="ok_flow2_title">{pt("ok_flow2_title")}</h3>
+            <p data-i18n="ok_flow2_desc">{pt("ok_flow2_desc")}</p>
+          </article>
+          <article class="pp-cell w-4 short">
+            <span class="ok-step">3</span>
+            <h3 data-i18n="ok_flow3_title">{pt("ok_flow3_title")}</h3>
+            <p data-i18n="ok_flow3_desc">{pt("ok_flow3_desc")}</p>
+          </article>
+
+          <article class="pp-cell w-7">
+            <h3 data-i18n="ok_time_title">{pt("ok_time_title")}</h3>
+            <p data-i18n="ok_time_desc">{pt("ok_time_desc")}</p>
+            <div class="ok-intervals" aria-hidden="true">
+              {intervals.map((hours) => <span class:list={{ on: hours === 24 }}>{hours}h</span>)}
+            </div>
+            <div class="ok-lock" aria-label="Reminder notification preview">
+              <span class="ok-lock-time">9:41</span>
+              <div class="ok-notify">
+                <img src="/images/areyouok.jpg" alt="" />
+                <div>
+                  <div class="ok-notify-top"><b>Are You OK</b><small>now</small></div>
+                  <strong data-i18n="ok_notify_title">{pt("ok_notify_title")}</strong>
+                  <p data-i18n="ok_notify_body">{pt("ok_notify_body")}</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="pp-cell w-5">
+            <p class="pp-kicker" data-i18n="ok_screens_kicker">{pt("ok_screens_kicker")}</p>
+            <h3 data-i18n="ok_screens_title">{pt("ok_screens_title")}</h3>
+            <p data-i18n="ok_screens_desc">{pt("ok_screens_desc")}</p>
+            <div class="pp-peek">
+              <IPhoneFrame label="Are You OK settings" shot={`${shots}-settings`} shotLangs={shotLangs} />
+            </div>
+          </article>
+
+          <article class="pp-cell w-12 short ok-mail-cell">
+            <div>
+              <h3 data-i18n="ok_mail_title">{pt("ok_mail_title")}</h3>
+              <p data-i18n="ok_mail_desc">{pt("ok_mail_desc")}</p>
+            </div>
+            <div class="ok-mail" aria-label="Alert email preview">
+              <div class="ok-mail-meta">
+                <span><b>From</b> Are You OK</span>
+                <span><b>To</b> friend@example.com</span>
+              </div>
+              <p data-i18n="ok_ui_body">{pt("ok_ui_body")}</p>
+            </div>
+          </article>
+        </div>
+        <p class="pp-note" data-i18n="ok_note">{pt("ok_note")}</p>
+      </div>
+    </section>
+
+    <section class="pp-download">
+      <img src="/images/areyouok.jpg" alt="Are You OK App Icon" />
+      <h2 data-i18n="ok_download_title">{pt("ok_download_title")}</h2>
+      <p data-i18n="ok_download_desc">{pt("ok_download_desc")}</p>
+      <div class="pp-actions">
+        <StoreButton href={appStoreUrl} />
+        <a class="pp-link" href="/privacy-policy/" data-i18n="privacy_policy">隐私政策</a>
+      </div>
+    </section>
+    <ProductDetails slug="are-you-ok" />
+  </main>
+
+  <MainFooter />
+
+  <style>
+    .ayok {
+      --pp-bg: #e9eef2;
+      --pp-bg-alt: #e2e9ed;
+      --pp-fg: #15201b;
+      --pp-muted: #5c6a65;
+      --pp-card: rgba(255, 255, 255, 0.62);
+      --pp-card-alt: rgba(255, 255, 255, 0.62);
+      --pp-line: rgba(21, 32, 27, 0.08);
+      --pp-accent: #23905e;
+      --pp-store-bg: #23905e;
+      --pp-store-fg: #fff;
+      --pp-heading-weight: 800;
+      --pp-hero-bg:
+        radial-gradient(ellipse 50% 40% at 50% 70%, rgba(46, 160, 120, 0.32), transparent 70%),
+        #e9eef2;
+      background:
+        radial-gradient(circle at 85% 40%, rgba(46, 160, 120, 0.12), transparent 30%),
+        radial-gradient(circle at 10% 75%, rgba(46, 160, 120, 0.1), transparent 30%),
+        #e9eef2;
+    }
+
+    .ayok h1 {
+      font-family: "Arial Black", "Helvetica Neue", sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    .ayok .pp-download {
+      background: transparent;
+    }
+
+    .ayok .pp-cell {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 24px 60px -30px rgba(30, 80, 60, 0.28);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    }
+
+    .ok-step {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: linear-gradient(150deg, #27996a, #3aa680);
+      color: #fff;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .ok-intervals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .ok-intervals span {
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .ok-intervals span.on {
+      background: #23905e;
+      color: #fff;
+    }
+
+    .ok-lock {
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      gap: 18px;
+      flex: 1;
+      margin: 32px -44px 0;
+      padding: 30px 28px 40px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(120, 200, 170, 0.5), transparent 50%),
+        linear-gradient(170deg, #3d6a5c, #1d3a34 60%, #10221f);
+    }
+
+    .ok-lock-time {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .ok-notify {
+      display: flex;
+      gap: 12px;
+      width: min(400px, 100%);
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: #111;
+      text-align: left;
+    }
+
+    .ok-notify img {
+      flex: 0 0 38px;
+      height: 38px;
+      border-radius: 9px;
+    }
+
+    .ok-notify div {
+      flex: 1;
+      display: grid;
+      gap: 2px;
+    }
+
+    .ok-notify-top {
+      display: flex !important;
+      justify-content: space-between;
+      color: #6e6e73;
+      font-size: 12px;
+    }
+
+    .ok-notify strong {
+      font-size: 15px;
+    }
+
+    .ok-notify p {
+      margin: 0 !important;
+      color: #111 !important;
+      font-size: 14px !important;
+      line-height: 1.35 !important;
+    }
+
+    .ok-mail-cell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: 40px;
+    }
+
+    .ok-mail {
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.25);
+    }
+
+    .ok-mail-meta {
+      display: grid;
+      gap: 4px;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      color: #6e6e73;
+      font-size: 14px;
+    }
+
+    .ok-mail-meta b {
+      display: inline-block;
+      width: 44px;
+      color: #1d1d1f;
+      font-weight: 600;
+    }
+
+    .ok-mail p {
+      margin: 0 !important;
+      padding: 20px;
+      color: #1d1d1f !important;
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+    }
+
+    @media (max-width: 960px) {
+      .ok-mail-cell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .ok-lock {
+        margin: 28px -26px 0;
+      }
+    }
+  </style>
+</BaseLayout>

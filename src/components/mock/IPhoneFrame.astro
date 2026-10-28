@@ -1,0 +1,209 @@
+---
+// Phone-shaped frame: the screen at the exact iPhone 17 Pro screenshot ratio (1206 × 2622),
+// a thick rounded stroke for the body and a Dynamic Island on top.
+// Pass `shot` (e.g. "/images/screens/pe-home") to show a real screenshot per site language,
+// or put HTML in the default slot for a rebuilt screen.
+type Lang = "zh-CN" | "zh-TW" | "en";
+type Props = {
+  time?: string;
+  dark?: boolean;
+  stroke?: "black" | "white";
+  class?: string;
+  label?: string;
+  shot?: string;
+  // Languages the screenshot exists in; missing ones fall back to zh-CN.
+  shotLangs?: Lang[];
+  eager?: boolean;
+};
+
+const {
+  time = "9:41",
+  dark = false,
+  stroke = "black",
+  class: className = "",
+  label,
+  shot,
+  shotLangs = ["zh-CN", "zh-TW", "en"],
+  eager = false
+} = Astro.props;
+const shotSources = (["zh-CN", "zh-TW", "en"] as const).map((lang) => ({
+  lang,
+  src: `${shot}-${shotLangs.includes(lang) ? lang : "zh-CN"}.webp`
+}));
+---
+
+<div
+  class:list={["iphone", `iphone-stroke-${stroke}`, { "iphone-dark": dark }, className]}
+  role={label ? "img" : undefined}
+  aria-label={label}
+>
+  <div class="iphone-screen">
+    {
+      shot ? (
+        shotSources.map(({ lang, src }) => (
+          <img
+            class:list={["iphone-shot", `shot-${lang}`]}
+            src={src}
+            alt=""
+            width="600"
+            height="1305"
+            loading={eager ? "eager" : "lazy"}
+            decoding="async"
+          />
+        ))
+      ) : (
+        <>
+          <div class="iphone-status" aria-hidden="true">
+            <span class="iphone-time">{time}</span>
+            <span class="iphone-indicators">
+              <svg viewBox="0 0 18 12" width="16" height="10"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5.5" width="3" height="6.5" rx="1" /><rect x="10" y="3" width="3" height="9" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" /></svg>
+              <svg viewBox="0 0 16 12" width="14" height="10"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0L8 11.5Zm-4.2-4.3L2.3 5.7a8 8 0 0 1 11.4 0l-1.5 1.5a5.9 5.9 0 0 0-8.4 0ZM.6 4 0 3.4a11.3 11.3 0 0 1 16 0l-.6.6-.9.9a10 10 0 0 0-13 0L.6 4Z" /></svg>
+              <span class="iphone-battery"><span></span></span>
+            </span>
+          </div>
+          <div class="iphone-content">
+            <slot />
+          </div>
+          <span class="iphone-home" aria-hidden="true"></span>
+        </>
+      )
+    }
+    <span class="iphone-island" aria-hidden="true"></span>
+  </div>
+</div>
+
+<style>
+  .iphone {
+    --phone-w: 300px;
+    --phone-fg: #000;
+    --phone-bg: #f2f2f7;
+    --stroke: calc(var(--phone-w) * 0.034);
+    --screen-radius: calc(var(--phone-w) * 0.125);
+    position: relative;
+    width: var(--phone-w);
+    flex-shrink: 0;
+    padding: var(--stroke);
+    border-radius: calc(var(--screen-radius) + var(--stroke));
+    background: #0b0b0c;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+      0 2px 4px rgba(0, 0, 0, 0.12),
+      0 30px 60px -18px rgba(0, 0, 0, 0.35);
+  }
+
+  .iphone-stroke-white {
+    background: #fafafa;
+    box-shadow:
+      inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+      0 2px 4px rgba(0, 0, 0, 0.06),
+      0 30px 60px -18px rgba(0, 0, 0, 0.22);
+  }
+
+  .iphone-dark {
+    --phone-fg: #fff;
+    --phone-bg: #000;
+  }
+
+  .iphone-screen {
+    position: relative;
+    aspect-ratio: 1206 / 2622;
+    overflow: hidden;
+    border-radius: var(--screen-radius);
+    background: var(--phone-bg);
+    color: var(--phone-fg);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.25;
+    font-family: -apple-system, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+  }
+
+  .iphone-island {
+    position: absolute;
+    left: 50%;
+    top: calc(var(--phone-w) * 0.03);
+    z-index: 6;
+    width: 29%;
+    height: calc(var(--phone-w) * 0.085);
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: #000;
+  }
+
+  .iphone-status {
+    position: relative;
+    z-index: 5;
+    flex: 0 0 auto;
+    height: calc(var(--phone-w) * 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 calc(var(--phone-w) * 0.085) 0 calc(var(--phone-w) * 0.11);
+    font-size: calc(var(--phone-w) * 0.047);
+    font-weight: 600;
+  }
+
+  .iphone-indicators {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .iphone-indicators svg {
+    fill: currentColor;
+  }
+
+  .iphone-battery {
+    position: relative;
+    width: 22px;
+    height: 10px;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    opacity: 0.9;
+  }
+
+  .iphone-battery span {
+    position: absolute;
+    inset: 1.5px;
+    right: 3px;
+    border-radius: 1.5px;
+    background: currentColor;
+  }
+
+  .iphone-content {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .iphone-home {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--phone-w) * 0.022);
+    z-index: 6;
+    width: 36%;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: var(--phone-fg);
+    opacity: 0.85;
+  }
+
+  .iphone-shot {
+    position: absolute;
+    inset: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  :global(:root[lang="zh-CN"]) .shot-zh-CN,
+  :global(:root[lang="zh-TW"]) .shot-zh-TW,
+  :global(:root[lang^="en"]) .shot-en {
+    display: block;
+  }
+</style>

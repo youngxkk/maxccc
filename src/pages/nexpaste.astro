@@ -5,8 +5,8 @@ import MainNav from "../components/MainNav.astro";
 ---
 
 <BaseLayout
-  title="NexPaste - 为 macOS 打造的高性能剪贴板管家"
-  description="NexPaste 是专为 macOS 打造的高级剪贴板管理器，支持文本、图片、文件历史、快速搜索、迷你面板、标签和本地隐私保护。"
+  title="NexPaste - Mac 与 iPhone 上的剪贴板管家"
+  description="NexPaste 是为 Mac 打造的原生剪贴板管理器，现已推出 iPhone 和 iPad 版。支持文本、图片、文件历史，快速搜索、迷你面板、标签与收藏，默认本地保存，Pro 可通过 iCloud 在设备间同步。"
   canonical="https://maxc.cc/nexpaste/"
   ogImage="https://maxc.cc/images/nexpaste-icon.png"
   includeHomeStyles={true}
@@ -25,103 +25,9 @@ import MainNav from "../components/MainNav.astro";
               <a class="primary-link" href="https://apps.apple.com/app/id6761368515" data-i18n="np_landing_app_store">App Store</a>
             </div>
 
-            <div class="hero-stage reveal" aria-label="NexPaste 界面预览">
-              <div class="mac-window">
-                <div class="real-panel">
-                  <div class="real-controls">
-                    <button class="real-search" type="button" aria-label="搜索">⌕</button>
-                    <div class="real-chips" aria-label="类型和标签筛选">
-                  <span class="real-chip active" data-i18n="np_landing_chip_all">全部</span>
-                  <span class="real-chip cyan" data-i18n="np_landing_chip_text">文本</span>
-                  <span class="real-chip green" data-i18n="np_landing_chip_images">图片</span>
-                  <span class="real-chip orange" data-i18n="np_landing_chip_files">文件</span>
-                  <span class="real-chip pink" data-i18n="np_landing_chip_favorites">已收藏</span>
-                  <span class="real-chip purple" data-i18n="np_landing_tag_work"># 工作</span>
-                  <span class="real-chip teal" data-i18n="np_landing_tag_common"># 常用</span>
-                  <span class="real-chip neutral">＋</span>
-                    </div>
-                  </div>
-                  <div class="horizontal-shell">
-                    <div class="horizontal-track">
-                      <article class="real-card selected">
-                        <span class="quick-badge">⌘1</span>
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot"></span><span>Safari</span></div>
-                          <span class="time" data-i18n="np_landing_time_now">刚刚</span>
-                        </div>
-                        <h2 class="real-title" data-i18n="np_landing_card_title">NexPaste 产品介绍页文案</h2>
-                        <p class="real-text" data-i18n="np_landing_card_desc">复制过的段落、代码、邮箱、回复模板，都会按时间排好。单击复制，回车使用。</p>
-                        <div class="real-tags"><span class="real-tag" data-i18n="np_landing_tag_work"># 工作</span><span class="real-tag" data-i18n="np_landing_tag_copy"># 文案</span></div>
-                      </article>
-                      <article class="real-card image" aria-label="图片剪贴板卡片">
-                      </article>
-                      <article class="real-card">
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot green"></span><span>Messages</span></div>
-                          <span class="time" data-i18n="np_landing_time_2m">2 分钟前</span>
-                        </div>
-                        <h2 class="real-title" data-i18n="np_landing_code_title">验证码 482917</h2>
-                        <p class="real-text" data-i18n="np_landing_code_desc">短文本、链接和账号信息，也能快速找回。</p>
-                      </article>
-                      <article class="real-card">
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot pink"></span><span>Xcode</span></div>
-                          <span class="time" data-i18n="np_landing_time_8m">8 分钟前</span>
-                        </div>
-                        <h2 class="real-title">ClipboardStore.swift</h2>
-                        <p class="real-text">let sourceItems = filteredItems<br>viewModel.selectedHistoryItemID = item.id</p>
-                        <div class="real-tags"><span class="real-tag" data-i18n="np_landing_tag_code"># 代码</span></div>
-                      </article>
-                      <article class="real-card">
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot orange"></span><span>Finder</span></div>
-                          <span class="time" data-i18n="np_landing_time_12m">12 分钟前</span>
-                        </div>
-                        <h2 class="real-title">Presentation.key</h2>
-                        <p class="real-text" data-i18n="np_landing_file_desc">文件引用也会保留，随时重新复制。</p>
-                      </article>
-                      <article class="real-card selected" aria-hidden="true">
-                        <span class="quick-badge">⌘1</span>
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot"></span><span>Safari</span></div>
-                          <span class="time" data-i18n="np_landing_time_now">刚刚</span>
-                        </div>
-                        <h2 class="real-title" data-i18n="np_landing_card_title">NexPaste 产品介绍页文案</h2>
-                        <p class="real-text" data-i18n="np_landing_card_desc">复制过的段落、代码、邮箱、回复模板，都会按时间排好。单击复制，回车使用。</p>
-                        <div class="real-tags"><span class="real-tag" data-i18n="np_landing_tag_work"># 工作</span><span class="real-tag" data-i18n="np_landing_tag_copy"># 文案</span></div>
-                      </article>
-                      <article class="real-card image" aria-hidden="true"></article>
-                      <article class="real-card" aria-hidden="true">
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot green"></span><span>Messages</span></div>
-                          <span class="time" data-i18n="np_landing_time_2m">2 分钟前</span>
-                        </div>
-                        <h2 class="real-title" data-i18n="np_landing_code_title">验证码 482917</h2>
-                        <p class="real-text" data-i18n="np_landing_code_desc">短文本、链接和账号信息，也能快速找回。</p>
-                      </article>
-                      <article class="real-card" aria-hidden="true">
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot pink"></span><span>Xcode</span></div>
-                          <span class="time" data-i18n="np_landing_time_8m">8 分钟前</span>
-                        </div>
-                        <h2 class="real-title">ClipboardStore.swift</h2>
-                        <p class="real-text">let sourceItems = filteredItems<br>viewModel.selectedHistoryItemID = item.id</p>
-                        <div class="real-tags"><span class="real-tag" data-i18n="np_landing_tag_code"># 代码</span></div>
-                      </article>
-                      <article class="real-card" aria-hidden="true">
-                        <div class="card-head">
-                          <div class="source"><span class="app-dot orange"></span><span>Finder</span></div>
-                          <span class="time" data-i18n="np_landing_time_12m">12 分钟前</span>
-                        </div>
-                        <h2 class="real-title">Presentation.key</h2>
-                        <p class="real-text" data-i18n="np_landing_file_desc">文件引用也会保留，随时重新复制。</p>
-                      </article>
-                    </div>
-                    <div class="scroll-hint" aria-hidden="true"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <figure class="store-hero reveal">
+              <img src="/images/nexpaste/mac-overview.png" width="2880" height="1800" alt="NexPaste Mac 商店图：剪贴板历史与分类面板" fetchpriority="high" decoding="async">
+            </figure>
           </div>
         </header>
 
@@ -216,6 +122,35 @@ import MainNav from "../components/MainNav.astro";
           </div>
         </section>
 
+        <section id="iphone">
+          <div class="section-inner">
+            <p class="section-kicker reveal" data-i18n="np_landing_mobile_kicker">现在也在 iPhone 上</p>
+            <h2 class="section-title reveal" data-i18n="np_landing_mobile_title">在 Mac 上复制的，iPhone 上也找得到。</h2>
+            <p class="section-lead reveal" data-i18n="np_landing_mobile_lead">iPhone 和 iPad 版用卡片展示历史，支持搜索和收藏。</p>
+
+            <div class="feature-band split reveal">
+              <div class="split-text">
+                <h3 data-i18n="np_landing_mobile_card_title">一键存下剪贴板。</h3>
+                <p data-i18n="np_landing_mobile_card_desc">轻点底部的粘贴按钮，就能保存剪贴板里的文字、链接和图片；桌面小组件也能快速保存。长按卡片即可复制、收藏或删除。</p>
+              </div>
+              <div class="store-phone">
+                <img src="/images/nexpaste/iphone-history.jpeg" width="1206" height="2622" alt="NexPaste iPhone 商店图：保存复制历史，需要时轻松找到" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="store-gallery" aria-label="NexPaste 收藏与多设备同步">
+          <div class="section-inner store-gallery-grid">
+            <figure>
+              <img src="/images/nexpaste/iphone-favorites.jpeg" width="1206" height="2622" alt="NexPaste 中文商店图：收藏常用地址、电话、句子和链接" loading="lazy" decoding="async">
+            </figure>
+            <figure>
+              <img src="/images/nexpaste/icloud-devices.jpeg" width="1206" height="2622" alt="NexPaste 中文商店图：通过 iCloud 在 Mac、iPhone 和 iPad 间同步" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </section>
+
         <section class="pro" aria-label="高级能力">
           <div class="section-inner">
             <p class="section-kicker reveal" data-i18n="np_landing_pro_kicker">为长期使用打磨</p>
@@ -259,6 +194,19 @@ import MainNav from "../components/MainNav.astro";
   <MainFooter />
 
   <style>
+    .store-hero { margin: 52px auto 0; max-width: 1120px; }
+    .store-hero img { width: 100%; height: auto; border-radius: 22px; box-shadow: 0 24px 70px #142c4926; }
+    .store-phone { width: min(100%, 360px); margin: 0 auto; }
+    .store-phone img { width: 100%; height: auto; border-radius: 24px; }
+    .store-gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 900px; }
+    .store-gallery figure { margin: 0; }
+    .store-gallery img { width: 100%; height: auto; border-radius: 24px; }
+    @media (max-width: 600px) {
+      .store-hero { margin-top: 32px; }
+      .store-hero img { border-radius: 12px; }
+      .store-gallery-grid { grid-template-columns: 1fr; max-width: 420px; gap: 24px; }
+    }
+
     .nexpaste-landing-page {
           color-scheme: light;
           --bg: #f5f5f7;
@@ -402,297 +350,6 @@ import MainNav from "../components/MainNav.astro";
           margin: 0 auto;
           min-height: 360px;
           perspective: 1600px;
-        }
-
-        .mac-window {
-          position: relative;
-          overflow: hidden;
-          width: min(1120px, calc(100vw - 34px));
-          margin: 0 auto;
-          border: 1px solid rgba(0, 0, 0, 0.12);
-          border-radius: 24px;
-          background: rgba(250, 250, 252, 0.78);
-          box-shadow: var(--shadow);
-          backdrop-filter: blur(28px) saturate(160%);
-          -webkit-backdrop-filter: blur(28px) saturate(160%);
-          transform: rotateX(3deg);
-        }
-
-        .real-panel {
-          padding: 14px;
-          min-height: 330px;
-        }
-
-        .real-controls {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
-          margin-bottom: 14px;
-        }
-
-        .real-search {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 36px;
-          height: 36px;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 11px;
-          background: rgba(255, 255, 255, 0.74);
-          color: var(--muted);
-          font-size: 20px;
-          font-weight: 700;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
-          flex: 0 0 auto;
-          appearance: none;
-          -webkit-appearance: none;
-          cursor: default;
-        }
-
-        .real-chips {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 8px;
-          flex: 0 1 auto;
-        }
-
-        .real-chip {
-          --chip-bg: rgba(110, 110, 115, 0.13);
-          --chip-fg: #2c2c2e;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          min-height: 32px;
-          padding: 0 11px;
-          border-radius: 999px;
-          background: var(--chip-bg);
-          color: var(--chip-fg);
-          font-size: 12px;
-          font-weight: 650;
-          white-space: nowrap;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32);
-        }
-
-        .real-chip.active {
-          --chip-bg: var(--blue);
-          --chip-fg: #fff;
-        }
-
-        .real-chip.cyan {
-          --chip-bg: #d7f4ff;
-          --chip-fg: #005f78;
-        }
-
-        .real-chip.green {
-          --chip-bg: #d9f8e1;
-          --chip-fg: #07501f;
-        }
-
-        .real-chip.orange {
-          --chip-bg: #ffe3b3;
-          --chip-fg: #6d4100;
-        }
-
-        .real-chip.pink {
-          --chip-bg: #ffdbe4;
-          --chip-fg: #9c0b2f;
-        }
-
-        .real-chip.purple {
-          --chip-bg: #e9ddff;
-          --chip-fg: #4d31b8;
-        }
-
-        .real-chip.teal {
-          --chip-bg: #d6f7f1;
-          --chip-fg: #00685c;
-        }
-
-        .real-chip.neutral {
-          --chip-bg: rgba(60, 60, 67, 0.12);
-          --chip-fg: #3a3a3c;
-        }
-
-        .horizontal-shell {
-          position: relative;
-          overflow: hidden;
-          min-height: 258px;
-          border-radius: 20px;
-        }
-
-        .horizontal-track {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          width: max-content;
-          padding: 2px 12px 22px 0;
-          transform: translateX(0);
-          animation: marqueeScroll 22s linear infinite;
-        }
-
-        .horizontal-shell::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          width: 82px;
-          pointer-events: none;
-          background: linear-gradient(90deg, rgba(250, 250, 252, 0), rgba(250, 250, 252, 0.94));
-        }
-
-        .scroll-hint {
-          position: absolute;
-          left: 50%;
-          bottom: 2px;
-          width: 112px;
-          height: 4px;
-          border-radius: 999px;
-          background: rgba(60, 60, 67, 0.14);
-          transform: translateX(-50%);
-          overflow: hidden;
-        }
-
-        .scroll-hint::after {
-          content: "";
-          display: block;
-          width: 42px;
-          height: 100%;
-          border-radius: inherit;
-          background: rgba(60, 60, 67, 0.34);
-          animation: scrollThumb 22s linear infinite;
-        }
-
-        .real-card {
-          position: relative;
-          flex: 0 0 240px;
-          overflow: hidden;
-          width: 240px;
-          height: 240px;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 18px;
-          background: rgba(255, 255, 255, 0.86);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-          padding: 11px;
-          transition: transform 220ms ease, box-shadow 220ms ease;
-        }
-
-        .real-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
-        }
-
-        .real-card.selected {
-          box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.86), 0 14px 34px rgba(0, 0, 0, 0.10);
-        }
-
-        .real-card.image {
-          height: 240px;
-          padding: 0;
-          background: linear-gradient(135deg, #dff3ff 0%, #92c6ff 45%, #f8d6e5 100%);
-        }
-
-        .real-card.image::before {
-          content: "";
-          position: absolute;
-          left: 24px;
-          right: 24px;
-          bottom: 28px;
-          height: 96px;
-          border-radius: 18px;
-          background:
-            radial-gradient(circle at 76% 22%, #fff 0 16px, transparent 17px),
-            linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.20));
-          box-shadow: 0 18px 44px rgba(57, 94, 144, 0.20);
-        }
-
-        .card-head {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-          margin-bottom: 8px;
-        }
-
-        .source {
-          display: flex;
-          align-items: center;
-          gap: 7px;
-          min-width: 0;
-          color: var(--muted);
-          font-size: 11px;
-          font-weight: 650;
-        }
-
-        .app-dot {
-          width: 16px;
-          height: 16px;
-          border-radius: 4px;
-          background: linear-gradient(135deg, var(--blue), var(--cyan));
-          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.50);
-          flex: 0 0 auto;
-        }
-
-        .app-dot.green { background: linear-gradient(135deg, #34c759, #8fdc52); }
-        .app-dot.orange { background: linear-gradient(135deg, #ff9f0a, #ffd60a); }
-        .app-dot.pink { background: linear-gradient(135deg, #ff375f, #ff9fba); }
-
-        .time {
-          color: #9a9aa0;
-          font-size: 11px;
-          font-weight: 600;
-          white-space: nowrap;
-        }
-
-        .real-title {
-          margin: 0 0 6px;
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 1.22;
-        }
-
-        .real-text {
-          margin: 0;
-          color: var(--muted);
-          font-size: 12px;
-          line-height: 1.34;
-          display: -webkit-box;
-          -webkit-line-clamp: 7;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
-        .real-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-          margin-top: 10px;
-        }
-
-        .real-tag {
-          padding: 3px 7px;
-          border-radius: 999px;
-          background: rgba(0, 113, 227, 0.10);
-          color: var(--blue);
-          font-size: 10px;
-          font-weight: 700;
-        }
-
-        .quick-badge {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          min-width: 34px;
-          min-height: 24px;
-          padding: 4px 7px;
-          border-radius: 999px;
-          color: #fff;
-          background: rgba(0, 113, 227, 0.92);
-          font-size: 11px;
-          font-weight: 800;
-          text-align: center;
         }
 
         section {
@@ -1072,13 +729,6 @@ import MainNav from "../components/MainNav.astro";
             linear-gradient(180deg, #101014 0%, var(--bg) 24rem);
         }
 
-        .nexpaste-landing-page .mac-window {
-          border-color: rgba(255, 255, 255, 0.14);
-          background: rgba(22, 22, 24, 0.82);
-        }
-
-        .nexpaste-landing-page .real-search,
-        .nexpaste-landing-page .real-card,
         .nexpaste-landing-page .feature-band,
         .nexpaste-landing-page .tile,
         .nexpaste-landing-page .pro-item {
@@ -1087,71 +737,8 @@ import MainNav from "../components/MainNav.astro";
           box-shadow: 0 16px 46px rgba(0, 0, 0, 0.24);
         }
 
-        .nexpaste-landing-page .real-card.selected {
-          box-shadow: 0 0 0 2px rgba(41, 151, 255, 0.86), 0 18px 46px rgba(0, 0, 0, 0.32);
-        }
-
-        .nexpaste-landing-page .real-chip {
-          --chip-bg: rgba(255, 255, 255, 0.10);
-          --chip-fg: #f5f5f7;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        }
-
-        .nexpaste-landing-page .real-chip.active {
-          --chip-bg: linear-gradient(135deg, #0a84ff, #5e9dff);
-          --chip-fg: #fff;
-        }
-
-        .nexpaste-landing-page .real-chip.cyan {
-          --chip-bg: rgba(100, 210, 255, 0.26);
-          --chip-fg: #c8f2ff;
-        }
-
-        .nexpaste-landing-page .real-chip.green {
-          --chip-bg: rgba(48, 209, 88, 0.25);
-          --chip-fg: #c9fbd5;
-        }
-
-        .nexpaste-landing-page .real-chip.orange {
-          --chip-bg: rgba(255, 159, 10, 0.28);
-          --chip-fg: #ffdca3;
-        }
-
-        .nexpaste-landing-page .real-chip.pink {
-          --chip-bg: rgba(255, 55, 95, 0.25);
-          --chip-fg: #ffd0da;
-        }
-
-        .nexpaste-landing-page .real-chip.purple {
-          --chip-bg: rgba(191, 142, 255, 0.25);
-          --chip-fg: #ead8ff;
-        }
-
-        .nexpaste-landing-page .real-chip.teal {
-          --chip-bg: rgba(99, 230, 205, 0.25);
-          --chip-fg: #c9fff5;
-        }
-
-        .nexpaste-landing-page .real-chip.neutral {
-          --chip-bg: rgba(255, 255, 255, 0.12);
-          --chip-fg: #e5e5ea;
-        }
-
-        .nexpaste-landing-page .horizontal-shell::after {
-          background: linear-gradient(90deg, rgba(22, 22, 24, 0), rgba(22, 22, 24, 0.94));
-        }
-
-        .nexpaste-landing-page .scroll-hint {
-          background: rgba(255, 255, 255, 0.14);
-        }
-
-        .nexpaste-landing-page .scroll-hint::after {
-          background: rgba(255, 255, 255, 0.34);
-        }
-
         .nexpaste-landing-page .secondary-link,
-        .nexpaste-landing-page .tag,
-        .nexpaste-landing-page .real-tag {
+        .nexpaste-landing-page .tag {
           color: var(--blue);
           background: rgba(41, 151, 255, 0.16);
         }
@@ -1187,16 +774,6 @@ import MainNav from "../components/MainNav.astro";
           background: rgba(255, 255, 255, 0.18);
         }
 
-        .nexpaste-landing-page .real-card.image {
-          background: linear-gradient(135deg, #0b3550 0%, #1f6aa8 45%, #61314a 100%);
-        }
-
-        .nexpaste-landing-page .real-card.image::before {
-          background:
-            radial-gradient(circle at 76% 22%, rgba(255, 255, 255, 0.92) 0 16px, transparent 17px),
-            linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.12));
-        }
-
         :global([data-theme="light"]) .nexpaste-landing-page {
           color-scheme: light;
           --bg: #f5f5f7;
@@ -1217,13 +794,6 @@ import MainNav from "../components/MainNav.astro";
             linear-gradient(180deg, #fff 0%, var(--bg) 24rem);
         }
 
-        :global([data-theme="light"]) .nexpaste-landing-page .mac-window {
-          border-color: rgba(0, 0, 0, 0.12);
-          background: rgba(250, 250, 252, 0.78);
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-search,
-        :global([data-theme="light"]) .nexpaste-landing-page .real-card,
         :global([data-theme="light"]) .nexpaste-landing-page .feature-band,
         :global([data-theme="light"]) .nexpaste-landing-page .tile,
         :global([data-theme="light"]) .nexpaste-landing-page .pro-item {
@@ -1242,71 +812,8 @@ import MainNav from "../components/MainNav.astro";
           background: rgba(255, 255, 255, 0.82);
         }
 
-        :global([data-theme="light"]) .nexpaste-landing-page .real-card.selected {
-          box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.86), 0 14px 34px rgba(0, 0, 0, 0.10);
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip {
-          --chip-bg: rgba(110, 110, 115, 0.13);
-          --chip-fg: #2c2c2e;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32);
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.active {
-          --chip-bg: var(--blue);
-          --chip-fg: #fff;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.cyan {
-          --chip-bg: #d7f4ff;
-          --chip-fg: #005f78;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.green {
-          --chip-bg: #d9f8e1;
-          --chip-fg: #07501f;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.orange {
-          --chip-bg: #ffe3b3;
-          --chip-fg: #6d4100;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.pink {
-          --chip-bg: #ffdbe4;
-          --chip-fg: #9c0b2f;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.purple {
-          --chip-bg: #e9ddff;
-          --chip-fg: #4d31b8;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.teal {
-          --chip-bg: #d6f7f1;
-          --chip-fg: #00685c;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .real-chip.neutral {
-          --chip-bg: rgba(60, 60, 67, 0.12);
-          --chip-fg: #3a3a3c;
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .horizontal-shell::after {
-          background: linear-gradient(90deg, rgba(250, 250, 252, 0), rgba(250, 250, 252, 0.94));
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .scroll-hint {
-          background: rgba(60, 60, 67, 0.14);
-        }
-
-        :global([data-theme="light"]) .nexpaste-landing-page .scroll-hint::after {
-          background: rgba(60, 60, 67, 0.34);
-        }
-
         :global([data-theme="light"]) .nexpaste-landing-page .secondary-link,
-        :global([data-theme="light"]) .nexpaste-landing-page .tag,
-        :global([data-theme="light"]) .nexpaste-landing-page .real-tag {
+        :global([data-theme="light"]) .nexpaste-landing-page .tag {
           color: var(--blue);
           background: rgba(0, 113, 227, 0.10);
         }
@@ -1345,14 +852,458 @@ import MainNav from "../components/MainNav.astro";
           background: rgba(60, 60, 67, 0.10);
         }
 
-        :global([data-theme="light"]) .nexpaste-landing-page .real-card.image {
-          background: linear-gradient(135deg, #dff3ff 0%, #92c6ff 45%, #f8d6e5 100%);
+
+        /* Liquid-glass mockups of the current Mac center panel and the iPhone app */
+        .hero-stage {
+          padding-bottom: 40px;
         }
 
-        :global([data-theme="light"]) .nexpaste-landing-page .real-card.image::before {
+        .np-desk {
+          position: relative;
+          width: min(1080px, calc(100vw - 34px));
+          margin: 0 auto;
+          padding: 48px 56px 64px;
+          overflow: hidden;
+          border-radius: 28px;
           background:
-            radial-gradient(circle at 76% 22%, #fff 0 16px, transparent 17px),
-            linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.20));
+            radial-gradient(ellipse at 20% 0%, #ffb3c7 0%, transparent 45%),
+            radial-gradient(ellipse at 85% 20%, #9ec5ff 0%, transparent 45%),
+            radial-gradient(ellipse at 60% 100%, #b8f0d8 0%, transparent 50%),
+            linear-gradient(135deg, #f4d6ff, #c8dcff 55%, #d8fff0);
+          box-shadow: var(--shadow);
+        }
+
+        :global(:root:not([data-theme="light"])) .np-desk {
+          background:
+            radial-gradient(ellipse at 20% 0%, #5b2a6e 0%, transparent 45%),
+            radial-gradient(ellipse at 85% 20%, #1d4a8f 0%, transparent 45%),
+            radial-gradient(ellipse at 60% 100%, #12524a 0%, transparent 50%),
+            linear-gradient(135deg, #1a1030, #0c1a33 55%, #08201c);
+        }
+
+        .np-menubar {
+          position: absolute;
+          inset: 0 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 26px;
+          padding: 0 16px;
+          background: rgba(255, 255, 255, 0.28);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          color: rgba(0, 0, 0, 0.75);
+          font-size: 12px;
+        }
+
+        :global(:root:not([data-theme="light"])) .np-menubar {
+          background: rgba(0, 0, 0, 0.28);
+          color: rgba(255, 255, 255, 0.85);
+        }
+
+        .np-apple {
+          width: 11px;
+          height: 13px;
+          border-radius: 50% 50% 45% 45%;
+          background: currentColor;
+        }
+
+        .np-menubar-right {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .np-menubar-right i {
+          width: 13px;
+          height: 10px;
+          border: 1.5px solid currentColor;
+          border-radius: 3px;
+          opacity: 0.8;
+        }
+
+        .np-menubar-right i.np-status-icon {
+          border-color: var(--blue);
+          background: var(--blue);
+          opacity: 1;
+        }
+
+        .np-panel {
+          position: relative;
+          padding: 14px;
+          border-radius: 26px;
+          background: rgba(255, 255, 255, 0.42);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.85),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+            0 30px 80px rgba(30, 40, 80, 0.25);
+          backdrop-filter: blur(30px) saturate(180%);
+          -webkit-backdrop-filter: blur(30px) saturate(180%);
+          text-align: left;
+        }
+
+        :global(:root:not([data-theme="light"])) .np-panel {
+          background: rgba(30, 30, 34, 0.45);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.18),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+            0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .np-controls {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 14px;
+        }
+
+        .np-search,
+        .np-chip.plus {
+          display: grid;
+          place-items: center;
+          flex: 0 0 30px;
+          width: 30px;
+          height: 30px;
+          padding: 0;
+          border-radius: 50%;
+        }
+
+        .np-chips {
+          flex: 1;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        .np-search,
+        .np-chip {
+          background: rgba(255, 255, 255, 0.55);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.06);
+          color: #1d1d1f;
+        }
+
+        :global(:root:not([data-theme="light"])) .np-search,
+        :global(:root:not([data-theme="light"])) .np-chip {
+          background: rgba(255, 255, 255, 0.1);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+          color: #f5f5f7;
+        }
+
+        .np-chip {
+          display: inline-flex;
+          align-items: center;
+          height: 30px;
+          padding: 0 13px;
+          border-radius: 999px;
+          font-family: ui-rounded, "SF Pro Rounded", -apple-system, sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+        }
+
+        .np-chip.active {
+          background: var(--blue);
+          color: #fff;
+        }
+
+        .np-chip.tag {
+          color: #7c4dff;
+        }
+
+        .np-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .np-card {
+          position: relative;
+          aspect-ratio: 4 / 3;
+          padding: 12px 13px;
+          overflow: hidden;
+          border-radius: 18px;
+          background-color: rgba(255, 255, 255, 0.8);
+          color: #1d1d1f;
+          font-family: ui-rounded, "SF Pro Rounded", -apple-system, "PingFang SC", sans-serif;
+        }
+
+        :global(:root:not([data-theme="light"])) .np-card {
+          background-color: rgba(44, 44, 48, 0.55);
+          color: #f5f5f7;
+        }
+
+        .np-card p {
+          display: -webkit-box;
+          margin: 0;
+          overflow: hidden;
+          font-size: 13px;
+          line-height: 1.45;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+        }
+
+        .np-card.selected {
+          box-shadow: 0 0 0 2px var(--blue);
+        }
+
+        .np-card.code p {
+          font-family: ui-monospace, Menlo, monospace;
+          font-size: 11.5px;
+        }
+
+        .np-card.big p {
+          font-size: 30px;
+          font-weight: 600;
+          letter-spacing: 2px;
+        }
+
+        .np-card.image {
+          padding: 0;
+          background-image:
+            radial-gradient(circle at 72% 28%, #fff6c9 0 12%, transparent 13%),
+            linear-gradient(180deg, #7cc4ff 0%, #b7e0ff 45%, #ffd2a8 70%, #f59f7a 100%);
+        }
+
+        .np-card.image.second {
+          background-image:
+            radial-gradient(ellipse at 30% 80%, #2f8f5b 0 30%, transparent 31%),
+            linear-gradient(160deg, #d6f5e3, #8fd6b0 60%, #3f9f78);
+        }
+
+        .np-card.file {
+          display: grid;
+          place-items: center;
+          align-content: center;
+          gap: 8px;
+          text-align: center;
+        }
+
+        .np-file-icon {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 52px;
+          border-radius: 8px;
+          background: linear-gradient(#ffb340, #ff8a00);
+          color: #fff;
+          font-size: 11px;
+          font-weight: 800;
+        }
+
+        .np-card.file p {
+          font-size: 12px;
+        }
+
+        .np-key {
+          position: absolute;
+          left: 50%;
+          bottom: 8px;
+          padding: 2px 8px;
+          transform: translateX(-50%);
+          border-radius: 999px;
+          background: rgba(0, 0, 0, 0.45);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          color: #fff;
+          font-size: 10.5px;
+          font-weight: 700;
+        }
+
+        .hero-stage :global(.np-hero-phone) {
+          --phone-w: 220px;
+          position: absolute;
+          right: max(8px, calc(50% - 590px));
+          bottom: -10px;
+          z-index: 3;
+        }
+
+        .np-phone-stage {
+          display: grid;
+          place-items: center;
+          padding: 32px 0;
+        }
+
+        .np-ios {
+          position: relative;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+          padding: 0 12px;
+          overflow: hidden;
+          background: #f6f6f6;
+          color: #000;
+          text-align: left;
+        }
+
+        .np-ios-title {
+          margin: 2px 0 2px;
+          font-size: 14px;
+          font-weight: 700;
+          text-align: center;
+        }
+
+        .np-ios-search {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          height: 32px;
+          padding: 0 12px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+          color: #8e8e93;
+          font-size: 13px;
+        }
+
+        .np-ios-search svg {
+          color: #000;
+        }
+
+        .np-ios-card {
+          display: -webkit-box;
+          padding: 11px 12px;
+          overflow: hidden;
+          border-radius: 14px;
+          background: #fff;
+          font-size: 12.5px;
+          line-height: 1.4;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          max-height: calc(12.5px * 1.4 * 2 + 22px);
+        }
+
+        .np-ios-card.image {
+          height: 70px;
+          background:
+            radial-gradient(circle at 72% 28%, #fff6c9 0 12%, transparent 13%),
+            linear-gradient(180deg, #7cc4ff 0%, #b7e0ff 45%, #ffd2a8 70%, #f59f7a 100%);
+        }
+
+        .np-ios-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 9px;
+        }
+
+        .np-ios-grid .np-ios-card {
+          height: 92px;
+          max-height: none;
+          -webkit-line-clamp: 4;
+        }
+
+        .np-ios-grid .np-ios-card.image {
+          height: 92px;
+        }
+
+        .np-ios-grid .np-ios-card:first-child {
+          box-shadow: 0 0 0 2px #0a84ff;
+          transform: scale(1.03);
+        }
+
+        .np-ios-menu {
+          position: absolute;
+          top: 190px;
+          left: 12px;
+          z-index: 2;
+          width: 150px;
+          padding: 4px 0;
+          border-radius: 16px;
+          background: rgba(250, 250, 252, 0.82);
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+        }
+
+        .np-ios-menu span {
+          display: block;
+          padding: 9px 14px;
+          font-size: 12.5px;
+        }
+
+        .np-ios-menu span + span {
+          border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .np-ios-menu .danger {
+          color: #ff3b30;
+        }
+
+        .np-ios-tabbar {
+          position: absolute;
+          left: 50%;
+          bottom: 18px;
+          display: flex;
+          gap: 2px;
+          padding: 4px;
+          transform: translateX(-50%);
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.75);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 #fff;
+          backdrop-filter: blur(20px) saturate(1.6);
+          -webkit-backdrop-filter: blur(20px) saturate(1.6);
+        }
+
+        .np-ios-tabbar span {
+          display: grid;
+          justify-items: center;
+          gap: 2px;
+          width: 60px;
+          padding: 5px 0 4px;
+          border-radius: 999px;
+          color: #111;
+        }
+
+        .np-ios-tabbar span.active {
+          background: rgba(0, 0, 0, 0.07);
+          color: #0a84ff;
+        }
+
+        .np-ios-tabbar b {
+          font-size: 9.5px;
+          font-weight: 600;
+        }
+
+        .np-ios-tabbar i {
+          width: 16px;
+          height: 16px;
+          border: 2px solid currentColor;
+          border-radius: 50%;
+        }
+
+        .np-ios-tabbar i.dashed {
+          border-style: dashed;
+        }
+
+        .np-ios-tabbar i.dot {
+          box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 8px currentColor;
+        }
+
+        .np-ios-tabbar i.gear {
+          border-style: dotted;
+          border-width: 3px;
+        }
+
+        @media (max-width: 900px) {
+          .np-desk {
+            padding: 40px 14px 24px;
+          }
+
+          .np-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .np-grid .np-card:nth-child(n + 5) {
+            display: none;
+          }
+
+          .np-controls .np-chip:nth-child(n + 4) {
+            display: none;
+          }
+
+          .hero-stage :global(.np-hero-phone) {
+            display: none;
+          }
         }
 
         .reveal {
@@ -1403,22 +1354,6 @@ import MainNav from "../components/MainNav.astro";
             padding-top: 92px;
           }
 
-          .real-controls {
-            display: grid;
-          }
-
-          .real-search {
-            width: 100%;
-          }
-
-          .horizontal-shell {
-            overflow-x: auto;
-          }
-
-          .horizontal-track {
-            animation: none;
-          }
-
           .split,
           .pro-card {
             grid-template-columns: 1fr;
@@ -1462,10 +1397,6 @@ import MainNav from "../components/MainNav.astro";
             width: min(280px, 100%);
           }
 
-          .mac-window {
-            border-radius: 20px;
-          }
-
           .split-text,
           .tile,
           .pro-item {
@@ -1495,20 +1426,5 @@ import MainNav from "../components/MainNav.astro";
           observer.observe(node);
         });
 
-        const stage = document.querySelector(".hero-stage");
-        const windowMock = document.querySelector(".mac-window");
-
-        if (stage && windowMock && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          stage.addEventListener("pointermove", (event) => {
-            const rect = stage.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width - 0.5;
-            const y = (event.clientY - rect.top) / rect.height - 0.5;
-            windowMock.style.transform = `rotateX(${3 - y * 4}deg) rotateY(${x * 5}deg) translateY(-2px)`;
-          });
-
-          stage.addEventListener("pointerleave", () => {
-            windowMock.style.transform = "rotateX(3deg) rotateY(0deg) translateY(0)";
-          });
-        }
   </script>
 </BaseLayout>

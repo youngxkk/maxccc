@@ -1,14 +1,182 @@
 ---
-import AppIntroLayout from "../layouts/AppIntroLayout.astro";
+import ProductDetails from "../components/ProductDetails.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainNav from "../components/MainNav.astro";
+import MainFooter from "../components/MainFooter.astro";
+import StoreButton from "../components/mock/StoreButton.astro";
+import "../styles/product.css";
+const appStoreUrl = "https://apps.apple.com/app/id6451401303";
+const assets = "/images/pineapple";
+const steps = [
+  { n: "01", title: "看一看", text: "从好看的插画开始，认识身边的英语。", icon: "✿" },
+  { n: "02", title: "听一听", text: "点点单词卡，听听它的英式与美式发音。", icon: "♫" },
+  { n: "03", title: "玩一玩", text: "听音选图、单词连连看，让学过的词再见一面。", icon: "★" },
+];
 ---
 
-<AppIntroLayout
-  title="Pineapple English"
-  description="Lighting the lamp of children's English enlightenment"
-  name="菠萝英语"
-  image="/images/pinaappleenglish.webp"
-  href="https://apps.apple.com/app/id6451401303"
-  titleKey="app3_title"
-  descriptionKey="app3_desc"
-  detailKey="app3_detail"
-/>
+<BaseLayout title="菠萝英语 · 把英语启蒙，变成一场小冒险" description="为 3–10 岁孩子准备的英语单词乐园。3000+ 配图单词、50+ 生活主题，搭配英美发音、听音选图和单词连连看，在探索与游戏中认识英语。" canonical="https://maxc.cc/pineapple-english/" ogImage="https://maxc.cc/images/pinaappleenglish.webp" includeHomeStyles={true} includeHomeScript={true}>
+  <MainNav showSectionLinks={false} />
+  <main class="pine-garden">
+    <section class="garden-hero">
+      <div class="hero-copy">
+        <div class="brand"><img src="/images/pinaappleenglish.webp" alt="菠萝英语图标" width="62" height="62" /><span>菠萝英语<small>PINEAPPLE ENGLISH</small></span></div>
+        <p class="eyebrow"><span></span> 给 3–10 岁孩子的英语小乐园</p>
+        <h1>把英语启蒙，<br />变成一场<span class="adventure">小冒险<svg viewBox="0 0 320 20" aria-hidden="true"><path d="M6 13Q155 -5 313 11" /></svg></span>。</h1>
+        <p class="intro">认识一只小狮子，发现一颗甜草莓。<br />从孩子喜欢的世界出发，让每个单词都变得有趣。</p>
+        <div class="actions"><StoreButton href={appStoreUrl} /><a class="explore" href="#explore">逛逛单词乐园 <span>↓</span></a></div>
+        <p class="hero-note">iPhone · iPad <span>✦</span> 看图认识单词，听音探索世界</p>
+      </div>
+      <div class="hero-art">
+        <span class="sticker sticker-top">Hello, little explorer! <span>✦</span></span>
+        <div class="art-board"><img src={`${assets}/mascot.webp`} alt="菠萝英语原版单词插画合集：动物、水果、颜色和生活场景" width="1500" height="1500" fetchpriority="high" /></div>
+        <span class="sticker sticker-bottom">每一张，都是一个新发现！</span>
+        <span class="hero-star" aria-hidden="true">✳</span>
+      </div>
+    </section>
+
+    <div class="garden-stats" aria-label="内容一览">
+      <div><strong>3000<span>+</span></strong><p>配图单词，等着被发现</p></div>
+      <span class="stat-flower" aria-hidden="true">✿</span>
+      <div><strong>50<span>+</span></strong><p>从生活出发的兴趣主题</p></div>
+      <span class="stat-flower" aria-hidden="true">✿</span>
+      <div><strong>听 · 看 · 玩</strong><p>换个方式，和单词交朋友</p></div>
+    </div>
+
+    <section id="explore" class="garden-section">
+      <div class="section-heading"><p class="eyebrow">LET CURIOSITY LEAD THE WAY</p><h2>好奇心，是最好的起点<span>✦</span></h2><p>从熟悉的动物、水果和玩具开始，一点点打开更大的世界。</p></div>
+      <div class="discovery-grid">
+        <article class="discovery-card yellow"><div class="card-copy"><span class="pill">01 / 看图认单词</span><h3>每个单词，<br />都有一张好看的画。</h3><p>生动的插画，配上中文释义与音标。<br />轻点卡片，听听这个新朋友的名字。</p></div><img src={`${assets}/words.webp`} alt="3000+ 儿童英语单词商店图，展示水果单词卡与插画" width="1000" height="2164" loading="lazy" /></article>
+        <article class="discovery-card green"><div class="card-copy"><span class="pill">02 / 探索生活主题</span><h3>今天，去哪个<br />单词世界玩？</h3><p>动物、水果、颜色、玩具、游乐场……<br />50+ 主题，让兴趣带着孩子往前走。</p></div><img src={`${assets}/topics.webp`} alt="50+ 生活主题商店图，展示动物、水果和颜色分类" width="1000" height="2164" loading="lazy" /></article>
+      </div>
+    </section>
+
+    <section class="play-section">
+      <div class="garden-section play-inner">
+        <div class="play-copy"><p class="eyebrow">A LITTLE PLAY, A LITTLE PROGRESS</p><h2>再玩一局，<br />又认识了几个词<span>！</span></h2><p>把练习藏进小挑战里。听一听、选一选，再把相同的单词连起来，让孩子多一个主动打开的理由。</p><div class="play-feature"><span>♫</span><div><h3>听音选图，每天练一练</h3><p>听到发音，找到对应的图片。搭配错题复习，让学过的词不容易忘。</p></div></div><div class="play-feature"><span>✦</span><div><h3>单词连连看，边玩边熟悉</h3><p>按住滑动，连接相同的卡片。在一次次寻找与配对中，和单词多见几面。</p></div></div></div>
+        <div class="play-shots"><img src={`${assets}/games.webp`} alt="单词连连看游戏原版中文商店图" width="1000" height="2164" loading="lazy" /><img src={`${assets}/practice.webp`} alt="每日练习原版中文商店图，听音选图与错题复习" width="1000" height="2164" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="garden-section growing">
+      <div class="section-heading"><p class="eyebrow">SMALL STEPS, HAPPY GROWTH</p><h2>小小的进步，也值得被看见<span>✿</span></h2><p>给孩子适合的内容，也让家长看见每一步成长。</p></div>
+      <div class="growth-grid">
+        <article><img src={`${assets}/books.webp`} alt="丰富词书中文商店图，适合不同学习阶段" width="1000" height="2164" loading="lazy" /><div><span class="pill">跟着孩子的节奏</span><h3>从兴趣出发，向下一阶段前进。</h3><p>生活主题、CEFR、剑桥词书，提供不同的学习路径。选择适合孩子的起点，一步步积累。</p></div></article>
+        <article><img src={`${assets}/progress.webp`} alt="学习进度中文商店图，查看孩子的学习情况" width="1000" height="2164" loading="lazy" /><div><span class="pill">让成长有迹可循</span><h3>今天学了什么，一看就知道。</h3><p>随时了解孩子的学习进度。认识新单词，也回头复习老朋友，让每次练习都有收获。</p></div></article>
+      </div>
+    </section>
+
+    <section class="parent-section garden-section"><div class="parent-heading"><p class="eyebrow">MADE FOR LITTLE LEARNERS</p><h2>孩子开心探索，<br />家长安心陪伴。</h2><p>有趣之外，也认真对待学习中的每一个小细节。</p></div><div class="parent-details"><article><span>♫</span><div><h3>英式、美式，两种发音</h3><p>每个单词都可以听到两种口音，也能按需要重复播放。</p></div></article><article><span>↻</span><div><h3>学过的词，记得回来看看</h3><p>通过间隔复习，让单词在不同时间再次出现，慢慢积累熟悉感。</p></div></article><article><span>♡</span><div><h3>没有广告，有家长验证</h3><p>购买和外部链接前需要通过家长验证，让孩子专心探索。</p></div></article></div></section>
+
+    <section class="little-steps garden-section"><div class="section-heading"><h2>每天一点点，让英语更亲近。</h2></div><div class="steps">{steps.map(step=><article><span class="step-number">{step.n}</span><span class="step-icon" aria-hidden="true">{step.icon}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></section>
+
+    <section class="garden-download"><span class="download-flower" aria-hidden="true">✿</span><img src="/images/pinaappleenglish.webp" alt="菠萝英语" width="88" height="88" /><p class="eyebrow">LET’S GROW TOGETHER</p><h2>下一场小冒险，<br />从一个新单词开始。</h2><p>免费下载菠萝英语，Pro 解锁全部单词和游戏。</p><div class="actions"><StoreButton href={appStoreUrl} /></div><a class="privacy-link" href="/privacy-policy/">隐私政策 ↗</a></section>
+    <ProductDetails slug="pineapple-english" />
+  </main>
+  <MainFooter />
+  <style>
+    .pine-garden { --ink:#40331f; --muted:#786e5a; --leaf:#397148; --sun:#ffcb45; color:var(--ink); background:#fffcf3; font-family:ui-rounded,"SF Pro Rounded",-apple-system,"PingFang SC",sans-serif; overflow:hidden; }
+    .pine-garden * { box-sizing:border-box; min-width:0; }
+    .pine-garden img { max-width:100%; }
+    .pine-garden h1,.pine-garden h2,.pine-garden h3,.pine-garden p { margin:0; }
+    .pine-garden h1,.pine-garden h2,.pine-garden h3 { font-weight:800; letter-spacing:-.035em; color:var(--ink); }
+    .pine-garden a { text-decoration:none; }
+    .garden-hero { max-width:1280px; margin:auto; padding:90px 40px 80px; display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:55px; min-height:730px; }
+    .brand { display:flex; gap:13px; align-items:center; font-size:23px; font-weight:800; margin-bottom:34px; }
+    .brand img { border-radius:17px; }
+    .brand small { display:block; font-size:10px; letter-spacing:2px; margin-top:5px; color:var(--leaf); }
+    .eyebrow { font-size:12px; font-weight:800; letter-spacing:1.6px; color:var(--leaf); line-height:1.8; }
+    .eyebrow > span { display:inline-block; width:8px; height:8px; background:#83ac54; border-radius:50%; margin-right:5px; }
+    .hero-copy h1 { font-size:clamp(38px,4.2vw,59px); line-height:1.35; margin:18px 0 24px; }
+    .adventure { color:var(--leaf); display:inline-block; position:relative; }
+    .adventure svg { position:absolute; width:100%; height:15px; bottom:-5px; left:0; fill:none; stroke:#efb832; stroke-width:7; stroke-linecap:round; }
+    .intro { font-size:17px; line-height:1.95; color:var(--muted); }
+    .actions { display:flex; align-items:center; gap:25px; margin-top:30px; flex-wrap:wrap; }
+    .pine-garden :global(.pp-store) { background:var(--leaf); color:white; border-radius:18px; padding:17px 23px; box-shadow:0 5px 0 #244f31; transition:transform .2s; }
+    .pine-garden :global(.pp-store:hover) { transform:translateY(-2px); }
+    .explore { color:var(--leaf); font-size:14px; font-weight:700; }
+    .explore span { margin-left:6px; }
+    .hero-note { margin-top:24px!important; font-size:12px; color:var(--muted); }
+    .hero-note span { margin:0 8px; color:#c19c37; }
+    .hero-art { position:relative; padding:20px 0; }
+    .art-board { padding:13px; border-radius:44px; background:#ffde74; transform:rotate(4deg); box-shadow:0 18px 0 #efe9d8; }
+    .art-board img { display:block; width:100%; height:auto; border-radius:32px; }
+    .sticker { position:absolute; z-index:1; background:white; box-shadow:0 5px 20px #57452412; padding:14px 18px; font-size:14px; font-weight:800; border:2px solid #f1e9d6; border-radius:15px; }
+    .sticker-top { top:-8px; left:-14px; transform:rotate(-6deg); color:var(--leaf); }
+    .sticker-top span { color:#eab435; margin-left:10px; }
+    .sticker-bottom { bottom:-4px; right:-12px; transform:rotate(-5deg); }
+    .hero-star { position:absolute; font-size:73px; color:#efad57; top:-28px; right:-28px; }
+    .garden-stats { background:#f4edcf; display:flex; align-items:center; justify-content:center; gap:65px; padding:34px 25px; border-block:1px solid #e8dfbc; }
+    .garden-stats strong { font-size:36px; font-weight:850; color:var(--leaf); letter-spacing:-1.5px; }
+    .garden-stats strong span { color:#b48929; }
+    .garden-stats p { font-size:13px; color:var(--muted); margin-top:5px; }
+    .stat-flower { color:#c0c995; font-size:35px; }
+    .garden-section { max-width:1200px; padding:100px 40px; margin:auto; }
+    .section-heading { text-align:center; margin-bottom:48px; }
+    .section-heading h2,.parent-heading h2 { font-size:clamp(28px,3.2vw,42px); line-height:1.4; margin:12px 0 16px; }
+    .section-heading h2 span { display:inline-block; margin-left:12px; color:#d99d36; }
+    .section-heading > p:last-child,.parent-heading > p:last-child { font-size:16px; color:var(--muted); line-height:1.9; }
+    .discovery-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .discovery-card { border-radius:36px; overflow:hidden; border:1px solid #e8dfc8; }
+    .discovery-card.yellow { background:#fff1bd; }
+    .discovery-card.green { background:#e9efd9; }
+    .card-copy { padding:36px 36px 24px; }
+    .pill { display:inline-block; font-size:11px; font-weight:750; letter-spacing:1px; color:var(--leaf); background:#fffaf0bf; border-radius:30px; padding:8px 13px; }
+    .card-copy h3 { font-size:31px; line-height:1.45; margin:18px 0 12px; }
+    .card-copy p { font-size:15px; color:var(--muted); line-height:1.9; }
+    .discovery-card > img { display:block; width:100%; height:auto; }
+    .play-section { background:#edf2df; border-radius:60px; }
+    .play-inner { display:grid; grid-template-columns:.9fr 1.1fr; align-items:center; gap:50px; }
+    .play-copy h2 { font-size:42px; line-height:1.4; margin:18px 0 22px; }
+    .play-copy h2 > span { color:#e0a432; }
+    .play-copy > p:not(.eyebrow) { color:var(--muted); line-height:1.9; font-size:16px; }
+    .play-feature { display:flex; gap:16px; margin-top:28px; }
+    .play-feature > span { display:grid; place-items:center; width:42px; height:42px; flex-shrink:0; border-radius:14px; background:#fff9e9; color:var(--leaf); font-size:24px; }
+    .play-feature h3 { font-size:17px; letter-spacing:0; margin:0 0 8px; }
+    .play-feature p { font-size:14px; color:var(--muted); line-height:1.8; }
+    .play-shots { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center; }
+    .play-shots img { display:block; width:100%; height:auto; border-radius:23px; box-shadow:0 12px 28px #5e66351a; }
+    .play-shots img:first-child { transform:rotate(-4deg); }
+    .play-shots img:last-child { transform:rotate(4deg); margin-top:70px; }
+    .growth-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .growth-grid article { display:grid; grid-template-columns:.85fr 1fr; align-items:center; gap:24px; background:#f2eee7; padding:24px; border-radius:30px; }
+    .growth-grid article:last-child { background:#f8e9e1; }
+    .growth-grid img { display:block; width:100%; height:auto; border-radius:16px; }
+    .growth-grid h3 { font-size:24px; line-height:1.5; margin:15px 0 12px; }
+    .growth-grid p { font-size:14px; line-height:1.9; color:var(--muted); }
+    .parent-section { border-top:2px dashed #e7dfc6; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .parent-details article { display:flex; gap:20px; margin:25px 0; }
+    .parent-details article > span { flex-shrink:0; width:45px; height:45px; display:grid; place-items:center; font-size:28px; color:var(--leaf); background:#edf2df; border-radius:16px; }
+    .parent-details h3 { font-size:18px; margin:0 0 8px; }
+    .parent-details p { font-size:14px; line-height:1.85; color:var(--muted); }
+    .little-steps { padding-top:0; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .steps article { position:relative; border:1px solid #e8dfc8; border-radius:26px; padding:28px; }
+    .step-number { position:absolute; right:24px; top:26px; color:#b5ac96; font-size:12px; letter-spacing:1px; }
+    .step-icon { font-size:36px; color:#b58a32; }
+    .steps h3 { font-size:23px; margin:14px 0 10px; }
+    .steps p { font-size:14px; color:var(--muted); line-height:1.85; }
+    .garden-download { position:relative; background:#ffdf76; text-align:center; padding:75px 24px 65px; border-radius:70px 70px 0 0; }
+    .garden-download > img { border-radius:24px; margin:0 auto 25px; box-shadow:0 8px 0 #dcb755; }
+    .garden-download h2 { font-size:clamp(32px,4vw,50px); line-height:1.45; margin:12px 0 20px; }
+    .garden-download > p:not(.eyebrow) { color:#786032; font-size:15px; line-height:1.8; }
+    .garden-download .actions { justify-content:center; }
+    .privacy-link { display:inline-block; margin-top:28px; font-size:12px; color:#6e5a31; }
+    .download-flower { position:absolute; left:12%; top:90px; font-size:100px; color:#f6c248; transform:rotate(15deg); }
+    @media(min-width:1500px) { .garden-hero { padding-top:110px; padding-bottom:110px; } }
+    @media(max-width:1000px) { .garden-hero { gap:32px; padding-inline:30px; } .garden-stats { gap:35px; } .growth-grid article { grid-template-columns:1fr; } .growth-grid img { max-width:220px; margin:auto; } .play-inner { gap:30px; } .play-copy h2 { font-size:34px; } .parent-section { gap:40px; } }
+    @media(max-width:700px) {
+      .garden-hero { grid-template-columns:1fr; padding:50px 25px 55px; gap:55px; }
+      .brand { margin-bottom:25px; } .hero-copy h1 { font-size:39px; } .intro { font-size:15px; }
+      .hero-art { max-width:430px; width:calc(100% - 30px); margin:auto; } .hero-star { right:-20px; font-size:55px; }
+      .sticker { font-size:11px; padding:11px; } .garden-stats { gap:22px; padding:26px 14px; align-items:start; } .garden-stats > div { flex:1; text-align:center; } .garden-stats strong { font-size:25px; white-space:nowrap; } .garden-stats p { font-size:10px; line-height:1.7; } .stat-flower { display:none; }
+      .garden-section { padding:65px 22px; } .section-heading { margin-bottom:30px; } .section-heading h2 { font-size:29px; } .section-heading > p:last-child { font-size:14px; }
+      .discovery-grid,.play-inner,.growth-grid,.parent-section,.steps { grid-template-columns:1fr; }
+      .discovery-grid { gap:24px; } .card-copy { padding:28px; } .card-copy h3 { font-size:29px; } .discovery-card > img { max-width:420px; margin:auto; }
+      .play-section { border-radius:35px; } .play-inner { gap:38px; } .play-copy h2 { font-size:34px; } .play-shots { padding:0 7px 15px; }
+      .growth-grid article { grid-template-columns:.8fr 1fr; gap:18px; padding:20px; } .growth-grid h3 { font-size:20px; } .growth-grid p { font-size:12px; } .growth-grid .pill { font-size:9px; padding:6px 9px; }
+      .parent-section { gap:15px; } .little-steps { padding-top:0; } .steps { gap:14px; } .steps article { padding:22px; } .step-icon { float:left; margin-right:20px; margin-top:8px; } .steps h3 { margin:3px 0 8px; } .steps p { padding-left:55px; }
+      .garden-download { border-radius:38px 38px 0 0; padding-top:55px; } .download-flower { font-size:65px; left:5%; top:55px; }
+    }
+    @media(prefers-reduced-motion:reduce) { .pine-garden :global(.pp-store) { transition:none; } }
+  </style>
+</BaseLayout>

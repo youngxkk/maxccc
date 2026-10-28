@@ -1,4 +1,5 @@
 ---
+import { productSeo, type ProductSlug } from "../data/product-seo";
 import { authDictionary, sharedDictionary } from "../i18n/dictionaries";
 
 type Props = {
@@ -13,8 +14,8 @@ type Props = {
 };
 
 const {
-  title,
-  description,
+  title: pageTitle,
+  description: pageDescription,
   canonical = "https://maxc.cc/",
   ogImage = "https://maxc.cc/images/og-image.jpg",
   lang = "zh-CN",
@@ -23,6 +24,25 @@ const {
   includeHomeScript = false
 } = Astro.props;
 
+const slug = Astro.url.pathname.split('/').filter(Boolean)[0] as ProductSlug;
+const product = Object.hasOwn(productSeo, slug) ? productSeo[slug] : undefined;
+const title = product?.title ?? pageTitle;
+const description = product?.description ?? pageDescription;
+const productSchema = product && {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${canonical}#application`,
+  name: product.name,
+  alternateName: product.alternateName,
+  description,
+  url: canonical,
+  image: new URL(product.image, 'https://maxc.cc').href,
+  applicationCategory: product.category,
+  operatingSystem: product.os,
+  downloadUrl: `https://apps.apple.com/app/id${product.store}`,
+  featureList: product.features,
+  publisher: { '@type': 'Organization', name: 'invisilab', url: 'https://maxc.cc/' },
+};
 const serialize = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c");
 ---
 
@@ -33,6 +53,7 @@ const serialize = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u00
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {productSchema && <script is:inline type="application/ld+json" set:html={serialize(productSchema)} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />

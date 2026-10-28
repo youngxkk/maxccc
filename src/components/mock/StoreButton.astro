@@ -1,0 +1,14 @@
+---
+import { pt } from "../../i18n/product-pages";
+
+type Props = {
+  href: string;
+};
+
+const { href } = Astro.props;
+---
+
+<a class="pp-store" href={href} target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19Zm-3.6 13.9-.9 1.5a.9.9 0 1 1-1.5-.9l.9-1.5h1.5Zm4.9-2.6H6.4a.85.85 0 0 1 0-1.7h2.2l2.6-4.5-.8-1.4a.85.85 0 1 1 1.5-.9l.3.6.3-.6a.85.85 0 1 1 1.5.9l-3.4 5.9h3Zm4.3 0h-1.4l1 1.7a.85.85 0 1 1-1.5.9l-3-5.2a.85.85 0 0 1 0-.9l.8-1.4 2.4 4.1h1.7a.85.85 0 0 1 0 1.7Z" /></svg>
+  <span data-i18n="pp_get">{pt("pp_get")}</span>
+</a>

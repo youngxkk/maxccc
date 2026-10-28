@@ -1,0 +1,14 @@
+---
+type Props = { name: 'private' | 'home' | 'apps' | 'calculator' | 'focus' | 'wide'; alt: string; eager?: boolean };
+const { name, alt, eager = false } = Astro.props;
+const wide = name === 'wide';
+// Original Figma screenshots; the device frame and promotional copy are HTML/CSS.
+---
+<picture class:list={["device", { wide }]}>
+  <img src={`/images/invsi/screen-${name}.webp`} alt={alt} width={wide ? 1600 : 900} height={wide ? 1126 : 1957} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+</picture>
+<style>
+  .device { display:block; width:100%; box-sizing:border-box; border:6px solid #151817; border-radius:32px; overflow:hidden; background:#151817; box-shadow:0 0 0 1px #ffffff35,0 12px 30px #153a3618; }
+  .device.wide { border-width:7px; border-radius:24px; }
+  img { display:block; width:100%; height:auto; }
+</style>

@@ -3,12 +3,12 @@ import MainFooter from "../components/MainFooter.astro";
 import MainNav from "../components/MainNav.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { apps } from "../data/apps";
-import { tools } from "../data/tools";
+import { showToolsSection, tools } from "../data/tools";
 ---
 
 <BaseLayout
-  title="DoCool - Independent App Developers"
-  description="DoCool - A group of independent developers dedicated to building high-quality apps that people love. No ads, just pure passion."
+  title="invisilab - Independent App Developers"
+  description="invisilab makes ad-free apps for Mac and iPhone: NexPaste clipboard manager, Transnap translator, invsi private vault, Pineapple English for kids, Pixie Wallpaper and Are You OK."
   canonical="https://maxc.cc/"
   includeHomeStyles={true}
   includeHomeScript={true}
@@ -30,7 +30,7 @@ import { tools } from "../data/tools";
 
     <div id="apps" class="grid">
       {
-        apps.map((app) => (
+        apps.filter((app) => !app.hidden).map((app) => (
           <div class="card fade-up-entry">
             <a href={`/${app.slug}`} class="card-link-overlay"></a>
             <div class="app-icon">
@@ -50,25 +50,31 @@ import { tools } from "../data/tools";
       }
     </div>
 
-    <header class="section-header fade-up-entry" style="text-align: center; margin-bottom: 40px; margin-top: 80px;">
-      <h2 style="font-size: 32px; font-weight: 700;" data-i18n="nav_tools">实用工具</h2>
-    </header>
+    {
+      showToolsSection && (
+        <>
+        <header class="section-header fade-up-entry" style="text-align: center; margin-bottom: 40px; margin-top: 80px;">
+          <h2 style="font-size: 32px; font-weight: 700;" data-i18n="nav_tools">实用工具</h2>
+        </header>
 
-    <div id="tools" class="tools-grid">
-      {
-        tools.map((tool) => (
-          <a href={tool.href} class="card-horizontal fade-up-entry">
-            <div class="app-icon" style={tool.icon ? "background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-size: 32px;" : undefined}>
-              {tool.image ? <img src={tool.image} alt={tool.imageAlt || ""} /> : tool.icon}
-            </div>
-            <div class="card-info">
-              <div class="card-title" data-i18n={tool.titleKey}></div>
-              <div class="card-desc" data-i18n={tool.descriptionKey}></div>
-            </div>
-          </a>
-        ))
-      }
-    </div>
+        <div id="tools" class="tools-grid">
+          {
+            tools.map((tool) => (
+              <a href={tool.href} class="card-horizontal fade-up-entry">
+                <div class="app-icon" style={tool.icon ? "background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-size: 32px;" : undefined}>
+                  {tool.image ? <img src={tool.image} alt={tool.imageAlt || ""} /> : tool.icon}
+                </div>
+                <div class="card-info">
+                  <div class="card-title" data-i18n={tool.titleKey}></div>
+                  <div class="card-desc" data-i18n={tool.descriptionKey}></div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        </>
+      )
+    }
   </div>
 
   <MainFooter />

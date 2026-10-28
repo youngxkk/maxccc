@@ -6,17 +6,11 @@ export type AppEntry = {
   imageAlt: string;
   titleKey?: string;
   descriptionKey: string;
+  // Hidden apps keep their detail page but are left off the home grid
+  hidden?: boolean;
 };
 
 export const apps: AppEntry[] = [
-  {
-    name: "Transnap",
-    slug: "transnap",
-    href: "https://apps.apple.com/app/id6762361410",
-    image: "/images/transnap-icon.png",
-    imageAlt: "Transnap App Icon",
-    descriptionKey: "transnap_desc"
-  },
   {
     name: "NexPaste",
     slug: "nexpaste",
@@ -35,12 +29,13 @@ export const apps: AppEntry[] = [
     descriptionKey: "app1_desc"
   },
   {
-    name: "Are You OK",
-    slug: "are-you-ok",
-    href: "https://apps.apple.com/app/id6757640166",
-    image: "/images/areyouok.jpg",
-    imageAlt: "Are You OK App Icon",
-    descriptionKey: "app2_desc"
+    name: "精灵壁纸",
+    slug: "pixie-wallpaper",
+    href: "https://apps.apple.com/app/id6446266063",
+    image: "/images/pixie.webp",
+    imageAlt: "精灵壁纸 App Icon",
+    titleKey: "app4_title",
+    descriptionKey: "app4_desc"
   },
   {
     name: "菠萝英语",
@@ -52,13 +47,20 @@ export const apps: AppEntry[] = [
     descriptionKey: "app3_desc"
   },
   {
-    name: "精灵壁纸",
-    slug: "pixie-wallpaper",
-    href: "https://apps.apple.com/app/id6446266063",
-    image: "/images/pixie.webp",
-    imageAlt: "精灵壁纸 App Icon",
-    titleKey: "app4_title",
-    descriptionKey: "app4_desc"
+    name: "Are You OK",
+    slug: "are-you-ok",
+    href: "https://apps.apple.com/app/id6757640166",
+    image: "/images/areyouok.jpg",
+    imageAlt: "Are You OK App Icon",
+    descriptionKey: "app2_desc"
+  },
+  {
+    name: "Transnap",
+    slug: "transnap",
+    href: "https://apps.apple.com/app/id6762361410",
+    image: "/images/transnap-icon.png",
+    imageAlt: "Transnap App Icon",
+    descriptionKey: "transnap_desc"
   },
   {
     name: "经典扫雷",
@@ -67,7 +69,8 @@ export const apps: AppEntry[] = [
     image: "/images/scanboom.webp",
     imageAlt: "经典扫雷 App Icon",
     titleKey: "app5_title",
-    descriptionKey: "app5_desc"
+    descriptionKey: "app5_desc",
+    hidden: true
   },
   {
     name: "草莓日记",
@@ -76,6 +79,7 @@ export const apps: AppEntry[] = [
     image: "/images/strawberry.webp",
     imageAlt: "草莓日记 App Icon",
     titleKey: "app6_title",
-    descriptionKey: "app6_desc"
+    descriptionKey: "app6_desc",
+    hidden: true
   }
 ];

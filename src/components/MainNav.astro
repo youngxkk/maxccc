@@ -1,20 +1,56 @@
 ---
+import { showToolsSection } from "../data/tools";
+
 const { showSectionLinks = true } = Astro.props;
 ---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@800&text=invisilab&display=swap" />
+
+<style>
+  /* Wordmark: "invisi" fades in like something becoming visible, "lab" stays solid */
+  .brand-wordmark {
+    font-family: "Syne", "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    gap: 0;
+    opacity: 1;
+  }
+
+  .brand-invisi {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, currentColor 22%, transparent),
+      currentColor 92%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.08em;
+  }
+
+  .brand-wordmark:hover .brand-invisi {
+    background: currentColor;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+</style>
 
 <nav>
   <div class="nav-content">
     <div class="nav-left">
-      <a href="/" class="nav-logo">
-        <span style="margin-right: 6px;">😎</span>
-        DoCool
+      <a href="/" class="nav-logo brand-wordmark" aria-label="invisilab">
+        <span class="brand-invisi" aria-hidden="true">invisi</span><span class="brand-lab" aria-hidden="true">lab</span>
       </a>
 
       {
         showSectionLinks && (
           <div class="nav-links">
             <a href="#apps" data-i18n="nav_apps">APP</a>
-            <a href="#tools" data-i18n="nav_tools">Tools</a>
+            {showToolsSection && <a href="#tools" data-i18n="nav_tools">Tools</a>}
           </div>
         )
       }

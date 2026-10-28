@@ -70,3 +70,6 @@ export const tools: ToolEntry[] = [
     descriptionKey: "tool2_desc"
   }
 ];
+
+// Tools section is hidden from the home page and nav for now; pages under /tools/ still work
+export const showToolsSection = false;

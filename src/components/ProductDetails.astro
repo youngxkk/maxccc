@@ -1,0 +1,23 @@
+---
+import { productSeo, type ProductSlug } from '../data/product-seo';
+const { slug } = Astro.props as { slug: ProductSlug };
+const product = productSeo[slug];
+---
+<section class="product-details" aria-labelledby={`${slug}-details-title`}>
+  <h2 id={`${slug}-details-title`}>了解 {product.name}</h2>
+  <p>{product.description}</p>
+  <ul>{product.features.map(feature => <li>{feature}</li>)}</ul>
+  <h3>常见问题</h3>
+  {product.questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+</section>
+<style>
+  .product-details { width:min(100% - 48px,960px); margin:64px auto; padding-block:36px; border-top:1px solid #8884; color:inherit; }
+  h2 { font-size:24px; line-height:1.4; margin:0 0 18px; letter-spacing:normal; }
+  h3 { font-size:18px; margin:28px 0 14px; }
+  p { font-size:14px; line-height:1.9; opacity:.75; margin:0; }
+  ul { display:flex; flex-wrap:wrap; gap:10px 26px; padding-left:20px; margin:20px 0; font-size:13px; line-height:1.8; opacity:.75; }
+  details { border-bottom:1px solid #8883; padding:16px 0; }
+  summary { cursor:pointer; font-size:15px; line-height:1.6; }
+  details p { margin-top:12px; }
+  @media(max-width:600px) { .product-details { margin-block:40px; } h2 { font-size:21px; } }
+</style>

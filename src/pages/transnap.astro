@@ -31,32 +31,47 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       </div>
 
       <div class="hero-visual fade-up-entry" aria-label="Transnap interface preview">
-        <div class="mac-window">
-          <div class="window-bar">
-            <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
-            <div class="window-title">Transnap</div>
+        <div class="tn-desk">
+          <div class="tn-menubar" aria-hidden="true">
+            <span class="tn-apple"></span>
+            <span class="tn-menubar-right">
+              <i class="tn-status active">
+                <img src="/images/transnap-icon.png" alt="" />
+              </i>
+              <i></i>
+              <i></i>
+              <b>9:41</b>
+            </span>
           </div>
-          <div class="window-body">
-            <div class="pane">
-              <div class="pane-label">
-                <span data-i18n="transnap_source">原文</span>
-                <span class="language-pill" data-i18n="transnap_auto_detect">自动检测</span>
-              </div>
-              <p class="source-text">Translate without breaking your flow.</p>
-            </div>
-            <div class="pane">
-              <div class="pane-label">
-                <span data-i18n="transnap_translation">译文</span>
-                <span class="language-pill" data-i18n="transnap_chinese">中文</span>
-              </div>
-              <p class="translated-text" data-i18n="transnap_preview_translation">翻译，不打断你的状态。</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="floating-card">
-          <strong>Shift + Control + T</strong>
-          <span data-i18n="transnap_shortcut_caption">唤起窗口。立即翻译。</span>
+          <div class="tn-panel">
+            <div class="tn-head">
+              <strong><img src="/images/transnap-icon.png" alt="" />Transnap</strong>
+              <span class="tn-icons" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3" /><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" stroke-linecap="round" /></svg>
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="m9 9 6 6m0-6-6 6" /></svg>
+              </span>
+            </div>
+            <div class="tn-status-row">
+              <span data-i18n="transnap_ui_status">本地翻译 · 英语 → 中文</span>
+              <span class="tn-lang"><b data-i18n="transnap_auto_detect">自动检测</b> → <b data-i18n="transnap_chinese">中文</b></span>
+            </div>
+            <div class="tn-input">Translate without breaking your flow. Copy a sentence, and it’s already here.</div>
+            <div class="tn-actions">
+              <span class="tn-translate" data-i18n="transnap_ui_translate">翻译</span>
+              <span class="tn-copy" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="12" rx="2.5" /><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></svg>
+              </span>
+            </div>
+            <div class="tn-result" data-i18n="transnap_preview_translation">翻译，不打断你的状态。复制一句话，它已经在这里了。</div>
+            <span class="tn-handle" aria-hidden="true"></span>
+          </div>
+
+          <div class="floating-card">
+            <strong>⌘ ⇧ C</strong>
+            <span data-i18n="transnap_shortcut_caption">唤起窗口。立即翻译。</span>
+          </div>
         </div>
       </div>
     </section>
@@ -81,9 +96,9 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
           <article class="tile dark fade-up-entry">
             <h3 data-i18n="transnap_feature_shortcut">快捷键唤起。</h3>
             <div class="shortcut-keys" aria-hidden="true">
-              <span class="key">Shift</span>
-              <span class="key">Control</span>
-              <span class="key">T</span>
+              <span class="key">⌘</span>
+              <span class="key">⇧</span>
+              <span class="key">C</span>
             </div>
           </article>
 
@@ -162,7 +177,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       overflow-x: hidden;
     }
 
-    :global([data-theme="dark"]) .transnap-page {
+    :global(:root:not([data-theme="light"])) .transnap-page {
       color: #f5f5f7;
       background: #000;
     }
@@ -178,7 +193,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
         linear-gradient(180deg, #fff 0%, #fbfbfd 48%, #f5f5f7 100%);
     }
 
-    :global([data-theme="dark"]) .hero {
+    :global(:root:not([data-theme="light"])) .hero {
       background:
         radial-gradient(circle at 50% 18%, rgba(0, 113, 227, 0.2), transparent 34%),
         linear-gradient(180deg, #09090b 0%, #000 52%, #111113 100%);
@@ -221,7 +236,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       color: #1d1d1f;
     }
 
-    :global([data-theme="dark"]) .hero h1 {
+    :global(:root:not([data-theme="light"])) .hero h1 {
       color: #f5f5f7;
     }
 
@@ -276,122 +291,255 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       margin: 58px auto 0;
     }
 
-    .mac-window {
-      position: absolute;
-      inset: 0 0 auto;
-      width: min(620px, 100%);
-      min-height: 540px;
+
+    .tn-desk {
+      position: relative;
+      width: min(900px, 100%);
+      height: 560px;
       margin: 0 auto;
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 44px 120px rgba(0, 0, 0, 0.18);
-      backdrop-filter: blur(36px) saturate(180%);
-    }
-
-    :global([data-theme="dark"]) .mac-window {
-      border-color: rgba(255, 255, 255, 0.12);
-      background: rgba(28, 28, 30, 0.82);
-    }
-
-    .window-bar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 44px;
-      padding: 0 18px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      background: rgba(246, 246, 248, 0.72);
-    }
-
-    :global([data-theme="dark"]) .window-bar {
-      border-color: rgba(255, 255, 255, 0.08);
-      background: rgba(44, 44, 46, 0.72);
-    }
-
-    .traffic {
-      display: flex;
-      gap: 8px;
-    }
-
-    .traffic span {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .traffic span:nth-child(1) {
-      background: #ff5f57;
-    }
-
-    .traffic span:nth-child(2) {
-      background: #febc2e;
-    }
-
-    .traffic span:nth-child(3) {
-      background: #28c840;
-    }
-
-    .window-title {
-      position: absolute;
-      left: 50%;
-      color: #6e6e73;
-      font-size: 13px;
-      font-weight: 600;
-      transform: translateX(-50%);
-    }
-
-    .window-body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .pane {
-      min-height: 210px;
-      padding: 32px;
+      border-radius: 26px;
+      background:
+        radial-gradient(ellipse at 15% 10%, #ffd9a8 0%, transparent 45%),
+        radial-gradient(ellipse at 90% 30%, #a8c8ff 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, #ffc2d9 0%, transparent 55%),
+        linear-gradient(135deg, #fff1df, #e3ecff 60%, #ffe3ef);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.18);
       text-align: left;
     }
 
-    .pane:first-child {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    :global(:root:not([data-theme="light"])) .tn-desk {
+      background:
+        radial-gradient(ellipse at 15% 10%, #5a3a1a 0%, transparent 45%),
+        radial-gradient(ellipse at 90% 30%, #1a3a7a 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, #5a1a3a 0%, transparent 55%),
+        linear-gradient(135deg, #1b140f, #0e1426 60%, #1f0e18);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
     }
 
-    :global([data-theme="dark"]) .pane:first-child {
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .pane-label {
+    .tn-menubar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
-      color: #86868b;
+      height: 28px;
+      padding: 0 18px;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: rgba(0, 0, 0, 0.78);
+      font-size: 12.5px;
+    }
+
+    :global(:root:not([data-theme="light"])) .tn-menubar {
+      background: rgba(0, 0, 0, 0.3);
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .tn-apple {
+      width: 12px;
+      height: 14px;
+      border-radius: 50% 50% 45% 45%;
+      background: currentColor;
+    }
+
+    .tn-menubar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tn-menubar-right i {
+      width: 14px;
+      height: 11px;
+      border: 1.5px solid currentColor;
+      border-radius: 3px;
+      opacity: 0.8;
+    }
+
+    .tn-menubar-right i.tn-status {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 22px;
+      border: 0;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.12);
+      opacity: 1;
+    }
+
+    .tn-menubar-right i.tn-status img {
+      width: 15px;
+      height: 15px;
+      border-radius: 4px;
+    }
+
+    .tn-panel {
+      position: absolute;
+      top: 38px;
+      right: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 360px;
+      padding: 14px 14px 26px;
+      border-radius: 18px;
+      background: rgba(250, 250, 252, 0.72);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 0 0 0.5px rgba(0, 0, 0, 0.08),
+        0 24px 60px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      color: #1d1d1f;
+    }
+
+    :global(:root:not([data-theme="light"])) .tn-panel {
+      background: rgba(36, 36, 40, 0.7);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 0 0 0.5px rgba(255, 255, 255, 0.1),
+        0 24px 60px rgba(0, 0, 0, 0.5);
+      color: #f5f5f7;
+    }
+
+    .tn-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tn-head strong {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: ui-rounded, "SF Pro Rounded", -apple-system, sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .tn-head strong img {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+    }
+
+    .tn-icons {
+      display: flex;
+      gap: 12px;
+      opacity: 0.7;
+    }
+
+    .tn-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: -6px;
+      color: #6e6e73;
+      font-size: 12.5px;
+    }
+
+    :global(:root:not([data-theme="light"])) .tn-status-row {
+      color: #a1a1a6;
+    }
+
+    .tn-lang {
+      flex: 0 0 auto;
+      font-size: 12px;
+    }
+
+    .tn-lang b {
+      padding: 3px 8px;
+      border-radius: 7px;
+      background: rgba(120, 120, 128, 0.16);
+      color: inherit;
+      font-weight: 600;
+    }
+
+    .tn-input,
+    .tn-result {
+      padding: 11px 12px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .tn-input {
+      min-height: 96px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .tn-result {
+      min-height: 96px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    :global(:root:not([data-theme="light"])) .tn-input {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    :global(:root:not([data-theme="light"])) .tn-result {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .tn-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tn-translate {
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(0, 122, 255, 0.88);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 2px 6px rgba(0, 122, 255, 0.2);
+      color: #fff;
       font-size: 13px;
       font-weight: 600;
     }
 
-    .language-pill {
-      padding: 5px 10px;
+    .tn-copy {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(120, 120, 128, 0.16);
+    }
+
+    .tn-handle {
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      width: 52px;
+      height: 5px;
+      transform: translateX(-50%);
       border-radius: 999px;
-      color: #1d1d1f;
-      background: rgba(0, 0, 0, 0.06);
+      background: rgba(120, 120, 128, 0.3);
     }
 
-    :global([data-theme="dark"]) .language-pill {
-      color: #f5f5f7;
-      background: rgba(255, 255, 255, 0.1);
+    .tn-desk .floating-card {
+      position: absolute;
+      left: 60px;
+      bottom: 60px;
     }
 
-    .source-text,
-    .translated-text {
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.14;
-      font-weight: 650;
-    }
+    @media (max-width: 860px) {
+      .tn-desk {
+        height: 520px;
+      }
 
-    .translated-text {
-      color: #0071e3;
+      .tn-panel {
+        left: 50%;
+        right: auto;
+        width: min(340px, calc(100% - 24px));
+        transform: translateX(-50%);
+      }
+
+      .tn-desk .floating-card {
+        display: none;
+      }
     }
 
     .floating-card {
@@ -408,7 +556,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       backdrop-filter: blur(28px) saturate(180%);
     }
 
-    :global([data-theme="dark"]) .floating-card {
+    :global(:root:not([data-theme="light"])) .floating-card {
       border-color: rgba(255, 255, 255, 0.1);
       background: rgba(28, 28, 30, 0.76);
     }
@@ -437,8 +585,8 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       background: #f5f5f7;
     }
 
-    :global([data-theme="dark"]) .section.white,
-    :global([data-theme="dark"]) .section.gray {
+    :global(:root:not([data-theme="light"])) .section.white,
+    :global(:root:not([data-theme="light"])) .section.gray {
       background: #0f0f11;
     }
 
@@ -483,7 +631,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
     }
 
-    :global([data-theme="dark"]) .tile {
+    :global(:root:not([data-theme="light"])) .tile {
       background: #1c1c1e;
     }
 
@@ -510,7 +658,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       background: #f5f5f7;
     }
 
-    :global([data-theme="dark"]) .clipboard-demo {
+    :global(:root:not([data-theme="light"])) .clipboard-demo {
       background: rgba(255, 255, 255, 0.08);
     }
 
@@ -615,7 +763,7 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     }
 
-    :global([data-theme="dark"]) .settings-card {
+    :global(:root:not([data-theme="light"])) .settings-card {
       background: #1c1c1e;
     }
 
@@ -639,8 +787,8 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       background: #f5f5f7;
     }
 
-    :global([data-theme="dark"]) .setting-box,
-    :global([data-theme="dark"]) .manual-list li {
+    :global(:root:not([data-theme="light"])) .setting-box,
+    :global(:root:not([data-theme="light"])) .manual-list li {
       background: rgba(255, 255, 255, 0.08);
     }
 
@@ -738,7 +886,6 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
     .transnap-page .tile h3,
     .transnap-page .language-copy h2,
     .transnap-page .choice strong,
-    .transnap-page .source-text,
     .transnap-page .floating-card strong {
       color: #f5f5f7;
     }
@@ -753,31 +900,15 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
     }
 
     .transnap-page .button.secondary,
-    .transnap-page .translated-text,
     .transnap-page .swap-icon {
       color: #2997ff;
     }
 
-    .transnap-page .mac-window,
     .transnap-page .floating-card,
     .transnap-page .settings-card {
       border-color: rgba(255, 255, 255, 0.12);
       background: rgba(28, 28, 30, 0.82);
       box-shadow: 0 44px 120px rgba(0, 0, 0, 0.34);
-    }
-
-    .transnap-page .window-bar {
-      border-color: rgba(255, 255, 255, 0.08);
-      background: rgba(44, 44, 46, 0.72);
-    }
-
-    .transnap-page .pane:first-child {
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .transnap-page .language-pill {
-      color: #f5f5f7;
-      background: rgba(255, 255, 255, 0.1);
     }
 
     .transnap-page .section.white {
@@ -828,7 +959,6 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
     :global([data-theme="light"]) .transnap-page .tile h3,
     :global([data-theme="light"]) .transnap-page .language-copy h2,
     :global([data-theme="light"]) .transnap-page .choice strong,
-    :global([data-theme="light"]) .transnap-page .source-text,
     :global([data-theme="light"]) .transnap-page .floating-card strong {
       color: #1d1d1f;
     }
@@ -843,31 +973,15 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
     }
 
     :global([data-theme="light"]) .transnap-page .button.secondary,
-    :global([data-theme="light"]) .transnap-page .translated-text,
     :global([data-theme="light"]) .transnap-page .swap-icon {
       color: #0071e3;
     }
 
-    :global([data-theme="light"]) .transnap-page .mac-window,
     :global([data-theme="light"]) .transnap-page .floating-card,
     :global([data-theme="light"]) .transnap-page .settings-card {
       border-color: rgba(0, 0, 0, 0.12);
       background: rgba(255, 255, 255, 0.82);
       box-shadow: 0 44px 120px rgba(0, 0, 0, 0.18);
-    }
-
-    :global([data-theme="light"]) .transnap-page .window-bar {
-      border-color: rgba(0, 0, 0, 0.08);
-      background: rgba(246, 246, 248, 0.72);
-    }
-
-    :global([data-theme="light"]) .transnap-page .pane:first-child {
-      border-color: rgba(0, 0, 0, 0.08);
-    }
-
-    :global([data-theme="light"]) .transnap-page .language-pill {
-      color: #1d1d1f;
-      background: rgba(0, 0, 0, 0.06);
     }
 
     :global([data-theme="light"]) .transnap-page .section.white {
@@ -915,26 +1029,6 @@ const appStoreUrl = "https://apps.apple.com/app/id6762361410";
       .hero-visual {
         height: auto;
         margin-top: 44px;
-      }
-
-      .mac-window,
-      .floating-card {
-        position: relative;
-      }
-
-      .mac-window {
-        min-height: 0;
-      }
-
-      .pane {
-        min-height: auto;
-        padding: 26px;
-      }
-
-      .floating-card {
-        right: auto;
-        bottom: auto;
-        margin: 18px auto 0;
       }
 
       .feature-showcase,
