@@ -3,3 +3,6 @@ node_modules
 dist
 .DS_Store
 **/.DS_Store
+
+# Local Claude Code preview config
+.claude/launch.json
