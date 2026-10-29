@@ -20,6 +20,10 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
     <main>
       <section class="pixie-hero" aria-labelledby="hero-title">
         <div class="hero-copy">
+          <div class="pixie-brand">
+            <img src="/images/pixie/app-icon.webp" alt="精灵壁纸 Pixie 应用图标" width="72" height="72" loading="eager" />
+            <span>精灵壁纸</span>
+          </div>
           <p class="eyebrow"><span class="sparkle" aria-hidden="true">✧</span><span data-i18n="pxw_eyebrow">{t('pxw_eyebrow')}</span></p>
           <h1 id="hero-title"><span data-i18n="pxw_title1">{t('pxw_title1')}</span><span class="copper" data-i18n="pxw_title2">{t('pxw_title2')}</span></h1>
           <p class="hero-lede" data-i18n="pxw_lede">{t('pxw_lede')}</p>
@@ -112,11 +116,13 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
 </script>
 
 <style>
-  :global(html) { scroll-behavior: smooth; scroll-padding-top: 145px; background: #08090b; }
-  :global(body) { --bg-color:#08090b; --text-primary:#f4f2ef; --text-secondary:#99999f; --border-color:rgba(255,255,255,.09); margin:0; background:#08090b!important; color:#f4f2ef!important; }
-  :global(.theme-toggle) { display:none!important; }
-  :global(body > nav) { background:rgba(8,9,11,.88)!important; color:#efefef; border-color:rgba(255,255,255,.08)!important; }
-  :global(body > footer) { background:#08090b!important; color:#929295!important; }
+  :global(html:has(.pixie-page)) { scroll-behavior: smooth; scroll-padding-top: 145px; background: #08090b; }
+  :global(body:has(.pixie-page)) { --bg-color:#08090b; --text-primary:#f4f2ef; --text-secondary:#99999f; --border-color:rgba(255,255,255,.09); --nav-bg:rgba(8,9,11,.88); --nav-border:rgba(255,255,255,.08); color-scheme:dark; margin:0; background:#08090b!important; color:#f4f2ef!important; }
+  :global(body:has(.pixie-page) .theme-toggle) { display:none!important; }
+  :global(body:has(.pixie-page) .lang-dropdown :is(button,a):hover) { background:rgba(255,255,255,.1); }
+  :global(body:has(.pixie-page) > nav) { background:transparent!important; color:#efefef; border-color:rgba(255,255,255,.08)!important; }
+  :global(body:has(.pixie-page) > nav::before) { background:rgba(8,9,11,.88)!important; }
+  :global(body:has(.pixie-page) > footer) { background:#08090b!important; color:#929295!important; }
   .pixie-page { --copper:#edba93; --muted:#99999f; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','PingFang SC',sans-serif; background:#08090b; color:#f4f2ef; overflow:clip; padding-top:48px; }
   .pixie-page :is(h1,h2,h3,p) { margin:0; }
   .pixie-page a { color:inherit; text-decoration:none; }
@@ -133,6 +139,9 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
   .nav-download span { margin-left:12px; color:var(--copper); }
   .pixie-hero { position:relative; padding:45px 0 26px; text-align:center; background:radial-gradient(ellipse 60% 38% at 50% 72%,#272d3826,transparent); }
   .hero-copy { position:relative; z-index:2; padding:0 24px; }
+  .pixie-brand { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:26px; }
+  .pixie-brand img { width:72px; height:72px; border-radius:17px; border:1px solid #ffffff1a; }
+  .pixie-brand span { color:#f1d3b5; font-size:26px; font-weight:600; letter-spacing:.06em; }
   .eyebrow { display:flex; align-items:center; justify-content:center; gap:9px; color:var(--copper); font-size:11px; letter-spacing:.2em; font-weight:500; }
   .sparkle { font-size:20px; }
   h1 { font-size:clamp(46px,5.1vw,74px); line-height:1.18; letter-spacing:-.065em; font-weight:650; margin-top:22px!important; }
@@ -234,14 +243,16 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
   .final-section::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,#08090b 10%,#08090baf 40%,#08090b20); }
   .final-copy { position:relative; z-index:1; }
   .final-icon { border-radius:19px; box-shadow:0 10px 45px #000; margin-bottom:24px; }
-  .final-copy h2 { margin-top:22px!important; font-size:clamp(36px,4.2vw,58px); }
+  .final-copy h2 { margin-top:22px!important; font-size:clamp(36px,4.2vw,58px); white-space:nowrap; }
   .final-copy > p:not(.eyebrow) { color:#99979b; margin-top:20px; font-size:14px; }
   .final-copy :global(.pp-store) { margin-top:30px; }
   .final-copy small { display:block; margin-top:17px; color:#77757c; font-size:11px; }
   .wallpaper-dialog { margin:auto; padding:0; width:min(430px,calc(100vw - 32px)); max-height:94dvh; border:1px solid #ffffff26; border-radius:22px; background:#111216; color:#fff; overflow:auto; }
   .wallpaper-dialog::backdrop { background:#000d; backdrop-filter:blur(14px); }
   .dialog-heading { display:flex; justify-content:space-between; align-items:center; padding:16px 20px; font-size:13px; }
-  .close-preview { display:flex; align-items:center; gap:10px; background:none; border:0; font-size:11px!important; color:#b1afb3!important; }
+  .close-preview { display:flex; align-items:center; gap:10px; padding:6px 10px; border-radius:10px; background:none; border:0; font-size:11px!important; color:#b1afb3!important; transition:background .2s; }
+  .close-preview:hover { background:#ffffff0a; }
+  .pixie-page .close-preview:focus-visible { outline:1px solid #ffffff35; outline-offset:2px; background:#ffffff08; }
   .close-preview > span:last-child { font-size:24px; }
   .preview-image { display:block; width:auto; max-width:calc(100% - 40px); height:55dvh; object-fit:contain; margin:0 auto; border-radius:14px; }
   .dialog-footer { text-align:center; padding:20px; }
@@ -249,7 +260,7 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
   @media(min-width:1500px) { .hero-wallpapers { gap:32px; } .hero-phone { flex-basis:210px; height:430px; } .hero-phone.phone-2 { flex-basis:244px; height:500px; } }
   @media(max-width:900px) { .product-links { gap:17px; } .product-links a { font-size:10px; } .hero-wallpapers { gap:15px; height:460px; margin-top:40px; } .hero-phone { flex-basis:160px; height:330px; border-radius:29px; } .hero-phone img { border-radius:24px; } .hero-phone.phone-2 { flex-basis:200px; height:410px; } .lock-time { font-size:49px; } .main-phone .lock-time { font-size:60px; } .wallpaper-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } .feature-row { gap:35px; } .feature-art { height:500px; } .preview-hint { display:none; } }
   @media(max-width:600px) {
-    :global(html) { scroll-padding-top:125px; }
+    :global(html:has(.pixie-page)) { scroll-padding-top:125px; }
     .product-nav { height:59px; top:48px; padding:0 20px; gap:10px; }
     .product-brand { font-size:12px; gap:8px; }
     .product-brand img { width:26px; height:26px; }
@@ -308,9 +319,9 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
     .tablet { width:235px; border-width:8px; left:calc(50% - 150px); top:35px; border-radius:21px; }
     .device-phone { width:143px; left:calc(50% + 25px); top:150px; }
     .final-section { margin-top:10px; padding-block:70px; }
-    .final-copy h2 { font-size:36px; }
+    .final-copy h2 { font-size:clamp(18px,5.5vw,30px); }
     .final-copy > p:not(.eyebrow) { font-size:12px; }
     .final-icon { width:64px; height:64px; }
   }
-  @media(prefers-reduced-motion:reduce) { :global(html) { scroll-behavior:auto; } .pixie-page *, .pixie-page :global(.pp-store) { transition:none!important; } }
+  @media(prefers-reduced-motion:reduce) { :global(html:has(.pixie-page)) { scroll-behavior:auto; } .pixie-page *, .pixie-page :global(.pp-store) { transition:none!important; } }
 </style>
