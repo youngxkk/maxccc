@@ -2,7 +2,7 @@ import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
 import { parse } from 'parse5';
 import { createServer } from 'vite';
 
-// Collects every English string the site shows (dictionaries plus built /en/ pages) into
+// Collects every English string the site shows (dictionaries plus built English pages at the site root) into
 // src/i18n/translations/source.json as { id: English }, then reports what each language is missing.
 // Translations live in src/i18n/translations/<lang>/*.json under the same ids.
 // Run after `npm run build`. Translated locales pivot from English, so English is the only source.
@@ -37,12 +37,14 @@ function collect(value) {
   else for (const child of Object.values(value)) collect(child);
 }
 for (const group of [sharedDictionary, authDictionary, toolDictionaries, pixieContent, pineappleContent, nexpasteRedesign]) collect(group);
-// Shown only on translated locales, so it never appears on the /en/ pages scanned below.
+// Shown only on translated locales, so it never appears on the English pages scanned below.
 add(englishLegalNote);
 
 const attr = (node, name) => node.attrs?.find(a => a.name === name)?.value;
-for (const file of readdirSync('dist/en', { recursive: true }).filter(file => file.endsWith('.html'))) {
-  const root = parse(readFileSync(`dist/en/${file}`, 'utf8'));
+// English is served without a prefix; skip the other locales' folders.
+const localeDirs = /^(zh-cn|zh-tw|ja|ko|es|pt-br|fr|de|it|ru|tr|id|vi|ar)\//;
+for (const file of readdirSync('dist', { recursive: true }).filter(file => file.endsWith('.html') && !localeDirs.test(file))) {
+  const root = parse(readFileSync(`dist/${file}`, 'utf8'));
   (function visit(node, keyed) {
     if (node.tagName === 'style') return;
     if (node.tagName === 'script') {

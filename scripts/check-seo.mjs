@@ -22,7 +22,7 @@ assert.ok(!/class="card-desc"[^>]*><\/div>/.test(read('index.html')), 'Empty ser
 for (const path of ['dashboard/index.html', '404.html', 'thanks/index.html']) assert.ok(read(path).includes('noindex, follow'), `Missing noindex: ${path}`);
 assert.ok(existsSync('dist/images/og-image.jpg'));
 console.log(`SEO checks passed: ${urls.length} sitemap URLs, 6 product schemas, static descriptions and discovery file.`);
-const locales = [['invsi/', 'zh-CN'], ['en/invsi/', 'en'], ['zh-tw/invsi/', 'zh-TW'], ['ja/invsi/', 'ja'], ['pt-br/invsi/', 'pt-BR'], ['ar/invsi/', 'ar']];
+const locales = [['invsi/', 'en'], ['zh-cn/invsi/', 'zh-CN'], ['zh-tw/invsi/', 'zh-TW'], ['ja/invsi/', 'ja'], ['pt-br/invsi/', 'pt-BR'], ['ar/invsi/', 'ar']];
 for (const [path, lang] of locales) {
   const html = read(`${path}index.html`);
   assert.ok(html.includes(`<html lang="${lang}"`), `Wrong document language: ${path}`);

@@ -2,9 +2,9 @@ import { guides } from '../data/guides';
 // Chinese and English are written by hand. Every other locale pivots from English through
 // src/i18n/translations/<lang>.json, so adding a language is one row here plus one table.
 export const locales = [
-  { lang: 'zh-CN', prefix: '', label: '简体中文', og: 'zh_CN' },
+  { lang: 'en', prefix: '', label: 'English', og: 'en_US' },
+  { lang: 'zh-CN', prefix: '/zh-cn', label: '简体中文', og: 'zh_CN' },
   { lang: 'zh-TW', prefix: '/zh-tw', label: '繁體中文', og: 'zh_TW' },
-  { lang: 'en', prefix: '/en', label: 'English', og: 'en_US' },
   { lang: 'ja', prefix: '/ja', label: '日本語', og: 'ja_JP' },
   { lang: 'ko', prefix: '/ko', label: '한국어', og: 'ko_KR' },
   { lang: 'es', prefix: '/es', label: 'Español', og: 'es_ES' },
@@ -29,7 +29,7 @@ export const englishLegalNote = 'This document is provided in English. The Engli
 const prefixPattern = new RegExp(`^/(${locales.filter(locale => locale.prefix).map(locale => locale.prefix.slice(1)).join('|')})(?=/|$)`);
 export function languageFor(path: string): Locale {
   const prefix = path.match(prefixPattern)?.[0];
-  return prefix ? locales.find(locale => locale.prefix === prefix)!.lang : 'zh-CN';
+  return prefix ? locales.find(locale => locale.prefix === prefix)!.lang : 'en';
 }
 export function basePath(path: string) {
   const base = path.replace(prefixPattern, '');
