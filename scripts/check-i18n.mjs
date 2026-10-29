@@ -5,7 +5,7 @@ import { parse } from 'parse5';
 const read = path => readFileSync(`dist/${path}`, 'utf8');
 const files = readdirSync('dist', { recursive: true }).filter(file => file.endsWith('.html'));
 // Mirrors src/i18n/site.ts.
-const prefixes = [['', 'en'], ['zh-cn/', 'zh-CN'], ['zh-tw/', 'zh-TW'], ['ja/', 'ja'], ['ko/', 'ko'], ['es/', 'es'], ['pt-br/', 'pt-BR'], ['fr/', 'fr'], ['de/', 'de'], ['it/', 'it'], ['ru/', 'ru'], ['tr/', 'tr'], ['id/', 'id'], ['vi/', 'vi'], ['ar/', 'ar']];
+const prefixes = [['', 'en'], ['zh-cn/', 'zh-CN'], ['zh-tw/', 'zh-TW'], ['ja/', 'ja'], ['ko/', 'ko'], ['es/', 'es'], ['pt-br/', 'pt-BR'], ['fr/', 'fr'], ['de/', 'de'], ['it/', 'it'], ['nl/', 'nl'], ['pl/', 'pl'], ['sv/', 'sv'], ['ru/', 'ru'], ['tr/', 'tr'], ['id/', 'id'], ['vi/', 'vi'], ['th/', 'th'], ['hi/', 'hi'], ['ar/', 'ar']];
 const prefixPattern = new RegExp(`^/(${prefixes.slice(1).map(([prefix]) => prefix.slice(0, -1)).join('|')})(?=/|$)`);
 const languageOf = path => prefixes.find(([prefix]) => prefix && path.startsWith(`/${prefix}`))?.[1] ?? 'en';
 const labels = ['简体中文', '繁體中文', '日本語', '한국어'];

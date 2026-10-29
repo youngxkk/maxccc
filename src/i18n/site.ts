@@ -12,10 +12,15 @@ export const locales = [
   { lang: 'fr', prefix: '/fr', label: 'Français', og: 'fr_FR' },
   { lang: 'de', prefix: '/de', label: 'Deutsch', og: 'de_DE' },
   { lang: 'it', prefix: '/it', label: 'Italiano', og: 'it_IT' },
+  { lang: 'nl', prefix: '/nl', label: 'Nederlands', og: 'nl_NL' },
+  { lang: 'pl', prefix: '/pl', label: 'Polski', og: 'pl_PL' },
+  { lang: 'sv', prefix: '/sv', label: 'Svenska', og: 'sv_SE' },
   { lang: 'ru', prefix: '/ru', label: 'Русский', og: 'ru_RU' },
   { lang: 'tr', prefix: '/tr', label: 'Türkçe', og: 'tr_TR' },
   { lang: 'id', prefix: '/id', label: 'Bahasa Indonesia', og: 'id_ID' },
   { lang: 'vi', prefix: '/vi', label: 'Tiếng Việt', og: 'vi_VN' },
+  { lang: 'th', prefix: '/th', label: 'ไทย', og: 'th_TH' },
+  { lang: 'hi', prefix: '/hi', label: 'हिन्दी', og: 'hi_IN' },
   { lang: 'ar', prefix: '/ar', label: 'العربية', og: 'ar_AR', dir: 'rtl' },
 ] as const;
 export type Locale = typeof locales[number]['lang'];

@@ -42,7 +42,7 @@ add(englishLegalNote);
 
 const attr = (node, name) => node.attrs?.find(a => a.name === name)?.value;
 // English is served without a prefix; skip the other locales' folders.
-const localeDirs = /^(zh-cn|zh-tw|ja|ko|es|pt-br|fr|de|it|ru|tr|id|vi|ar)\//;
+const localeDirs = new RegExp(`^(${locales.filter(locale => locale.prefix).map(locale => locale.prefix.slice(1)).join('|')})/`);
 for (const file of readdirSync('dist', { recursive: true }).filter(file => file.endsWith('.html') && !localeDirs.test(file))) {
   const root = parse(readFileSync(`dist/${file}`, 'utf8'));
   (function visit(node, keyed) {

@@ -1,0 +1,68 @@
+---
+import { apps } from '../data/apps';
+import { sharedDictionary } from '../i18n/dictionaries';
+import { basePath, languageFor, localizedPath } from '../i18n/site';
+import { pick } from '../i18n/translate';
+const lang = languageFor(Astro.url.pathname);
+const current = basePath(Astro.url.pathname);
+const label = pick(lang, { 'zh-CN': '应用', 'zh-TW': '應用', en: 'Apps' });
+const others = apps.filter(app => !app.hidden && current !== `/${app.slug}/`);
+---
+
+<details class="app-switcher">
+  <summary aria-label={label} title={label}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="2" />
+      <rect x="14" y="3" width="7" height="7" rx="2" />
+      <rect x="3" y="14" width="7" height="7" rx="2" />
+      <rect x="14" y="14" width="7" height="7" rx="2" />
+    </svg>
+  </summary>
+  <div class="app-switcher-panel">
+    {others.map(app => (
+      <a href={localizedPath(`/${app.slug}/`, lang)}>
+        <img src={app.image} alt="" width="32" height="32" />
+        <span data-i18n={app.titleKey}>{app.titleKey ? sharedDictionary[lang][app.titleKey as keyof typeof sharedDictionary.en] : app.name}</span>
+      </a>
+    ))}
+  </div>
+</details>
+
+<style>
+  .app-switcher { position: relative; color: var(--text-primary); }
+  summary { display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 50%; cursor: pointer; list-style: none; opacity: .8; }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover, .app-switcher[open] summary { opacity: 1; }
+  summary:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+  svg { width: 20px; height: 20px; }
+  .app-switcher-panel { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; width: 240px; max-width: calc(100vw - 32px); max-height: 70vh; overflow-y: auto; padding: 8px; border: 1px solid var(--border-color); border-radius: 16px; background: var(--nav-bg); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); box-shadow: 0 16px 40px rgba(0,0,0,.16); z-index: 10000; }
+  a { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 10px; color: inherit; text-decoration: none; font-size: 14px; }
+  a:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+  img { flex-shrink: 0; border-radius: 8px; object-fit: cover; }
+  .app-switcher::details-content { transition: content-visibility 160ms allow-discrete; }
+  .app-switcher-panel { opacity: 0; transform: translateY(-4px); transition: opacity 160ms ease, transform 160ms ease; }
+  .app-switcher[open] .app-switcher-panel { opacity: 1; transform: translateY(0); }
+  @starting-style {
+    .app-switcher[open] .app-switcher-panel { opacity: 0; transform: translateY(-4px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .app-switcher::details-content, .app-switcher-panel { transition: none; }
+    .app-switcher-panel { transform: none; }
+  }
+</style>
+
+<script>
+  const switcher = document.querySelector<HTMLDetailsElement>('.app-switcher');
+  document.addEventListener('click', event => {
+    if (event.target instanceof Node && !switcher?.contains(event.target) && switcher) switcher.open = false;
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && switcher?.open) {
+      switcher.open = false;
+      switcher.querySelector('summary')?.focus();
+    }
+  });
+  switcher?.addEventListener('toggle', () => {
+    if (switcher.open) document.querySelector('.lang-dropdown')?.classList.remove('show');
+  });
+</script>

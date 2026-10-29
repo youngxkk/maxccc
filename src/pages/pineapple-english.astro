@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MainNav from '../components/MainNav.astro';
 import MainFooter from '../components/MainFooter.astro';
+import ProductDetails from '../components/ProductDetails.astro';
 import StoreButton from '../components/mock/StoreButton.astro';
 import { pineappleContent } from '../i18n/pineapple-content';
 import '../styles/product.css';
@@ -37,6 +38,7 @@ const growth = ['progress', 'books'] as const;
     <section class="growth wrap"><div class="section-head"><p class="eyebrow" data-i18n="pe_grow_label">{t('pe_grow_label')}</p><h2 data-i18n="pe_grow_title" set:html={t('pe_grow_title')} /></div><div class="growth-grid">{growth.map(name=><article><div class="device"><img src={shot(name)} alt={name==='books'?'Choose a themed, CEFR or Cambridge wordbook':'Learning progress and vocabulary statistics'} width="1242" height="2688" loading="lazy" /></div><div><span class="mini-label">{name==='books'?'YOUR OWN PACE':'LITTLE WINS'}</span><h3 data-i18n={`pe_${name}_title`}>{t(`pe_${name}_title`)}</h3><p data-i18n={`pe_${name}_desc`}>{t(`pe_${name}_desc`)}</p></div></article>)}</div></section>
     <section class="ipad wrap"><div><p class="eyebrow">HELLO, BIG WORLD.</p><h2 data-i18n="pe_ipad_title" set:html={t('pe_ipad_title')} /><p data-i18n="pe_ipad_desc">{t('pe_ipad_desc')}</p></div><div class="tablet"><img src={shot('ipad-words')} alt="Illustrated English vocabulary on iPad" width="1637" height="2183" loading="lazy" /></div></section>
     <section class="download"><div class="wrap"><img src="/images/pinaappleenglish.webp" alt="Pineapple English" width="84" height="84" /><h2 data-i18n="pe_download_title">{t('pe_download_title')}</h2><p data-i18n="pe_download_desc">{t('pe_download_desc')}</p><StoreButton href={appStoreUrl} /><a class="privacy" href="/privacy-policy/" data-i18n="privacy_policy">隐私政策</a></div></section>
+    <ProductDetails slug="pineapple-english" />
   </main>
   <MainFooter />
 </BaseLayout>

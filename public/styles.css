@@ -226,16 +226,16 @@ a {
     display: none;
     flex-direction: column;
     z-index: 10000;
-}
-
-.lang-dropdown.show {
-    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2px;
     width: max-content;
     max-width: calc(100vw - 32px);
     max-height: min(70vh, 520px);
     overflow-y: auto;
+}
+
+.lang-dropdown.show {
+    display: grid;
 }
 
 .lang-dropdown [aria-current="page"] {

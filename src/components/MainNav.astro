@@ -1,6 +1,9 @@
 ---
 import { languageFor, languageLinks as linksFor } from "../i18n/site";
 import { showToolsSection } from "../data/tools";
+import AppSwitcher from "./AppSwitcher.astro";
+import { apps } from "../data/apps";
+import { basePath } from "../i18n/site";
 
 const { showSectionLinks = true, languageLinks = linksFor(Astro.url.pathname) } = Astro.props as {
   showSectionLinks?: boolean;
@@ -28,6 +31,19 @@ const { showSectionLinks = true, languageLinks = linksFor(Astro.url.pathname) } 
   .brand-invisi {
     padding-bottom: 0.08em;
   }
+
+  :global(.lang-dropdown) {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 160ms ease, transform 160ms ease, display 160ms allow-discrete;
+  }
+  :global(.lang-dropdown.show) { opacity: 1; transform: translateY(0); }
+  @starting-style {
+    :global(.lang-dropdown.show) { opacity: 0; transform: translateY(-4px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(.lang-dropdown) { transition: none; transform: none; }
+  }
 </style>
 
 <nav class="main-nav">
@@ -47,6 +63,7 @@ const { showSectionLinks = true, languageLinks = linksFor(Astro.url.pathname) } 
     </div>
 
     <div class="nav-right">
+      {apps.some(app => basePath(Astro.url.pathname) === `/${app.slug}/`) && <AppSwitcher />}
       <div class="lang-selector">
         <button class="lang-btn" aria-label="Change Language">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -83,3 +100,26 @@ const { showSectionLinks = true, languageLinks = linksFor(Astro.url.pathname) } 
     </div>
   </div>
 </nav>
+
+<script>
+  const languageMenu = document.querySelector<HTMLElement>('.lang-selector');
+  const appMenu = document.querySelector<HTMLDetailsElement>('.app-switcher');
+  const languagePanel = languageMenu?.querySelector('.lang-dropdown');
+  const closeMenus = () => {
+    languagePanel?.classList.remove('show');
+    if (appMenu) appMenu.open = false;
+  };
+  let closeTimer: ReturnType<typeof setTimeout>;
+  for (const menu of [languageMenu, appMenu]) {
+    menu?.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse') return;
+      clearTimeout(closeTimer);
+      closeMenus();
+      if (menu === appMenu && appMenu) appMenu.open = true;
+      else languagePanel?.classList.add('show');
+    });
+    menu?.addEventListener('pointerleave', event => {
+      if (event.pointerType === 'mouse') closeTimer = setTimeout(closeMenus, 180);
+    });
+  }
+</script>

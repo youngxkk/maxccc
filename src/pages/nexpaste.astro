@@ -1,6 +1,5 @@
 ---
 import ProductDetails from "../components/ProductDetails.astro";
-import ProductDetails from "../components/ProductDetails.astro";
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MainNav from '../components/MainNav.astro';
 import MainFooter from '../components/MainFooter.astro';
@@ -51,7 +50,6 @@ const store = 'https://apps.apple.com/app/id6761368515';
     <section class="privacy shell"><div class="privacy-mark" aria-hidden="true">◎</div><p class="eyebrow" data-i18n="npr_privacy_k">{t('privacy_k')}</p><h2 data-i18n="npr_privacy_title">{t('privacy_title')}</h2><p data-i18n="npr_privacy_desc">{t('privacy_desc')}</p></section>
     <section class="faq shell"><h2 data-i18n="npr_faq">{t('faq')}</h2><div>{[1,2,3,4].map(i=><details><summary><span data-i18n={`npr_q${i}`}>{t(`q${i}`)}</span><span class="plus" aria-hidden="true">＋</span></summary><p data-i18n={`npr_a${i}`}>{t(`a${i}`)}</p></details>)}</div></section>
     <section class="final" id="download"><img src="/images/nexpaste-icon.png" width="76" height="76" alt="NexPaste" /><h2 data-i18n="npr_final_title">{t('final_title')}</h2><p data-i18n="npr_final_desc">{t('final_desc')}</p><StoreButton href={store} /><span class="platforms">Mac · iPhone · iPad</span></section>
-  <ProductDetails slug="nexpaste" />
   <ProductDetails slug="nexpaste" />
   </main>
   <MainFooter />
