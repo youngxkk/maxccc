@@ -1,0 +1,19 @@
+---
+import DiscoveryLayout from '../layouts/DiscoveryLayout.astro';
+import { productSeo } from '../data/product-seo';
+const products = Object.entries(productSeo);
+const schema = { '@context': 'https://schema.org', '@type': 'ItemList', name: 'invisilab 应用目录', itemListElement: products.map(([slug, product], i) => ({ '@type': 'ListItem', position: i + 1, name: product.name, url: `https://maxc.cc/${slug}/` })) };
+---
+<DiscoveryLayout title="invisilab 应用目录 — Mac、iPhone 与 iPad 软件" description="探索 invisilab 的 NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK，查看功能、适用设备与官方下载链接。">
+  <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  <nav aria-label="面包屑"><a href="/">invisilab</a><span>/ 应用目录</span></nav>
+  <h1>为 Mac、iPhone 和 iPad 打造的应用</h1>
+  <p>从效率工具到日常生活，找到适合自己的应用。每个产品页都提供功能介绍和 App Store 下载入口。</p>
+  {products.map(([slug, product]) => <section class="product-entry">
+    <img src={product.image} alt={`${product.name} 图标`} width="56" height="56" loading="lazy" />
+    <h2><a href={`/${slug}/`}>{product.name}</a></h2>
+    <span class="platform">{product.alternateName} · {product.os}</span>
+    <p>{product.description}</p>
+    <a href={`/${slug}/`}>了解功能 →</a>
+  </section>)}
+</DiscoveryLayout>

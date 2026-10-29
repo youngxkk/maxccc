@@ -1,0 +1,10 @@
+---
+import DiscoveryLayout from '../../layouts/DiscoveryLayout.astro';
+import { guides } from '../../data/guides';
+---
+<DiscoveryLayout title="应用使用指南 — 私密相册、壁纸、英语启蒙与独居打卡 | invisilab" description="从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 invisilab 产品。">
+  <nav aria-label="面包屑"><a href="/">invisilab</a><span>/ 使用指南</span></nav>
+  <h1>从日常需要，找到合适的应用。</h1>
+  <p>这里介绍选择方法、使用场景和产品功能，帮助你在下载前了解应用是否适合自己。</p>
+  {guides.map(guide => <article><h2><a href={`/guides/${guide.slug}/`}>{guide.title}</a></h2><p>{guide.description}</p><a href={`/guides/${guide.slug}/`}>阅读指南 →</a></article>)}
+</DiscoveryLayout>
