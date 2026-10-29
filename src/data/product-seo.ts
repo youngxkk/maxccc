@@ -1,5 +1,26 @@
 // Keep search descriptions and structured data aligned with the visible product copy.
 export const productSeo = {
+  nexpaste: {
+    name: 'NexPaste', alternateName: 'NexPaste 剪贴板管理器',
+    title: 'NexPaste — Mac、iPhone、iPad 剪贴板历史管理与 iCloud 同步',
+    description: 'NexPaste 是 Mac、iPhone 和 iPad 上的剪贴板管理器。Mac 自动保存文字、链接、图片和文件引用，支持搜索、标签、收藏与快捷键粘贴；移动端通过应用或小组件保存内容，Pro 可开启 iCloud 同步。普通历史最多保留 500 条。',
+    category: 'ProductivityApplication', os: 'macOS, iOS, iPadOS', image: '/images/nexpaste-icon.png', store: '6761368515',
+    features: ['Mac 剪贴板历史与搜索', '文字、链接、图片和文件引用', '最多 500 条普通历史', '标签、收藏与迷你面板', 'iPhone 和 iPad 应用及桌面小组件', 'Pro 可选 iCloud 三端同步'],
+    questions: [
+      ['NexPaste 支持哪些设备？', 'NexPaste 支持 Mac、iPhone 和 iPad。Mac 可自动记录剪贴板，移动端通过应用或小组件保存内容。'],
+      ['NexPaste 可以同步剪贴板吗？', 'Pro 用户可开启 iCloud 同步，在使用同一 Apple 账户的 Mac、iPhone 和 iPad 间共享保存的内容。'],
+    ],
+  },
+  transnap: {
+    name: 'Transnap', alternateName: 'Transnap 菜单栏翻译',
+    title: 'Transnap — Mac 菜单栏复制翻译与翻译历史',
+    description: 'Transnap 是 macOS 菜单栏翻译工具。复制文字后快速翻译，并在 Mac 上保留翻译历史，适合阅读与日常工作中的文本翻译。',
+    category: 'ProductivityApplication', os: 'macOS', image: '/images/transnap-icon.png', store: '6762361410',
+    features: ['macOS 菜单栏翻译', '复制文字快速翻译', 'Mac 本地翻译历史'],
+    questions: [
+      ['Transnap 是什么软件？', 'Transnap 是为 Mac 打造的菜单栏翻译工具，可以在复制文字后快速翻译，并保留翻译历史。'],
+    ],
+  },
   invsi: {
     name: 'invsi', alternateName: 'invsi 私密空间',
     title: 'invsi — iPhone、iPad 私密相册、文件保护与应用锁',
@@ -14,9 +35,9 @@ export const productSeo = {
   'pixie-wallpaper': {
     name: '精灵壁纸 Pixie', alternateName: 'Pixie Wallpaper',
     title: '精灵壁纸 Pixie — iPhone、iPad 高清壁纸与每日精选',
-    description: '精灵壁纸 Pixie 是 iPhone 和 iPad 壁纸应用，提供每日更新的精选高清壁纸，涵盖风景、极简、人物和趣味插画，支持全屏预览、保存到相册及 iCloud 收藏同步。',
+    description: '精灵壁纸 Pixie 是 iPhone 和 iPad 壁纸应用，提供每日更新的精选高清壁纸，涵盖风景、国风、动漫、人物、光影、纹理等数十种分类，支持全屏预览、保存到相册及 iCloud 收藏同步。',
     category: 'LifestyleApplication', os: 'iOS, iPadOS', image: '/images/pixie.webp', store: '6446266063',
-    features: ['每日精选高清壁纸', '风景、极简、人物与插画分类', '全屏壁纸预览', '保存壁纸到相册', 'iCloud 收藏同步'],
+    features: ['每日精选高清壁纸', '风景、国风、动漫、人物、光影、纹理等数十种分类', '全屏壁纸预览', '保存壁纸到相册', 'iCloud 收藏同步'],
     questions: [
       ['精灵壁纸 Pixie 提供哪些壁纸？', '精灵壁纸提供风景、极简、抽象艺术、人物及趣味插画等风格，适用于 iPhone 和 iPad，并持续更新每日精选。'],
       ['如何预览和保存喜欢的壁纸？', '在精灵壁纸 App 中可以全屏预览，收藏喜欢的图片或保存到相册。收藏支持通过 iCloud 同步。网页画廊也可点击图片预览。'],
@@ -46,3 +67,9 @@ export const productSeo = {
   },
 } as const;
 export type ProductSlug = keyof typeof productSeo;
+
+export type ProductMetadata = {
+  name: string; alternateName: string; title: string; description: string;
+  category: string; os: string; image: string; store: string;
+  features: readonly string[];
+};

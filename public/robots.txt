@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Search indexing for ChatGPT. Public pages remain available to other crawlers.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://maxc.cc/sitemap.xml
