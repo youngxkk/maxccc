@@ -63,13 +63,15 @@ for (const file of readdirSync('dist', { recursive: true }).filter(file => file.
 
 const source = Object.fromEntries([...strings].sort().map(text => [textId(text), text]));
 if (Object.keys(source).length !== strings.size) throw new Error('Two English strings share an id; change textId.');
-writeFileSync('src/i18n/translations/source.json', `${JSON.stringify(source, null, 1)}\n`);
+const checkOnly = process.argv.includes('--check');
+if (!checkOnly) writeFileSync('src/i18n/translations/source.json', `${JSON.stringify(source, null, 1)}\n`);
 console.log(`${strings.size} English strings, ${[...strings].join('').length} characters.`);
 for (const { lang } of translatedLocales) {
   const dir = `src/i18n/translations/${lang}`;
   const table = Object.assign({}, ...(existsSync(dir) ? readdirSync(dir).filter(file => file.endsWith('.json')).map(file => JSON.parse(readFileSync(`${dir}/${file}`, 'utf8'))) : []));
   const missing = Object.keys(source).filter(id => !table[id]);
+  if (checkOnly && missing.length) process.exitCode = 1;
   const stale = Object.keys(table).filter(id => !source[id]);
   console.log(`${lang}: ${strings.size - missing.length}/${strings.size}${missing.length ? `, missing ${missing.length}` : ''}${stale.length ? `, ${stale.length} unused` : ''}`);
-  if (process.argv.includes('--missing') && missing.length) writeFileSync(`${dir}.missing.json`, `${JSON.stringify(Object.fromEntries(missing.map(id => [id, source[id]])), null, 1)}\n`);
+  if (!checkOnly && process.argv.includes('--missing') && missing.length) writeFileSync(`${dir}.missing.json`, `${JSON.stringify(Object.fromEntries(missing.map(id => [id, source[id]])), null, 1)}\n`);
 }

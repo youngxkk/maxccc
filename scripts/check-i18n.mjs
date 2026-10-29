@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { Script, runInNewContext } from 'node:vm';
 import { parse } from 'parse5';
+// Inspect current English build output so newly added copy cannot silently fall back to English.
+execFileSync(process.execPath, ['scripts/i18n-extract.mjs', '--check'], { stdio: 'inherit' });
 const read = path => readFileSync(`dist/${path}`, 'utf8');
 const files = readdirSync('dist', { recursive: true }).filter(file => file.endsWith('.html'));
 // Mirrors src/i18n/site.ts.
