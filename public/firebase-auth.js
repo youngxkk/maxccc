@@ -553,7 +553,12 @@ function mountAuthWidget() {
     });
 }
 
-if (document.readyState === "loading") {
+// Sign-in is not offered yet; set to true to show the nav login button again.
+const AUTH_UI_ENABLED = false;
+
+if (!AUTH_UI_ENABLED) {
+    // Leave the nav untouched.
+} else if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", mountAuthWidget);
 } else {
     mountAuthWidget();
