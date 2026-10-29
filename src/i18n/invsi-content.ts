@@ -2,7 +2,7 @@ export const invsiContent = {
   'zh-CN': {
     iv_motto: '隐私，由你决定。', iv_statement_label: '日常里的私密一面', iv_calc_label: '01 / 计算器', iv_focus_label: '02 / 专注计时器', iv_gallery_label: '近距离了解',
     iv_overview: '概览', iv_features: '隐私功能', iv_gallery: '一览 invsi',
-    iv_eyebrow: 'IN VISIBLE SIGHT. ONLY YOURS.',
+    iv_eyebrow: 'iPhone 与 iPad 私密照片与文件保险箱',
     iv_title: '你的隐私，<br>自有空间。',
     iv_intro: '照片、视频、文件，都收好。<br>把只属于你的日常，留在只有你能打开的空间。',
     iv_explore: '探索你的私密空间 ↗', iv_available: '为 iPhone 和 iPad 而设计',
@@ -26,7 +26,7 @@ export const invsiContent = {
   'zh-TW': {
     iv_motto: '隱私，由你決定。', iv_statement_label: '日常裡的私密一面', iv_calc_label: '01 / 計算機', iv_focus_label: '02 / 專注計時器', iv_gallery_label: '近距離了解',
     iv_overview: '概覽', iv_features: '隱私功能', iv_gallery: '一覽 invsi',
-    iv_eyebrow: 'IN VISIBLE SIGHT. ONLY YOURS.', iv_title: '你的隱私，<br>自有空間。',
+    iv_eyebrow: 'iPhone 與 iPad 私密照片與檔案保險箱', iv_title: '你的隱私，<br>自有空間。',
     iv_intro: '照片、影片、檔案，都收好。<br>把只屬於你的日常，留在只有你能打開的空間。',
     iv_explore: '探索你的私密空間 ↗', iv_available: '為 iPhone 和 iPad 而設計',
     iv_statement: '有些生活，<br>只想留給自己。', iv_statement_desc: '一張照片，一段影片，一份重要檔案。<br>不必解釋為什麼私密，只需決定誰能看見。',
@@ -39,7 +39,7 @@ export const invsiContent = {
   en: {
     iv_motto: 'PRIVATE BY CHOICE.', iv_statement_label: 'THE PRIVATE SIDE OF EVERYDAY.', iv_calc_label: '01 / CALCULATOR', iv_focus_label: '02 / FOCUS TIMER', iv_gallery_label: 'A CLOSER LOOK',
     iv_overview: 'Overview', iv_features: 'Privacy features', iv_gallery: 'Explore invsi',
-    iv_eyebrow: 'IN VISIBLE SIGHT. ONLY YOURS.', iv_title: 'Your own<br>private space.',
+    iv_eyebrow: 'PRIVATE PHOTO AND FILE VAULT FOR IPHONE AND IPAD', iv_title: 'Your own<br>private space.',
     iv_intro: 'Keep photos, videos & files private.<br>A little space for the parts of life that are yours alone.',
     iv_explore: 'Explore your private space ↗', iv_available: 'Designed for iPhone and iPad',
     iv_statement: 'Some things<br>are just for you.', iv_statement_desc: 'A photo. A video. An important file.<br>You decide what to share, and what to keep to yourself.',

@@ -2,9 +2,30 @@
 import DiscoveryLayout from '../../layouts/DiscoveryLayout.astro';
 import { guides } from '../../data/guides';
 ---
-<DiscoveryLayout title="应用使用指南 — 私密相册、壁纸、英语启蒙与独居打卡 | invisilab" description="从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 invisilab 产品。">
+<DiscoveryLayout title="应用使用指南 — Mac 剪贴板、离线翻译与 iPhone 应用 | invisilab" description="从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 invisilab 产品。">
   <nav aria-label="面包屑"><a href="/">invisilab</a><span>/ 使用指南</span></nav>
   <h1>从日常需要，找到合适的应用。</h1>
   <p>这里介绍选择方法、使用场景和产品功能，帮助你在下载前了解应用是否适合自己。</p>
-  {guides.map(guide => <article><h2><a href={`/guides/${guide.slug}/`}>{guide.title}</a></h2><p>{guide.description}</p><a href={`/guides/${guide.slug}/`}>阅读指南 →</a></article>)}
+  {guides.map(guide => <article><h2><a href={`/guides/${guide.slug}/`}>{guide.title}</a></h2><p>{guide.description}</p><a class="guide-button" href={`/guides/${guide.slug}/`}>阅读指南 →</a></article>)}
 </DiscoveryLayout>
+
+<style>
+  .guide-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin-top: 12px;
+    padding: 0 22px;
+    border: 1px solid #0071e3;
+    border-radius: 999px;
+    background: #0071e3;
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .18s, border-color .18s;
+  }
+  .guide-button:hover { background: #005bb5; border-color: #005bb5; }
+  .guide-button:focus-visible { outline: 3px solid #0071e3; outline-offset: 4px; }
+</style>

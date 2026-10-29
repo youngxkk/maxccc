@@ -1,10 +1,10 @@
 import { withLocales } from "./translate";
 export const nexpasteRedesign = withLocales({
   "zh-CN": {
-    "npr_eyebrow": "NexPaste · 你的随身剪贴板",
+    "npr_eyebrow": "NexPaste · Mac 剪贴板管理器",
     "npr_title1": "复制过的，",
     "npr_title2": "随时找回。",
-    "npr_lead": "让每一次复制，都有迹可循。\n保存文字、链接、图片与文件，在 Mac、iPhone 和 iPad 间轻松接续。",
+    "npr_lead": "自动保存 Mac 上复制的文字、链接、图片和文件引用，搜索后再次粘贴。\nPro 可通过你自己的 iCloud，与 iPhone 和 iPad 同步。",
     "npr_explore": "探索功能",
     "npr_platforms": "为 Mac、iPhone 和 iPad 打造",
     "npr_strip1": "多种内容，一个地方",
@@ -67,10 +67,10 @@ export const nexpasteRedesign = withLocales({
     "npr_final_desc": "下载 NexPaste，把需要的内容留在手边。"
   },
   "zh-TW": {
-    "npr_eyebrow": "NexPaste · 你的隨身剪貼簿",
+    "npr_eyebrow": "NexPaste · Mac 剪貼簿管理工具",
     "npr_title1": "複製過的，",
     "npr_title2": "隨時找回。",
-    "npr_lead": "讓每一次複製，都有跡可循。\n儲存文字、連結、圖片與檔案，在 Mac、iPhone 和 iPad 間輕鬆接續。",
+    "npr_lead": "自動儲存 Mac 上複製的文字、連結、圖片和檔案參照，搜尋後再次貼上。\nPro 可透過你自己的 iCloud，與 iPhone 和 iPad 同步。",
     "npr_explore": "探索功能",
     "npr_platforms": "為 Mac、iPhone 和 iPad 打造",
     "npr_strip1": "多種內容，一個地方",
@@ -133,10 +133,10 @@ export const nexpasteRedesign = withLocales({
     "npr_final_desc": "下載 NexPaste，把需要的內容留在手邊。"
   },
   "en": {
-    "npr_eyebrow": "NexPaste · Your clipboard, upgraded",
+    "npr_eyebrow": "NexPaste · Mac clipboard manager",
     "npr_title1": "Copied once.",
     "npr_title2": "Yours to reuse.",
-    "npr_lead": "Give everything you copy a place to stay.\nKeep text, links, images, and files within reach across Mac, iPhone, and iPad.",
+    "npr_lead": "Automatically save text, links, images and file references copied on Mac, then search and paste again.\nWith Pro, sync through your own iCloud to iPhone and iPad.",
     "npr_explore": "Explore features",
     "npr_platforms": "Made for Mac, iPhone, and iPad",
     "npr_strip1": "Many formats. One place.",

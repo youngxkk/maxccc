@@ -14,7 +14,7 @@ const growth = ['progress', 'books'] as const;
 ---
 <BaseLayout title="菠萝英语 · 在游戏中认识世界" description="3000+ 儿童英语单词、50+ 生活主题，搭配单词连连看、听音选图、错题复习与分级词书，让英语启蒙更有趣。" canonical="https://maxc.cc/pineapple-english/" ogImage="https://maxc.cc/images/pinaappleenglish.webp" includeHomeStyles includeHomeScript>
   <script slot="head" is:inline define:vars={{ pineappleContent }}>
-    for (const [lang, copy] of Object.entries(pineappleContent)) Object.assign(window.DoCoolI18n.shared[lang], copy);
+    for (const [lang, copy] of Object.entries(pineappleContent)) if (window.DoCoolI18n.shared[lang]) Object.assign(window.DoCoolI18n.shared[lang], copy);
   </script>
   <MainNav showSectionLinks={false} />
   <main class="pine">

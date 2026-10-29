@@ -7,6 +7,8 @@ export const productSeo = {
     category: 'ProductivityApplication', os: 'macOS, iOS, iPadOS', image: '/images/nexpaste-icon.png', store: '6761368515',
     features: ['Mac 剪贴板历史与搜索', '文字、链接、图片和文件引用', '最多 500 条普通历史', '标签、收藏与快捷键粘贴', '居中、顶部、左右侧面板与菜单栏迷你面板', '可排除密码管理器等敏感应用', '本地运行、可离线使用、无第三方 SDK', 'iPhone 和 iPad 应用及桌面小组件', 'Pro 可选 iCloud 三端同步'],
     questions: [
+      ['iPhone 会在后台持续记录剪贴板吗？', '不会。iPhone 与 iPad 需要通过应用或小组件保存文字、链接和图片；Mac 支持自动记录，也可暂停或排除指定应用。'],
+      ['文件会复制进 NexPaste 吗？', 'Mac 保存的是文件引用，并不是文件备份。请保留原文件；移动或删除原文件后，引用可能无法继续使用。'],
       ['NexPaste 支持哪些设备？', 'NexPaste 支持 Mac、iPhone 和 iPad。Mac 可自动记录剪贴板，移动端通过应用或小组件保存内容。'],
       ['NexPaste 可以同步剪贴板吗？', 'Pro 用户可开启 iCloud 同步，在使用同一 Apple 账户的 Mac、iPhone 和 iPad 间共享保存的内容。同步使用苹果原生 iCloud 框架，数据占用你自己的 iCloud 空间，不经过第三方云服务。'],
       ['NexPaste 会保存密码吗？', 'NexPaste 在本地运行，不含第三方 SDK。你可以排除密码管理器和其他敏感应用，从这些应用复制的内容不会被保存。'],

@@ -8,8 +8,8 @@ const relatedGuides = guides.filter(guide => guide.product === slug);
 ---
 <section class="product-details" aria-labelledby={`${slug}-details-title`}>
   <h2 id={`${slug}-details-title`}>了解 {product.name}</h2>
-  <p>{product.description}</p>
-  <ul>{product.features.map(feature => <li>{feature}</li>)}</ul>
+  {slug === 'nexpaste' && <><h3>免费与 Pro</h3><p>基础功能可免费使用；iCloud 同步需要 Pro。升级选项与当前价格请查看 App Store。</p></>}
+  {slug !== 'nexpaste' && <><p>{product.description}</p><ul>{product.features.map(feature => <li>{feature}</li>)}</ul></>}
   {slug === 'pixie-wallpaper' ? <>
     <h3>数十种壁纸分类，找到你的风格</h3>
     <p>从主题、色彩到画面氛围，探索精灵壁纸 App 中丰富的壁纸分类。</p>

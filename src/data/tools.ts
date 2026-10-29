@@ -21,12 +21,6 @@ export const tools: ToolEntry[] = [
     descriptionKey: "tool_units_desc"
   },
   {
-    href: "/tools/lorem/",
-    icon: "📝",
-    titleKey: "tool_lorem_title",
-    descriptionKey: "tool_lorem_desc"
-  },
-  {
     href: "/tools/wordcount/",
     icon: "🔢",
     titleKey: "tool_words_title",
@@ -44,31 +38,6 @@ export const tools: ToolEntry[] = [
     titleKey: "tool_bmi_title",
     descriptionKey: "tool_bmi_desc"
   },
-  {
-    href: "/tools/remove-bg/",
-    icon: "🖼️",
-    titleKey: "tool_removebg_title",
-    descriptionKey: "tool_removebg_desc"
-  },
-  {
-    href: "/tools/gradient/",
-    icon: "🎨",
-    titleKey: "tool_gradient_title",
-    descriptionKey: "tool_gradient_desc"
-  },
-  {
-    href: "/tools/json/",
-    icon: "📋",
-    titleKey: "tool_json_title",
-    descriptionKey: "tool_json_desc"
-  },
-  {
-    href: "/tools/pdf2text/",
-    image: "/images/pdf2text.jpg",
-    imageAlt: "PDF2Text Icon",
-    titleKey: "tool2_title",
-    descriptionKey: "tool2_desc"
-  }
 ];
 
 // Tools section is hidden from the home page and nav for now; pages under /tools/ still work

@@ -1,0 +1,49 @@
+---
+import DiscoveryLayout from '../layouts/DiscoveryLayout.astro';
+import { languageFor, localizedPath } from '../i18n/site';
+import { pick } from '../i18n/translate';
+const lang = languageFor(Astro.url.pathname);
+const t = (zhCN: string, zhTW: string, en: string) => pick(lang, { 'zh-CN': zhCN, 'zh-TW': zhTW, en });
+const title = t('关于我 — invisilab 背后的独立开发者', '關於我 — invisilab 背後的獨立開發者', 'About me — The independent developer behind invisilab');
+const description = t('我是 invisilab 背后的独立开发者。我想把有意思的想法做成好用的 App：不放广告，不拿体验换收益，认真对待每一个日常的小需求。', '我是 invisilab 背後的獨立開發者。我想把有意思的想法做成好用的 App：不放廣告，不拿體驗換收益，認真對待日常的小需求。', 'I’m the independent developer behind invisilab. I turn curious ideas into useful apps, without ads or compromises that put revenue ahead of the experience.');
+---
+<DiscoveryLayout title={title} description={description}>
+  <div class="about">
+    <p class="eyebrow">{t('写在这些 App 背后。', '寫在這些 App 背後。', 'A few words behind the apps.')}</p>
+    <h1>{t('做点有意思的，\n也做点真正好用的。', '做點有意思的，\n也做點真正好用的。', 'Something cool.\nSomething worth using.')}</h1>
+    <p class="intro">{t('我做 App，起点往往很简单：一个有意思的念头，或者一个「这里能不能更好用一点」的小问题。invisilab 就是我把这些想法变成产品的地方。', '我做 App，起點往往很簡單：一個有意思的念頭，或者一個「這裡能不能更好用一點」的小問題。invisilab 就是我把這些想法變成產品的地方。', 'My apps often start with a curious idea, or a small question: could this be a little easier to use? invisilab is where I turn those ideas into products.')}</p>
+    <section>
+      <h2>{t('十多年的经历，一直没变的追求。', '十多年的經歷，一直沒變的追求。', 'Over a decade in. The same care for every detail.')}</h2>
+      <p>{t('在成为独立开发者之前，我曾在互联网大厂工作十多年，参与过多款用户规模过亿的 App 的用户体验设计，也做过面向全球市场的产品。这些经历让我有机会理解不同人的需求，也让我更加在意，一个产品能否真正融入人们的日常。', '在成為獨立開發者之前，我曾在網路大廠工作十多年，參與過多款用戶規模過億的 App 的使用者體驗設計，也做過面向全球市場的產品。這些經歷讓我有機會理解不同人的需求，也讓我更加在意，一個產品能否真正融入人們的日常。', 'Before becoming an independent developer, I spent more than a decade at major tech companies, working on user experience for several apps with over 100 million users each, as well as products for global markets. Those experiences helped me understand different people’s needs and care more deeply about how a product fits into everyday life.')}</p>
+      <p>{t('一直以来，我对 App 的品质和体验都有很高的要求。我希望把这份认真放进自己做的每一个产品里，让更多人愿意使用、喜欢使用。更希望它们不只是好用，还能为生活带来一点积极的改变：少一点繁琐，多一点从容，或者多一点发现与快乐。', '一直以來，我對 App 的品質和體驗都有很高的要求。我希望把這份認真放進自己做的每一個產品裡，讓更多人願意使用、喜歡使用。更希望它們不只是好用，還能為生活帶來一點積極的改變：少一點繁瑣，多一點從容，或者多一點發現與快樂。', 'I’ve always held apps to a high standard of quality and care. I bring that same commitment to everything I make, hoping to create products that more people enjoy using. Beyond being useful, I hope they make a small, positive difference: less friction, a little more breathing room, or a moment of discovery and joy.')}</p>
+    </section>
+    <section>
+      <h2>{t('有意思，是开始。好用，才算数。', '有意思，是開始。好用，才算數。', 'Curiosity starts it. Usefulness makes it matter.')}</h2>
+      <p>{t('我喜欢 cool 一点的东西，但不想让产品只停留在「看起来不错」。它应该解决一个真实的问题，让你少费一点力，或者给平常的一天添一点乐趣。', '我喜歡 cool 一點的東西，但不想讓產品只停留在「看起來不錯」。它應該解決一個真實的問題，讓你少費一點力，或者為平常的一天添一點樂趣。', 'I like things that feel a little cool. But looking good is only the start. An app should solve a real problem, save you some effort, or bring a little delight to an ordinary day.')}</p>
+    </section>
+    <section>
+      <h2>{t('不放广告，是我的坚持。', '不放廣告，是我的堅持。', 'No ads. That’s a commitment.')}</h2>
+      <p>{t('我的产品永远不会加入乱七八糟的广告。我也不想为了多一点收益，塞进让体验变差的东西。你打开一个 App，是为了做自己的事；我希望产品能帮上忙，而不是添乱。', '我的產品永遠不會加入亂七八糟的廣告。我也不想為了多一點收益，塞進讓體驗變差的東西。你打開一個 App，是為了做自己的事；我希望產品能幫上忙，而不是添亂。', 'My products will never include ads. I won’t add things that make the experience worse just to earn a little more. You open an app to do something of your own. I want it to help, not get in your way.')}</p>
+    </section>
+    <section>
+      <h2>{t('慢慢做，认真做。', '慢慢做，認真做。', 'Take the time. Make it well.')}</h2>
+      <p>{t('对我来说，认真做好一个功能、打磨一个细节，比不断往里面加东西更重要。做产品有很多选择，我想坚持的，是做出自己也愿意一直用下去的东西。', '對我來說，認真做好一個功能、打磨一個細節，比不斷往裡面加東西更重要。做產品有很多選擇，我想堅持的，是做出自己也願意一直用下去的東西。', 'Getting a feature right and refining the details matters more to me than adding more things. There are plenty of choices to make when building a product. I want to keep choosing things I’d be happy to use myself.')}</p>
+    </section>
+    <section class="closing">
+      <h2>{t('想法还会继续。', '想法還會繼續。', 'There’s more to make.')}</h2>
+      <p>{t('这里有我正在做的效率工具，也有壁纸、英语启蒙和生活里的小应用。它们不一定属于同一个类别，但都来自同一个念头：做点有意思的，把它做好。', '這裡有我正在做的效率工具，也有桌布、英語啟蒙和生活裡的小 App。它們不一定屬於同一個類別，但都來自同一個念頭：做點有意思的，把它做好。', 'You’ll find productivity tools here, alongside wallpapers, English learning and apps for everyday life. They don’t all fit one category. They come from the same impulse: make something interesting, and make it well.')}</p>
+      <a href={localizedPath('/apps/', lang)}>{t('看看我做的 App ↗', '看看我做的 App ↗', 'Explore my apps ↗')}</a>
+    </section>
+    <img class="about-photo" src="/images/about-me.jpg" width="1440" height="1440" alt={t('旅途中的生活片刻', '旅途中的生活片刻', 'A moment from my travels')} />
+  </div>
+</DiscoveryLayout>
+<style>
+  .about { max-width:720px; margin:24px auto; }
+  .about .eyebrow { font-size:14px; }
+  .about h1 { white-space:pre-line; font-size:clamp(34px,5.5vw,58px); line-height:1.2; margin:24px 0 32px; }
+  .about .intro { font-size:19px; line-height:1.9; }
+  .about .about-photo { display:block; width:280px; max-width:100%; height:auto; margin:32px 0 0; border-radius:16px; }
+  .about section { margin-top:56px; }
+  .about h2 { font-size:24px; }
+  .about .closing { padding-top:28px; border-top:1px solid #8884; }
+</style>

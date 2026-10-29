@@ -1,6 +1,14 @@
 import type { HandwrittenLocale } from './site';
 // Chinese source | Traditional Chinese | English. Language names stay in their own script.
 const rows = `
+Mac 菜单栏翻译，支持离线使用|Mac 選單列翻譯，支援離線使用|Mac menu bar translation, with offline support
+无需账号，翻译记录保存在本机。适用于 macOS 15 及以上版本；离线使用前需下载所需语言包。|無需帳號，翻譯記錄儲存在本機。適用於 macOS 15 及以上版本；離線使用前需下載所需語言包。|No account required; translation history stays on your Mac. Requires macOS 15 or later. Download the languages you need before using offline translation.
+免费与 Pro|免費與 Pro|Free and Pro
+基础功能可免费使用；iCloud 同步需要 Pro。升级选项与当前价格请查看 App Store。|基本功能可免費使用；iCloud 同步需要 Pro。升級選項與目前價格請查看 App Store。|Basic features are free to use; iCloud sync requires Pro. See the App Store for upgrade options and current pricing.
+iPhone 会在后台持续记录剪贴板吗？|iPhone 會在背景持續記錄剪貼簿嗎？|Does NexPaste continuously record the clipboard on iPhone?
+不会。iPhone 与 iPad 需要通过应用或小组件保存文字、链接和图片；Mac 支持自动记录，也可暂停或排除指定应用。|不會。iPhone 與 iPad 需要透過 App 或小工具儲存文字、連結和圖片；Mac 支援自動記錄，也可暫停或排除指定 App。|No. On iPhone and iPad, save text, links and images through the app or widget. Mac supports automatic recording, which you can pause or disable for selected apps.
+文件会复制进 NexPaste 吗？|檔案會複製進 NexPaste 嗎？|Are files copied into NexPaste?
+Mac 保存的是文件引用，并不是文件备份。请保留原文件；移动或删除原文件后，引用可能无法继续使用。|Mac 儲存的是檔案參照，並不是檔案備份。請保留原始檔案；移動或刪除後，參照可能無法繼續使用。|Mac stores file references, not backup copies. Keep the original files; moving or deleting them may make a saved reference unavailable.
 invisilab - Mac、iPhone 与 iPad 独立应用|invisilab — Mac、iPhone 與 iPad 獨立 App|invisilab — Independent Apps for Mac, iPhone and iPad
 产品与使用指南|產品與使用指南|Products and guides
 全部应用|全部 App|All apps
@@ -22,7 +30,7 @@ invisilab 应用目录 — Mac、iPhone 与 iPad 软件|invisilab App 目錄 —
 为 Mac、iPhone 和 iPad 打造的应用|為 Mac、iPhone 和 iPad 打造的 App|Apps made for Mac, iPhone and iPad
 从效率工具到日常生活，找到适合自己的应用。每个产品页都提供功能介绍和 App Store 下载入口。|從效率工具到日常生活，找到適合自己的 App。每個產品頁都提供功能介紹和 App Store 下載入口。|Find an app for work or everyday life. Each product page includes features and an official App Store download link.
 探索 invisilab 的 NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK，查看功能、适用设备与官方下载链接。|探索 invisilab 的 NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK，查看功能、支援裝置與官方下載連結。|Explore NexPaste, Transnap, invsi, Pixie Wallpaper, Pineapple English and Are You OK. Find features, supported devices and official downloads.
-应用使用指南 — 私密相册、壁纸、英语启蒙与独居打卡|App 使用指南 — 私密相簿、桌布、英語啟蒙與獨居打卡|App Guides — Private Photos, Wallpapers, English and Daily Check-Ins
+应用使用指南 — Mac 剪贴板、离线翻译与 iPhone 应用|App 使用指南 — Mac 剪貼簿、離線翻譯與 iPhone App|App Guides — Mac Clipboard History, Offline Translation and iPhone Apps
 / 使用指南|/ 使用指南|/ Guides
 从日常需要，找到合适的应用。|從日常需要，找到合適的 App。|Find an app for your everyday needs.
 这里介绍选择方法、使用场景和产品功能，帮助你在下载前了解应用是否适合自己。|這裡介紹選擇方法、使用情境和產品功能，幫助你在下載前了解 App 是否適合自己。|Explore practical use cases and features to decide whether an app is right for you before downloading.

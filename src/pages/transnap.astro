@@ -24,9 +24,10 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy fade-up-entry">
         <img class="hero-icon" src="/images/transnap-icon.png" alt="Transnap App Icon" />
-        <p class="eyebrow" data-i18n="transnap_eyebrow">为 macOS 菜单栏而生</p>
+        <p class="eyebrow">Mac 菜单栏翻译，支持离线使用</p>
         <h1 id="hero-title">Transnap</h1>
         <p class="hero-lede" data-i18n="transnap_hero_lede">复制一下，马上翻译。</p>
+        <p class="hero-requirements">无需账号，翻译记录保存在本机。适用于 macOS 15 及以上版本；离线使用前需下载所需语言包。</p>
         <div class="hero-actions" aria-label="Primary actions">
           <a class="button primary" href={appStoreUrl} target="_blank" rel="noopener noreferrer" data-i18n="app_store">App Store</a>
           <a class="button secondary" href={sourceUrl} target="_blank" rel="noopener noreferrer" data-i18n="transnap_open_source">GitHub 开源</a>
@@ -187,7 +188,11 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
       background: #000;
     }
 
+    .transnap-page p { margin:0; letter-spacing:0; }
+
     .hero {
+      display:block;
+      animation:none;
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -205,11 +210,17 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
     }
 
     .hero-copy {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
       width: min(940px, 100%);
       margin: 0 auto;
     }
 
     .hero-icon {
+      display:block;
+      flex-shrink:0;
       width: 92px;
       height: 92px;
       margin: 0 auto 28px;
@@ -217,7 +228,9 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
       box-shadow: 0 20px 44px rgba(0, 0, 0, 0.16);
     }
 
-    .eyebrow {
+    .hero .eyebrow {
+      max-width:100%;
+      text-transform:none;
       margin: 0 0 10px;
       color: #86868b;
       font-size: 21px;
@@ -228,13 +241,13 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
     .hero h1,
     .section h2,
     .tile h3,
-    .download h2,
-    .transnap-page p {
+    .download h2 {
       margin: 0;
       letter-spacing: 0;
     }
 
-    .hero h1 {
+    .hero .hero-requirements { max-width:520px; font-size:14px; line-height:1.8; color:var(--text-secondary); margin:20px auto 0; }
+  .hero h1 {
       font-size: clamp(58px, 9vw, 112px);
       line-height: 0.94;
       font-weight: 700;
@@ -245,7 +258,7 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
       color: #f5f5f7;
     }
 
-    .hero-lede {
+    .hero .hero-lede {
       max-width: 800px;
       margin: 22px auto 0;
       color: #6e6e73;
@@ -628,8 +641,8 @@ const sourceUrl = "https://github.com/youngxkk/transnap-oss";
     }
 
     .tile {
-      min-height: 300px;
-      padding: 28px;
+      min-height: 280px;
+      padding: 24px;
       overflow: hidden;
       border-radius: 28px;
       background: #fff;

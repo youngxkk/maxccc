@@ -13,7 +13,7 @@ const categories = ['all', 'nature', 'minimal', 'art', 'fun', 'portrait'];
 ---
 <BaseLayout title="精灵壁纸 Pixie — 每次亮屏，一眼心动" description="每日更新的精选壁纸，风景、极简、趣味插画与更多风格。收藏心动，通过 iCloud 同步。为 iPhone 和 iPad 找到下一张喜欢的壁纸。" canonical="https://maxc.cc/pixie-wallpaper" ogImage="https://maxc.cc/images/pixie/113-1726-imgPixie1.webp" includeHomeStyles includeHomeScript>
   <script slot="head" is:inline define:vars={{ pixieContent }}>
-    for (const [lang, copy] of Object.entries(pixieContent)) Object.assign(window.DoCoolI18n.shared[lang], copy);
+    for (const [lang, copy] of Object.entries(pixieContent)) if (window.DoCoolI18n.shared[lang]) Object.assign(window.DoCoolI18n.shared[lang], copy);
   </script>
   <MainNav showSectionLinks={false} />
   <div class="pixie-page">

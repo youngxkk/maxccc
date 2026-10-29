@@ -21,11 +21,10 @@ import { showToolsSection, tools } from "../data/tools";
 
   <div class="container">
     <header class="hero">
-      <h1 data-i18n="hero_title">Do Cool Things.</h1>
+      <h1 data-i18n="hero_title">做点有意思的。</h1>
       <p data-i18n="hero_desc">
-        独立开发者<br />
-        我们致力于打造大众喜爱的APP<br />
-        没有广告，用爱发电。
+        把有意思的想法，做成真正好用的 App。<br />
+        不放广告，不拿体验换收益。
       </p>
     </header>
 
@@ -39,9 +38,9 @@ import { showToolsSection, tools } from "../data/tools";
             </div>
             {
               app.titleKey ? (
-                <div class="card-title" data-i18n={app.titleKey}>{app.name}</div>
+                <h2 class="card-title" data-i18n={app.titleKey} style="margin:0">{app.name}</h2>
               ) : (
-                <div class="card-title">{app.name}</div>
+                <h2 class="card-title" style="margin:0">{app.name}</h2>
               )
             }
             <div class="card-desc" data-i18n={app.descriptionKey}>{sharedDictionary["zh-CN"][app.descriptionKey as keyof typeof sharedDictionary["zh-CN"]]}</div>

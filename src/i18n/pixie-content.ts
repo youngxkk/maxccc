@@ -3,7 +3,7 @@ import { withLocales } from "./translate";
 export const pixieContent = withLocales({
   'zh-CN': {
     pxw_name: '精灵壁纸', pxw_nav_gallery: '探索壁纸', pxw_nav_features: '为什么是 Pixie', pxw_nav_devices: '为你的屏幕而来',
-    pxw_eyebrow: '为每一次点亮屏幕', pxw_title1: '一眼心动。', pxw_title2: '每次亮屏。',
+    pxw_eyebrow: 'iPhone 与 iPad 高清壁纸', pxw_title1: '一眼心动。', pxw_title2: '每次亮屏。',
     pxw_lede: '把喜欢的风景、色彩与想象，装进日常。\n好看的壁纸，Pixie 替你挑好了。', pxw_explore: '寻找你的下一张壁纸',
     pxw_note: '适用于 iPhone 与 iPad', pxw_scroll: '向下，发现更多心动',
     pxw_daily: '每日更新', pxw_daily_sub: '总有新的心动', pxw_picked: '精挑细选', pxw_picked_sub: '每一张都有好品味', pxw_sync: 'iCloud 同步', pxw_sync_sub: '喜欢，随你同行',
@@ -18,7 +18,7 @@ export const pixieContent = withLocales({
   },
   'zh-TW': {
     pxw_name: '精靈桌布', pxw_nav_gallery: '探索桌布', pxw_nav_features: '為什麼是 Pixie', pxw_nav_devices: '為你的螢幕而來',
-    pxw_eyebrow: '為每一次點亮螢幕', pxw_title1: '一眼心動。', pxw_title2: '每次亮屏。',
+    pxw_eyebrow: 'iPhone 與 iPad 高畫質桌布', pxw_title1: '一眼心動。', pxw_title2: '每次亮屏。',
     pxw_lede: '把喜歡的風景、色彩與想像，裝進日常。\n好看的桌布，Pixie 替你挑好了。', pxw_explore: '尋找你的下一張桌布',
     pxw_note: '適用於 iPhone 與 iPad', pxw_scroll: '向下，發現更多心動',
     pxw_daily: '每日更新', pxw_daily_sub: '總有新的心動', pxw_picked: '精挑細選', pxw_picked_sub: '每一張都有好品味', pxw_sync: 'iCloud 同步', pxw_sync_sub: '喜歡，隨你同行',
@@ -31,7 +31,7 @@ export const pixieContent = withLocales({
   },
   en: {
     pxw_name: 'Pixie Wallpaper', pxw_nav_gallery: 'Explore wallpapers', pxw_nav_features: 'Why Pixie', pxw_nav_devices: 'Your screens',
-    pxw_eyebrow: 'A LITTLE WONDER. EVERY UNLOCK.', pxw_title1: 'Love at first sight.', pxw_title2: 'Every single unlock.',
+    pxw_eyebrow: 'HD WALLPAPERS FOR IPHONE AND IPAD', pxw_title1: 'Love at first sight.', pxw_title2: 'Every single unlock.',
     pxw_lede: 'Bring the colors, places, and ideas you love into your everyday.\nBeautiful wallpapers, handpicked by Pixie.', pxw_explore: 'Find your next wallpaper', pxw_note: 'Made for iPhone and iPad', pxw_scroll: 'SCROLL TO FIND YOUR NEXT FAVORITE',
     pxw_daily: 'Fresh daily', pxw_daily_sub: 'A new reason to fall in love', pxw_picked: 'Handpicked', pxw_picked_sub: 'Good taste in every wallpaper', pxw_sync: 'iCloud sync', pxw_sync_sub: 'Your favorites, everywhere',
     pxw_gallery_kicker: 'THE WALLPAPER EDIT', pxw_gallery_title: 'More than one kind of you.', pxw_gallery_desc: 'An ocean today. A little less tomorrow. A wallpaper for every mood and every version of you.',

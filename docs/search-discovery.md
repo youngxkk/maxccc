@@ -32,3 +32,13 @@
 - https://developers.google.com/search/docs/appearance/structured-data/software-app
 - https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a
 - https://developers.openai.com/api/docs/bots
+
+## 2026-10-29 内容优化
+
+- 首页首屏说明设备与应用类别；NexPaste、Transnap、invsi、Pixie 首屏补充产品定位。
+- NexPaste 合并重复 FAQ，明确免费与 Pro、移动端主动保存及文件引用的边界。
+- 新增 Mac 剪贴板历史与 Mac 离线翻译指南，提供简体、繁体和英文正文。其他语言尚无新增译文时使用英文回退，后续按真实市场数据补充。
+- 新指南复用现有路由、多语言链接与 sitemap，NexPaste 指南使用现有真实产品截图；不编造评分、价格或测试结论。
+- 本次仅修改本地项目。线上 403、防护规则和 Search Console 数据仍需在实际托管与站长账户中确认。
+
+建议按月记录：产品和语言、非品牌查询展示与点击、产品页访问、App Store 出站点击，以及可关联的下载。先根据真实数据选两个重点产品，再扩展相关教程；不以页面数和语言数作为增长指标。

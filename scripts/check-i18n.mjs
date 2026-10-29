@@ -62,6 +62,11 @@ for (const file of files) {
   const bootstrap = nodes.find(n => n.tagName === 'script' && n.childNodes?.some(c => c.value?.includes('window.DoCoolI18n =')));
   const sandbox = { window: {}, document: { documentElement: { lang, dataset: { localePage: 'true' } } }, localStorage: { getItem: () => 'zh-TW' }, navigator: { language: 'zh-TW' } };
   runInNewContext(bootstrap.childNodes.map(n => n.value || '').join(''), sandbox);
+  // Execute product dictionary extensions too: only this locale and English are loaded.
+  for (const node of nodes.filter(n => n.tagName === 'script')) {
+    const code = (node.childNodes || []).map(n => n.value || '').join('');
+    if (code.includes('Object.assign(window.DoCoolI18n.shared[lang]')) runInNewContext(code, sandbox);
+  }
   assert.equal(sandbox.window.DoCoolI18n.getLang(), lang, `Stored preference overrides URL: ${file}`);
   assert.equal(sandbox.window.DoCoolI18n.pathFor('/dashboard/'), `/${prefixes.find(([, language]) => language === lang)[0]}dashboard/`);
   count++;

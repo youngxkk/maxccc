@@ -41,3 +41,16 @@ for (const url of urls) {
   }
 }
 console.log('Language reciprocity, unique metadata and internal destination checks passed.');
+
+for (const slug of ['mac-clipboard-history', 'mac-offline-translation']) {
+  for (const [prefix, lang] of [['', 'en'], ['zh-cn/', 'zh-CN'], ['zh-tw/', 'zh-TW']]) {
+    const url = `https://maxc.cc/${prefix}guides/${slug}/`;
+    const html = read(`${prefix}guides/${slug}/index.html`);
+    assert.ok(urls.includes(url), `Missing practical guide in sitemap: ${url}`);
+    const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map(match => JSON.parse(match[1]));
+    const article = schemas.find(schema => schema['@type'] === 'Article');
+    assert.equal(article?.inLanguage, lang, `Wrong article language: ${url}`);
+    assert.equal(article?.mainEntityOfPage, url, `Wrong article URL: ${url}`);
+  }
+}
+console.log('Practical guide discovery and localized article schema checks passed.');

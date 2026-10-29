@@ -44,10 +44,10 @@ export function localizedPath(path: string, lang: Locale) {
   return `${localeOf(lang).prefix}${basePath(path)}`;
 }
 export const localizedPaths = new Set([
-  '/', '/apps/', '/guides/', '/nexpaste/', '/transnap/', '/invsi/', '/pixie-wallpaper/',
+  '/', '/about/', '/apps/', '/guides/', '/nexpaste/', '/transnap/', '/invsi/', '/pixie-wallpaper/',
   '/pineapple-english/', '/are-you-ok/', '/classic-minesweeper/', '/strawberry-diary/',
   '/privacy-policy/', '/terms-of-use/', '/user-agreement/', '/thanks/', '/dashboard/', '/404/',
-  ...['multitools', 'password', 'units', 'lorem', 'wordcount', 'textconvert', 'bmi', 'remove-bg', 'gradient', 'json', 'pdf2text'].map(slug => `/tools/${slug}/`),
+  ...['multitools', 'password', 'units', 'wordcount', 'textconvert', 'bmi'].map(slug => `/tools/${slug}/`),
   ...guides.map(guide => `/guides/${guide.slug}/`),
 ]);
 // Each localized page gets its own route file so it only ships its own CSS; a shared catch-all would bundle every page's styles.
