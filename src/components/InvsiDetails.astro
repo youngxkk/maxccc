@@ -1,0 +1,25 @@
+---
+import { invsiLanguages, invsiSeoFor, type InvsiLanguage } from '../data/invsi-seo';
+const { lang } = Astro.props as { lang: InvsiLanguage };
+const product = invsiSeoFor(lang);
+---
+<section class="product-details" aria-labelledby="invsi-details-title">
+  <h2 id="invsi-details-title">{product.heading}</h2>
+  <p>{product.description}</p>
+  <ul>{product.features.map(feature => <li>{feature}</li>)}</ul>
+  <h3>{product.faqHeading}</h3>
+  {product.questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+  <div class="languages" aria-label="Languages">{invsiLanguages.map(locale => <a href={locale.path} lang={locale.lang} hreflang={locale.lang} aria-current={locale.lang === lang ? 'page' : undefined}>{locale.label}</a>)}</div>
+</section>
+<style>
+  .product-details { width:min(100% - 48px,960px); margin:64px auto; padding-block:36px; border-top:1px solid #8884; color:inherit; }
+  h2 { font-size:24px; line-height:1.4; margin:0 0 18px; letter-spacing:normal; }
+  h3 { font-size:18px; margin:28px 0 14px; }
+  p { font-size:14px; line-height:1.9; opacity:.8; margin:0; }
+  ul { display:flex; flex-wrap:wrap; gap:10px 26px; padding-left:20px; margin:20px 0; font-size:13px; line-height:1.8; }
+  details { border-bottom:1px solid #8883; padding:16px 0; }
+  summary { cursor:pointer; font-size:15px; line-height:1.6; }
+  details p { margin-top:12px; }
+  .languages { display:flex; flex-wrap:wrap; gap:12px 24px; margin-top:30px; font-size:13px; }
+  .languages a { color:inherit; text-underline-offset:4px; }
+</style>
