@@ -7,7 +7,7 @@
   }
 
   function getInitialLang() {
-    return normalizeLang(localStorage.getItem("lang") || document.documentElement.lang || navigator.language);
+    return normalizeLang((document.documentElement.dataset.localePage ? document.documentElement.lang : localStorage.getItem("lang")) || document.documentElement.lang || navigator.language);
   }
 
   function getInitialTheme() {

@@ -11,7 +11,7 @@ type Props = {
   class?: string;
   label?: string;
   shot?: string;
-  // Languages the screenshot exists in; missing ones fall back to zh-CN.
+  // Languages the screenshot exists in; zh-TW falls back to zh-CN, anything else to English.
   shotLangs?: Lang[];
   eager?: boolean;
 };
@@ -26,9 +26,11 @@ const {
   shotLangs = ["zh-CN", "zh-TW", "en"],
   eager = false
 } = Astro.props;
+const fallbackOf = (lang: Lang): Lang =>
+  [lang, ...(lang === "zh-TW" ? ["zh-CN"] : []), "en", ...shotLangs].find((l) => shotLangs.includes(l as Lang)) as Lang;
 const shotSources = (["zh-CN", "zh-TW", "en"] as const).map((lang) => ({
   lang,
-  src: `${shot}-${shotLangs.includes(lang) ? lang : "zh-CN"}.webp`
+  src: `${shot}-${fallbackOf(lang)}.webp`
 }));
 ---
 
@@ -201,9 +203,15 @@ const shotSources = (["zh-CN", "zh-TW", "en"] as const).map((lang) => ({
     object-position: top;
   }
 
+  /* English is the default for every site language without its own screenshot. */
+  .shot-en,
   :global(:root[lang="zh-CN"]) .shot-zh-CN,
-  :global(:root[lang="zh-TW"]) .shot-zh-TW,
-  :global(:root[lang^="en"]) .shot-en {
+  :global(:root[lang="zh-TW"]) .shot-zh-TW {
     display: block;
+  }
+
+  :global(:root[lang="zh-CN"]) .shot-en,
+  :global(:root[lang="zh-TW"]) .shot-en {
+    display: none;
   }
 </style>

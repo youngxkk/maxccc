@@ -101,21 +101,29 @@ a {
 }
 
 /* Navigation - Apple Official Style */
-nav {
+.main-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 48px;
-    background: var(--nav-bg);
-    backdrop-filter: saturate(180%) blur(20px);
-    /* The Apple Magic Formula */
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
     z-index: 9999;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid transparent;
-    /* Often handled by background color, but can add variable */
+}
+
+/* The blur lives on a pseudo-element: a backdrop-filter on the nav itself would stop
+   the language dropdown inside it from blurring the page behind. */
+.main-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--nav-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    /* The Apple Magic Formula */
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     transition: background-color 0.4s ease;
 }
 
@@ -221,14 +229,30 @@ nav {
 }
 
 .lang-dropdown.show {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    max-height: min(70vh, 520px);
+    overflow-y: auto;
 }
 
-.lang-dropdown button {
+.lang-dropdown [aria-current="page"] {
+    font-weight: 600;
+}
+
+[dir="rtl"] .lang-dropdown {
+    right: auto;
+    left: 0;
+}
+
+.lang-dropdown :is(button, a) {
     background: transparent;
     border: none;
     padding: 8px 12px;
-    text-align: left;
+    text-align: start;
+    white-space: nowrap;
     color: var(--text-primary);
     font-size: 13px;
     border-radius: 6px;
@@ -236,11 +260,11 @@ nav {
     transition: background 0.2s;
 }
 
-.lang-dropdown button:hover {
+.lang-dropdown :is(button, a):hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme="light"] .lang-dropdown button:hover {
+[data-theme="light"] .lang-dropdown :is(button, a):hover {
     background: rgba(0, 0, 0, 0.05);
 }
 

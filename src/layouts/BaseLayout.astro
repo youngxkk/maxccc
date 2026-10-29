@@ -1,60 +1,72 @@
 ---
-import { productSeo, type ProductSlug } from "../data/product-seo";
+import { languageFor, basePath, localizedPath, languageLinks, localizedPaths, localeOf, locales } from "../i18n/site";
+import { pick } from "../i18n/translate";
+import { localizedProducts } from "../i18n/product-seo";
+import { productSeo, type ProductMetadata, type ProductSlug } from "../data/product-seo";
+import { canonicalUrl, excludedSearchPaths, serializeSchema } from "../data/search";
 import { authDictionary, sharedDictionary } from "../i18n/dictionaries";
 
 type Props = {
   title: string;
   description: string;
   canonical?: string;
+  noindex?: boolean;
   ogImage?: string;
   lang?: string;
+  product?: ProductMetadata;
+  languages?: readonly { lang: string; path: string }[];
   includeHomeStyles?: boolean;
   includeFirebaseAuth?: boolean;
   includeHomeScript?: boolean;
 };
-
 const {
-  title: pageTitle,
-  description: pageDescription,
-  canonical = "https://maxc.cc/",
-  ogImage = "https://maxc.cc/images/og-image.jpg",
-  lang = "zh-CN",
-  includeHomeStyles = false,
-  includeFirebaseAuth = false,
-  includeHomeScript = false
+  title: pageTitle, description: pageDescription, canonical: requestedCanonical,
+  ogImage: requestedImage, product: productOverride,
+  noindex: requestedNoindex = false,
+  includeHomeStyles = false, includeFirebaseAuth = false, includeHomeScript = false,
 } = Astro.props;
-
-const slug = Astro.url.pathname.split('/').filter(Boolean)[0] as ProductSlug;
-const product = Object.hasOwn(productSeo, slug) ? productSeo[slug] : undefined;
+const lang = languageFor(Astro.url.pathname);
+const languages = localizedPaths.has(basePath(Astro.url.pathname)) ? languageLinks(Astro.url.pathname) : [];
+const canonical = canonicalUrl(localizedPath(requestedCanonical ? new URL(requestedCanonical).pathname : Astro.url.pathname, lang));
+const noindex = requestedNoindex || excludedSearchPaths.has(basePath(new URL(canonical).pathname));
+const slug = basePath(Astro.url.pathname).replace(/^\/|\/$/g, '') as ProductSlug;
+const product = productOverride ?? (Object.hasOwn(productSeo, slug) ? localizedProducts(lang)[slug] : undefined);
+const ogImage = requestedImage || new URL(product?.image || "/images/og-image.jpg", "https://maxc.cc").href;
 const title = product?.title ?? pageTitle;
 const description = product?.description ?? pageDescription;
-const productSchema = product && {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  '@id': `${canonical}#application`,
-  name: product.name,
-  alternateName: product.alternateName,
-  description,
-  url: canonical,
-  image: new URL(product.image, 'https://maxc.cc').href,
-  applicationCategory: product.category,
-  operatingSystem: product.os,
-  downloadUrl: `https://apps.apple.com/app/id${product.store}`,
-  featureList: product.features,
-  publisher: { '@type': 'Organization', name: 'invisilab', url: 'https://maxc.cc/' },
-};
-const serialize = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c");
+const graph = [
+  { '@type': 'Organization', '@id': 'https://maxc.cc/#organization', name: 'invisilab', url: 'https://maxc.cc/', sameAs: ['https://x.com/invisilab_x', 'https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4'] },
+  { '@type': 'WebSite', '@id': 'https://maxc.cc/#website', name: 'invisilab', url: 'https://maxc.cc/', publisher: { '@id': 'https://maxc.cc/#organization' } },
+  { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: lang, isPartOf: { '@id': 'https://maxc.cc/#website' }, ...(product ? { mainEntity: { '@id': `${canonical}#application` } } : {}) },
+  ...(product ? [
+    { '@type': 'SoftwareApplication', '@id': `${canonical}#application`, name: product.name, alternateName: product.alternateName, description, url: canonical, image: new URL(product.image, 'https://maxc.cc').href, applicationCategory: product.category, operatingSystem: product.os, downloadUrl: `https://apps.apple.com/app/id${product.store}`, featureList: product.features, publisher: { '@id': 'https://maxc.cc/#organization' }, mainEntityOfPage: { '@id': `${canonical}#webpage` } },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'invisilab', item: `https://maxc.cc${localizedPath('/', lang)}` },
+      { '@type': 'ListItem', position: 2, name: pick(lang, { 'zh-CN': '应用', 'zh-TW': '應用程式', en: 'Apps' }), item: `https://maxc.cc${localizedPath('/apps/', lang)}` },
+      { '@type': 'ListItem', position: 3, name: product.name, item: canonical },
+    ] },
+  ] : []),
+];
+const serialize = serializeSchema;
+const locale = localeOf(lang);
+// Pages link to each language by URL, so the browser only needs this page's copy and the English fallback.
+const forPage = (dictionary: Record<string, unknown>) => Object.fromEntries([...new Set([lang, 'en'])].map(code => [code, dictionary[code]]));
 ---
-
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} dir={"dir" in locale ? locale.dir : undefined} data-locale-page={languages.length ? "true" : undefined}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {productSchema && <script is:inline type="application/ld+json" set:html={serialize(productSchema)} />}
-
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta property="og:site_name" content="invisilab" />
+    <meta property="og:locale" content={locale.og} />
+    {languages.filter(alternate => alternate.lang !== lang).map(alternate => <meta property="og:locale:alternate" content={localeOf(alternate.lang).og} />)}
+    {languages.map(locale => <link rel="alternate" hreflang={locale.lang} href={new URL(locale.path, canonical).href} />)}
+    {languages.length > 0 && <link rel="alternate" hreflang="x-default" href={new URL(languages.find(alternate => alternate.lang === 'en')!.path, canonical).href} />}
+    {!noindex && <script is:inline type="application/ld+json" set:html={serialize({ '@context': 'https://schema.org', '@graph': graph })} />}
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="invisilab product facts" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
@@ -76,16 +88,24 @@ const serialize = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u00
     <script
       is:inline
       set:html={`window.DoCoolI18n = {
-        shared: ${serialize(sharedDictionary)},
-        auth: ${serialize(authDictionary)},
+        shared: ${serialize(forPage(sharedDictionary))},
+        auth: ${serialize(forPage(authDictionary))},
+        prefixes: ${serialize(Object.fromEntries(locales.map(({ lang, prefix }) => [lang, prefix])))},
         normalizeLang(lang) {
           if (!lang) return "en";
-          if (lang === "zh" || lang === "zh-CN") return "zh-CN";
-          if (lang === "zh-TW" || lang === "zh-HK" || lang === "tw") return "zh-TW";
-          return "en";
+          if (lang === "zh" || lang === "zh-CN" || lang === "zh-SG" || lang === "zh-Hans") lang = "zh-CN";
+          if (lang === "zh-TW" || lang === "zh-HK" || lang === "tw" || lang === "zh-MO" || lang === "zh-Hant") lang = "zh-TW";
+          const codes = Object.keys(window.DoCoolI18n.shared);
+          const code = codes.find(code => code.toLowerCase() === lang.toLowerCase()) || codes.find(code => code.split("-")[0] === lang.split("-")[0].toLowerCase() && !code.startsWith("zh"));
+          return code || "en";
+        },
+        pathFor(path) {
+          const prefix = window.DoCoolI18n.prefixes[document.documentElement.lang] || "";
+          const clean = path.split("/").filter(Boolean).join("/");
+          return prefix + "/" + clean + (clean ? "/" : "");
         },
         getLang() {
-          return this.normalizeLang(localStorage.getItem("lang") || document.documentElement.lang || navigator.language);
+          return this.normalizeLang(document.documentElement.dataset.localePage ? document.documentElement.lang : localStorage.getItem("lang") || document.documentElement.lang || navigator.language);
         }
       };`}
     />

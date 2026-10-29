@@ -1,14 +1,24 @@
 ---
+import { guides } from "../data/guides";
+import { pixieCategories } from '../data/pixie-categories';
 import { productSeo, type ProductSlug } from '../data/product-seo';
 const { slug } = Astro.props as { slug: ProductSlug };
 const product = productSeo[slug];
+const relatedGuides = guides.filter(guide => guide.product === slug);
 ---
 <section class="product-details" aria-labelledby={`${slug}-details-title`}>
   <h2 id={`${slug}-details-title`}>了解 {product.name}</h2>
   <p>{product.description}</p>
   <ul>{product.features.map(feature => <li>{feature}</li>)}</ul>
-  <h3>常见问题</h3>
-  {product.questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+  {slug === 'pixie-wallpaper' ? <>
+    <h3>数十种壁纸分类，找到你的风格</h3>
+    <p>从主题、色彩到画面氛围，探索精灵壁纸 App 中丰富的壁纸分类。</p>
+    <ul class="category-list">{pixieCategories.map(category => <li>{category}</li>)}</ul>
+  </> : <>
+    <h3>常见问题</h3>
+    {product.questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+  </>}
+  {relatedGuides.length > 0 && <nav aria-label="相关使用指南"><h3>使用指南</h3>{relatedGuides.map(guide => <a href={`/guides/${guide.slug}/`}>{guide.title} →</a>)}</nav>}
 </section>
 <style>
   .product-details { width:min(100% - 48px,960px); margin:64px auto; padding-block:36px; border-top:1px solid #8884; color:inherit; }
@@ -16,6 +26,9 @@ const product = productSeo[slug];
   h3 { font-size:18px; margin:28px 0 14px; }
   p { font-size:14px; line-height:1.9; opacity:.75; margin:0; }
   ul { display:flex; flex-wrap:wrap; gap:10px 26px; padding-left:20px; margin:20px 0; font-size:13px; line-height:1.8; opacity:.75; }
+  .category-list { list-style:none; padding:0; gap:10px; }
+  .category-list li { padding:5px 12px; border:1px solid #8883; border-radius:20px; }
+  nav a { color:inherit; font-size:14px; line-height:1.8; text-underline-offset:4px; }
   details { border-bottom:1px solid #8883; padding:16px 0; }
   summary { cursor:pointer; font-size:15px; line-height:1.6; }
   details p { margin-top:12px; }

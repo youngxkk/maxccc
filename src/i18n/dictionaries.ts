@@ -1,9 +1,10 @@
+import { withLocales } from "./translate";
 import { invsiContent } from "./invsi-content";
 import { legalSharedContent } from "./legal-content";
 import { nexpasteContent } from "./nexpaste-content";
 import { productPagesContent } from "./product-pages";
 
-export const sharedDictionary = {
+export const sharedDictionary = withLocales({
   "zh-CN": {
     nav_apps: "APP",
     nav_tools: "实用工具",
@@ -26,6 +27,7 @@ export const sharedDictionary = {
     app6_desc: "经期记录，关爱女性。",
     app6_detail: "科学预测经期、排卵期。界面清新可爱，简单易用。你的私人健康顾问，记录身体的点滴变化。",
     transnap_desc: "复制一下，马上翻译",
+    transnap_open_source: "GitHub 开源",
     transnap_eyebrow: "为 macOS 菜单栏而生",
     transnap_hero_lede: "复制一下，马上翻译。",
     transnap_source: "原文",
@@ -52,7 +54,7 @@ export const sharedDictionary = {
     transnap_pair_cn_en: "中文 ↔ English",
     transnap_manual_select: "手动选择",
     transnap_download_title: "把翻译放进菜单栏。",
-    transnap_download_desc: "从 App Store 免费获取 Transnap。翻译在本机完成，无需账号，不上传文本。",
+    transnap_download_desc: "从 App Store 免费获取 Transnap。翻译在本机完成，无需账号，不上传文本。现已开源，可在 GitHub 查看源码。",
     app_store: "App Store",
     tool1_title: "万能工具箱",
     tool1_desc: "集合多种常用小工具，多合一。",
@@ -116,6 +118,7 @@ export const sharedDictionary = {
     app6_desc: "經期記錄，關愛女性。",
     app6_detail: "科學預測經期、排卵期。界面清新可愛，簡單易用。你的私人健康顧問，記錄身體的點滴變化。",
     transnap_desc: "複製一下，馬上翻譯",
+    transnap_open_source: "GitHub 開源",
     transnap_eyebrow: "為 macOS 選單列而生",
     transnap_hero_lede: "複製一下，馬上翻譯。",
     transnap_source: "原文",
@@ -142,7 +145,7 @@ export const sharedDictionary = {
     transnap_pair_cn_en: "中文 ↔ English",
     transnap_manual_select: "手動選擇",
     transnap_download_title: "把翻譯放進選單列。",
-    transnap_download_desc: "從 App Store 免費取得 Transnap。翻譯在本機完成，無需帳號，不上傳文字。",
+    transnap_download_desc: "從 App Store 免費取得 Transnap。翻譯在本機完成，無需帳號，不上傳文字。現已開源，可在 GitHub 查看原始碼。",
     app_store: "App Store",
     tool1_title: "萬能工具箱",
     tool1_desc: "集合多種常用小工具，多合一。",
@@ -206,6 +209,7 @@ export const sharedDictionary = {
     app6_desc: "Period tracking, caring for women.",
     app6_detail: "Scientific cycle and ovulation predictions. Cute, simple and friendly interface. Your personal health companion.",
     transnap_desc: "Copy once, translate instantly",
+    transnap_open_source: "Open source on GitHub",
     transnap_eyebrow: "Built for the macOS menu bar",
     transnap_hero_lede: "Copy once, translate instantly.",
     transnap_source: "Source",
@@ -232,7 +236,7 @@ export const sharedDictionary = {
     transnap_pair_cn_en: "Chinese ↔ English",
     transnap_manual_select: "Manual selection",
     transnap_download_title: "Put translation in your menu bar.",
-    transnap_download_desc: "Get Transnap free on the App Store. Translation happens on your Mac, with no account and no text uploaded.",
+    transnap_download_desc: "Get Transnap free on the App Store. Translation happens on your Mac, with no account and no text uploaded. Now open source on GitHub.",
     app_store: "App Store",
     tool1_title: "Multi-Toolkit",
     tool1_desc: "Common mini-tools collection, all-in-one.",
@@ -274,9 +278,9 @@ export const sharedDictionary = {
     ...productPagesContent.en,
     ...invsiContent["en"]
   }
-} as const;
+} as const);
 
-export const authDictionary = {
+export const authDictionary = withLocales({
   "zh-CN": {
     signIn: "登录",
     signInWithGoogle: "使用 Google 登录",
@@ -304,9 +308,9 @@ export const authDictionary = {
     account: "Account",
     signedInWithGoogle: "Signed in with Google"
   }
-} as const;
+} as const);
 
-export const toolDictionaries = {
+export const toolDictionaries = withLocales({
   password: {
     messages: {
       "zh-CN": {
@@ -897,4 +901,4 @@ export const toolDictionaries = {
       }
     }
   }
-} as const;
+} as const);

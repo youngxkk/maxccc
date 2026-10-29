@@ -1,7 +1,11 @@
 ---
+import { languageFor, languageLinks as linksFor } from "../i18n/site";
 import { showToolsSection } from "../data/tools";
 
-const { showSectionLinks = true } = Astro.props;
+const { showSectionLinks = true, languageLinks = linksFor(Astro.url.pathname) } = Astro.props as {
+  showSectionLinks?: boolean;
+  languageLinks?: readonly { lang: string; label: string; path: string }[];
+};
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -9,7 +13,6 @@ const { showSectionLinks = true } = Astro.props;
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@800&text=invisilab&display=swap" />
 
 <style>
-  /* Wordmark: "invisi" fades in like something becoming visible, "lab" stays solid */
   .brand-wordmark {
     font-family: "Syne", "SF Pro Display", "Helvetica Neue", sans-serif;
     font-weight: 800;
@@ -18,28 +21,16 @@ const { showSectionLinks = true } = Astro.props;
     line-height: 1;
     gap: 0;
     opacity: 1;
+    /* The wordmark is two spans; keep their order on right-to-left pages. */
+    direction: ltr;
   }
 
   .brand-invisi {
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, currentColor 22%, transparent),
-      currentColor 92%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     padding-bottom: 0.08em;
-  }
-
-  .brand-wordmark:hover .brand-invisi {
-    background: currentColor;
-    -webkit-background-clip: text;
-    background-clip: text;
   }
 </style>
 
-<nav>
+<nav class="main-nav">
   <div class="nav-content">
     <div class="nav-left">
       <a href="/" class="nav-logo brand-wordmark" aria-label="invisilab">
@@ -65,9 +56,11 @@ const { showSectionLinks = true } = Astro.props;
           </svg>
         </button>
         <div class="lang-dropdown">
-          <button data-lang="zh-CN">简体中文</button>
-          <button data-lang="zh-TW">繁體中文</button>
-          <button data-lang="en">English</button>
+          {languageLinks ? languageLinks.map(locale => <a href={locale.path} hreflang={locale.lang} lang={locale.lang} aria-current={locale.lang === languageFor(Astro.url.pathname) ? "page" : undefined}>{locale.label}</a>) : <>
+            <button data-lang="zh-CN">简体中文</button>
+            <button data-lang="zh-TW">繁體中文</button>
+            <button data-lang="en">English</button>
+          </>}
         </div>
       </div>
 

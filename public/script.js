@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize Language
-    const savedLang = (i18n.normalizeLang || ((lang) => lang || 'en'))(localStorage.getItem('lang') || document.documentElement.lang || navigator.language);
+    const savedLang = (i18n.normalizeLang || ((lang) => lang || 'en'))((document.documentElement.dataset.localePage ? document.documentElement.lang : localStorage.getItem('lang')) || document.documentElement.lang || navigator.language);
     applyLanguage(savedLang);
 
     // Theme Logic (Persisted)

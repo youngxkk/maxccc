@@ -1,0 +1,7 @@
+---
+import InvsiPage from '../../components/InvsiPage.astro';
+import { localizedStaticPaths } from '../../i18n/site';
+export const getStaticPaths = localizedStaticPaths;
+const { lang } = Astro.props;
+---
+<InvsiPage lang={lang} />

@@ -1,0 +1,10 @@
+---
+import Guide from '../../guides/[slug].astro';
+import { guides } from '../../../data/guides';
+import { localizedStaticPaths } from '../../../i18n/site';
+export function getStaticPaths() {
+  return localizedStaticPaths().flatMap(({ params }) => guides.map(guide => ({ params: { ...params, slug: guide.slug }, props: { guide } })));
+}
+const { guide } = Astro.props;
+---
+<Guide guide={guide} />

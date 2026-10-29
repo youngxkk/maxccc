@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import MainNav from '../components/MainNav.astro';
+import MainFooter from '../components/MainFooter.astro';
+const { title, description } = Astro.props;
+---
+<BaseLayout title={title} description={description} includeHomeStyles includeHomeScript>
+  <slot name="head" slot="head" />
+  <MainNav showSectionLinks={false} />
+  <main class="discovery"><slot /></main>
+  <MainFooter />
+</BaseLayout>
+<style>
+  .discovery { max-width:960px; margin:0 auto; padding:80px 24px; }
+  .discovery :global(h1) { font-size:clamp(30px,5vw,46px); line-height:1.35; letter-spacing:-.03em; margin:24px 0; }
+  .discovery :global(h2) { font-size:23px; line-height:1.5; margin:32px 0 16px; }
+  .discovery :global(p) { line-height:1.9; opacity:.8; margin:12px 0; }
+  .discovery :global(a) { color:inherit; text-underline-offset:4px; }
+  .discovery :global(article),.discovery :global(.product-entry) { padding:28px 0; border-bottom:1px solid #8883; }
+  .discovery :global(.product-entry img) { width:56px; height:56px; border-radius:13px; }
+  .discovery :global(.platform) { font-size:13px; opacity:.65; }
+  .discovery :global(nav) { display:flex; flex-wrap:wrap; gap:12px; font-size:13px; }
+</style>

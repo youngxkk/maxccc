@@ -338,7 +338,7 @@ import MainFooter from "../components/MainFooter.astro";
 
       auth.onAuthStateChanged(user => {
         if (!user) {
-          window.location.href = "/";
+          window.location.href = window.DoCoolI18n?.pathFor("/") || "/";
           return;
         }
 
@@ -369,7 +369,7 @@ import MainFooter from "../components/MainFooter.astro";
       document.getElementById('dashboard-logout')?.addEventListener('click', async () => {
         if (typeof signOut !== 'undefined' && typeof auth !== 'undefined') {
           await signOut(auth);
-          window.location.href = '/';
+          window.location.href = window.DoCoolI18n?.pathFor("/") || "/";
         }
       });
     };

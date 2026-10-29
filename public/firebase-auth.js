@@ -463,7 +463,7 @@ function renderAuthState(host, user) {
     dropdown.append(panel);
 
     trigger.addEventListener("click", () => {
-        window.location.href = "/dashboard";
+        window.location.href = i18n.pathFor?.("/dashboard/") || "/dashboard/";
     });
 
     wrapper.append(trigger, dropdown);

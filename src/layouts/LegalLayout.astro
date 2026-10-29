@@ -3,6 +3,7 @@ import { legalSharedContent } from "../i18n/legal-content";
 import BaseLayout from "./BaseLayout.astro";
 import MainFooter from "../components/MainFooter.astro";
 import MainNav from "../components/MainNav.astro";
+import { englishLegalNote, isHandwritten, languageFor } from "../i18n/site";
 
 type Props = {
   title: string;
@@ -17,6 +18,8 @@ const initial = legalSharedContent["zh-CN"];
 const h1Text = initial[titleKey];
 const bodyHtml = initial[contentKey];
 const backLabel = initial.legal_back_home;
+// Agreements are only written in Chinese and English; other locales show the English text.
+const englishOnly = !isHandwritten(languageFor(Astro.url.pathname));
 ---
 
 <BaseLayout
@@ -32,7 +35,8 @@ const backLabel = initial.legal_back_home;
     <div class="legal-inner">
       <a href="/" class="legal-back" data-i18n="legal_back_home">{backLabel}</a>
       <h1 class="legal-h1" data-i18n={titleKey}>{h1Text}</h1>
-      <article class="legal-doc" data-i18n={contentKey} set:html={bodyHtml} />
+      {englishOnly && <p class="legal-note">{englishLegalNote}</p>}
+      <article class="legal-doc" lang={englishOnly ? "en" : undefined} data-i18n={contentKey} set:html={bodyHtml} />
     </div>
   </main>
   <MainFooter />
@@ -50,6 +54,12 @@ const backLabel = initial.legal_back_home;
 
   .legal-inner {
     animation: legalFade 0.5s ease-out;
+  }
+
+  .legal-note {
+    font-size: 14px;
+    opacity: 0.7;
+    margin: 0 0 24px;
   }
 
   @keyframes legalFade {

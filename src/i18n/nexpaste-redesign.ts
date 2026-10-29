@@ -1,4 +1,5 @@
-export const nexpasteRedesign = {
+import { withLocales } from "./translate";
+export const nexpasteRedesign = withLocales({
   "zh-CN": {
     "npr_eyebrow": "NexPaste · 你的随身剪贴板",
     "npr_title1": "复制过的，",
@@ -197,4 +198,4 @@ export const nexpasteRedesign = {
     "npr_final_title": "Make your next copy\nthe start of something.",
     "npr_final_desc": "Get NexPaste. Keep the things you need within reach."
   }
-};
+});
