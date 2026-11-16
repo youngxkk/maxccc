@@ -3,7 +3,7 @@ import { invsiLanguages, invsiSeoFor } from '../../data/invsi-seo';
 
 export const GET: APIRoute = () => new Response(`# invsi — official product facts
 
-Publisher: invisilab
+Publisher: superdot
 Platforms: iPhone and iPad (iOS and iPadOS)
 App Store: https://apps.apple.com/app/id6444667120
 For current pricing, availability and OS requirements, consult the App Store listing.

@@ -35,13 +35,13 @@ const ogImage = requestedImage || new URL(product?.image || "/images/og-image.jp
 const title = product?.title ?? pageTitle;
 const description = product?.description ?? pageDescription;
 const graph = [
-  { '@type': 'Organization', '@id': 'https://maxc.cc/#organization', name: 'invisilab', url: 'https://maxc.cc/', sameAs: ['https://x.com/invisilab_x', 'https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4'] },
-  { '@type': 'WebSite', '@id': 'https://maxc.cc/#website', name: 'invisilab', url: 'https://maxc.cc/', publisher: { '@id': 'https://maxc.cc/#organization' } },
+  { '@type': 'Organization', '@id': 'https://maxc.cc/#organization', name: 'superdot', url: 'https://maxc.cc/', sameAs: ['https://x.com/invisilab_x', 'https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4'] },
+  { '@type': 'WebSite', '@id': 'https://maxc.cc/#website', name: 'superdot', url: 'https://maxc.cc/', publisher: { '@id': 'https://maxc.cc/#organization' } },
   { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: lang, isPartOf: { '@id': 'https://maxc.cc/#website' }, ...(product ? { mainEntity: { '@id': `${canonical}#application` } } : {}) },
   ...(product ? [
     { '@type': 'SoftwareApplication', '@id': `${canonical}#application`, name: product.name, alternateName: product.alternateName, description, url: canonical, image: new URL(product.image, 'https://maxc.cc').href, applicationCategory: product.category, operatingSystem: product.os, downloadUrl: `https://apps.apple.com/app/id${product.store}`, featureList: product.features, publisher: { '@id': 'https://maxc.cc/#organization' }, mainEntityOfPage: { '@id': `${canonical}#webpage` } },
     { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'invisilab', item: `https://maxc.cc${localizedPath('/', lang)}` },
+      { '@type': 'ListItem', position: 1, name: 'superdot', item: `https://maxc.cc${localizedPath('/', lang)}` },
       { '@type': 'ListItem', position: 2, name: pick(lang, { 'zh-CN': '应用', 'zh-TW': '應用程式', en: 'Apps' }), item: `https://maxc.cc${localizedPath('/apps/', lang)}` },
       { '@type': 'ListItem', position: 3, name: product.name, item: canonical },
     ] },
@@ -60,13 +60,13 @@ const forPage = (dictionary: Record<string, unknown>) => Object.fromEntries([...
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
-    <meta property="og:site_name" content="invisilab" />
+    <meta property="og:site_name" content="superdot" />
     <meta property="og:locale" content={locale.og} />
     {languages.filter(alternate => alternate.lang !== lang).map(alternate => <meta property="og:locale:alternate" content={localeOf(alternate.lang).og} />)}
     {languages.map(locale => <link rel="alternate" hreflang={locale.lang} href={new URL(locale.path, canonical).href} />)}
     {languages.length > 0 && <link rel="alternate" hreflang="x-default" href={new URL(languages.find(alternate => alternate.lang === 'en')!.path, canonical).href} />}
     {!noindex && <script is:inline type="application/ld+json" set:html={serialize({ '@context': 'https://schema.org', '@graph': graph })} />}
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="invisilab product facts" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="superdot product facts" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />

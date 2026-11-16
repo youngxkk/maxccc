@@ -4,9 +4,9 @@ import { locales } from '../i18n/site';
 
 // Supplemental discovery index. Canonical HTML remains the source of truth.
 const english = localizedProducts('en');
-export const GET: APIRoute = () => new Response(`# invisilab
+export const GET: APIRoute = () => new Response(`# superdot
 
-> Independent, ad-free apps for Mac, iPhone and iPad by invisilab. Official product pages and App Store listings, available in ${locales.length} languages.
+> Independent, ad-free apps for Mac, iPhone and iPad by superdot. Official product pages and App Store listings, available in ${locales.length} languages.
 
 ## Products
 ${Object.entries(english).map(([slug, product]) => `- [${product.name}](https://maxc.cc/${slug}/): ${product.description} App Store: https://apps.apple.com/app/id${product.store}`).join('\n')}

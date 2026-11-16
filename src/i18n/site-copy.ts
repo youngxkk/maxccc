@@ -9,7 +9,7 @@ iPhone 会在后台持续记录剪贴板吗？|iPhone 會在背景持續記錄�
 不会。iPhone 与 iPad 需要通过应用或小组件保存文字、链接和图片；Mac 支持自动记录，也可暂停或排除指定应用。|不會。iPhone 與 iPad 需要透過 App 或小工具儲存文字、連結和圖片；Mac 支援自動記錄，也可暫停或排除指定 App。|No. On iPhone and iPad, save text, links and images through the app or widget. Mac supports automatic recording, which you can pause or disable for selected apps.
 文件会复制进 NexPaste 吗？|檔案會複製進 NexPaste 嗎？|Are files copied into NexPaste?
 Mac 保存的是文件引用，并不是文件备份。请保留原文件；移动或删除原文件后，引用可能无法继续使用。|Mac 儲存的是檔案參照，並不是檔案備份。請保留原始檔案；移動或刪除後，參照可能無法繼續使用。|Mac stores file references, not backup copies. Keep the original files; moving or deleting them may make a saved reference unavailable.
-invisilab - Mac、iPhone 与 iPad 独立应用|invisilab — Mac、iPhone 與 iPad 獨立 App|invisilab — Independent Apps for Mac, iPhone and iPad
+superdot - Mac、iPhone 与 iPad 独立应用|superdot — Mac、iPhone 與 iPad 獨立 App|superdot — Independent Apps for Mac, iPhone and iPad
 产品与使用指南|產品與使用指南|Products and guides
 全部应用|全部 App|All apps
 更多应用|更多 App|More apps
@@ -25,25 +25,25 @@ invisilab - Mac、iPhone 与 iPad 独立应用|invisilab — Mac、iPhone 與 iP
 查看功能和界面 →|查看功能和介面 →|See features and screenshots →
 阅读指南 →|閱讀指南 →|Read guide →
 抱歉，页面不存在或已被移除。|抱歉，頁面不存在或已移除。|Sorry, this page could not be found or has been removed.
-invisilab 应用目录 — Mac、iPhone 与 iPad 软件|invisilab App 目錄 — Mac、iPhone 與 iPad 軟體|invisilab App Directory — Software for Mac, iPhone and iPad
+superdot 应用目录 — Mac、iPhone 与 iPad 软件|superdot App 目錄 — Mac、iPhone 與 iPad 軟體|superdot App Directory — Software for Mac, iPhone and iPad
 / 应用目录|/ App 目錄|/ Apps
 为 Mac、iPhone 和 iPad 打造的应用|為 Mac、iPhone 和 iPad 打造的 App|Apps made for Mac, iPhone and iPad
 从效率工具到日常生活，找到适合自己的应用。每个产品页都提供功能介绍和 App Store 下载入口。|從效率工具到日常生活，找到適合自己的 App。每個產品頁都提供功能介紹和 App Store 下載入口。|Find an app for work or everyday life. Each product page includes features and an official App Store download link.
-探索 invisilab 的 NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK，查看功能、适用设备与官方下载链接。|探索 invisilab 的 NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK，查看功能、支援裝置與官方下載連結。|Explore NexPaste, Transnap, invsi, Pixie Wallpaper, Pineapple English and Are You OK. Find features, supported devices and official downloads.
+探索 superdot 的 NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK，查看功能、适用设备与官方下载链接。|探索 superdot 的 NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK，查看功能、支援裝置與官方下載連結。|Explore NexPaste, Transnap, invsi, Pixie Wallpaper, Pineapple English and Are You OK. Find features, supported devices and official downloads.
 应用使用指南 — Mac 剪贴板、离线翻译与 iPhone 应用|App 使用指南 — Mac 剪貼簿、離線翻譯與 iPhone App|App Guides — Mac Clipboard History, Offline Translation and iPhone Apps
 / 使用指南|/ 使用指南|/ Guides
 从日常需要，找到合适的应用。|從日常需要，找到合適的 App。|Find an app for your everyday needs.
 这里介绍选择方法、使用场景和产品功能，帮助你在下载前了解应用是否适合自己。|這裡介紹選擇方法、使用情境和產品功能，幫助你在下載前了解 App 是否適合自己。|Explore practical use cases and features to decide whether an app is right for you before downloading.
-从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 invisilab 产品。|從實際使用情境出發，了解 iPhone 私密內容管理、iPad 桌布選擇、兒童英語單字練習和獨居日常打卡，找到對應的 invisilab 產品。|Practical guides to private content on iPhone, iPad wallpapers, English vocabulary for children and daily check-ins, with relevant invisilab apps.
+从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 superdot 产品。|從實際使用情境出發，了解 iPhone 私密內容管理、iPad 桌布選擇、兒童英語單字練習和獨居日常打卡，找到對應的 superdot 產品。|Practical guides to private content on iPhone, iPad wallpapers, English vocabulary for children and daily check-ins, with relevant superdot apps.
 数十种壁纸分类，找到你的风格|數十種桌布分類，找到你的風格|Dozens of wallpaper categories to find your style
 从主题、色彩到画面氛围，探索精灵壁纸 App 中丰富的壁纸分类。|從主題、色彩到畫面氛圍，探索精靈壁紙 App 中豐富的桌布分類。|Explore Pixie’s wallpaper categories by theme, color and mood.
-invisilab 产品资料|invisilab 產品資料|invisilab product information
+superdot 产品资料|superdot 產品資料|superdot product information
 隐私政策|隱私權政策|Privacy Policy
 使用条款|使用條款|Terms of Use
 用户协议|使用者協議|User Agreement
-invisilab 隐私政策：网站、NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App 如何处理你的信息。|invisilab 隱私權政策：網站、NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App 如何處理你的資訊。|How the invisilab website and apps including NexPaste, Transnap, invsi, Pineapple English, Pixie and Are You OK handle your information.
-invisilab 使用条款：服务范围、自动续订订阅、重要免责（invsi 密码、Are You OK 提醒）与责任限制。|invisilab 使用條款：服務範圍、自動續訂訂閱、重要免責聲明與責任限制。|invisilab terms of use: services, auto-renewing subscriptions, important limitations and liability.
-invisilab 用户协议：适用范围、App 内购买与订阅、知识产权、使用规范与各 App 的特别说明。|invisilab 使用者協議：適用範圍、App 內購買與訂閱、智慧財產權、使用規範與各 App 特別說明。|invisilab user agreement: scope, in-app purchases, subscriptions, intellectual property, acceptable use and app-specific information.
+superdot 隐私政策：网站、NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App 如何处理你的信息。|superdot 隱私權政策：網站、NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App 如何處理你的資訊。|How the superdot website and apps including NexPaste, Transnap, invsi, Pineapple English, Pixie and Are You OK handle your information.
+superdot 使用条款：服务范围、自动续订订阅、重要免责（invsi 密码、Are You OK 提醒）与责任限制。|superdot 使用條款：服務範圍、自動續訂訂閱、重要免責聲明與責任限制。|superdot terms of use: services, auto-renewing subscriptions, important limitations and liability.
+superdot 用户协议：适用范围、App 内购买与订阅、知识产权、使用规范与各 App 的特别说明。|superdot 使用者協議：適用範圍、App 內購買與訂閱、智慧財產權、使用規範與各 App 特別說明。|superdot user agreement: scope, in-app purchases, subscriptions, intellectual property, acceptable use and app-specific information.
 翻译，不打断你的状态。复制一句话，它已经在这里了。|翻譯，不打斷你的狀態。複製一句話，它已經在這裡了。|Translation that keeps you in the flow. Copy a sentence and find it here.
 + 添加颜色|+ 新增顏色|+ Add color
 点击或拖拽 PDF 到这里|點擊或拖放 PDF 至此|Click or drop a PDF here
@@ -66,7 +66,7 @@ invisilab 用户协议：适用范围、App 内购买与订阅、知识产权、
 这是送给你四岁的礼物🎁——一份小小的英语启蒙。你像一段美妙的旋律，轻轻流进我的生活，让每个角落都明亮且有声。你的笑容是最动听的和弦，你的好奇心是最美的节拍🎵。|這是送給你四歲的禮物🎁——一份小小的英語啟蒙。你像美妙的旋律，輕輕流進我的生活，讓每個角落明亮且有聲。你的笑容是最動聽的和弦，好奇心是最美的節拍🎵。|This little introduction to English is a gift for your fourth birthday 🎁. Like a beautiful melody, you bring light and music into my life. Your smile is the sweetest chord, and your curiosity the loveliest rhythm 🎵.
 感谢你让我的日子如此丰盛。愿你在未来的每一步，都幸福、坚韧、快乐地成长🩷。|感謝你讓我的日子如此豐盛。願你未來的每一步，都幸福、堅韌、快樂地成長🩷。|Thank you for making my days so full. May every step ahead bring happiness, resilience and joyful growth 🩷.
 爱你的 Lusha 妈咪|愛你的 Lusha 媽咪|With love, Mommy Lusha
-感谢每一位给予 DoCool 帮助、支持与善意的朋友。|感謝每一位給予 DoCool 幫助、支持與善意的朋友。|Thank you to everyone who has offered DoCool help, support and kindness.
+感谢每一位给予 superdot 帮助、支持与善意的朋友。|感謝每一位給予 superdot 幫助、支持與善意的朋友。|Thank you to everyone who has offered superdot help, support and kindness.
 致谢页面照片|致謝頁面照片|Photograph on the acknowledgments page
 NexPaste Mac 真实界面：剪贴板历史、内容分类与搜索|NexPaste Mac 實際介面：剪貼簿歷史、內容分類與搜尋|NexPaste on Mac: clipboard history, content categories and search
 支持的剪贴板内容类型|支援的剪貼簿內容類型|Supported clipboard content types
@@ -83,7 +83,7 @@ Pixie 功能|Pixie 功能|Pixie features
 精灵壁纸收藏与 iCloud 同步的真实界面|精靈壁紙收藏與 iCloud 同步的實際介面|Pixie favorites and iCloud sync
 精灵壁纸 iPad 浏览界面|精靈壁紙 iPad 瀏覽介面|Browsing Pixie on iPad
 精灵壁纸 iPhone 浏览界面|精靈壁紙 iPhone 瀏覽介面|Browsing Pixie on iPhone
-Dashboard - DoCool|帳號管理 — DoCool|Account — DoCool
+Dashboard - superdot|帳號管理 — superdot|Account — superdot
 Manage your account, subscriptions and settings.|管理帳號、訂閱與設定。|Manage your account, subscriptions and settings.
 Loading your account...|正在載入帳號…|Loading your account…
 Welcome home|歡迎回來|Welcome back
@@ -214,7 +214,7 @@ for (const row of visualRows.trim().split('\n')) {
   extraCopy[source] = { 'zh-CN': source, 'zh-TW': traditional, en: english };
 }
 const additional: [string, string, string, string][] = [
-  ['invisilab 为 Mac、iPhone 和 iPad 打造无广告应用：NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK。', 'invisilab 為 Mac、iPhone 和 iPad 打造無廣告 App：NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK。', 'invisilab makes ad-free apps for Mac, iPhone and iPad: NexPaste clipboard manager, Transnap translator, invsi private vault, Pixie Wallpaper, Pineapple English and Are You OK.', ''],
+  ['superdot 为 Mac、iPhone 和 iPad 打造无广告应用：NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK。', 'superdot 為 Mac、iPhone 和 iPad 打造無廣告 App：NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK。', 'superdot makes ad-free apps for Mac, iPhone and iPad: NexPaste clipboard manager, Transnap translator, invsi private vault, Pixie Wallpaper, Pineapple English and Are You OK.', ''],
   ['更多应用', '更多 App', 'More apps', ''],
   ['Change Language', '切換語言', 'Change language', '切换语言'],
   ['Classic Minesweeper', '經典踩地雷', 'Classic Minesweeper', '经典扫雷'],
@@ -233,8 +233,8 @@ const additional: [string, string, string, string][] = [
 ];
 for (const [source, traditional, english, simplified] of additional) extraCopy[source] = { 'zh-CN': simplified || source, 'zh-TW': traditional, en: english };
 for (const [source, simplified] of Object.entries({
-  'Dashboard - DoCool': '账户管理 — DoCool', 'Manage your account, subscriptions and settings.': '管理账户、订阅与设置。',
+  'Dashboard - superdot': '账户管理 — superdot', 'Manage your account, subscriptions and settings.': '管理账户、订阅与设置。',
   'Loading your account...': '正在加载账户…', 'Welcome home': '欢迎回来', 'Manage your account and preferences.': '管理账户与偏好设置。',
   Guest: '访客', 'Sign Out': '退出登录', Subscription: '订阅',
 })) extraCopy[source]['zh-CN'] = simplified;
-extraCopy['invisilab 应用目录'] = { 'zh-CN': 'invisilab 应用目录', 'zh-TW': 'invisilab App 目錄', en: 'invisilab App Directory' };
+extraCopy['superdot 应用目录'] = { 'zh-CN': 'superdot 应用目录', 'zh-TW': 'superdot App 目錄', en: 'superdot App Directory' };

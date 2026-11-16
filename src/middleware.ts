@@ -47,12 +47,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
   for (const source of localizedGuides('zh-CN')) {
     const target = localizedGuides(lang).find(guide => guide.slug === source.slug)!;
     phrases.set(`${source.title} →`, `${target.title} →`);
-    phrases.set(`${source.title} | invisilab`, `${target.title} | invisilab`);
+    phrases.set(`${source.title} | superdot`, `${target.title} | superdot`);
   }
   pair(localizedGuides('zh-CN'), localizedGuides(lang));
   for (const [source, translations] of Object.entries(extraCopy)) {
     phrases.set(source, pick(lang, translations));
-    phrases.set(`${source} | invisilab`, pick(lang, { 'zh-CN': `${translations['zh-CN']} | invisilab`, 'zh-TW': `${translations['zh-TW']} | invisilab`, en: `${translations.en} | invisilab` }));
+    phrases.set(`${source} | superdot`, pick(lang, { 'zh-CN': `${translations['zh-CN']} | superdot`, 'zh-TW': `${translations['zh-TW']} | superdot`, en: `${translations.en} | superdot` }));
   }
   // Text without a Chinese source (English in the template) still goes through the locale's table.
   const translate = (value: string) => phrases.get(value.trim()) ?? tr(lang, value);

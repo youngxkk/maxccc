@@ -17,7 +17,7 @@ await server.close();
 
 const strings = new Set();
 // Names that read the same in every language: products, platforms, language names, numbered labels.
-const keep = new Set([...locales.map(locale => locale.label), '翻译，不打断你的状态。复制一句话，它已经在这里了。', 'invsi', 'invisi', 'lab', 'invisilab', 'NexPaste', 'Transnap', 'Pixie', 'Pixie Pro', 'Are You OK', 'App Store',
+const keep = new Set([...locales.map(locale => locale.label), '翻译，不打断你的状态。复制一句话，它已经在这里了。', 'invsi', 'super', 'dot', 'superdot', 'NexPaste', 'Transnap', 'Pixie', 'Pixie Pro', 'Are You OK', 'App Store',
   'iPhone', 'iPad', 'Mac', 'macOS', 'iOS', 'iPadOS', 'iOS, iPadOS', 'iPhone · iPad', 'iPhone Duo', 'iCloud', 'NASA', 'BMI', 'PDF', 'TXT', 'MD', 'KB', 'MB', 'GB', 'cm', 'kg', 'apple.com', 'en', 'zh-CN', 'document.pdf',
   'Pineapple English', 'Pixie Wallpaper', 'PINEAPPLE ENGLISH', 'PIXIE WALLPAPER', 'NexPaste / macOS', 'X (Twitter) @invisilab_x', 'Lusha',
   // Sample names in the test-data tools.
