@@ -3,7 +3,7 @@ export const practicalGuides = [
   {
     "slug": "mac-clipboard-history",
     "product": "nexpaste",
-    "image": "/images/nexpaste/redesign/hero-mac.png",
+    "image": { "src": "/images/nexpaste/redesign/hero-mac.webp", "width": 2000, "height": 1299 },
     "copy": {
       "zh-CN": {
         "title": "Mac 怎么查看之前复制的内容？NexPaste 剪贴板历史使用指南",

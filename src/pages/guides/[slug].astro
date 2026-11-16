@@ -1,28 +1,34 @@
 ---
 import DiscoveryLayout from '../../layouts/DiscoveryLayout.astro';
 import { practicalGuides } from '../../data/practical-guides';
-import { languageFor } from '../../i18n/site';
+import { languageFor, localizedPath } from '../../i18n/site';
 import { localizedGuides } from '../../i18n/guides';
 import { guides } from '../../data/guides';
+import { productPagesContent } from '../../i18n/product-pages';
+import { pick } from '../../i18n/translate';
 import { productSeo } from '../../data/product-seo';
 export function getStaticPaths() { return guides.map(guide => ({ params: { slug: guide.slug }, props: { guide } })); }
-const { guide } = Astro.props;
+const lang = languageFor(Astro.url.pathname);
+const guide = localizedGuides(lang).find(item => item.slug === Astro.props.guide.slug)!;
+const path = (page: string) => localizedPath(page, lang);
+const storeUrl = `https://apps.apple.com/app/id${productSeo[guide.product].store}`;
+const storeLabel = pick(lang, { en: productPagesContent.en.pp_get, 'zh-CN': productPagesContent['zh-CN'].pp_get, 'zh-TW': productPagesContent['zh-TW'].pp_get });
 const product = productSeo[guide.product];
 const practical = practicalGuides.find(item => item.slug === guide.slug);
-const localizedGuide = localizedGuides(languageFor(Astro.url.pathname)).find(item => item.slug === guide.slug);
 const screenshot = practical && 'image' in practical ? practical.image : undefined;
-const imageAlt = localizedGuide && 'imageAlt' in localizedGuide ? localizedGuide.imageAlt : '';
-const url = `https://maxc.cc/guides/${guide.slug}/`;
-const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: guide.title, description: guide.description, mainEntityOfPage: url, inLanguage: languageFor(Astro.url.pathname), author: { '@id': 'https://maxc.cc/#organization' }, about: { '@id': `https://maxc.cc/${guide.product}/#application` } };
+const imageAlt = 'imageAlt' in guide ? guide.imageAlt : '';
+const url = `https://maxc.cc${path(`/guides/${guide.slug}/`)}`;
+const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: guide.title, description: guide.description, mainEntityOfPage: url, inLanguage: lang, author: { '@id': 'https://maxc.cc/#organization' }, about: { '@id': `https://maxc.cc${path(`/${guide.product}/`)}#application` } };
 ---
 <DiscoveryLayout title={`${guide.title} | superdot`} description={guide.description}>
   <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
-  <nav aria-label="面包屑"><a href="/">superdot</a><span>/</span><a href="/guides/">使用指南</a></nav>
+  <nav aria-label="面包屑"><a href={path("/")}>superdot</a><span>/</span><a href={path("/guides/")}>使用指南</a></nav>
   <article>
     <h1>{guide.title}</h1><p>{guide.description}</p>
-    {screenshot && <figure><img src={screenshot} width="3024" height="1964" alt={imageAlt} loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px" /></figure>}
+    {guide.product === 'nexpaste' && <p><a href={storeUrl} target="_blank" rel="noopener noreferrer">{storeLabel}</a></p>}
+    {screenshot && <figure><img src={screenshot.src} width={screenshot.width} height={screenshot.height} alt={imageAlt} loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px" /></figure>}
     {guide.sections.map(([heading, body]) => <section><h2>{heading}</h2><p>{body}</p></section>)}
   </article>
-  <section><h2>了解 {product.name}</h2><p>{product.description}</p><p><a href={`/${guide.product}/`}>查看功能和界面 →</a></p><a href={`https://apps.apple.com/app/id${product.store}`} target="_blank" rel="noopener noreferrer">在 App Store 查看 {product.name} ↗</a></section>
-  <nav aria-label="更多指南"><a href="/guides/">所有指南</a><a href="/apps/">所有应用</a></nav>
+  <section><h2>了解 {product.name}</h2><p>{product.description}</p><p><a href={path(`/${guide.product}/`)}>查看功能和界面 →</a></p><a href={`https://apps.apple.com/app/id${product.store}`} target="_blank" rel="noopener noreferrer">在 App Store 查看 {product.name} ↗</a></section>
+  <nav aria-label="更多指南"><a href={path("/guides/")}>所有指南</a><a href={path("/apps/")}>所有应用</a></nav>
 </DiscoveryLayout>

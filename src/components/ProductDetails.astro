@@ -1,10 +1,12 @@
 ---
-import { guides } from "../data/guides";
+import { localizedGuides } from "../i18n/guides";
+import { languageFor, localizedPath } from "../i18n/site";
 import { pixieCategories } from '../data/pixie-categories';
 import { productSeo, type ProductSlug } from '../data/product-seo';
 const { slug } = Astro.props as { slug: ProductSlug };
 const product = productSeo[slug];
-const relatedGuides = guides.filter(guide => guide.product === slug);
+const lang = languageFor(Astro.url.pathname);
+const relatedGuides = localizedGuides(lang).filter(guide => guide.product === slug);
 ---
 <section class="product-details" aria-labelledby={`${slug}-details-title`}>
   <h2 id={`${slug}-details-title`}>了解 {product.name}</h2>
@@ -18,7 +20,7 @@ const relatedGuides = guides.filter(guide => guide.product === slug);
     <h3>常见问题</h3>
     {product.questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
   </>}
-  {relatedGuides.length > 0 && <nav aria-label="相关使用指南"><h3>使用指南</h3>{relatedGuides.map(guide => <a href={`/guides/${guide.slug}/`}>{guide.title} →</a>)}</nav>}
+  {relatedGuides.length > 0 && <nav aria-label="相关使用指南"><h3>使用指南</h3>{relatedGuides.map(guide => <a href={localizedPath(`/guides/${guide.slug}/`, lang)}>{guide.title} →</a>)}</nav>}
 </section>
 <style>
   .product-details { width:min(100% - 48px,960px); margin:64px auto; padding-block:36px; border-top:1px solid #8884; color:inherit; }
