@@ -33,7 +33,7 @@ void isAnalyticsSupported().then((supported) => {
     }
 }).catch(() => {});
 
-const i18n = window.DoCoolI18n || {};
+const i18n = window.superdotI18n || {};
 const LABELS = i18n.auth || {};
 
 function normalizeLang(lang) {

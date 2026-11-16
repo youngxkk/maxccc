@@ -87,7 +87,7 @@ const forPage = (dictionary: Record<string, unknown>) => Object.fromEntries([...
     }
     <script
       is:inline
-      set:html={`window.DoCoolI18n = {
+      set:html={`window.superdotI18n = {
         shared: ${serialize(forPage(sharedDictionary))},
         auth: ${serialize(forPage(authDictionary))},
         prefixes: ${serialize(Object.fromEntries(locales.map(({ lang, prefix }) => [lang, prefix])))},
@@ -95,12 +95,12 @@ const forPage = (dictionary: Record<string, unknown>) => Object.fromEntries([...
           if (!lang) return "en";
           if (lang === "zh" || lang === "zh-CN" || lang === "zh-SG" || lang === "zh-Hans") lang = "zh-CN";
           if (lang === "zh-TW" || lang === "zh-HK" || lang === "tw" || lang === "zh-MO" || lang === "zh-Hant") lang = "zh-TW";
-          const codes = Object.keys(window.DoCoolI18n.shared);
+          const codes = Object.keys(window.superdotI18n.shared);
           const code = codes.find(code => code.toLowerCase() === lang.toLowerCase()) || codes.find(code => code.split("-")[0] === lang.split("-")[0].toLowerCase() && !code.startsWith("zh"));
           return code || "en";
         },
         pathFor(path) {
-          const prefix = window.DoCoolI18n.prefixes[document.documentElement.lang] || "";
+          const prefix = window.superdotI18n.prefixes[document.documentElement.lang] || "";
           const clean = path.split("/").filter(Boolean).join("/");
           return prefix + "/" + clean + (clean ? "/" : "");
         },

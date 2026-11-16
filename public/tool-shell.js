@@ -1,5 +1,5 @@
 (function () {
-  const i18n = window.DoCoolI18n || {};
+  const i18n = window.superdotI18n || {};
   const translations = i18n.shared || {};
 
   function normalizeLang(lang) {

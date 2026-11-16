@@ -2,7 +2,7 @@
 
 我们是一群致力于打造高品质应用的独立开发者。没有广告，只有纯粹的热爱。
 
-## 🚀 我们的理念：Do Cool Things.
+## 🚀 我们的理念：Make something cool.
 
 - **品质至上**：用心打磨每一个像素的体验。
 - **隐私核心**：你的数据只属于你。
@@ -29,7 +29,7 @@
 ## 🔗 联系我们
 
 - **官方网站**: [maxc.cc](https://maxc.cc/)
-- **小红书**: [DoCool](https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4)
+- **小红书**: [superdot](https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4)
 
 ---
 
@@ -41,7 +41,7 @@ Copyright © 2026 superdot. All rights reserved.
 
 We are a group of independent developers dedicated to building high-quality apps that people love. No ads, just pure passion.
 
-## 🚀 Our Philosophy: Do Cool Things.
+## 🚀 Our Philosophy: Make something cool.
 
 - **Quality First**: Handcrafted experiences with attention to every pixel.
 - **Privacy Focused**: Your data belongs to you. Period.

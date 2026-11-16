@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const i18n = window.DoCoolI18n || {};
+    const i18n = window.superdotI18n || {};
     // Elegant Staggered Entry Animation
     const observerOptions = {
         threshold: 0.05,
