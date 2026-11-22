@@ -11,7 +11,7 @@ const store = 'https://apps.apple.com/app/id6761368515';
 ---
 <BaseLayout title="NexPaste — 复制过的，随时找回" description="保存文字、链接、图片和文件，在 Mac、iPhone 和 iPad 间通过 iCloud 接续。" canonical="https://maxc.cc/nexpaste/" ogImage="https://maxc.cc/images/nexpaste/redesign/hero-mac.png" includeHomeStyles includeHomeScript>
   <script slot="head" is:inline define:vars={{ nexpasteRedesign }}>
-    for (const [lang, copy] of Object.entries(nexpasteRedesign)) if (window.superdotI18n.shared[lang]) Object.assign(window.superdotI18n.shared[lang], copy);
+    for (const [lang, copy] of Object.entries(nexpasteRedesign)) if (window.invisilabI18n.shared[lang]) Object.assign(window.invisilabI18n.shared[lang], copy);
   </script>
   <MainNav showSectionLinks={false} />
   <main class="np-page" id="top">

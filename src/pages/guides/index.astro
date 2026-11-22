@@ -5,8 +5,8 @@ import { languageFor, localizedPath } from '../../i18n/site';
 const lang = languageFor(Astro.url.pathname);
 const guides = localizedGuides(lang);
 ---
-<DiscoveryLayout title="应用使用指南 — Mac 剪贴板、离线翻译与 iPhone 应用 | superdot" description="从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 superdot 产品。">
-  <nav aria-label="面包屑"><a href="/">superdot</a><span>/ 使用指南</span></nav>
+<DiscoveryLayout title="应用使用指南 — Mac 剪贴板、离线翻译与 iPhone 应用 | invisilab" description="从真实使用场景出发，了解 iPhone 私密内容管理、iPad 壁纸选择、儿童英语单词练习和独居日常打卡，找到对应的 invisilab 产品。">
+  <nav aria-label="面包屑"><a href="/">invisilab</a><span>/ 使用指南</span></nav>
   <h1>从日常需要，找到合适的应用。</h1>
   <p>这里介绍选择方法、使用场景和产品功能，帮助你在下载前了解应用是否适合自己。</p>
   {guides.map(guide => <article><h2><a href={localizedPath(`/guides/${guide.slug}/`, lang)}>{guide.title}</a></h2><p>{guide.description}</p><a class="guide-button" href={localizedPath(`/guides/${guide.slug}/`, lang)}>阅读指南 →</a></article>)}

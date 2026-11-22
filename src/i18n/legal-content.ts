@@ -8,7 +8,7 @@ export const legalSharedContent = {
     legal_back_home: "返回首页",
     legal_ua_title: "用户协议",
     legal_ua_html: `<p class="legal-meta">最后更新：2026 年 10 月 28 日</p>
-<p>欢迎使用 superdot（以下称「我们」）的产品与服务。我们是一个独立开发者团队，运营官方网站 <strong>maxc.cc</strong>，并开发以下 App：</p>
+<p>欢迎使用 invisilab（以下称「我们」）的产品与服务。我们是一个独立开发者团队，运营官方网站 <strong>maxc.cc</strong>，并开发以下 App：</p>
 <ul>
 <li><strong>NexPaste</strong>：Mac、iPhone 与 iPad 上的剪贴板管理工具；</li>
 <li><strong>Transnap</strong>：macOS 菜单栏翻译工具；</li>
@@ -52,7 +52,7 @@ export const legalSharedContent = {
 <p>联系我们：deepseals#icloud.com（请将 # 替换为 @）</p>`,
     legal_pp_title: "隐私政策",
     legal_pp_html: `<p class="legal-meta">最后更新：2026 年 10 月 28 日</p>
-<p>superdot（以下称「我们」）重视你的隐私。本政策说明我们的网站 <strong>maxc.cc</strong> 和 App（NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等）会处理哪些信息、为什么处理，以及你有哪些选择。</p>
+<p>invisilab（以下称「我们」）重视你的隐私。本政策说明我们的网站 <strong>maxc.cc</strong> 和 App（NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等）会处理哪些信息、为什么处理，以及你有哪些选择。</p>
 <h2>我们的原则</h2>
 <ul>
 <li>我们的 App 没有广告，不集成第三方广告或统计 SDK，也不出售你的任何信息。</li>
@@ -135,7 +135,7 @@ export const legalSharedContent = {
 <p>隐私相关问题请联系：deepseals#icloud.com（请将 # 替换为 @）</p>`,
     legal_tou_title: "使用条款",
     legal_tou_html: `<p class="legal-meta">最后更新：2026 年 10 月 28 日</p>
-<p>本《使用条款》适用于你访问和使用 superdot运营的 <strong>maxc.cc</strong> 网站，以及 NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App（合称「本服务」）。使用本服务即表示你同时同意《用户协议》与《隐私政策》。</p>
+<p>本《使用条款》适用于你访问和使用 invisilab运营的 <strong>maxc.cc</strong> 网站，以及 NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App（合称「本服务」）。使用本服务即表示你同时同意《用户协议》与《隐私政策》。</p>
 <h2>1. 服务内容</h2>
 <p>本服务包括我们在 Mac、iPhone 和 iPad 上发布的 App，以及网站上的 App 介绍、在线工具和可选的 Google 登录。我们可能不时增加、调整或下线部分功能。</p>
 <h2>2. 使用许可</h2>
@@ -167,7 +167,7 @@ export const legalSharedContent = {
     legal_back_home: "返回首頁",
     legal_ua_title: "用戶協議",
     legal_ua_html: `<p class="legal-meta">最後更新：2026 年 10 月 28 日</p>
-<p>歡迎使用 superdot（以下稱「我們」）的產品與服務。我們是一個獨立開發者團隊，營運官方網站 <strong>maxc.cc</strong>，並開發以下 App：</p>
+<p>歡迎使用 invisilab（以下稱「我們」）的產品與服務。我們是一個獨立開發者團隊，營運官方網站 <strong>maxc.cc</strong>，並開發以下 App：</p>
 <ul>
 <li><strong>NexPaste</strong>：Mac、iPhone 與 iPad 上的剪貼簿管理工具；</li>
 <li><strong>Transnap</strong>：macOS 選單列翻譯工具；</li>
@@ -211,7 +211,7 @@ export const legalSharedContent = {
 <p>聯絡我們：deepseals#icloud.com（請將 # 替換為 @）</p>`,
     legal_pp_title: "隱私權政策",
     legal_pp_html: `<p class="legal-meta">最後更新：2026 年 10 月 28 日</p>
-<p>superdot（以下稱「我們」）重視你的隱私。本政策說明我們的網站 <strong>maxc.cc</strong> 和 App（NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等）會處理哪些資訊、為什麼處理，以及你有哪些選擇。</p>
+<p>invisilab（以下稱「我們」）重視你的隱私。本政策說明我們的網站 <strong>maxc.cc</strong> 和 App（NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等）會處理哪些資訊、為什麼處理，以及你有哪些選擇。</p>
 <h2>我們的原則</h2>
 <ul>
 <li>我們的 App 沒有廣告，不整合第三方廣告或統計 SDK，也不出售你的任何資訊。</li>
@@ -294,7 +294,7 @@ export const legalSharedContent = {
 <p>隱私相關問題請聯絡：deepseals#icloud.com（請將 # 替換為 @）</p>`,
     legal_tou_title: "使用條款",
     legal_tou_html: `<p class="legal-meta">最後更新：2026 年 10 月 28 日</p>
-<p>本《使用條款》適用於你存取和使用 superdot營運的 <strong>maxc.cc</strong> 網站，以及 NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App（合稱「本服務」）。使用本服務即表示你同時同意《用戶協議》與《隱私權政策》。</p>
+<p>本《使用條款》適用於你存取和使用 invisilab營運的 <strong>maxc.cc</strong> 網站，以及 NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App（合稱「本服務」）。使用本服務即表示你同時同意《用戶協議》與《隱私權政策》。</p>
 <h2>1. 服務內容</h2>
 <p>本服務包括我們在 Mac、iPhone 和 iPad 上發布的 App，以及網站上的 App 介紹、線上工具和可選的 Google 登入。我們可能不時增加、調整或下線部分功能。</p>
 <h2>2. 使用授權</h2>
@@ -326,7 +326,7 @@ export const legalSharedContent = {
     legal_back_home: "Back to home",
     legal_ua_title: "User Agreement",
     legal_ua_html: `<p class="legal-meta">Last updated: October 28, 2026</p>
-<p>Welcome to the products and services of superdot (“we”, “us”). We are an independent developer team. We run the official website <strong>maxc.cc</strong> and make the following apps:</p>
+<p>Welcome to the products and services of invisilab (“we”, “us”). We are an independent developer team. We run the official website <strong>maxc.cc</strong> and make the following apps:</p>
 <ul>
 <li><strong>NexPaste</strong>: a clipboard manager for Mac, iPhone, and iPad;</li>
 <li><strong>Transnap</strong>: a menu bar translator for macOS;</li>
@@ -370,7 +370,7 @@ export const legalSharedContent = {
 <p>Contact: deepseals#icloud.com (replace # with @)</p>`,
     legal_pp_title: "Privacy Policy",
     legal_pp_html: `<p class="legal-meta">Last updated: October 28, 2026</p>
-<p>superdot (“we”) respects your privacy. This Policy explains what information our website <strong>maxc.cc</strong> and our apps (NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others) handle, why, and what choices you have.</p>
+<p>invisilab (“we”) respects your privacy. This Policy explains what information our website <strong>maxc.cc</strong> and our apps (NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others) handle, why, and what choices you have.</p>
 <h2>Our principles</h2>
 <ul>
 <li>Our apps have no ads, include no third-party advertising or analytics SDKs, and we never sell your information.</li>
@@ -453,7 +453,7 @@ export const legalSharedContent = {
 <p>Privacy questions: deepseals#icloud.com (replace # with @)</p>`,
     legal_tou_title: "Terms of Use",
     legal_tou_html: `<p class="legal-meta">Last updated: October 28, 2026</p>
-<p>These Terms of Use apply to your access to and use of the <strong>maxc.cc</strong> website and the apps NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others, operated by superdot (together, the “Service”). By using the Service, you also agree to our User Agreement and Privacy Policy.</p>
+<p>These Terms of Use apply to your access to and use of the <strong>maxc.cc</strong> website and the apps NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others, operated by invisilab (together, the “Service”). By using the Service, you also agree to our User Agreement and Privacy Policy.</p>
 <h2>1. The Service</h2>
 <p>The Service includes the apps we publish for Mac, iPhone, and iPad, and the website’s app pages, online tools, and optional Google sign-in. We may add, change, or retire features from time to time.</p>
 <h2>2. License</h2>

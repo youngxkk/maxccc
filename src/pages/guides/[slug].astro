@@ -20,9 +20,9 @@ const imageAlt = 'imageAlt' in guide ? guide.imageAlt : '';
 const url = `https://maxc.cc${path(`/guides/${guide.slug}/`)}`;
 const schema = { '@context': 'https://schema.org', '@type': 'Article', headline: guide.title, description: guide.description, mainEntityOfPage: url, inLanguage: lang, author: { '@id': 'https://maxc.cc/#organization' }, about: { '@id': `https://maxc.cc${path(`/${guide.product}/`)}#application` } };
 ---
-<DiscoveryLayout title={`${guide.title} | superdot`} description={guide.description}>
+<DiscoveryLayout title={`${guide.title} | invisilab`} description={guide.description}>
   <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
-  <nav aria-label="面包屑"><a href={path("/")}>superdot</a><span>/</span><a href={path("/guides/")}>使用指南</a></nav>
+  <nav aria-label="面包屑"><a href={path("/")}>invisilab</a><span>/</span><a href={path("/guides/")}>使用指南</a></nav>
   <article>
     <h1>{guide.title}</h1><p>{guide.description}</p>
     {guide.product === 'nexpaste' && <p><a href={storeUrl} target="_blank" rel="noopener noreferrer">{storeLabel}</a></p>}

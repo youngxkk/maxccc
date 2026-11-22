@@ -1,4 +1,4 @@
-# superdot - 独立应用开发团队
+# invisilab - 独立应用开发团队
 
 我们是一群致力于打造高品质应用的独立开发者。没有广告，只有纯粹的热爱。
 
@@ -29,15 +29,15 @@
 ## 🔗 联系我们
 
 - **官方网站**: [maxc.cc](https://maxc.cc/)
-- **小红书**: [superdot](https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4)
+- **小红书**: [invisilab](https://www.xiaohongshu.com/user/profile/5777e1583460946ad6894dc4)
 
 ---
 
-Copyright © 2026 superdot. All rights reserved.
+Copyright © 2026 invisilab. All rights reserved.
 
 [English Version Below]
 
-# superdot - Independent App Developers
+# invisilab - Independent App Developers
 
 We are a group of independent developers dedicated to building high-quality apps that people love. No ads, just pure passion.
 

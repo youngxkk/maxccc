@@ -4,14 +4,14 @@ import { languageFor, localizedPath } from '../i18n/site';
 import { pick } from '../i18n/translate';
 const lang = languageFor(Astro.url.pathname);
 const t = (zhCN: string, zhTW: string, en: string) => pick(lang, { 'zh-CN': zhCN, 'zh-TW': zhTW, en });
-const title = t('关于我 — superdot 背后的独立开发者', '關於我 — superdot 背後的獨立開發者', 'About me — The independent developer behind superdot');
-const description = t('我是 superdot 背后的独立开发者。我想把有意思的想法做成好用的 App：不放广告，不拿体验换收益，认真对待每一个日常的小需求。', '我是 superdot 背後的獨立開發者。我想把有意思的想法做成好用的 App：不放廣告，不拿體驗換收益，認真對待日常的小需求。', 'I’m the independent developer behind superdot. I turn curious ideas into useful apps, without ads or compromises that put revenue ahead of the experience.');
+const title = t('关于我 — invisilab 背后的独立开发者', '關於我 — invisilab 背後的獨立開發者', 'About me — The independent developer behind invisilab');
+const description = t('我是 invisilab 背后的独立开发者。我想把有意思的想法做成好用的 App：不放广告，不拿体验换收益，认真对待每一个日常的小需求。', '我是 invisilab 背後的獨立開發者。我想把有意思的想法做成好用的 App：不放廣告，不拿體驗換收益，認真對待日常的小需求。', 'I’m the independent developer behind invisilab. I turn curious ideas into useful apps, without ads or compromises that put revenue ahead of the experience.');
 ---
 <DiscoveryLayout title={title} description={description}>
   <div class="about">
     <p class="eyebrow">{t('写在这些 App 背后。', '寫在這些 App 背後。', 'A few words behind the apps.')}</p>
     <h1>{t('做点有意思的，\n也做点真正好用的。', '做點有意思的，\n也做點真正好用的。', 'Something cool.\nSomething worth using.')}</h1>
-    <p class="intro">{t('我做 App，起点往往很简单：一个有意思的念头，或者一个「这里能不能更好用一点」的小问题。superdot 就是我把这些想法变成产品的地方。', '我做 App，起點往往很簡單：一個有意思的念頭，或者一個「這裡能不能更好用一點」的小問題。superdot 就是我把這些想法變成產品的地方。', 'My apps often start with a curious idea, or a small question: could this be a little easier to use? superdot is where I turn those ideas into products.')}</p>
+    <p class="intro">{t('我做 App，起点往往很简单：一个有意思的念头，或者一个「这里能不能更好用一点」的小问题。invisilab 就是我把这些想法变成产品的地方。', '我做 App，起點往往很簡單：一個有意思的念頭，或者一個「這裡能不能更好用一點」的小問題。invisilab 就是我把這些想法變成產品的地方。', 'My apps often start with a curious idea, or a small question: could this be a little easier to use? invisilab is where I turn those ideas into products.')}</p>
     <section>
       <h2>{t('十多年的经历，一直没变的追求。', '十多年的經歷，一直沒變的追求。', 'Over a decade in. The same care for every detail.')}</h2>
       <p>{t('在成为独立开发者之前，我曾在互联网大厂工作十多年，参与过多款用户规模过亿的 App 的用户体验设计，也做过面向全球市场的产品。这些经历让我有机会理解不同人的需求，也让我更加在意，一个产品能否真正融入人们的日常。', '在成為獨立開發者之前，我曾在網路大廠工作十多年，參與過多款用戶規模過億的 App 的使用者體驗設計，也做過面向全球市場的產品。這些經歷讓我有機會理解不同人的需求，也讓我更加在意，一個產品能否真正融入人們的日常。', 'Before becoming an independent developer, I spent more than a decade at major tech companies, working on user experience for several apps with over 100 million users each, as well as products for global markets. Those experiences helped me understand different people’s needs and care more deeply about how a product fits into everyday life.')}</p>
