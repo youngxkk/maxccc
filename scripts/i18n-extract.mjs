@@ -17,14 +17,14 @@ await server.close();
 
 const strings = new Set();
 // Names that read the same in every language: products, platforms, language names, numbered labels.
-const keep = new Set([...locales.map(locale => locale.label), '翻译，不打断你的状态。复制一句话，它已经在这里了。', 'invsi', 'invisi', 'lab', 'invisilab', 'NexPaste', 'Transnap', 'Pixie', 'Pixie Pro', 'Are You OK', 'App Store',
-  'iPhone', 'iPad', 'Mac', 'macOS', 'iOS', 'iPadOS', 'iOS, iPadOS', 'iPhone · iPad', 'iPhone Duo', 'iCloud', 'NASA', 'BMI', 'PDF', 'TXT', 'MD', 'KB', 'MB', 'GB', 'cm', 'kg', 'apple.com', 'en', 'zh-CN', 'document.pdf',
+const keep = new Set([...locales.map(locale => locale.label), '翻译，不打断你的状态。复制一句话，它已经在这里了。', 'invsi', 'invisi', 'lab', 'invisilab', 'StarYi Go', 'NexPaste', 'Transnap', 'Pixie', 'Pixie Pro', 'Are You OK', 'App Store',
+  'iPhone', 'iPad', 'Mac', 'macOS', 'iOS', 'iPadOS', 'iOS, iPadOS', 'iPhone · iPad', 'iPhone Duo', 'iCloud', 'NASA', 'BMI', 'PDF', 'TXT', 'MD', 'SGF', 'KB', 'MB', 'GB', 'cm', 'kg', 'apple.com', 'en', 'zh-CN', 'document.pdf',
   'Pineapple English', 'Pixie Wallpaper', 'PINEAPPLE ENGLISH', 'PIXIE WALLPAPER', 'NexPaste / macOS', 'X (Twitter) @invisilab_x', 'Lusha',
   // Sample names in the test-data tools.
   'Ava Brown', 'Ava Chen', 'Emma Wilson', 'Ethan Zhao', 'James Smith', 'Leo Carter', 'Leo Wang', 'Mia Lin']);
 const add = value => {
   const text = value.trim();
-  if (/\p{L}/u.test(text) && !/^https?:\/\//.test(text) && !keep.has(text) && !/^[A-Z]$|^PIXIE \/ \d+$|^\d+h$|^\S+@\S+\.\w+$|^⌘/.test(text)) strings.add(text);
+  if (/\p{L}/u.test(text) && !/^https?:\/\//.test(text) && !keep.has(text) && !/^[A-Z]$|^PIXIE \/ \d+$|^\d+h$|^\d+[KD](–\d+[KD]\+?)?$|^\S+@\S+\.\w+$|^⌘/.test(text)) strings.add(text);
 };
 function leaves(value, key = '') {
   if (typeof value === 'string') { if (!untranslatedKeys.has(key) && !fixedKeys.has(key) && !key.startsWith('@')) add(value); }

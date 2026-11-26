@@ -12,7 +12,7 @@ for (const url of urls) {
   assert.ok(!html.includes('noindex'), `Indexable route marked noindex: ${url}`);
   for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)) JSON.parse(match[1]);
 }
-for (const slug of ['nexpaste', 'transnap', 'invsi', 'pixie-wallpaper', 'pineapple-english', 'are-you-ok']) {
+for (const slug of ['staryi-go', 'nexpaste', 'transnap', 'invsi', 'pixie-wallpaper', 'pineapple-english', 'are-you-ok']) {
   const html = read(`${slug}/index.html`);
   assert.ok(urls.includes(`https://maxc.cc/${slug}/`), `Missing product: ${slug}`);
   assert.ok(html.includes('SoftwareApplication'), `Missing application schema: ${slug}`);
@@ -21,7 +21,7 @@ for (const slug of ['nexpaste', 'transnap', 'invsi', 'pixie-wallpaper', 'pineapp
 assert.ok(!/class="card-desc"[^>]*><\/div>/.test(read('index.html')), 'Empty server-rendered product description');
 for (const path of ['dashboard/index.html', '404.html', 'thanks/index.html']) assert.ok(read(path).includes('noindex, follow'), `Missing noindex: ${path}`);
 assert.ok(existsSync('dist/images/og-image.jpg'));
-console.log(`SEO checks passed: ${urls.length} sitemap URLs, 6 product schemas, static descriptions and discovery file.`);
+console.log(`SEO checks passed: ${urls.length} sitemap URLs, 7 product schemas, static descriptions and discovery file.`);
 const locales = [['invsi/', 'en'], ['zh-cn/invsi/', 'zh-CN'], ['zh-tw/invsi/', 'zh-TW'], ['ja/invsi/', 'ja'], ['pt-br/invsi/', 'pt-BR'], ['ar/invsi/', 'ar']];
 for (const [path, lang] of locales) {
   const html = read(`${path}index.html`);

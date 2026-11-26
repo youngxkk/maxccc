@@ -1,0 +1,796 @@
+---
+import ProductDetails from "../components/ProductDetails.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainNav from "../components/MainNav.astro";
+import MainFooter from "../components/MainFooter.astro";
+import { pt } from "../i18n/product-pages";
+import "../styles/product.css";
+
+const appStoreUrl = "https://apps.apple.com/app/id6742346503";
+const boardSizes = ["5×5", "7×7", "9×9", "13×13", "19×19"];
+const ranks = ["25K", "20K", "15K", "10K", "5K", "1D", "3D", "5D"];
+---
+
+<BaseLayout
+  title="星弈围棋 StarYi Go — iPhone 与 iPad 离线 AI 围棋对弈、闯关与拍照数子"
+  description="星弈围棋（StarYi Go）是一款面向儿童与成年人的 iPhone、iPad 离线围棋应用。"
+  canonical="https://maxc.cc/staryi-go"
+  ogImage="https://maxc.cc/images/staryi-go-icon.png"
+  includeHomeStyles={true}
+  includeHomeScript={true}
+>
+  <MainNav showSectionLinks={false} />
+
+  <main class="pp staryi">
+    <section class="pp-hero sy-hero">
+      <div class="sy-clouds" aria-hidden="true"></div>
+      <div class="sy-hero-inner">
+        <span class="sy-eyebrow-pill" data-i18n="sy_eyebrow">{pt("sy_eyebrow")}</span>
+
+        <div class="sy-logo-wrap">
+          <img class="sy-logo sy-shot-zh" src="/images/staryi-go-logo-zh.png" alt="" width="340" height="340" loading="eager" decoding="async" />
+          <img class="sy-logo sy-shot-en" src="/images/staryi-go-logo-en.png" alt="" width="340" height="340" loading="eager" decoding="async" />
+        </div>
+
+        <h1 class="sy-sr-title" data-i18n="sy_title">星弈围棋</h1>
+        <p class="pp-tagline sy-hero-tagline" data-i18n="sy_lede">{pt("sy_lede")}</p>
+
+        <div class="pp-actions sy-actions">
+          <a class="sy-btn sy-btn-sky sy-btn-striped" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.67-.81 1.12-1.94 1-3.08-.96.04-2.13.64-2.82 1.45-.61.7-.115 1.85-1.01 2.97 1.07.08 2.16-.53 2.83-1.34z" />
+            </svg>
+            <span data-i18n="pp_get">{pt("pp_get")}</span>
+          </a>
+          <a class="sy-btn sy-btn-sun sy-btn-striped" href="#features">
+            <span data-i18n="pp_learn">{pt("pp_learn")}</span>
+          </a>
+        </div>
+
+        <div class="sy-stage">
+          <div class="sy-ipad" aria-hidden="true">
+            <div class="sy-ipad-screen">
+              <img class="sy-shot sy-shot-zh" src="/images/screens/sy-home-zh-CN.jpg" alt="" width="1200" height="900" loading="eager" decoding="async" />
+              <img class="sy-shot sy-shot-en" src="/images/screens/sy-home-en.jpg" alt="" width="1200" height="900" loading="eager" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sy-stats-wrap">
+      <div class="pp-inner">
+        <div class="sy-stats-grid">
+          <div class="sy-stat-card sy-theme-sky">
+            <b>10</b>
+            <span data-i18n="sy_stat1">{pt("sy_stat1")}</span>
+          </div>
+          <div class="sy-stat-card sy-theme-sun">
+            <b>5</b>
+            <span data-i18n="sy_stat2">{pt("sy_stat2")}</span>
+          </div>
+          <div class="sy-stat-card sy-theme-mint">
+            <b>5</b>
+            <span data-i18n="sy_stat3">{pt("sy_stat3")}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section sy-features" id="features">
+      <div class="pp-inner">
+        <div class="pp-heading">
+          <span class="sy-section-badge sy-badge-sky" data-i18n="sy_overview_kicker">{pt("sy_overview_kicker")}</span>
+          <h2 data-i18n="sy_overview_title">{pt("sy_overview_title")}</h2>
+        </div>
+
+        <div class="pp-bento sy-bento">
+          <article class="pp-cell sy-card sy-card-sky w-7">
+            <span class="sy-pill-tag sy-tag-sky" data-i18n="sy_ai_kicker">{pt("sy_ai_kicker")}</span>
+            <h3 data-i18n="sy_ai_title">{pt("sy_ai_title")}</h3>
+            <p data-i18n="sy_ai_desc">{pt("sy_ai_desc")}</p>
+            <div class="sy-pills" aria-hidden="true">
+              {boardSizes.map((size) => <span class:list={["sy-chip", { "sy-chip-sky": size === "19×19" }]}>{size}</span>)}
+            </div>
+            <div class="sy-ranks" aria-hidden="true">
+              {ranks.map((rank, i) => <span class:list={["sy-chip", { "sy-chip-sun": i >= 5 }]}>{rank}</span>)}
+            </div>
+            <div class="sy-card-shot" aria-hidden="true">
+              <img class="sy-shot sy-shot-zh" src="/images/screens/sy-play-zh-CN.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+              <img class="sy-shot sy-shot-en" src="/images/screens/sy-play-en.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+            </div>
+          </article>
+
+          <article class="pp-cell sy-card sy-card-sun w-5">
+            <span class="sy-pill-tag sy-tag-sun" data-i18n="sy_islands_kicker">{pt("sy_islands_kicker")}</span>
+            <h3 data-i18n="sy_islands_title">{pt("sy_islands_title")}</h3>
+            <p data-i18n="sy_islands_desc">{pt("sy_islands_desc")}</p>
+            <div class="sy-card-shot sy-card-shot-tall" aria-hidden="true">
+              <img class="sy-shot sy-shot-all" src="/images/screens/sy-islands-en.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+            </div>
+          </article>
+
+          <article class="pp-cell sy-card sy-card-grape w-5">
+            <span class="sy-pill-tag sy-tag-grape" data-i18n="sy_photo_kicker">{pt("sy_photo_kicker")}</span>
+            <h3 data-i18n="sy_photo_title">{pt("sy_photo_title")}</h3>
+            <p data-i18n="sy_photo_desc">{pt("sy_photo_desc")}</p>
+            <div class="sy-viewfinder" aria-hidden="true">
+              <span class="sy-corner tl"></span>
+              <span class="sy-corner tr"></span>
+              <span class="sy-corner bl"></span>
+              <span class="sy-corner br"></span>
+              <div class="sy-mini-stones">
+                <span class="stone b"></span>
+                <span class="stone w"></span>
+                <span class="stone b"></span>
+                <span class="stone w"></span>
+                <span class="stone b"></span>
+                <span class="stone b"></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pp-cell sy-card sy-card-sky w-7">
+            <span class="sy-pill-tag sy-tag-sky" data-i18n="sy_codex_kicker">{pt("sy_codex_kicker")}</span>
+            <h3 data-i18n="sy_codex_title">{pt("sy_codex_title")}</h3>
+            <p data-i18n="sy_codex_desc">{pt("sy_codex_desc")}</p>
+            <div class="sy-codex-bar" aria-hidden="true">
+              <span class="sy-chip">30K–18K</span>
+              <span class="sy-chip">17K–10K</span>
+              <span class="sy-chip">9K–3K</span>
+              <span class="sy-chip sy-chip-grape">2K–1D+</span>
+            </div>
+            <div class="sy-card-shot" aria-hidden="true">
+              <img class="sy-shot sy-shot-all" src="/images/screens/sy-review-en.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+            </div>
+          </article>
+
+          <article class="pp-cell sy-card sy-card-mint w-12 short">
+            <span class="sy-pill-tag sy-tag-mint" data-i18n="sy_family_kicker">{pt("sy_family_kicker")}</span>
+            <h3 data-i18n="sy_family_title">{pt("sy_family_title")}</h3>
+            <p data-i18n="sy_family_desc">{pt("sy_family_desc")}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-download sy-download">
+      <div class="sy-download-card">
+        <img class="sy-download-icon" src="/images/staryi-go-icon.png" alt="星弈围棋 App Icon" />
+        <h2 data-i18n="sy_download_title">{pt("sy_download_title")}</h2>
+        <p data-i18n="sy_download_desc">{pt("sy_download_desc")}</p>
+        <div class="pp-actions sy-actions">
+          <a class="sy-btn sy-btn-mint sy-btn-striped" href={appStoreUrl} target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.33c.67-.81 1.12-1.94 1-3.08-.96.04-2.13.64-2.82 1.45-.61.7-.115 1.85-1.01 2.97 1.07.08 2.16-.53 2.83-1.34z" />
+            </svg>
+            <span data-i18n="pp_get">{pt("pp_get")}</span>
+          </a>
+          <a class="sy-btn sy-btn-white" href="/privacy-policy/" data-i18n="privacy_policy">隐私政策</a>
+        </div>
+      </div>
+    </section>
+
+    <ProductDetails slug="staryi-go" />
+  </main>
+
+  <MainFooter />
+
+  <style>
+    /* Exact StarYi Go Nintendo Switch Party / Glossy Capsule Design System */
+    .staryi {
+      --sy-sky-top: #14bdff;
+      --sy-sky-bottom: #0a7df5;
+      --sy-sky-rim: #0557bd;
+
+      --sy-mint-top: #29e08f;
+      --sy-mint-bottom: #05b06e;
+      --sy-mint-rim: #037a4d;
+
+      --sy-sun-top: #ffd62e;
+      --sy-sun-bottom: #ff940f;
+      --sy-sun-rim: #c76605;
+
+      --sy-grape-top: #a673ff;
+      --sy-grape-bottom: #733df2;
+      --sy-grape-rim: #4d24b8;
+
+      --pp-bg: #f1f8fe;
+      --pp-bg-alt: #edf6fe;
+      --pp-fg: #1f2940;
+      --pp-muted: #5b6d8a;
+      --pp-card: #ffffff;
+      --pp-card-alt: #ffffff;
+      --pp-line: rgba(168, 204, 238, 0.55);
+      --pp-accent: #0a7df5;
+      --pp-heading-font: ui-rounded, "SF Pro Rounded", "PingFang SC", "Hiragino Maru Gothic ProN", -apple-system, sans-serif;
+      --pp-heading-weight: 900;
+      --pp-heading-spacing: -0.015em;
+      --pp-radius: 30px;
+
+      font-family: ui-rounded, "SF Pro Rounded", "PingFang SC", -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 12% 38%, rgba(20, 189, 255, 0.14), transparent 34%),
+        radial-gradient(circle at 88% 54%, rgba(255, 214, 46, 0.16), transparent 34%),
+        radial-gradient(circle at 50% 88%, rgba(41, 224, 143, 0.11), transparent 36%),
+        linear-gradient(180deg, #edf7ff 0%, #f5faff 50%, #f7f5ff 100%);
+    }
+
+    /* Sunlit Sky Hero matching StarYi Go HomeView */
+    .sy-hero {
+      position: relative;
+      padding: 112px 24px 0;
+      background: linear-gradient(180deg, #2fb2ff 0%, #68ceff 36%, #bae6ff 72%, #edf7ff 100%);
+      overflow: hidden;
+    }
+
+    .sy-clouds {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 36% 24% at 10% 24%, rgba(255, 255, 255, 0.72), transparent 70%),
+        radial-gradient(ellipse 40% 26% at 92% 20%, rgba(255, 255, 255, 0.72), transparent 70%),
+        radial-gradient(ellipse 65% 22% at 50% 82%, rgba(255, 255, 255, 0.9), transparent 72%);
+    }
+
+    .sy-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .sy-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 2.5px solid #ffffff;
+      color: #0a7df5;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 0 rgba(10, 125, 245, 0.18), 0 10px 24px -8px rgba(10, 125, 245, 0.25);
+    }
+
+    .sy-logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 18px auto 6px;
+    }
+
+    .sy-logo {
+      width: clamp(200px, 28vw, 310px);
+      height: auto;
+      filter: drop-shadow(0 16px 26px rgba(18, 62, 130, 0.22));
+    }
+
+    .sy-sr-title {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .sy-hero-tagline {
+      max-width: 760px;
+      margin: 6px auto 0 !important;
+      color: #163056;
+      font-size: clamp(20px, 2.8vw, 32px);
+      font-weight: 800;
+      line-height: 1.3;
+      text-shadow: 0 2px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    /* Exact GlossyCapsuleButtonStyle from GameChrome.swift */
+    .sy-actions {
+      gap: 16px 20px;
+      margin-top: 28px;
+    }
+
+    .sy-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 28px;
+      border-radius: 999px;
+      border: 3px solid rgba(255, 255, 255, 0.94);
+      font-family: var(--pp-heading-font);
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #ffffff;
+      text-shadow: 0 1.5px 0 rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s cubic-bezier(0.22, 1, 0.36, 1), filter 0.14s ease;
+    }
+
+    .sy-btn svg {
+      width: 20px;
+      height: 20px;
+      margin-top: -2px;
+      fill: currentColor;
+      filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.16));
+    }
+
+    .sy-btn::after {
+      content: "";
+      position: absolute;
+      inset: 3px 10px auto 10px;
+      height: 40%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .sy-btn-striped {
+      background-size: 100% 100%, 28px 28px;
+    }
+
+    .sy-btn-sky {
+      background-image:
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.12) 0 10px, transparent 10px 20px),
+        linear-gradient(180deg, var(--sy-sky-top), var(--sy-sky-bottom));
+      box-shadow:
+        0 6px 0 var(--sy-sky-rim),
+        0 14px 26px -8px rgba(10, 125, 245, 0.45);
+    }
+
+    .sy-btn-sky:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+      box-shadow:
+        0 7px 0 var(--sy-sky-rim),
+        0 18px 30px -8px rgba(10, 125, 245, 0.5);
+    }
+
+    .sy-btn-sky:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 1px 0 var(--sy-sky-rim),
+        0 4px 10px -4px rgba(10, 125, 245, 0.35);
+    }
+
+    .sy-btn-sun {
+      background-image:
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.14) 0 10px, transparent 10px 20px),
+        linear-gradient(180deg, var(--sy-sun-top), var(--sy-sun-bottom));
+      box-shadow:
+        0 6px 0 var(--sy-sun-rim),
+        0 14px 26px -8px rgba(255, 148, 15, 0.44);
+    }
+
+    .sy-btn-sun:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+      box-shadow:
+        0 7px 0 var(--sy-sun-rim),
+        0 18px 30px -8px rgba(255, 148, 15, 0.5);
+    }
+
+    .sy-btn-sun:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 1px 0 var(--sy-sun-rim),
+        0 4px 10px -4px rgba(255, 148, 15, 0.35);
+    }
+
+    .sy-btn-mint {
+      background-image:
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.12) 0 10px, transparent 10px 20px),
+        linear-gradient(180deg, var(--sy-mint-top), var(--sy-mint-bottom));
+      box-shadow:
+        0 6px 0 var(--sy-mint-rim),
+        0 14px 26px -8px rgba(5, 176, 110, 0.44);
+    }
+
+    .sy-btn-mint:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+      box-shadow:
+        0 7px 0 var(--sy-mint-rim),
+        0 18px 30px -8px rgba(5, 176, 110, 0.5);
+    }
+
+    .sy-btn-mint:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 1px 0 var(--sy-mint-rim),
+        0 4px 10px -4px rgba(5, 176, 110, 0.35);
+    }
+
+    .sy-btn-white {
+      background: linear-gradient(180deg, #ffffff, #edf5fd);
+      color: #1f2940;
+      text-shadow: none;
+      border-color: #ffffff;
+      box-shadow:
+        0 6px 0 #c6daee,
+        0 12px 24px -8px rgba(31, 41, 64, 0.18);
+    }
+
+    .sy-btn-white:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 7px 0 #c6daee,
+        0 16px 28px -8px rgba(31, 41, 64, 0.22);
+    }
+
+    .sy-btn-white:active {
+      transform: translateY(5px);
+      box-shadow:
+        0 1px 0 #c6daee,
+        0 4px 10px -4px rgba(31, 41, 64, 0.16);
+    }
+
+    /* Hero iPad Showcase */
+    .sy-stage {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+      padding: 0 8px 56px;
+    }
+
+    .sy-ipad {
+      width: min(880px, 100%);
+      padding: clamp(10px, 1.4vw, 15px);
+      border-radius: clamp(24px, 3vw, 36px);
+      background: linear-gradient(180deg, #ffffff, #e9f3fd);
+      border: 3px solid #ffffff;
+      box-shadow:
+        0 10px 0 #bfd9f2,
+        0 34px 70px -24px rgba(15, 68, 130, 0.36);
+    }
+
+    .sy-ipad-screen {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: clamp(16px, 2vw, 24px);
+      background: #8fd3ff;
+      box-shadow: inset 0 0 0 1px rgba(31, 41, 64, 0.08);
+    }
+
+    /* Colorful 3D Glossy Stats Strip */
+    .sy-stats-wrap {
+      padding: 16px 24px 28px;
+    }
+
+    .sy-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .sy-stat-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 26px 20px;
+      border-radius: 26px;
+      border: 3px solid rgba(255, 255, 255, 0.94);
+      color: #ffffff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .sy-stat-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 0 12px, transparent 12px 24px);
+      pointer-events: none;
+    }
+
+    .sy-stat-card b {
+      position: relative;
+      font-size: clamp(42px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+    }
+
+    .sy-stat-card span {
+      position: relative;
+      margin-top: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      opacity: 0.96;
+    }
+
+    .sy-theme-sky {
+      background: linear-gradient(180deg, var(--sy-sky-top), var(--sy-sky-bottom));
+      box-shadow: 0 6px 0 var(--sy-sky-rim), 0 16px 32px -12px rgba(10, 125, 245, 0.36);
+    }
+
+    .sy-theme-sun {
+      background: linear-gradient(180deg, var(--sy-sun-top), var(--sy-sun-bottom));
+      box-shadow: 0 6px 0 var(--sy-sun-rim), 0 16px 32px -12px rgba(255, 148, 15, 0.36);
+    }
+
+    .sy-theme-mint {
+      background: linear-gradient(180deg, var(--sy-mint-top), var(--sy-mint-bottom));
+      box-shadow: 0 6px 0 var(--sy-mint-rim), 0 16px 32px -12px rgba(5, 176, 110, 0.36);
+    }
+
+    /* Section Header & Glossy Bento Cards */
+    .sy-features {
+      padding-top: 56px;
+    }
+
+    .sy-section-badge {
+      display: inline-flex;
+      padding: 7px 16px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      border: 2.5px solid #ffffff;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sy-badge-sky {
+      background: linear-gradient(180deg, var(--sy-sky-top), var(--sy-sky-bottom));
+      box-shadow: 0 4px 0 var(--sy-sky-rim);
+    }
+
+    .sy-bento {
+      gap: 24px;
+    }
+
+    .sy-card {
+      background: #ffffff;
+      border: 3px solid #ffffff;
+      border-radius: 30px;
+      box-shadow:
+        0 7px 0 #d5e5f5,
+        0 20px 44px -18px rgba(31, 41, 64, 0.14);
+    }
+
+    .sy-card-sky {
+      border-top: 6px solid #14bdff;
+    }
+
+    .sy-card-sun {
+      border-top: 6px solid #ffb81c;
+    }
+
+    .sy-card-grape {
+      border-top: 6px solid #8c57ff;
+    }
+
+    .sy-card-mint {
+      border-top: 6px solid #12cf7d;
+    }
+
+    .sy-pill-tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 6px 14px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .sy-tag-sky {
+      background: linear-gradient(180deg, var(--sy-sky-top), var(--sy-sky-bottom));
+      box-shadow: 0 3px 0 var(--sy-sky-rim);
+    }
+
+    .sy-tag-sun {
+      background: linear-gradient(180deg, var(--sy-sun-top), var(--sy-sun-bottom));
+      box-shadow: 0 3px 0 var(--sy-sun-rim);
+    }
+
+    .sy-tag-grape {
+      background: linear-gradient(180deg, var(--sy-grape-top), var(--sy-grape-bottom));
+      box-shadow: 0 3px 0 var(--sy-grape-rim);
+    }
+
+    .sy-tag-mint {
+      background: linear-gradient(180deg, var(--sy-mint-top), var(--sy-mint-bottom));
+      box-shadow: 0 3px 0 var(--sy-mint-rim);
+    }
+
+    /* Tactile Option Chips matching HomeView chips */
+    .sy-pills,
+    .sy-ranks,
+    .sy-codex-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .sy-ranks {
+      margin-top: 10px;
+    }
+
+    .sy-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: #f2f8ff;
+      border: 2px solid #ffffff;
+      color: #1f2940;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 3px 0 #d0e2f5;
+    }
+
+    .sy-chip-sky {
+      background: linear-gradient(180deg, var(--sy-sky-top), var(--sy-sky-bottom));
+      color: #ffffff;
+      box-shadow: 0 3px 0 var(--sy-sky-rim);
+    }
+
+    .sy-chip-sun {
+      background: linear-gradient(180deg, var(--sy-sun-top), var(--sy-sun-bottom));
+      color: #ffffff;
+      box-shadow: 0 3px 0 var(--sy-sun-rim);
+    }
+
+    .sy-chip-grape {
+      background: linear-gradient(180deg, var(--sy-grape-top), var(--sy-grape-bottom));
+      color: #ffffff;
+      box-shadow: 0 3px 0 var(--sy-grape-rim);
+    }
+
+    /* Framed Real App Screenshots */
+    .sy-card-shot {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      margin-top: 24px;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 3px solid #ffffff;
+      box-shadow:
+        0 5px 0 #d5e5f5,
+        0 16px 34px -16px rgba(31, 41, 64, 0.25);
+      background: #e9f3fd;
+    }
+
+    .sy-card-shot-tall {
+      margin-top: auto;
+    }
+
+    .sy-shot {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sy-shot-zh {
+      display: none;
+    }
+
+    :global(:root[lang="zh-CN"]) .sy-shot-zh,
+    :global(:root[lang="zh-TW"]) .sy-shot-zh {
+      display: block;
+    }
+
+    :global(:root[lang="zh-CN"]) .sy-shot-en,
+    :global(:root[lang="zh-TW"]) .sy-shot-en {
+      display: none;
+    }
+
+    /* Photo Judge Kaya Wood Viewfinder */
+    .sy-viewfinder {
+      position: relative;
+      display: grid;
+      place-items: center;
+      flex: 1;
+      min-height: 190px;
+      margin-top: 24px;
+      border-radius: 22px;
+      border: 3px solid #ffffff;
+      background: linear-gradient(145deg, #f5cf82, #e0b05e);
+      box-shadow:
+        0 5px 0 #c9943f,
+        0 16px 30px -16px rgba(130, 82, 18, 0.3);
+    }
+
+    .sy-corner {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border-color: #733df2;
+      border-style: solid;
+      border-width: 0;
+    }
+
+    .sy-corner.tl { top: 16px; left: 16px; border-top-width: 4px; border-left-width: 4px; border-top-left-radius: 8px; }
+    .sy-corner.tr { top: 16px; right: 16px; border-top-width: 4px; border-right-width: 4px; border-top-right-radius: 8px; }
+    .sy-corner.bl { bottom: 16px; left: 16px; border-bottom-width: 4px; border-left-width: 4px; border-bottom-left-radius: 8px; }
+    .sy-corner.br { bottom: 16px; right: 16px; border-bottom-width: 4px; border-right-width: 4px; border-bottom-right-radius: 8px; }
+
+    .sy-mini-stones {
+      display: grid;
+      grid-template-columns: repeat(3, 30px);
+      gap: 12px;
+    }
+
+    .sy-mini-stones .stone {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(45, 28, 8, 0.28);
+    }
+
+    .sy-mini-stones .stone.b {
+      background: radial-gradient(circle at 35% 30%, #525965, #141820);
+    }
+
+    .sy-mini-stones .stone.w {
+      background: radial-gradient(circle at 35% 30%, #ffffff, #d9d6cc);
+    }
+
+    /* Playful Glossy Download Card */
+    .sy-download {
+      padding: 64px 24px 80px;
+      background: transparent;
+    }
+
+    .sy-download-card {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 52px 32px;
+      border-radius: 36px;
+      border: 4px solid #ffffff;
+      background:
+        radial-gradient(ellipse 60% 45% at 50% 0%, rgba(255, 255, 255, 0.72), transparent 72%),
+        linear-gradient(180deg, #dff2ff 0%, #ffffff 100%);
+      box-shadow:
+        0 10px 0 #c6dff5,
+        0 30px 60px -24px rgba(10, 125, 245, 0.24);
+    }
+
+    .sy-download-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 22.37%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 0 #d0e2f5, 0 14px 28px -8px rgba(31, 41, 64, 0.25);
+    }
+
+    .sy-download-card h2 {
+      margin-top: 22px;
+      color: #1f2940;
+    }
+
+    .sy-download-card p {
+      margin-top: 12px;
+      color: #5b6d8a;
+    }
+
+    @media (max-width: 720px) {
+      .sy-stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sy-download-card {
+        padding: 36px 22px;
+      }
+    }
+  </style>
+</BaseLayout>

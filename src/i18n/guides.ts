@@ -36,6 +36,13 @@ const copy = {
       ["Walk through the setup once", "Confirm the email address, timing and message, then send a test email. Ask your contact to check their inbox and spam folder. Check in once and confirm the countdown restarts. A test checks receipt and content; it cannot guarantee delivery of future notifications."],
       ["Review settings before a change of routine", "Before travel, shift work or a different sleep schedule, review the check-in window and tell your contact. Update your arrangement if their email changes or they cannot respond for a while. Make this review part of your travel preparation."],
     ]],
+    ['Learning Go Offline on iPad and iPhone: From 5×5 Capture to Photo Scoring', 'Build Go skills step by step with StarYi Go: 5×5 Starter Playground, offline AI companions, puzzle islands, Go Codex and offline Photo Board Judge.', [
+      ['Start with 5×5 Capture Go instead of a full 19×19 board', 'A 361-intersection board can feel overwhelming for kids and first-time players. Starting on a 5×5 or 7×7 board with Capture Go keeps the focus on liberties, atari and connections so anyone can enjoy a real match in minutes. StarYi Go includes a 5×5 Starter Playground and Capture Go right from the start.'],
+      ['Turn tactics into a short daily habit', 'Instead of long drills, clearing two or three stages in the StarYi Islands or Daily Dojo each day is much easier to stick with. Missed puzzles go straight into the Mistake Book so patterns become instinct through review.'],
+      ['Match your level with an offline AI opponent', 'StarYi Go includes 10 on-device AI opponents from 25K to 5D, completely offline and ad-free. Beginners can use AI hints and liberty highlights during play, then rewind to the turning point after a match to try another line.'],
+      ['Score a physical board offline with your camera', 'After finishing an over-the-board game with family or friends, use Photo Board Judge to snap the board. StarYi Go recognizes the stones and counts territory directly on your device without uploading photos.'],
+      ['Share one iPad across the whole family', 'Create separate family profiles in Settings so parents and kids each keep their own stars, Go Codex stamps and rank progress, or switch to Tabletop 2P mode for a face-to-face match on one screen.'],
+    ]],
   ],
   'zh-TW': [
     ['iPhone 私密照片、影片和檔案，怎樣分開管理？', '區分日常相簿、專屬密碼空間和 App 存取，了解 invsi 的私密內容管理與計算機入口。', [
@@ -69,6 +76,13 @@ const copy = {
       ['把它作為日常聯繫的一部分', '觸發依據是有沒有按時打卡，不會判斷是否發生意外。適合作為與親友日常聯繫的補充。聯絡方式或作息改變後，應重新檢查設定與郵件內容。'],
       ["設定後走一遍流程", "確認信箱、逾時時間和內容後寄出測試郵件，請聯絡人檢查收件匣及垃圾郵件。完成一次打卡，確認倒數重新開始。測試用於核對收件與內容，不保證後續通知一定送達。"],
       ["出行或作息改變時調整", "長途出行、輪班或睡眠時間改變前，重新確認逾時時間並告知聯絡人。對方更換信箱或暫時無法回應時，也應更新約定，把檢查設定列入出行準備。"],
+    ]],
+    ['孩子與新手如何用 iPad 離線學圍棋？從 5 路吃子到拍照數子', '循序漸進開啟圍棋啟蒙：了解星弈圍棋的 5 路啟蒙營、離線 AI 陪練、五大群島闖關、招式圖鑑與離線拍照數子。', [
+      ['先從 5 路吃子棋開始，而不是直接下 19 路', '面對 361 個交叉點的標準棋盤，零基礎的孩子和成人往往不知道第一手下在哪裡。先在 5 路或 7 路棋盤玩吃子棋，把注意力放在數氣、打吃和連接上，幾分鐘就能體會圍棋的樂趣。星弈圍棋內建 5 路啟蒙營與吃子賽，適合作為第一盤棋。'],
+      ['把死活和手筋拆成每天幾分鐘的闖關', '比起一次做大量枯燥習題，每天在星弈群島或每日道場推進兩三關更容易堅持。做錯的題目會自動收進錯題本，隔天複習一次，常見棋形和手筋就會慢慢變成直覺。'],
+      ['選一位實力接近的離線 AI 陪練', '星弈圍棋提供從 25K 到 5D 的 10 位本機 AI 對手，無需連網也沒有廣告。起步階段可開啟 AI 支招與長按數氣提示，對局結束後用時光沙漏回到關鍵轉折點再試一手。'],
+      ['線下實體棋盤，也能本機拍照數子', '和家人或朋友在實體棋盤下完一盤後，可用拍照數子功能直接拍攝棋盤。App 在裝置本機辨識黑白棋子並計算雙方歸屬與勝負，照片不上傳，適合日常對局快速核對。'],
+      ['一台 iPad，全家分開記錄進度', '家長和孩子共用一台 iPad 時，可在設定中建立獨立的家庭檔案，各自的闖關星數、招式圖鑑掌握情況與段位進度分開保存，也能隨時開啟雙人棋桌面對面下一局。'],
     ]],
   ],
 } as const;

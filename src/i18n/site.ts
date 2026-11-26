@@ -44,8 +44,8 @@ export function localizedPath(path: string, lang: Locale) {
   return `${localeOf(lang).prefix}${basePath(path)}`;
 }
 export const localizedPaths = new Set([
-  '/', '/about/', '/apps/', '/guides/', '/nexpaste/', '/transnap/', '/invsi/', '/pixie-wallpaper/',
-  '/pineapple-english/', '/are-you-ok/', '/classic-minesweeper/', '/strawberry-diary/',
+  '/', '/about/', '/apps/', '/guides/', '/staryi-go/', '/nexpaste/', '/transnap/', '/invsi/', '/pixie-wallpaper/',
+  '/pineapple-english/', '/are-you-ok/', '/strawberry-diary/',
   '/privacy-policy/', '/terms-of-use/', '/user-agreement/', '/thanks/', '/dashboard/', '/404/',
   ...['multitools', 'password', 'units', 'wordcount', 'textconvert', 'bmi'].map(slug => `/tools/${slug}/`),
   ...guides.map(guide => `/guides/${guide.slug}/`),

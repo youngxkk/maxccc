@@ -34,6 +34,17 @@ const translated = {
       features: ['One-tap daily check-in', 'Adjustable timeout', 'Check-in reminders', 'Contact email settings', 'Custom notification email', 'No location tracking or listening'],
       questions: [['What is Are You OK?', 'Are You OK is a missed check-in alert that helps people living alone stay connected with family and friends. Add a contact email and tap to restart the check-in countdown.'], ['What happens if I miss a check-in?', 'Your contact receives your prepared email after the selected timeout. Choose 12, 16, 24, 48 or 72 hours and enable reminders.'], ['Does Are You OK track my location?', 'No. Are You OK does not track your location, listen in or upload your daily life. It only sends the notification email when you miss a check-in.']],
     },
+    'staryi-go': {
+      name: 'StarYi Go', alternateName: 'StarYi Go Offline Go & Puzzles', title: 'StarYi Go — Offline AI Go, Puzzle Adventure and Photo Board Judge for iPhone and iPad',
+      description: 'StarYi Go is an offline Go app for kids and adults on iPhone and iPad. Play against 10 on-device AI opponents from 25K to 5D on 5×5 to 19×19 boards, explore five puzzle adventure islands, train daily in the Dojo, judge physical boards with your camera completely offline, study the Go Codex and review games with SGF export. Ad-free and private.',
+      features: ['10 offline AI opponents from 25K to 5D', '5×5, 7×7, 9×9, 13×13 and 19×19 boards', 'Standard Territory Go and Capture Go', 'Five adventure islands, Daily Dojo and Mistake Book', 'Offline camera board recognition and scoring', 'Go Codex, Go Academy and SGF variation review', 'Face-to-face two-player tabletop mode', 'Separate family member profiles', 'Ad-free and fully offline on device'],
+      questions: [
+        ['Is StarYi Go good for beginners and kids?', 'Yes. It includes a 5×5 Starter Playground, fun Capture Go, an interactive Go Codex with animated demos and step-by-step island adventures that teach liberties, atari and tactics from scratch.'],
+        ['Does StarYi Go require an internet connection?', 'No. AI matches, puzzles and photo board judging all run locally on your iPhone or iPad, with no sign-up and no ads.'],
+        ['How does Photo Board Judge work?', 'Take a photo of a physical Go board and StarYi Go recognizes the stones and scores territory directly on your device. Photos are never uploaded.'],
+        ['Can a family share one iPad?', 'Yes. Create separate family profiles so each player keeps their own stars, Go Codex progress and rank history, or play face-to-face in two-player tabletop mode.'],
+      ],
+    },
   },
   'zh-TW': {
     nexpaste: {
@@ -65,6 +76,17 @@ const translated = {
       description: 'Are You OK 是一款失聯預警工具，適合獨居、一個人旅行的人。設定緊急聯絡人信箱和逾時時間，每天點一下確認平安；若未在設定時間內打卡，App 會向聯絡人寄送預先寫好的電子郵件。不定位、不監聽、不上傳你的生活。',
       features: ['一鍵平安打卡', '可選逾時時間', '打卡提醒', '緊急聯絡人信箱設定', '自訂逾時通知郵件', '不定位、不監聽'],
       questions: [['Are You OK 是什麼 App？', 'Are You OK 是幫助獨居使用者與親友保持聯繫的失聯預警工具。填寫緊急聯絡人信箱後，點擊打卡即可重新開始倒數。'], ['沒有按時打卡會怎樣？', '超過設定時間仍未打卡，聯絡人會收到預先寫好的電子郵件。可選擇 12、16、24、48 或 72 小時，並開啟提醒。'], ['Are You OK 會取得我的位置嗎？', '不會。Are You OK 不定位、不監聽，也不上傳你的日常生活，只有在逾時未打卡時才會寄送通知郵件。']],
+    },
+    'staryi-go': {
+      name: '星弈圍棋', alternateName: 'StarYi Go', title: '星弈圍棋 StarYi Go — iPhone 與 iPad 離線 AI 圍棋對弈、闖關與拍照數子',
+      description: '星弈圍棋（StarYi Go）是一款面向兒童與成年人的 iPhone、iPad 離線圍棋 App。內建 10 位從 25K 到 5D 的本機 AI 對手，支援 5 路到 19 路棋盤、趣味吃子棋、五大群島死活手筋闖關、每日道場、定式訓練、離線拍照數子、招式圖鑑、SGF 棋譜覆盤與家庭多檔案。完全離線運作，無廣告。',
+      features: ['10 位離線 AI 對手（25K 至 5D）', '5、7、9、13、19 路全尺寸棋盤', '標準圍空對弈與趣味吃子棋', '五大群島闖關、每日道場與錯題本', '離線拍照辨識棋盤與數子判勝負', '招式圖鑑、棋譜書院與 SGF 覆盤試下', '雙人同螢幕面對面棋桌', '家庭多檔案獨立進度', '無廣告、完全離線本機執行'],
+      questions: [
+        ['星弈圍棋適合零基礎或孩子嗎？', '適合。App 內建 5 路啟蒙營、趣味吃子棋、動態招式圖鑑與循序漸進的星弈群島闖關，孩子和零基礎玩家也能從數氣、打吃開始輕鬆入門。'],
+        ['星弈圍棋需要連網嗎？', '不需要。AI 對弈、死活題闖關和拍照數子全部在 iPhone 和 iPad 本機離線運作，無需登入，也沒有廣告。'],
+        ['拍照數子是怎麼運作的？', '使用相機拍攝實體圍棋棋盤，App 會在裝置本機辨識棋子位置並計算雙方歸屬與勝負，照片不會上傳到伺服器。'],
+        ['支援多人共用一台 iPad 嗎？', '支援。你可以為家庭成員建立獨立檔案，每位棋手的闖關星數、招式圖鑑和段位進度都會分開保存，也支援雙人面對面同螢幕對弈。'],
+      ],
     },
   },
 };

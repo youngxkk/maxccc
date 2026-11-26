@@ -29,7 +29,7 @@ invisilab 应用目录 — Mac、iPhone 与 iPad 软件|invisilab App 目錄 —
 / 应用目录|/ App 目錄|/ Apps
 为 Mac、iPhone 和 iPad 打造的应用|為 Mac、iPhone 和 iPad 打造的 App|Apps made for Mac, iPhone and iPad
 从效率工具到日常生活，找到适合自己的应用。每个产品页都提供功能介绍和 App Store 下载入口。|從效率工具到日常生活，找到適合自己的 App。每個產品頁都提供功能介紹和 App Store 下載入口。|Find an app for work or everyday life. Each product page includes features and an official App Store download link.
-探索 invisilab 的 NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK，查看功能、适用设备与官方下载链接。|探索 invisilab 的 NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK，查看功能、支援裝置與官方下載連結。|Explore NexPaste, Transnap, invsi, Pixie Wallpaper, Pineapple English and Are You OK. Find features, supported devices and official downloads.
+探索 invisilab 的星弈围棋、NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK，查看功能、适用设备与官方下载链接。|探索 invisilab 的星弈圍棋、NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK，查看功能、支援裝置與官方下載連結。|Explore StarYi Go, NexPaste, Transnap, invsi, Pixie Wallpaper, Pineapple English and Are You OK. Find features, supported devices and official downloads.
 应用使用指南 — Mac 剪贴板、离线翻译与 iPhone 应用|App 使用指南 — Mac 剪貼簿、離線翻譯與 iPhone App|App Guides — Mac Clipboard History, Offline Translation and iPhone Apps
 / 使用指南|/ 使用指南|/ Guides
 从日常需要，找到合适的应用。|從日常需要，找到合適的 App。|Find an app for your everyday needs.
@@ -41,7 +41,7 @@ invisilab 产品资料|invisilab 產品資料|invisilab product information
 隐私政策|隱私權政策|Privacy Policy
 使用条款|使用條款|Terms of Use
 用户协议|使用者協議|User Agreement
-invisilab 隐私政策：网站、NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App 如何处理你的信息。|invisilab 隱私權政策：網站、NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App 如何處理你的資訊。|How the invisilab website and apps including NexPaste, Transnap, invsi, Pineapple English, Pixie and Are You OK handle your information.
+invisilab 隐私政策：网站、星弈围棋、NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App 如何处理你的信息。|invisilab 隱私權政策：網站、星弈圍棋、NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App 如何處理你的資訊。|How the invisilab website and apps including StarYi Go, NexPaste, Transnap, invsi, Pineapple English, Pixie and Are You OK handle your information.
 invisilab 使用条款：服务范围、自动续订订阅、重要免责（invsi 密码、Are You OK 提醒）与责任限制。|invisilab 使用條款：服務範圍、自動續訂訂閱、重要免責聲明與責任限制。|invisilab terms of use: services, auto-renewing subscriptions, important limitations and liability.
 invisilab 用户协议：适用范围、App 内购买与订阅、知识产权、使用规范与各 App 的特别说明。|invisilab 使用者協議：適用範圍、App 內購買與訂閱、智慧財產權、使用規範與各 App 特別說明。|invisilab user agreement: scope, in-app purchases, subscriptions, intellectual property, acceptable use and app-specific information.
 翻译，不打断你的状态。复制一句话，它已经在这里了。|翻譯，不打斷你的狀態。複製一句話，它已經在這裡了。|Translation that keeps you in the flow. Copy a sentence and find it here.
@@ -164,8 +164,10 @@ const visualRows = `
 鸟|鳥|Birds
 精灵壁纸 App Icon|精靈壁紙 App 圖示|Pixie Wallpaper app icon
 菠萝英语 App Icon|鳳梨英語 App 圖示|Pineapple English app icon
+星弈围棋 App Icon|星弈圍棋 App 圖示|StarYi Go app icon
 了解 精灵壁纸|了解 精靈壁紙|About Pixie Wallpaper
 了解 菠萝英语|了解 鳳梨英語|About Pineapple English
+了解 星弈围棋|了解 星弈圍棋|About StarYi Go
 明黄色上的咖啡杯|亮黃色上的咖啡杯|Coffee cup on bright yellow
 黑白条纹光影|黑白條紋光影|Black and white striped shadows
 碧海与彩色小舟|碧海與彩色小舟|Colorful boats on a turquoise sea
@@ -214,7 +216,7 @@ for (const row of visualRows.trim().split('\n')) {
   extraCopy[source] = { 'zh-CN': source, 'zh-TW': traditional, en: english };
 }
 const additional: [string, string, string, string][] = [
-  ['invisilab 为 Mac、iPhone 和 iPad 打造无广告应用：NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK。', 'invisilab 為 Mac、iPhone 和 iPad 打造無廣告 App：NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK。', 'invisilab makes ad-free apps for Mac, iPhone and iPad: NexPaste clipboard manager, Transnap translator, invsi private vault, Pixie Wallpaper, Pineapple English and Are You OK.', ''],
+  ['invisilab 为 Mac、iPhone 和 iPad 打造无广告应用：星弈围棋、NexPaste 剪贴板、Transnap 翻译、invsi 私密空间、精灵壁纸、菠萝英语和 Are You OK。', 'invisilab 為 Mac、iPhone 和 iPad 打造無廣告 App：星弈圍棋、NexPaste 剪貼簿、Transnap 翻譯、invsi 私密空間、精靈壁紙、鳳梨英語和 Are You OK。', 'invisilab makes ad-free apps for Mac, iPhone and iPad: StarYi Go, NexPaste clipboard manager, Transnap translator, invsi private vault, Pixie Wallpaper, Pineapple English and Are You OK.', ''],
   ['更多应用', '更多 App', 'More apps', ''],
   ['Change Language', '切換語言', 'Change language', '切换语言'],
   ['Classic Minesweeper', '經典踩地雷', 'Classic Minesweeper', '经典扫雷'],

@@ -7,16 +7,17 @@ export const legalSharedContent = {
   "zh-CN": {
     legal_back_home: "返回首页",
     legal_ua_title: "用户协议",
-    legal_ua_html: `<p class="legal-meta">最后更新：2026 年 10 月 28 日</p>
+    legal_ua_html: `<p class="legal-meta">最后更新：2026 年 11 月 26 日</p>
 <p>欢迎使用 invisilab（以下称「我们」）的产品与服务。我们是一个独立开发者团队，运营官方网站 <strong>maxc.cc</strong>，并开发以下 App：</p>
 <ul>
+<li><strong>星弈围棋（StarYi Go）</strong>：iPhone 与 iPad 上的离线 AI 围棋对弈、闯关与拍照数子 App；</li>
 <li><strong>NexPaste</strong>：Mac、iPhone 与 iPad 上的剪贴板管理工具；</li>
 <li><strong>Transnap</strong>：macOS 菜单栏翻译工具；</li>
 <li><strong>invsi</strong>：iPhone 上的私密空间与伪装 App；</li>
 <li><strong>菠萝英语</strong>：面向 3–10 岁儿童的英语启蒙 App；</li>
 <li><strong>精灵壁纸</strong>：iPhone 壁纸 App；</li>
 <li><strong>Are You OK</strong>：面向独居人群的每日报平安 App；</li>
-<li>以及经典扫雷、草莓日记等我们发布的其他 App。</li>
+<li>以及草莓日记等我们发布的其他 App。</li>
 </ul>
 <p>本协议适用于你使用 maxc.cc 网站及上述 App（合称「本服务」）。App 内的说明与本协议共同适用；涉及个人信息的处理，以《隐私政策》为准。</p>
 <h2>1. 接受本协议</h2>
@@ -41,6 +42,7 @@ export const legalSharedContent = {
 <p><strong>菠萝英语：</strong>学习内容供家庭英语启蒙参考，不代表考试成绩或任何官方认证。CEFR 和剑桥少儿英语词书由我们参考公开的等级标准整理，与相关机构不存在隶属或授权关系。</p>
 <p><strong>NexPaste：</strong>剪贴板中可能包含密码、验证码等敏感信息。你可以使用暂停记录、排除指定 App 等功能，并自行决定是否开启 iCloud 同步。</p>
 <p><strong>Transnap：</strong>翻译由 Apple 系统翻译能力在本机完成，译文仅供参考，重要场合请人工核对。</p>
+<p><strong>星弈围棋（StarYi Go）：</strong>离线 AI 对弈提示、段位考场评定与拍照数子结果仅供围棋学习、练习与娱乐参考，不构成官方围棋协会段位认证或正式比赛裁决。拍照数子受光线、角度与棋盘反光影响，关键对局请人工复核。</p>
 <h2>7. 服务变更、中止与终止</h2>
 <p>我们可能因维护、升级、合规或运营等原因，调整、暂停或停止部分或全部服务，并会在合理可行的范围内通过网站或 App 提前告知。已购买权益的处理，将遵循适用法律和 App Store 的规则。</p>
 <h2>8. 免责与责任限制</h2>
@@ -51,8 +53,8 @@ export const legalSharedContent = {
 <p>因本协议引起的争议，双方应先友好协商；协商不成的，按照适用的强制性法律、用户所在地、服务提供地以及有管辖权机构的要求处理。本协议的任何条款均不限制你依据当地法律享有的消费者权利。</p>
 <p>联系我们：deepseals#icloud.com（请将 # 替换为 @）</p>`,
     legal_pp_title: "隐私政策",
-    legal_pp_html: `<p class="legal-meta">最后更新：2026 年 10 月 28 日</p>
-<p>invisilab（以下称「我们」）重视你的隐私。本政策说明我们的网站 <strong>maxc.cc</strong> 和 App（NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等）会处理哪些信息、为什么处理，以及你有哪些选择。</p>
+    legal_pp_html: `<p class="legal-meta">最后更新：2026 年 11 月 26 日</p>
+<p>invisilab（以下称「我们」）重视你的隐私。本政策说明我们的网站 <strong>maxc.cc</strong> 和 App（星弈围棋、NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等）会处理哪些信息、为什么处理，以及你有哪些选择。</p>
 <h2>我们的原则</h2>
 <ul>
 <li>我们的 App 没有广告，不集成第三方广告或统计 SDK，也不出售你的任何信息。</li>
@@ -60,6 +62,12 @@ export const legalSharedContent = {
 <li>需要同步时，使用你自己的 iCloud 私有数据库，我们无法访问其中的内容。</li>
 </ul>
 <h2>1. 各 App 如何处理你的信息</h2>
+<p><strong>星弈围棋（StarYi Go）</strong></p>
+<ul>
+<li>AI 对弈、星弈群岛闯关、每日道场与拍照数子全部在你的 iPhone 或 iPad 本地离线运行，无需注册，没有广告，也不使用第三方统计 SDK。</li>
+<li>相机权限仅用于「拍照数子」功能在设备本地识别实体棋盘棋子并判定胜负，拍摄的棋盘画面不会上传到任何服务器。</li>
+<li>家庭成员档案（昵称、头像）、闯关星数、招式图鉴、棋谱记录与设置只保存在你的设备本地。若你开启 Apple Game Center，相关成就或排行由 Apple 管理。</li>
+</ul>
 <p><strong>NexPaste</strong></p>
 <ul>
 <li>记录你复制的文本、链接、图片和文件引用，默认只保存在本机。你可以随时暂停记录、排除指定 App 或清空历史。</li>
@@ -129,13 +137,13 @@ export const legalSharedContent = {
 <h2>7. 你的权利</h2>
 <p>在适用法律允许的范围内，你可以要求查阅、更正、删除你的个人信息，或撤回同意。由于我们的大部分 App 不在服务器上保存你的数据，你通常可以直接在 App 或系统设置中管理这些信息；其他请求请通过下方邮箱联系我们，我们会在合理期限内回复。</p>
 <h2>8. 儿童隐私</h2>
-<p>菠萝英语专为儿童设计，不收集儿童的个人信息。其他 App 并非为 13 岁以下儿童设计。我们不会在知情的情况下收集儿童的个人信息；如果你认为我们误收集了儿童信息，请联系我们，我们会尽快删除。</p>
+<p>菠萝英语专为儿童设计，星弈围棋也适合儿童与家庭共同使用，两者均不收集儿童的个人信息。其他 App 并非为 13 岁以下儿童设计。我们不会在知情的情况下收集儿童的个人信息；如果你认为我们误收集了儿童信息，请联系我们，我们会尽快删除。</p>
 <h2>9. 政策更新</h2>
 <p>我们可能更新本政策，并在本页面更新日期。重大变更会在网站或 App 内提示。</p>
 <p>隐私相关问题请联系：deepseals#icloud.com（请将 # 替换为 @）</p>`,
     legal_tou_title: "使用条款",
-    legal_tou_html: `<p class="legal-meta">最后更新：2026 年 10 月 28 日</p>
-<p>本《使用条款》适用于你访问和使用 invisilab运营的 <strong>maxc.cc</strong> 网站，以及 NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App（合称「本服务」）。使用本服务即表示你同时同意《用户协议》与《隐私政策》。</p>
+    legal_tou_html: `<p class="legal-meta">最后更新：2026 年 11 月 26 日</p>
+<p>本《使用条款》适用于你访问和使用 invisilab 运营的 <strong>maxc.cc</strong> 网站，以及星弈围棋、NexPaste、Transnap、invsi、菠萝英语、精灵壁纸、Are You OK 等 App（合称「本服务」）。使用本服务即表示你同时同意《用户协议》与《隐私政策》。</p>
 <h2>1. 服务内容</h2>
 <p>本服务包括我们在 Mac、iPhone 和 iPad 上发布的 App，以及网站上的 App 介绍、在线工具和可选的 Google 登录。我们可能不时增加、调整或下线部分功能。</p>
 <h2>2. 使用许可</h2>
@@ -147,7 +155,7 @@ export const legalSharedContent = {
 <li><strong>Are You OK 不是紧急救援服务。</strong>提醒邮件可能延迟或无法送达，不能代替报警或急救电话。</li>
 <li><strong>invsi 无法找回密码。</strong>忘记密码或触发「抹掉数据」后，文件无法恢复。请自行备份重要内容。</li>
 <li><strong>本地数据需要你自己备份。</strong>未开启同步时，App 数据只保存在你的设备上，删除 App 或更换设备可能导致数据丢失。</li>
-<li><strong>翻译与学习内容仅供参考。</strong>Transnap 的译文和菠萝英语的学习进度不构成专业意见或官方认证。</li>
+<li><strong>翻译、学习与对弈判定仅供参考。</strong>Transnap 的译文、菠萝英语的学习进度，以及星弈围棋的 AI 提示、段位评定与拍照数子结果均不构成专业意见、官方认证或正式赛事裁决。</li>
 </ul>
 <h2>5. 网站与在线工具</h2>
 <p>网站上的在线工具按「现状」提供，结果仅供一般参考。你应自行备份重要数据，并对依据工具结果作出的决定负责。</p>
@@ -166,16 +174,17 @@ export const legalSharedContent = {
   "zh-TW": {
     legal_back_home: "返回首頁",
     legal_ua_title: "用戶協議",
-    legal_ua_html: `<p class="legal-meta">最後更新：2026 年 10 月 28 日</p>
+    legal_ua_html: `<p class="legal-meta">最後更新：2026 年 11 月 26 日</p>
 <p>歡迎使用 invisilab（以下稱「我們」）的產品與服務。我們是一個獨立開發者團隊，營運官方網站 <strong>maxc.cc</strong>，並開發以下 App：</p>
 <ul>
+<li><strong>星弈圍棋（StarYi Go）</strong>：iPhone 與 iPad 上的離線 AI 圍棋對弈、闖關與拍照數子 App；</li>
 <li><strong>NexPaste</strong>：Mac、iPhone 與 iPad 上的剪貼簿管理工具；</li>
 <li><strong>Transnap</strong>：macOS 選單列翻譯工具；</li>
 <li><strong>invsi</strong>：iPhone 上的私密空間與偽裝 App；</li>
 <li><strong>鳳梨英語</strong>：適合 3–10 歲兒童的英語啟蒙 App；</li>
 <li><strong>精靈壁紙</strong>：iPhone 桌布 App；</li>
 <li><strong>Are You OK</strong>：為獨居者設計的每日報平安 App；</li>
-<li>以及經典掃雷、草莓日記等我們發布的其他 App。</li>
+<li>以及草莓日記等我們發布的其他 App。</li>
 </ul>
 <p>本協議適用於你使用 maxc.cc 網站及上述 App（合稱「本服務」）。App 內的說明與本協議共同適用；涉及個人資料的處理，以《隱私權政策》為準。</p>
 <h2>1. 接受本協議</h2>
@@ -200,6 +209,7 @@ export const legalSharedContent = {
 <p><strong>鳳梨英語：</strong>學習內容供家庭英語啟蒙參考，不代表考試成績或任何官方認證。CEFR 和劍橋兒童英語詞書由我們參考公開的等級標準整理，與相關機構不存在隸屬或授權關係。</p>
 <p><strong>NexPaste：</strong>剪貼簿中可能包含密碼、驗證碼等敏感資訊。你可以使用暫停記錄、排除指定 App 等功能，並自行決定是否開啟 iCloud 同步。</p>
 <p><strong>Transnap：</strong>翻譯由 Apple 系統翻譯能力在本機完成，譯文僅供參考，重要場合請人工核對。</p>
+<p><strong>星弈圍棋（StarYi Go）：</strong>離線 AI 對弈提示、段位考場評定與拍照數子結果僅供圍棋學習、練習與娛樂參考，不構成官方圍棋協會段位認證或正式比賽裁決。拍照數子受光線、角度與棋盤反光影響，關鍵對局請人工覆核。</p>
 <h2>7. 服務變更、中止與終止</h2>
 <p>我們可能因維護、升級、合規或營運等原因，調整、暫停或停止部分或全部服務，並會在合理可行的範圍內透過網站或 App 事先告知。已購買權益的處理，將依循適用法律和 App Store 的規則。</p>
 <h2>8. 免責與責任限制</h2>
@@ -210,8 +220,8 @@ export const legalSharedContent = {
 <p>因本協議引起的爭議，雙方應先友好協商；協商不成的，依照適用的強制性法律、使用者所在地、服務提供地以及有管轄權機構的要求處理。本協議的任何條款均不限制你依據當地法律享有的消費者權利。</p>
 <p>聯絡我們：deepseals#icloud.com（請將 # 替換為 @）</p>`,
     legal_pp_title: "隱私權政策",
-    legal_pp_html: `<p class="legal-meta">最後更新：2026 年 10 月 28 日</p>
-<p>invisilab（以下稱「我們」）重視你的隱私。本政策說明我們的網站 <strong>maxc.cc</strong> 和 App（NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等）會處理哪些資訊、為什麼處理，以及你有哪些選擇。</p>
+    legal_pp_html: `<p class="legal-meta">最後更新：2026 年 11 月 26 日</p>
+<p>invisilab（以下稱「我們」）重視你的隱私。本政策說明我們的網站 <strong>maxc.cc</strong> 和 App（星弈圍棋、NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等）會處理哪些資訊、為什麼處理，以及你有哪些選擇。</p>
 <h2>我們的原則</h2>
 <ul>
 <li>我們的 App 沒有廣告，不整合第三方廣告或統計 SDK，也不出售你的任何資訊。</li>
@@ -219,6 +229,12 @@ export const legalSharedContent = {
 <li>需要同步時，使用你自己的 iCloud 私有資料庫，我們無法存取其中的內容。</li>
 </ul>
 <h2>1. 各 App 如何處理你的資訊</h2>
+<p><strong>星弈圍棋（StarYi Go）</strong></p>
+<ul>
+<li>AI 對弈、星弈群島闖關、每日道場與拍照數子全部在你的 iPhone 或 iPad 本機離線執行，無需註冊，沒有廣告，也不使用第三方統計 SDK。</li>
+<li>相機權限僅用於「拍照數子」功能在裝置本機辨識實體棋盤棋子並判定勝負，拍攝的棋盤畫面不會上傳到任何伺服器。</li>
+<li>家庭成員檔案（暱稱、頭像）、闖關星數、招式圖鑑、棋譜記錄與設定只儲存在你的裝置本機。若你開啟 Apple Game Center，相關成就或排行由 Apple 管理。</li>
+</ul>
 <p><strong>NexPaste</strong></p>
 <ul>
 <li>記錄你拷貝的文字、連結、圖片和檔案參照，預設只儲存在本機。你可以隨時暫停記錄、排除指定 App 或清空歷史。</li>
@@ -288,13 +304,13 @@ export const legalSharedContent = {
 <h2>7. 你的權利</h2>
 <p>在適用法律允許的範圍內，你可以要求查閱、更正、刪除你的個人資料，或撤回同意。由於我們大部分的 App 不在伺服器上儲存你的資料，你通常可以直接在 App 或系統設定中管理這些資訊；其他請求請透過下方電子郵件聯絡我們，我們會在合理期限內回覆。</p>
 <h2>8. 兒童隱私</h2>
-<p>鳳梨英語專為兒童設計，不收集兒童的個人資料。其他 App 並非為 13 歲以下兒童設計。我們不會在知情的情況下收集兒童的個人資料；如果你認為我們誤收集了兒童資料，請聯絡我們，我們會儘快刪除。</p>
+<p>鳳梨英語專為兒童設計，星弈圍棋也適合兒童與家庭共同使用，兩者均不收集兒童的個人資料。其他 App 並非為 13 歲以下兒童設計。我們不會在知情的情況下收集兒童的個人資料；如果你認為我們誤收集了兒童資料，請聯絡我們，我們會儘快刪除。</p>
 <h2>9. 政策更新</h2>
 <p>我們可能更新本政策，並在本頁面更新日期。重大變更會在網站或 App 內提示。</p>
 <p>隱私相關問題請聯絡：deepseals#icloud.com（請將 # 替換為 @）</p>`,
     legal_tou_title: "使用條款",
-    legal_tou_html: `<p class="legal-meta">最後更新：2026 年 10 月 28 日</p>
-<p>本《使用條款》適用於你存取和使用 invisilab營運的 <strong>maxc.cc</strong> 網站，以及 NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App（合稱「本服務」）。使用本服務即表示你同時同意《用戶協議》與《隱私權政策》。</p>
+    legal_tou_html: `<p class="legal-meta">最後更新：2026 年 11 月 26 日</p>
+<p>本《使用條款》適用於你存取和使用 invisilab 營運的 <strong>maxc.cc</strong> 網站，以及星弈圍棋、NexPaste、Transnap、invsi、鳳梨英語、精靈壁紙、Are You OK 等 App（合稱「本服務」）。使用本服務即表示你同時同意《用戶協議》與《隱私權政策》。</p>
 <h2>1. 服務內容</h2>
 <p>本服務包括我們在 Mac、iPhone 和 iPad 上發布的 App，以及網站上的 App 介紹、線上工具和可選的 Google 登入。我們可能不時增加、調整或下線部分功能。</p>
 <h2>2. 使用授權</h2>
@@ -306,7 +322,7 @@ export const legalSharedContent = {
 <li><strong>Are You OK 不是緊急救援服務。</strong>提醒郵件可能延遲或無法送達，不能取代報警或急救電話。</li>
 <li><strong>invsi 無法找回密碼。</strong>忘記密碼或觸發「清除資料」後，檔案無法復原。請自行備份重要內容。</li>
 <li><strong>本機資料需要你自行備份。</strong>未開啟同步時，App 資料只儲存在你的裝置上，刪除 App 或更換裝置可能導致資料遺失。</li>
-<li><strong>翻譯與學習內容僅供參考。</strong>Transnap 的譯文和鳳梨英語的學習進度不構成專業意見或官方認證。</li>
+<li><strong>翻譯、學習與對弈判定僅供參考。</strong>Transnap 的譯文、鳳梨英語的學習進度，以及星弈圍棋的 AI 提示、段位評定與拍照數子結果均不構成專業意見、官方認證或正式賽事裁決。</li>
 </ul>
 <h2>5. 網站與線上工具</h2>
 <p>網站上的線上工具依「現狀」提供，結果僅供一般參考。你應自行備份重要資料，並對依據工具結果作出的決定負責。</p>
@@ -325,16 +341,17 @@ export const legalSharedContent = {
   en: {
     legal_back_home: "Back to home",
     legal_ua_title: "User Agreement",
-    legal_ua_html: `<p class="legal-meta">Last updated: October 28, 2026</p>
+    legal_ua_html: `<p class="legal-meta">Last updated: November 26, 2026</p>
 <p>Welcome to the products and services of invisilab (“we”, “us”). We are an independent developer team. We run the official website <strong>maxc.cc</strong> and make the following apps:</p>
 <ul>
+<li><strong>StarYi Go</strong>: an offline AI Go, puzzle adventure, and photo board judge app for iPhone and iPad;</li>
 <li><strong>NexPaste</strong>: a clipboard manager for Mac, iPhone, and iPad;</li>
 <li><strong>Transnap</strong>: a menu bar translator for macOS;</li>
 <li><strong>invsi</strong>: a private vault and decoy app for iPhone;</li>
 <li><strong>Pineapple English</strong>: an English app for children aged 3–10;</li>
 <li><strong>Pixie Wallpaper</strong>: a wallpaper app for iPhone;</li>
 <li><strong>Are You OK</strong>: a daily check-in app for people who live alone;</li>
-<li>and other apps we publish, such as Classic Minesweeper and Strawberry Diary.</li>
+<li>and other apps we publish, such as Strawberry Diary.</li>
 </ul>
 <p>This Agreement covers your use of maxc.cc and the apps above (together, the “Service”). In-app information applies alongside this Agreement. For how we handle personal information, our Privacy Policy controls.</p>
 <h2>1. Acceptance</h2>
@@ -359,6 +376,7 @@ export const legalSharedContent = {
 <p><strong>Pineapple English:</strong> Learning content is for at-home English learning and does not represent exam results or any official certification. The CEFR and Cambridge Young Learners wordbooks are compiled by us with reference to published level standards; we are not affiliated with or endorsed by the organizations behind them.</p>
 <p><strong>NexPaste:</strong> Your clipboard may contain sensitive information such as passwords or verification codes. Use features such as pausing recording and excluding specific apps, and decide for yourself whether to turn on iCloud sync.</p>
 <p><strong>Transnap:</strong> Translation is done on your Mac using Apple’s system translation. Translations are for reference only; check them yourself when accuracy matters.</p>
+<p><strong>StarYi Go:</strong> Offline AI hints, rank exams, and Photo Board Judge results are for Go study, practice, and entertainment reference only, and do not constitute official Go association rank certification or tournament rulings. Photo Board Judge accuracy can be affected by lighting, angle, and board glare; verify critical games manually.</p>
 <h2>7. Changes, suspension, and termination</h2>
 <p>We may change, suspend, or discontinue part or all of the Service for maintenance, upgrades, compliance, or operational reasons, and will give notice on the website or in the app where reasonably practicable. Purchased entitlements will be handled under applicable law and App Store rules.</p>
 <h2>8. Disclaimer and limitation of liability</h2>
@@ -369,8 +387,8 @@ export const legalSharedContent = {
 <p>Disputes arising from this Agreement should first be resolved through good-faith negotiation. If that fails, they will be handled according to applicable mandatory law, the user’s location, the place where the Service is provided, and the requirements of a competent authority. Nothing in this Agreement limits consumer rights you have under local law.</p>
 <p>Contact: deepseals#icloud.com (replace # with @)</p>`,
     legal_pp_title: "Privacy Policy",
-    legal_pp_html: `<p class="legal-meta">Last updated: October 28, 2026</p>
-<p>invisilab (“we”) respects your privacy. This Policy explains what information our website <strong>maxc.cc</strong> and our apps (NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others) handle, why, and what choices you have.</p>
+    legal_pp_html: `<p class="legal-meta">Last updated: November 26, 2026</p>
+<p>invisilab (“we”) respects your privacy. This Policy explains what information our website <strong>maxc.cc</strong> and our apps (StarYi Go, NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others) handle, why, and what choices you have.</p>
 <h2>Our principles</h2>
 <ul>
 <li>Our apps have no ads, include no third-party advertising or analytics SDKs, and we never sell your information.</li>
@@ -378,6 +396,12 @@ export const legalSharedContent = {
 <li>When sync is needed, it uses your own private iCloud database, which we cannot access.</li>
 </ul>
 <h2>1. How each app handles your information</h2>
+<p><strong>StarYi Go</strong></p>
+<ul>
+<li>AI matches, island puzzles, Daily Dojo, and Photo Board Judge all run locally and offline on your iPhone or iPad, with no sign-up, no ads, and no third-party analytics SDKs.</li>
+<li>Camera access is used solely for Photo Board Judge to recognize stones and score a physical Go board directly on your device. Board photos are never uploaded to any server.</li>
+<li>Family member profiles (nicknames, avatars), stars, Go Codex progress, game records, and settings stay only on your device. If you opt in to Apple Game Center, related achievements or leaderboards are managed by Apple.</li>
+</ul>
 <p><strong>NexPaste</strong></p>
 <ul>
 <li>Records the text, links, images, and file references you copy, stored only on your device by default. You can pause recording, exclude specific apps, or clear history at any time.</li>
@@ -447,13 +471,13 @@ export const legalSharedContent = {
 <h2>7. Your rights</h2>
 <p>Where applicable law allows, you can ask to access, correct, or delete your personal information, or withdraw consent. Because most of our apps keep no data on our servers, you can usually manage this directly in the app or in system settings. For anything else, email us at the address below and we will reply within a reasonable time.</p>
 <h2>8. Children’s privacy</h2>
-<p>Pineapple English is designed for children and collects no personal information from them. Our other apps are not directed to children under 13. We do not knowingly collect personal information from children; if you believe we have, contact us and we will delete it promptly.</p>
+<p>Pineapple English is designed for children, and StarYi Go is also family-friendly for children and adults; neither collects personal information from children. Our other apps are not directed to children under 13. We do not knowingly collect personal information from children; if you believe we have, contact us and we will delete it promptly.</p>
 <h2>9. Changes to this Policy</h2>
 <p>We may update this Policy and will update the date on this page. Material changes will be highlighted on the website or in the app.</p>
 <p>Privacy questions: deepseals#icloud.com (replace # with @)</p>`,
     legal_tou_title: "Terms of Use",
-    legal_tou_html: `<p class="legal-meta">Last updated: October 28, 2026</p>
-<p>These Terms of Use apply to your access to and use of the <strong>maxc.cc</strong> website and the apps NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others, operated by invisilab (together, the “Service”). By using the Service, you also agree to our User Agreement and Privacy Policy.</p>
+    legal_tou_html: `<p class="legal-meta">Last updated: November 26, 2026</p>
+<p>These Terms of Use apply to your access to and use of the <strong>maxc.cc</strong> website and the apps StarYi Go, NexPaste, Transnap, invsi, Pineapple English, Pixie Wallpaper, Are You OK, and others, operated by invisilab (together, the “Service”). By using the Service, you also agree to our User Agreement and Privacy Policy.</p>
 <h2>1. The Service</h2>
 <p>The Service includes the apps we publish for Mac, iPhone, and iPad, and the website’s app pages, online tools, and optional Google sign-in. We may add, change, or retire features from time to time.</p>
 <h2>2. License</h2>
@@ -465,7 +489,7 @@ export const legalSharedContent = {
 <li><strong>Are You OK is not an emergency service.</strong> Alert emails can be delayed or fail to arrive and do not replace calling emergency services.</li>
 <li><strong>invsi cannot recover passcodes.</strong> If you forget your passcode or trigger data erase, your files cannot be recovered. Back up anything important.</li>
 <li><strong>Back up local data yourself.</strong> Without sync, app data lives only on your device, and deleting the app or changing devices can mean losing it.</li>
-<li><strong>Translations and learning content are for reference.</strong> Transnap’s translations and Pineapple English’s progress are not professional advice or official certification.</li>
+<li><strong>Translations, learning content, and Go scoring are for reference.</strong> Transnap’s translations, Pineapple English’s progress, and StarYi Go’s AI hints, rank assessments, and Photo Board Judge results are not professional advice, official certification, or tournament rulings.</li>
 </ul>
 <h2>5. Website and online tools</h2>
 <p>Online tools on the website are provided “as is” for general reference. Back up important data; you are responsible for decisions based on tool output.</p>

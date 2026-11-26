@@ -12,11 +12,11 @@
 
 点击下方链接在 App Store 中查看：
 
+- **[星弈围棋 (StarYi Go)](https://apps.apple.com/app/id6742346503)**：离线 AI 围棋对弈、五大群岛闯关与拍照数子。
 - **[invsi](https://apps.apple.com/app/id6444667120)**：保护手机中的每一份隐私。
 - **[Are You OK](https://apps.apple.com/app/id6757640166)**：独居青年的“反陷阱”利器。
 - **[菠萝英语](https://apps.apple.com/app/id6451401303)**：点亮孩子英语启蒙的灯。
 - **[精灵壁纸](https://apps.apple.com/app/id6446266063)**：无限量供应高质量壁纸。
-- **[经典扫雷](https://apps.apple.com/app/id6742346503)**：儿时记忆，复古重现。
 - **[草莓日记](https://apps.apple.com/app/id6748330094)**：经期记录，关爱女性。
 
 ## 🛠 在线工具
@@ -51,11 +51,11 @@ We are a group of independent developers dedicated to building high-quality apps
 
 Available on the App Store:
 
+- **[StarYi Go](https://apps.apple.com/app/id6742346503)**: Offline AI Go, puzzle islands and photo board judge.
 - **[invsi](https://apps.apple.com/app/id6444667120)**: Protecting everyone's mobile privacy.
 - **[Are You OK](https://apps.apple.com/app/id6757640166)**: A safety tool for those living alone.
 - **[Pineapple English](https://apps.apple.com/app/id6451401303)**: Lighting the way for children's English enlightenment.
 - **[Pixie Wallpaper](https://apps.apple.com/app/id6446266063)**: High-quality wallpapers for your lifestyle.
-- **[Classic Minesweeper](https://apps.apple.com/app/id6742346503)**: A nostalgic revival of the classic game.
 - **[Strawberry Diary](https://apps.apple.com/app/id6748330094)**: Period tracking with care for women's health.
 
 ## 🛠 Web Tools

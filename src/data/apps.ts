@@ -12,6 +12,15 @@ export type AppEntry = {
 
 export const apps: AppEntry[] = [
   {
+    name: "星弈围棋",
+    slug: "staryi-go",
+    href: "https://apps.apple.com/app/id6742346503",
+    image: "/images/staryi-go-icon.png",
+    imageAlt: "星弈围棋 App Icon",
+    titleKey: "sy_title",
+    descriptionKey: "sy_desc"
+  },
+  {
     name: "NexPaste",
     slug: "nexpaste",
     href: "https://apps.apple.com/app/id6761368515",
@@ -61,16 +70,6 @@ export const apps: AppEntry[] = [
     image: "/images/transnap-icon.png",
     imageAlt: "Transnap App Icon",
     descriptionKey: "transnap_desc"
-  },
-  {
-    name: "经典扫雷",
-    slug: "classic-minesweeper",
-    href: "https://apps.apple.com/app/id6742346503",
-    image: "/images/scanboom.webp",
-    imageAlt: "经典扫雷 App Icon",
-    titleKey: "app5_title",
-    descriptionKey: "app5_desc",
-    hidden: true
   },
   {
     name: "草莓日记",

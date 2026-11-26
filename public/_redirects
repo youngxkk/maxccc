@@ -15,5 +15,11 @@
 /en /  301
 /en/* /:splat 301
 
+# Classic Minesweeper was upgraded to StarYi Go (same App Store ID).
+/classic-minesweeper /staryi-go/ 301
+/classic-minesweeper/ /staryi-go/ 301
+/zh-cn/classic-minesweeper/ /zh-cn/staryi-go/ 301
+/zh-tw/classic-minesweeper/ /zh-tw/staryi-go/ 301
+
 # Fallback: any unknown path should show our 404 page
 /* /404.html 404
